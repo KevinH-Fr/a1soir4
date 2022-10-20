@@ -23,13 +23,13 @@ class CommandesController < ApplicationController
 
     respond_to do |format|
       format.html
-        format.png do
-          png = Grover.new(url_for()).to_png
-          customFilename = "docname"".png"
-          send_data(png, disposition: 'inline', filename: customFilename, type: 'application/png', format: 'A4')
-         end
-    format.pdf do
-      render pdf: "Commande_id: #{@commande.id}", layout:'layouts/pdf', template: "commandes/bonCommande", formats: [:html]
+      format.png do
+        png = Grover.new(url_for()).to_png
+        customFilename = "docname"".png"
+        send_data(png, disposition: 'inline', filename: customFilename, type: 'application/png', format: 'A4')
+      end
+      format.pdf do
+        render pdf: "Commande_id: #{@commande.id}", layout:'layouts/pdf', template: "commandes/bonCommande", formats: [:html]
       end
     end
 
