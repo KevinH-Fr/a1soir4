@@ -1,0 +1,33 @@
+<div class="table-responsive">
+  <table class="table table-secondary table-striped table-bordered table-hover">
+    <thead class="table-dark">
+      <tr>
+        <th style="text-align: center;">#</th>
+        <th>Image</th>
+        <th>Nom</th>
+        <th>Description</th>
+        <th>Vitrine</th>
+        <th colspan=3> Actions</th>
+      </tr>
+    </thead>
+    <tbody class="fs-6">
+      <tr>
+        <% @produits.each do | produit | %>
+          <td> <%= produit.id %> </td>
+          <td> 
+            <%= image_tag(produit.default_image, style: "width: 80px; display: block", 
+               class: "img-fluid rounded") %>
+            </td> 
+            <td> <%= produit.nom %> </td>
+            <td> <%= produit.description %> </td>
+            <td> <%= image_tag(produit.statut_vitrine, style: "width: 20px; display: block", 
+                 class: "img-fluid rounded") %>
+            </td>
+            <td> <%= link_to '', produit, class:"fa-solid fa-eye btn btn-primary btn-sm" %>  </td>
+            <td> <%= button_to '', produit, class:"fa-solid fa-trash-can btn btn-danger btn-sm", method: :delete, :onclick => "return confirm('Sûr ?')" %>  </td> 
+            <td> <%= link_to "", edit_produit_path(produit), class:"fa-regular fa-pen-to-square btn btn-secondary btn-sm" %> </td> 
+          </tr>
+        <% end %>
+      </tbody>
+  </table>
+</div>

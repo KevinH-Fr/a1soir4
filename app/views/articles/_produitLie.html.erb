@@ -1,0 +1,16 @@
+
+
+   <div class="card mb-3 text-bg-dark" style="max-width: 36rem;">
+    <div class="row g-0">
+      <div class="col-md-2">
+        <%= image_tag(Produit.find(@produitId).default_image, style:"width: 150px;", class:"img-fluid rounded-start") %> 
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title"> <%= Produit.find(@produitId).nom %></h5>
+          <p class="card-text"> <%= Produit.find(@produitId).description %></p>
+          <p class="card-text"> <%= Produit.find(@produitId).categorie %></p>
+       </div>
+      </div>
+    </div>
+  </div>

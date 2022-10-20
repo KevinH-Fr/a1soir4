@@ -1,0 +1,22 @@
+
+
+  <h5 class="bg-dark text-center"> Clients</h5>
+  <%= render "clients/search" %>
+
+
+    <table class="table table-primary table-striped table-hover", style="line-height: 0.5">
+        <tbody class="table-light">
+          <tr>
+            <% @clients.limit(15).each do | client | %>
+              <td> 
+                <%= link_to client.nom, client_path(client), class:"text-dark fs-6", style:"text-decoration: none;" %> 
+              </td>
+            </tr> 
+            <% end %>
+        </tbody>
+    </table>
+
+
+  <div class="text-center">
+    <%= link_to "Nouveau client", new_client_path, class:"btn btn-sm btn-primary text-center" %>
+  </div>

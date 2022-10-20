@@ -1,0 +1,13 @@
+
+ <% provide :head_tags do %>
+    <script>
+    document.addEventListener("DOMContentLoaded", function(){
+        initMap(<%= "27 boulevard carnot, cannes"  %>)
+    });
+    </script>
+<% end %>
+
+<iframe width="90%" height="100%" frameborder="0" style="border:0"
+ src="https://www.google.com/maps/embed/v1/place?key=<%= ENV["MAPS_API_KEY2"] %>&q=<%= "27 bd carnot cannes" %>"
+ allowfullscreen>
+</iframe>

@@ -1,0 +1,10 @@
+
+  Filtres | 
+  <% @categories.each do |categorie| %>
+    <%= link_to "#{categorie}", url_for(categorieVal: categorie), class:"btn btn-sm btn-secondary", :method => :post %> 
+  <% end %>
+
+<% @categorie = params[:categorieVal]%>
+
+ 
+<hr/> 

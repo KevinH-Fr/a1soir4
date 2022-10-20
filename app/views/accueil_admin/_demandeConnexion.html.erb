@@ -1,0 +1,6 @@
+<strong>Vous n'avez pas les droits...</strong> <br> <br>
+
+  <% unless current_user.present? %>
+    <%= link_to "Se connecter", new_user_session_path, class:"btn btn-outline-success" %> <br/> <br/>
+    <%= link_to "Créer un compte", new_user_registration_path, class:"btn btn-outline-primary" %>
+  <% end %>

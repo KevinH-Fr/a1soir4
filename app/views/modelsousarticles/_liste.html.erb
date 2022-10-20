@@ -1,0 +1,27 @@
+
+ <table class="table table-secondary table-striped table-bordered table-hover">
+      <thead class="table-dark">
+        <tr>
+          <th style="text-align: center;">#</th>
+          <th>nature</th>
+          <th>description</th>
+          <th>prix</th>
+          <th>caution</th>
+          <th colspan=3> Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <% @modelsousarticles.each do | sousarticle | %>
+            <td> <%= sousarticle.id %> </td>
+            <td> <%= sousarticle.nature %> </td>
+            <td> <%= sousarticle.description %> </td>
+            <td> <%= sousarticle.prix %> </td>
+            <td> <%= sousarticle.caution %> </td>
+            <td> <%= link_to '', sousarticle, class:"fa-solid fa-eye btn btn-primary btn-sm" %>  </td>
+            <td> <%= button_to '', sousarticle, class:"fa-solid fa-trash-can btn btn-danger btn-sm", method: :delete, :onclick => "return confirm('Sûr ?')" %>  </td> 
+            <td> <%= link_to "",  edit_modelsousarticle_path(sousarticle), class:"fa-regular fa-pen-to-square btn btn-secondary btn-sm" %> </td> 
+        </tr> 
+        <% end %>
+      </tbody>
+    </table>

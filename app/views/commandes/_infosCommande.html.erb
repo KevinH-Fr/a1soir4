@@ -1,0 +1,21 @@
+
+  <% clientId = Commande.find(@commande.id).client_id %>
+  
+  <div class="card mb-3 text-bg-dark">
+    <div class="card-header border-light">
+      <strong>Details commande</strong> 
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col border border-dark">
+          commande: <%= Commande.find(@commande.id).full_name %> |
+          date:  <%= Commande.find(@commande.id).created_at %> <br>
+        </div>  
+        <div class="col border border-dark">
+          client: <%= Client.find(clientId).full_name %> <br>
+        </div>  
+      </div>
+    </div>
+  </div>   
+
+  

@@ -1,0 +1,79 @@
+
+<%= form_with(model: article) do |form| %>
+  <% if article.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(article.errors.count, "error") %> prohibited this article from being saved:</h2>
+      <ul>
+        <% article.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <% form.label :commande_id, style: "display: block" %>
+    <%#= form.select :commande_id, Commande.all.collect { |c| [ c.nom, c.id ] },  include_blank: true, selected: @commandeId %>
+    <%= form.hidden_field(:commande_id, value: @commandeId) %>
+  </div>
+
+  <div>
+    <% form.label :produit_id, style: "display: block" %>
+    <%#= form.select :produit_id, Produit.all.collect { |p| [ p.nom, p.id ] },  include_blank: true, selected: @produitId %>
+    <%= form.hidden_field(:produit_id, value: @produitId) %>
+  </div>
+
+  <% if @produitId.present? %> 
+
+<div class="card text-bg-dark">
+
+ <div class="card-header bg-black border-light">
+    <strong>Article</strong> 
+  </div>
+
+  <div class="card-body">
+
+
+      <div class="row">
+
+        <div class="col border border-dark">
+          <%= render "produitLie" %> <br>
+          <%= link_to 'Annuler selection', new_article_path(commandeId: @commandeId), class:"btn btn-outline-danger btn-sm" %>
+        </div>
+
+        <div class="col border border-dark"> 
+          <div data-controller="form-element">
+            <%= form.button "Validate", formaction: new_article_path(commandeId: @commandeId, produitId: @produitId), 
+                                      formmethod: :get, data: { turbo_frame: :total_field, form_element_target: "submitbtn" } %>
+              <div>
+                <%= form.label :quantite, class:"bg-secondary m-2 p-1", style: "width: 80px; display: inline-block" %>
+                <%= form.number_field :quantite, { data: { action: "change->form-element#remotesubmit"}, class:"w-25 text-center"} %>
+              </div>
+              <div>
+                <%= form.label :prix, class:"bg-secondary m-2 p-1", style: "width: 80px; display: inline-block" %>
+                <%= form.number_field :prix, { data: { action: "change->form-element#remotesubmit"},  value: @valPrix, class:"w-25 text-center"} %>
+              </div>
+            <% end %>
+          </div>
+            <%= turbo_frame_tag :total_field do %>
+                <% valQuantite = form.object.quantite %>
+                <% valPrix = form.object.prix.to_d %>
+                <% produitId = form.object.produit_id %>
+                    <% if produitId.present? %> 
+                      <%= form.label :total, class:"bg-secondary m-2 p-1", style: "width: 80px; display: inline-block" %>
+                      <%= form.number_field :total, value:  valQuantite * valPrix, class:"w-25 text-center fw-bold" %>
+                    
+                    <div> <br>
+                      <%= form.submit "Créer", class: 'btn btn-sm btn-success' %>
+                    </div>
+                    <% end %>  
+                  </div>
+            <% end %>
+          </div>
+          </div>
+        </div>
+ 
+    </div>
+
+  <br>
+<% end %>

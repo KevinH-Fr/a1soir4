@@ -1,0 +1,16 @@
+
+<% if @produits.present?%>
+  <table class="table table-light text-center">
+    <% @produits.each do | produit| %> 
+      <tr>
+        <td> 
+          <%= image_tag(produit.default_image, 
+                style: "width: 100px; display: block", 
+                class: "img-fluid rounded")   %> 
+        </td>
+        <td> <%= produit.nom %> </td>
+        <td> <%= produit.description %> </td>
+      </tr>
+    <% end %>
+  </table> 
+<% end %>

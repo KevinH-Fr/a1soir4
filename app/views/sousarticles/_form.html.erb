@@ -1,0 +1,64 @@
+
+<%= form_with(model: sousarticle) do |form| %>
+  <% if sousarticle.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(sousarticle.errors.count, "error") %> prohibited this sousarticle from being saved:</h2>
+
+      <ul>
+        <% sousarticle.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :article_id, style: "display: block" %>
+    <%#= form.select :article_id, Article.all.collect { |a| [ a.id, a.id ] },  include_blank: true %>
+    <%= form.number_field(:article_id, value: @articleId) %>
+  </div>
+
+
+  <div data-controller="form-element"> 
+    <%= form.button "Validate", formaction: new_sousarticle_path(article_id: @articleId), 
+                    formmethod: :get, data: { turbo_frame: :prix_sousarticle_field, form_element_target: "submitbtn" } %>
+
+    <div>
+      <%= form.label :nature, style: "display: block" %>
+      <%= form.select :nature,  @natures, {include_blank: true},
+              { data: { action: "change->form-element#remotesubmit"}} %>
+    </div>
+   
+ </div>
+
+      <%= turbo_frame_tag :prix_sousarticle_field do %>
+        <% natureSousArticle = form.object.nature %>
+          <% if natureSousArticle.present? %>
+            <% iDmodelSousArticle = Modelsousarticle.where(nature: natureSousArticle).first.id %>
+            <% valPrixSousArticle = Modelsousarticle.find(iDmodelSousArticle).prix %>
+            <% valDescriptionSousArticle = Modelsousarticle.find(iDmodelSousArticle).description %>
+
+            <%= form.label :prix_sousarticle, class:"bg-secondary m-2 p-1", style: "display: inline-block" %>
+            <%= form.number_field :prix_sousarticle, value:  valPrixSousArticle, class:"w-25 text-center fw-bold" %>
+           
+            <div>
+              <%= form.label :description, style: "display: block" %>
+              <%= form.text_field :description, value: valDescriptionSousArticle %>
+            </div>
+
+            <div>
+              <%= form.label :caution, style: "display: block" %>
+              <%= form.number_field :caution %>
+            </div>
+            <div>
+              <%= form.label :taille, style: "display: block" %>
+              <%= form.text_field :taille %>
+            </div> <br>
+           
+            <div> <br>
+              <%= form.submit "Créer", class: 'btn btn-sm btn-success' %>
+            </div>
+        <% end %>
+      <% end %>
+
+<% end %>

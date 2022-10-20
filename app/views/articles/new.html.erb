@@ -1,0 +1,26 @@
+  
+<h1>Nouvel article</h1>
+
+<%= render "infosCommande" %>
+
+<%= render "search" %>
+
+  <%# liste des produits pour selection %>
+  <% unless @produitId.present? %> 
+    <%= render "listeSelection" %>
+  <% end %>
+
+  <%= render "form", article: @article %>
+
+<div>
+  <% @commandeId = session[:commandeId] %>
+</div>
+
+<div class="m-4"> 
+  <%#= render "sousarticles/sousarticlesLies" %>
+  <%#= link_to "Nouveau sous article", 
+      new_sousarticle_path(articleId: @article), 
+      class:"btn btn-sm btn-success" %>
+  <%#= link_to "Retour", commande_path(@commandeId), 
+      class:"btn btn-sm btn-secondary" %>
+</div>

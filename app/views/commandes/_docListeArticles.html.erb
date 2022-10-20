@@ -1,0 +1,60 @@
+
+<h5> Articles </h5>
+
+ <table class="table table-bordered">
+      <thead class="table">
+        <tr>
+          <th style="text-align: center;">#</th>
+          <th colspan="2">produit</th>
+          <th class="text-center">quantité</th>
+          <th>prix</th>
+          <th>total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <% @articles.each_with_index do | article, i | %>
+            <td> <%= i + 1 %> </td>
+            <td> 
+              <%= image_tag(Produit.find(article.produit_id).default_image, style: "width: 50px; display: block", 
+               class: "img-fluid rounded") %> 
+            </td>
+            <td> <%= Produit.find(article.produit_id).nom %> </td>
+            <td class="text-center"> <%= article.quantite %> </td>
+            <td class="text-end"> <%= article.prix %> </td>
+            <td class="text-end"> <%= article.total %> </td>
+          </tr> 
+
+            <% @sousarticles = Sousarticle.where(article_id: article.id) %>
+            <% @sousarticles.each do |sousarticle| %>
+              <tr>
+                <td></td>
+                <td class="fst-italic"> <%= sousarticle.nature %> </td>
+                <td></td>
+                <td></td>
+                <td class="text-end"> </td>
+                <td class="text-end"> <%= sousarticle.prix_sousarticle %></td>
+              </tr>
+            <% end %>       
+        <% end %>
+      </tbody>
+
+      <tfoot class="table-dark fs-bold">
+        <tr>
+          <td colspan=3>  
+            totaux
+          </td>
+          <td class="text-center">
+            <%= Article.commande_courante(@commande).compte_articles %>
+          </td>
+          <td></td>
+          <td class="text-end">
+            <%= Article.commande_courante(@commande).sum_articles + 
+                Article.joins(:sousarticles).commande_courante(@commande).sum_sousarticles %>
+          </td>
+         
+        </tr>
+        
+      </tfoot>
+    </table>
+

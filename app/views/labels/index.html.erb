@@ -1,0 +1,20 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Labels</h1>
+
+<small>  
+  Vous pouvez ici définir les différents messages qui sont affichés sur le site public 
+</small>
+
+<br><br>
+
+<div id="labels">
+  <% @labels.each do |label| %>
+    <%= render label %>
+    <p>
+      <%= link_to "Show this label", label %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New label", new_label_path %>

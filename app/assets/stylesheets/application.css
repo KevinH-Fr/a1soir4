@@ -1,15 +1,76 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
+
  *= require_tree .
  *= require_self
  */
+ 
+ body {
+    background-color: rgb(50, 50, 50);
+}
+
+h1, h2, p, div, li, ul, a {
+    color: rgb(255, 255, 255);
+}
+
+.btn-creer{
+    background-color: green;
+    color: rgb(255, 255, 255);
+}
+
+.btn-afficher{
+    background-color: rgb(18, 30, 136);
+    color: rgb(255, 255, 255);
+}
+
+.btn-retour{
+    background-color: rgb(27, 27, 29);
+    color: rgb(255, 255, 255);
+}
+
+.btn-supprimer{
+    background-color: rgb(168, 50, 50);
+    color: rgb(255, 255, 255);
+}
+
+.btn-editer{
+    color:rgb(255, 255, 255);
+    background-color: rgb(63, 57, 57);
+    content: "\270f";
+    font-family: 'Glyphicons Halflings';
+ }
+
+
+ .normal-text{
+    border-left-width: 1px !important;
+    font-size: 110% !important;
+    color:rgb(255, 255, 255);
+    background-color: rgb(63, 57, 57);
+    font-family: 'Book Antiqua';
+ }
+ .normal-text::after{
+    content: "\270f";
+    font-family: 'Glyphicons Halflings';
+ }
+
+
+ .test-icon{
+    border-left-width: 1px !important;
+    font-size: 110% !important;
+    color:rgb(255, 255, 255);
+    background-color: rgb(168, 39, 39);
+    font-family: 'Book Antiqua';
+    
+ }
+ .test-icon::after{
+    content: "\270f";
+   /* font-family: 'Glyphicons Halflings'; */
+
+ }
+
+
+ #notice{
+    background-color: green;
+    color: white;
+    padding: 6px;
+    border-radius: 6px;
+  }

@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<h3>Produits</h3>
+
+ <%= render "choixCategorie" %>
+
+ <%= render "search" %>
+
+
+<div id="produits">
+  <%= render "produits/liste" %>
+</div>
+
+
+
+<%= link_to "Nouveau produit", new_produit_path, class:"btn btn-sm btn-primary" %>

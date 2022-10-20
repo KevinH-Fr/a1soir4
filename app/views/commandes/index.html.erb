@@ -1,0 +1,35 @@
+  <div class="row align-items-center">
+    <div class="col">
+      <h3> Commandes </h3> 
+      <span id="commande_counter">
+        nombre: <%= Commande.count %>
+      </span> <br>  
+    </div>
+  </div>
+
+  <div class="card text-bg-dark mb-3 mx-auto" style="max-width: 36rem;">
+   <%= render "search" %>
+ </div>
+
+   <div data-controller="nouveau", class="mx-auto" style="max-width: 36rem;">
+      <div role="button" data-action="click->nouveau#openNouveau" data-nouveau-target="openNouveau", class="btn btn-sm btn-success", style="inline;">
+        Nouvelle commande
+      </div>
+      <div role="button" data-action="click->nouveau#closeNouveau" data-nouveau-target="closeNouveau", class="btn btn-sm btn-danger", style="inline;">
+        Fermer nouveau
+      </div>
+      <hr>
+      <div id="new_client">
+        <div data-nouveau-target="nouveauContent">
+          <%= render partial: "commandes/form", locals: {commande: Commande.new} %>
+        </div>
+      </div>
+  </div>
+
+  <div id="commandes">
+    <%#= render "liste" %>
+    <%= render @commandes %>
+  </div>
+
+
+<%= link_to "commandes PDF", commandes_path(format: :pdf), class:"btn btn-warning" %>

@@ -1,0 +1,24 @@
+<div id="<%= dom_id commande %>">
+
+<div class="card text-bg-dark mb-3 mx-auto" style="max-width: 36rem">
+  <div class="card-header border-light">  <%= commande.nom %> </div>
+    <div class="card-body">
+      <p class="card-text"> client:  <%= Client.find(commande.client_id).full_name if commande.client_id.present? %> </p>
+    </div>
+    <div class="card-footer border-light">
+    <table>
+     <tr>
+        <td>
+          <%= link_to '', commande, class:"fa-solid fa-eye btn btn-primary btn-sm" %>
+       </td>
+       <td>   
+        <%= link_to "", edit_commande_path(commande), class:"fa-regular fa-pen-to-square btn btn-sm btn-secondary", method: :post %> 
+       </td>
+       <td>
+         <%= button_to '', commande_path(commande), class:"fa-solid fa-trash-can btn btn-danger btn-sm", method: :delete %> 
+       </td>
+     </tr>
+    </table>
+    </div>
+  </div>
+</div>

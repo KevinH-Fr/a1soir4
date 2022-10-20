@@ -1,0 +1,17 @@
+<strong> 
+  synthèse:
+</strong>
+<br>
+<% duPrix = Article.commande_courante(@commande).sum_articles %> 
+<% recuPrix = Paiement.commande_courante(@commande).sum_paiements %> 
+restant prix: <%= soldePrix = duPrix - recuPrix %> <br> 
+
+<% if soldePrix > 0 %>
+  <div class="text-center text-danger my-2 border rounded-3 border-danger">
+    <%= "attention, la commande n'a pas été réglée en totalité" %>
+  </div>
+<% else %>
+  <div class="text-center text-success my-2 border rounded-3 border-success">
+    <%= "Tout est bon !" %>
+  </div>
+<% end %>

@@ -1,0 +1,9 @@
+
+<%= render @sousarticle %>
+
+<div>
+  <%= link_to "Edit this sousarticle", edit_sousarticle_path(@sousarticle) %> |
+  <%= link_to "Back to sousarticles", sousarticles_path %>
+
+  <%= button_to "Destroy this sousarticle", @sousarticle, method: :delete %>
+</div>

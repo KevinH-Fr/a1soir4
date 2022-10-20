@@ -1,0 +1,53 @@
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <%= link_to image_tag("logo2.png", border: 0, width: 200), accueil_admin_path, class:"navbar-brand" %>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav navbar-responsive">
+          <% if current_user %>
+            <li class="nav-item">
+              <%= link_to "Clients", clients_path, class:"nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Produits", produits_path, class:"nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Modèles sous articles", modelsousarticles_path, class:"nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Commandes", commandes_path, class:"nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Articles", articles_path, class:"nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Paiements", paiements_path, class:"nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Calendrier", root_path, class:"nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Analyses", root_path, class:"nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Marketing", marketing_path, class:"nav-link" %>
+            </li>
+              <li class="nav-item">
+                <%= button_to "logout", destroy_user_session_path, method: :delete, class:"btn btn-outline-danger" %>
+            </li>
+          <% else %>
+            <li class="nav-item">
+                <%= link_to "sign up", new_user_registration_path %>
+            </li>
+              <li class="nav-item">
+                <%= link_to "login", new_user_session_path %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </nav>

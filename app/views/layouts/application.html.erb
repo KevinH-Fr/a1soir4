@@ -1,15 +1,46 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
-    <title>A1soir4</title>
+    <title>A1soir admin</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+  <!-- Option 1: Include in HTML -->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>  
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <script src="https://kit.fontawesome.com/ab64641e90.js" crossorigin="anonymous"></script>
+
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+
+    <%= favicon_link_tag asset_path('logo3.png'), :rel => 'icon', :type =>  'image/png' %>
+
   </head>
 
   <body>
-    <%= yield %>
+    <header> 
+        <%= render partial: "shared/navbar" %>
+    </header>
+    <main> 
+      <div id="flash" style="position:absolute; z-index: 2; right: 10px;">
+          <%= render partial: "layouts/flash" %>
+      </div>
+
+      <%#= render partial: "layouts/alerts" %>
+      <div class="container-fluid">
+        <%#= Time.zone.now %>
+        <%= yield %>
+      </div>
+    </main>
   </body>
+
+
+
+
 </html>

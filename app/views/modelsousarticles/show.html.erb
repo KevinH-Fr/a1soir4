@@ -1,0 +1,11 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @modelsousarticle %>
+
+<div>
+ <%= link_to "",  edit_modelsousarticle_path(@modelsousarticle), 
+     class:"fa-regular fa-pen-to-square btn btn-secondary btn-sm" %>|
+  <%= link_to "Retour", modelsousarticles_path, class:"btn btn-sm btn-secondary" %>
+  <%= button_to '', @modelsousarticle, class:"fa-solid fa-trash-can btn btn-danger btn-sm", 
+      method: :delete, :onclick => "return confirm('Sûr ?')" %>
+</div>

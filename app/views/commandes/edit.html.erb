@@ -1,0 +1,9 @@
+<h1>Editer commande</h1>
+
+<%= render "form", commande: @commande %>
+<br>
+
+<div>
+  <%= link_to "Voir", @commande, class:"btn btn-sm btn-primary" %> |
+  <%= link_to "Retour", commandes_path, class:"btn btn-sm btn-secondary" %>
+</div>

@@ -11,6 +11,68 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2022_10_20_131608) do
+  create_table "action_text_rich_texts", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "body"
+    t.string "record_type", null: false
+    t.bigint "record_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["record_type", "record_id", "name"], name: "index_action_text_rich_texts_uniqueness", unique: true
+  end
+
+  create_table "annonces", force: :cascade do |t|
+    t.text "principale"
+    t.text "soiree"
+    t.text "mariee"
+    t.text "homme"
+    t.text "accessoire"
+    t.text "deguisement"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "articleoptions", force: :cascade do |t|
+    t.string "nature"
+    t.text "description"
+    t.decimal "prix"
+    t.decimal "caution"
+    t.string "taille"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "article_id"
+    t.index ["article_id"], name: "index_articleoptions_on_article_id"
+  end
+
+  create_table "articles", force: :cascade do |t|
+    t.integer "quantite"
+    t.integer "commande_id"
+    t.integer "produit_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.decimal "prix"
+    t.decimal "total"
+    t.index ["commande_id"], name: "index_articles_on_commande_id"
+    t.index ["produit_id"], name: "index_articles_on_produit_id"
+  end
+
+  create_table "clients", force: :cascade do |t|
+    t.string "nom"
+    t.string "mail"
+    t.text "commentaires"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "commandes", force: :cascade do |t|
+    t.string "nom"
+    t.decimal "montant"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "client_id"
+    t.index ["client_id"], name: "index_commandes_on_client_id"
+  end
+
   create_table "friends", force: :cascade do |t|
     t.string "name"
     t.string "mail"
@@ -19,4 +81,96 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_20_131608) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "labels", force: :cascade do |t|
+    t.text "principale"
+    t.text "soiree"
+    t.text "mariee"
+    t.text "homme"
+    t.text "accessoire"
+    t.text "deguisement"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "modelsousarticles", force: :cascade do |t|
+    t.string "nature"
+    t.text "description"
+    t.decimal "prix"
+    t.decimal "caution"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "paiements", force: :cascade do |t|
+    t.string "typepaiement"
+    t.decimal "montant"
+    t.integer "commande_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "nature"
+    t.index ["commande_id"], name: "index_paiements_on_commande_id"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string "name"
+    t.string "title"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "quantite"
+  end
+
+  create_table "produits", force: :cascade do |t|
+    t.string "nom"
+    t.decimal "prix"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "categorie"
+    t.boolean "vitrine"
+    t.string "couleur"
+  end
+
+  create_table "sousarticles", force: :cascade do |t|
+    t.integer "article_id", null: false
+    t.string "nature"
+    t.text "description"
+    t.decimal "prix_sousarticle"
+    t.decimal "caution"
+    t.string "taille"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_sousarticles_on_article_id"
+  end
+
+  create_table "textes", force: :cascade do |t|
+    t.string "titre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  add_foreign_key "articleoptions", "articles"
+  add_foreign_key "articles", "commandes"
+  add_foreign_key "articles", "produits"
+  add_foreign_key "commandes", "clients"
+  add_foreign_key "paiements", "commandes"
+  add_foreign_key "sousarticles", "articles"
 end

@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @label %>
+
+<div>
+  <%= link_to "Edit this label", edit_label_path(@label) %> |
+  <%= link_to "Back to labels", labels_path %>
+
+  <%= button_to "Destroy this label", @label, method: :delete %>
+</div>

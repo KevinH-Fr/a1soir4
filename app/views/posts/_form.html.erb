@@ -1,0 +1,61 @@
+<%= form_with(model: post) do |form| %>
+  <% if post.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+        <% post.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <%# bouton caché validation produit lié %>
+    <div data-controller="form-element">
+    <%= form.button "Validate", formaction: new_post_path, formmethod: :get, data: { turbo_frame: :content_field, form_element_target: "submitbtn" } %>
+
+    <div>
+      <%= form.label :title, style: "display: block" %>
+      <%= form.select :title, Post.titles, {include_blank: true}, { data: { action: "change->form-element#remotesubmit"}} %>
+    </div>
+
+  <%= turbo_frame_tag :content_field do %>
+    <%= post.passcode_protected? %>
+    <% if post.passcode_protected? %>
+      <div>
+        <%= form.label :content, style: "display: block" %>
+        <%= form.text_area :content %>
+      </div>
+    <% end %>
+  <% end %>
+
+
+  <div data-controller="form-element">
+    <%= form.button "Validate", formaction: new_post_path, formmethod: :get, data: { turbo_frame: :montant_field, form_element_target: "submitbtn" } %>
+    <div>
+      <%= form.label :quantite, style: "display: block" %>
+      <%= form.number_field :quantite, { data: { action: "change->form-element#remotesubmit"}} %>
+    </div>
+
+  <%= turbo_frame_tag :montant_field do %>
+      <div>
+        <%= form.label :montant, style: "display: block" %>
+        <%= form.number_field :montant %>
+
+       test quantite:  <%= form.object.quantite %>
+      </div>
+  <% end %>
+
+
+  <br>  
+
+  <div>
+    <%= form.submit "Créer", class: 'btn btn-success' %>
+  </div>
+<% end %>

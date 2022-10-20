@@ -1,0 +1,18 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Posts</h1>
+
+<div id="posts">
+  <% @posts.each do |post| %>
+    <%= render post %>
+    <p>
+      <%= link_to "Afficher", post, class:"btn btn-primary" %>
+      <%= link_to "PDF", post_path(post, format: :pdf), class:"btn btn-warning" %>
+    </p>
+  <% end %>
+</div>
+
+<hr>  
+
+<%= link_to "Nouveau", new_post_path, class:"btn btn-warning" %>
+<%= link_to "posts PDF", posts_path(format: :pdf), class:"btn btn-warning" %>

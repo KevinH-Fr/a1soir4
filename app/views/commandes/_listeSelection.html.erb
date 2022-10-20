@@ -1,0 +1,31 @@
+<div class="table-responsive">
+  <table class="table table-secondary table-striped table-bordered table-hover">
+    <thead class="table-dark">
+      <tr>
+        <th style="text-align: center;">#</th>
+        <th>Image</th>
+        <th>Nom</th>
+        <th>Description</th>
+        <th colspan=3> Actions</th>
+      </tr>
+    </thead>
+    <tbody class="fs-6">
+      <tr>
+        <% @produits.each do | produit | %>
+          <td> <%= produit.id %> </td>
+          <td> 
+            <%= image_tag(produit.default_image, style: "width: 50px; display: block", 
+               class: "img-fluid rounded") %>
+            </td> 
+            <td> <%= produit.nom %> </td>
+            <td> <%= produit.description %> </td>
+            <td> <%= link_to '', toggle_selectProduit_article_path(produit), class:"fa-solid fa-cart-plus btn btn-primary btn-sm" %>  </td>
+             <%  session[:produitId] = produit.id %>
+         </tr>
+        <% end %>
+      </tbody>
+  </table>
+
+  <strong> selection active : </strong> <br>
+  
+</div>

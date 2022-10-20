@@ -1,0 +1,23 @@
+
+<% if @commandeId.present? %>
+  <% @commandeId %> 
+  <% clientId = Commande.find(@commandeId).client_id %>
+  
+  <div class="card mb-3 text-bg-dark">
+    <div class="card-header bg-black border-light">
+      <strong>Commande</strong> 
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col border border-dark">
+          commande: <%= Commande.find(@commandeId).full_name %> |
+          date:  <%= Commande.find(@commandeId).created_at %> <br>
+        </div>  
+        <div class="col border border-dark">
+          client: <%= Client.find(clientId).full_name %> <br>
+        </div>  
+      </div>
+    </div>
+  </div>   
+ <% end %>
+  

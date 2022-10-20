@@ -1,0 +1,22 @@
+<div class="container">
+    <table> 
+      <thead> 
+        <tr>    
+            <th> <%= sort_link(@q, :nom, "nom", default_order: :asc) %> </th>
+        </tr>
+      </thead>
+      <tbody>  
+        <% @produits.each do | produit | %> 
+          <tr>
+            <td>  <%= link_to produit.nom, produit %> </td>
+            <td> 
+              <%= image_tag(produit.default_image, style: "width: 40px; display: block", 
+                     class: "img-fluid rounded") %>
+            </td> 
+            <td> <%= produit.description %> </td>
+           </tr>
+        <% end %>
+      </tbody>
+    </table>
+    
+</div>

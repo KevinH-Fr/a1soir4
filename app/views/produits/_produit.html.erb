@@ -1,0 +1,25 @@
+<div id="<%= dom_id produit %>">
+
+  <div class="card mb-3 text-bg-dark" style="max-width: 540px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <%= image_tag(produit.image1, class:"img-fluid rounded-start") if produit.image1.attached? %> 
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title"> <%= produit.nom %></h5>
+          <p class="card-text"> <%= produit.description %></p>
+          <p class="card-text"> <%= produit.categorie %></p>
+          <p class="card-text"> <%= produit.couleur %></p>
+          <p class="card-text"> <%= produit.prix %></p>
+          <p> <%= image_tag(produit.qr_code, style:"width: 100px") if produit.qr_code.attached? %> </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+
+

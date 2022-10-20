@@ -1,0 +1,46 @@
+/*
+
+ *= require_self
+ */
+
+body {
+    background-color: rgb(255, 255, 255);
+}
+
+h1, h2, p, div, li, ul, a {
+    color: rgb(0, 0, 0);
+}
+
+
+.btn-circle.btn-xl {
+    width: 100px;
+    height: 100px;
+    padding: 13px 18px;
+    border-radius: 60px;
+    font-size: 15px;
+    text-align: center;
+}
+
+.a1soir-colored {
+    color:rgb(255, 255, 255);
+    background-color: rgb(204, 46, 102);
+}
+
+.img-max {
+    min-width: 40px;
+    max-width: 40px;
+    width:100%;
+  }
+
+.img-big {
+    max-width: 300px;
+    width:100%;
+  }
+
+.img-centered {
+    text-align: center;
+}
+
+.verysmall-text {
+    font-size: xx-small;
+}

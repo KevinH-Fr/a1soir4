@@ -1,0 +1,6 @@
+<%= search_form_for(@q, url: search_path, method: :get, class:'d-flex') do |f| %>
+    <%= f.search_field :nom_cont, 
+      placeholder: "Recherche...",
+      class:'form-control me-2' %>
+    <%= f.submit "Chercher!", class:"btn btn-outline-success" %>
+<% end %>

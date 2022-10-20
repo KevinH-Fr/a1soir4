@@ -1,0 +1,40 @@
+
+<%= form_with(model: texte) do |form| %>
+  <% if texte.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(texte.errors.count, "error") %> prohibited this texte from being saved:</h2>
+
+      <ul>
+        <% texte.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :content %>
+    <%= form.rich_text_area :content %>
+  </div>
+
+  <div class="field">
+    <%= form.label :contact %>
+    <%= form.rich_text_area :contact %>
+  </div>
+
+  <div class="field">
+    <%= form.label :horaire %>
+    <%= form.rich_text_area :horaire %>
+  </div>
+
+  <div class="field">
+    <%= form.label :boutique %>
+    <%= form.rich_text_area :boutique %>
+  </div>
+
+<br>
+
+  <div>
+    <%= form.submit "Créer", class: 'btn btn-success' %>
+  </div>
+<% end %>

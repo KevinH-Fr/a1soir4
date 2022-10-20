@@ -1,0 +1,34 @@
+<%= form_with(model: client) do |form| %>
+  <% if client.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(client.errors.count, "error") %> prohibited this client from being saved:</h2>
+
+      <ul>
+        <% client.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="card text-bg-dark mb-3 mx-auto" style="max-width: 36rem;">
+    <div class="card-body">
+      <div class="mb-3">
+        <%= form.label :nom, { class: "form-label"} %>
+        <%= form.text_field :nom, { class: "form-control", placeholder: "nom" } %>
+      </div>
+
+      <div class="mb-3">
+        <%= form.label :mail, { class: "form-label"} %>
+        <%= form.text_field :mail, { class: "form-control", placeholder: "mail" } %>
+      </div>
+
+      <div class="mb-3">
+        <%= form.label :commentaires, { class: "form-label"} %>
+        <%= form.text_area :commentaires, { class: "form-control", placeholder: "commentaires" } %>
+      </div>
+      <%= form.submit "Valider", class: "btn btn-primary" %>
+  </div>
+</div>
+
+<% end %>

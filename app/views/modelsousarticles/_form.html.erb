@@ -1,0 +1,38 @@
+
+<%= form_with(model: modelsousarticle) do |form| %>
+  <% if modelsousarticle.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(modelsousarticle.errors.count, "error") %> prohibited this modelsousarticle from being saved:</h2>
+      <ul>
+        <% modelsousarticle.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :nature, style: "display: block" %>
+    <%= form.text_field(:nature) %>
+  </div>
+
+  <div>
+    <%= form.label :description, style: "display: block" %>
+    <%= form.text_field(:description) %>
+  </div>
+
+  <div>
+    <%= form.label :prix, style: "display: block" %>
+    <%= form.number_field(:prix) %>
+  </div>
+
+  <div>
+    <%= form.label :caution, style: "display: block" %>
+    <%= form.number_field(:caution) %>
+  </div>
+
+   <div> <br>
+      <%= form.submit "Créer", class: 'btn btn-sm btn-success' %>
+   </div>
+
+<% end %>

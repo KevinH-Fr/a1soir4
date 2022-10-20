@@ -1,0 +1,41 @@
+
+<h5> Paiements </h5>
+
+<table class="table table-secondary table-striped table-bordered table-hover">
+  <thead class="table-dark">
+    <tr>
+      <th style="text-align: center;">#</th>
+      <th class="text-center">type</th>
+      <th class="text-center">montant</th>
+      <th colspan=2> Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @paiements.each_with_index do | paiement, i | %>
+      <tr>
+        <td> <%= i + 1 %> </td>
+        <td class="text-center"> <%= paiement.typepaiement %> </td>
+        <td class="text-end" > <%= paiement.montant %> </td>
+        <td style="width:10px"> <%= link_to "", edit_paiement_path(paiement, commandeId: paiement.commande_id), class:"fa-regular fa-pen-to-square btn btn-secondary btn-sm" %> </td> 
+        <td style="width:10px"> <%= button_to '', paiement, class:"fa-solid fa-trash-can btn btn-danger btn-sm", method: :delete, :onclick => "return confirm('Sûr ?')" %>  </td> 
+      </tr> 
+    <% end %>
+  </tbody>
+  <tfoot class="table-dark fs-bold">
+    <tr>
+      <td>  
+        totaux
+      </td>
+      <td class="text-center">
+        <%= Paiement.commande_courante(@commande).compte_paiements %>
+      </td>
+      <td class="text-end">
+        <%= Paiement.commande_courante(@commande).sum_paiements %>
+      </td>
+      <td colspan=2>
+      </td>
+    </tr>  
+  </tfoot>
+</table>
+
+           

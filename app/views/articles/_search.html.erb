@@ -1,0 +1,15 @@
+
+ <div>
+
+  <%= search_form_for(@q, url: url_for, method: :get, class:'d-flex') do |f| %>
+    <%= f.search_field :nom_or_description_cont, placeholder: "recherche...", 
+        class: "form-control form-control-sm my-1" %>
+    <%= f.submit "Go!", class:"btn btn-sm btn-outline-primary m-1" %>
+    <%= link_to "Effacer", new_article_path(commandeId: session[:commandeId]), 
+       class:"btn btn-sm btn-outline-danger m-1" %> 
+  <% end %>
+</div>
+
+<br>
+
+

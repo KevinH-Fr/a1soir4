@@ -1,0 +1,31 @@
+<div class="card text-bg-dark my-2 mx-auto" style="max-width: 36rem;">
+      <h3 class="ms-2"> Clients </h3> 
+      <span class="ms-2 my-1", id="client_counter">
+        nombre: <%= Client.count %>
+      </span>  
+   <%= render "search" %>
+ </div>
+
+    <div data-controller="nouveau", class="mx-auto" style="max-width: 36rem;">
+      <div role="button" data-action="click->nouveau#openNouveau" data-nouveau-target="openNouveau", class="btn btn-sm btn-success", style="inline;">
+        Nouveau client
+      </div>
+      <div role="button" data-action="click->nouveau#closeNouveau" data-nouveau-target="closeNouveau", class="btn btn-sm btn-danger", style="inline;">
+        Fermer nouveau
+      </div>
+      <hr>
+      <div id="new_client">
+        <div data-nouveau-target="nouveauContent">
+          <%= render partial: "clients/form", locals: {client: Client.new} %>
+        </div>
+      </div>
+  </div>
+
+<div id="clients">
+  <%= render @clients %>
+</div>
+
+
+ <%#= render "modal" %>
+
+
