@@ -22,6 +22,9 @@ gem 'cloudinary'
 gem "devise", "~> 4.8"
 gem "rqrcode", "~> 2.1"
 
+gem "wkhtmltopdf-binary", group: :development
+gem "wkhtmltopdf-heroku", group: :production
+
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
 end
