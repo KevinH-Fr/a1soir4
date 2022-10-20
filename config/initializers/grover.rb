@@ -1,6 +1,12 @@
 # config/initializers/grover.rb
 Grover.configure do |config|
     config.options = {
+
+      debug: {
+        headless: true  # Default true. When set to false, the Chromium browser will be displayed
+       # devtools: true    # Default false. When set to true, the browser devtools will be displayed.
+      },
+
       format: 'A4',
       margin: {
         top: '2px',
