@@ -18,6 +18,7 @@ class ClientsController < ApplicationController
 
   def edit
     respond_to do |format|
+      format.html
       format.turbo_stream do  
         render turbo_stream: turbo_stream.update(@client, partial: "clients/form", locals: {client: @client})
       end
