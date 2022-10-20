@@ -30,17 +30,17 @@
         <%= render partial: "shared/navbar" %>
 
 
-    <% if notice %>
-      <p class="alert alert-success"><%= notice %></p>
-    <% end %>
-    <% if alert %>
-      <p class="alert alert-danger"><%= alert %></p>
-    <% end %>
+  <main> 
+      <div id="flash" style="position:absolute; z-index: 2; right: 10px;">
+          <%= render partial: "layouts/flash" %>
+      </div>
 
-    <div class="container">
-   
+      <%#= render partial: "layouts/alerts" %>
+      <div class="container-fluid">
+        <%#= Time.zone.now %>
         <%= yield %>
-    </div>
+      </div>
+    </main>
 
   </body>
 
