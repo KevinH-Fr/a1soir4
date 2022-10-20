@@ -25,6 +25,8 @@ gem "rqrcode", "~> 2.1"
 gem "wkhtmltopdf-binary", group: :development
 #gem "wkhtmltopdf-heroku", group: :production
 
+gem 'grover'
+
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
 end
