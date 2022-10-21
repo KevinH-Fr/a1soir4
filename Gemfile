@@ -14,9 +14,7 @@ gem "tzinfo-data" #, platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 
 gem 'wicked_pdf'
-
 gem "ransack", "~> 3.2"
-
 gem 'cloudinary'
 
 gem "devise", "~> 4.8"
