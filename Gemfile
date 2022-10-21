@@ -13,14 +13,14 @@ gem "jbuilder"
 gem "tzinfo-data" #, platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 
-gem 'wicked_pdf'
+#gem 'wicked_pdf'
 gem "ransack", "~> 3.2"
 gem 'cloudinary'
 
 gem "devise", "~> 4.8"
 gem "rqrcode", "~> 2.1"
 
-gem "wkhtmltopdf-binary", group: :development
+#gem "wkhtmltopdf-binary", group: :development
 #gem "wkhtmltopdf-heroku", group: :production
 
 gem 'grover'
