@@ -1,9 +1,12 @@
 <div id="<%= dom_id commande %>">
 
-<div class="card text-bg-dark mb-3 mx-auto">
-  <div class="card-header border-light">  <%= commande.nom %> </div>
+<div class="card mb-3 text-bg-dark">
+  <div class="card-header bg-black border-light"> <strong>Commande</strong> </div>
     <div class="card-body">
-      <p class="card-text"> client:  <%= Client.find(commande.client_id).full_name if commande.client_id.present? %> </p>
+        <div class="col border border-dark">
+          commande: <%= commande.nom %> |
+          client:  <%= Client.find(commande.client_id).full_name if commande.client_id.present? %> 
+        </div>
     </div>
 
     <div data-controller="dropdown", class="mx-3">

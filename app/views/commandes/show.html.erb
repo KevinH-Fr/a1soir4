@@ -1,24 +1,7 @@
 <br>
+
 <%= render @commande %> 
 
 <%= render "listeArticles" %>
-
-<div class="position-relative">
-  <div class="position-absolute top-0 end-0">
-    <%= link_to "Nouvel article", new_article_path(commandeId: @commande), class:"btn btn-sm btn-primary" %>
-  </div> 
-</div>
-<br>
-
 <%= render "listePaiements" %>
-
-<div class="position-relative">
-  <div class="position-absolute top-0 end-0">
-     <%= link_to "Nouveau paiement", new_paiement_path(commandeId: @commande), class:"btn btn-sm btn-primary" %>
-  </div> 
-</div>
-
-
 <%= render "syntheseCommande" %>
-
-<%= link_to "PDF", commande_path(@commande, format: :pdf), class:"btn btn-warning" %>
