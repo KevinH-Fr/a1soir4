@@ -1,6 +1,6 @@
 <div id="<%= dom_id commande %>">
 
-<div class="card text-bg-dark mb-3 mx-auto" style="max-width: 36rem">
+<div class="card text-bg-dark mb-3 mx-auto">
   <div class="card-header border-light">  <%= commande.nom %> </div>
     <div class="card-body">
       <p class="card-text"> client:  <%= Client.find(commande.client_id).full_name if commande.client_id.present? %> </p>

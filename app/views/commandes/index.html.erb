@@ -1,17 +1,15 @@
-  <div class="row align-items-center">
-    <div class="col">
-      <h3> Commandes </h3> 
+
+      <h3 class="my-2"> Commandes </h3> 
       <span id="commande_counter">
         nombre: <%= Commande.count %>
       </span> <br>  
-    </div>
-  </div>
 
-  <div class="card text-bg-dark mb-3 mx-auto" style="max-width: 36rem;">
+
+  <div class="mb-3">
    <%= render "search" %>
  </div>
 
-   <div data-controller="nouveau", class="mx-auto" style="max-width: 36rem;">
+   <div data-controller="nouveau", class="mx-auto">
       <div role="button" data-action="click->nouveau#openNouveau" data-nouveau-target="openNouveau", class="btn btn-sm btn-success", style="inline;">
         Nouvelle commande
       </div>
@@ -33,3 +31,5 @@
 
 
 <%= link_to "commandes PDF", commandes_path(format: :pdf), class:"btn btn-warning" %>
+
+
