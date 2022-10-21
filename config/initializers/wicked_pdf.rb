@@ -6,7 +6,6 @@ WickedPdf.config.merge!({
   layout: "pdf.html.erb",
 }) 
 
-
 # focntionne en dev :
 
 #WickedPdf.config = {
