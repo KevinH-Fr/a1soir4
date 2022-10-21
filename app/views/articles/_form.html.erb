@@ -32,8 +32,6 @@
   </div>
 
   <div class="card-body">
-
-
       <div class="row">
 
         <div class="col border border-dark">
@@ -41,6 +39,7 @@
           <%= link_to 'Annuler selection', new_article_path(commandeId: @commandeId), class:"btn btn-outline-danger btn-sm" %>
         </div>
 
+<%# reprendre ajouter un separateur vertical et faire format champs %>
         <div class="col border border-dark"> 
           <div data-controller="form-element">
             <%= form.button "Validate", formaction: new_article_path(commandeId: @commandeId, produitId: @produitId), 

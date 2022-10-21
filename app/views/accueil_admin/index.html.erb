@@ -1,15 +1,14 @@
 
-<% if user_signed_in? %>
-
+  <% if user_signed_in? %>
     <%#= render "search/form" %>
     <%#= render "search/index" %>
-
-<div class="m-2">
-  <%= render "menuAccueilTer" %>
-</div>
-
+  <div class="m-2">
+    <%= render "menuAccueilTer" %>
+  </div>
     <%#= render "fonctionsRapides" %>
-
-<% else %>
-  <%= render partial: "demandeConnexion" %>
-<% end %>
+  <% else %>
+  
+   <div class="container-fluid">
+      <%= render partial: "demandeConnexion" %>
+    </div>
+  <% end %>

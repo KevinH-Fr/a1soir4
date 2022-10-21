@@ -1,16 +1,27 @@
 
-
-   <div class="card mb-3 text-bg-dark" style="max-width: 36rem;">
-    <div class="row g-0">
-      <div class="col-md-2">
-        <%= image_tag(Produit.find(@produitId).default_image, style:"width: 150px;", class:"img-fluid rounded-start") %> 
-      </div>
-      <div class="col-md-8">
-        <div class="card-body">
-          <h5 class="card-title"> <%= Produit.find(@produitId).nom %></h5>
-          <p class="card-text"> <%= Produit.find(@produitId).description %></p>
-          <p class="card-text"> <%= Produit.find(@produitId).categorie %></p>
-       </div>
+<div class="card text bg-dark" style="max-width: 36rem;">
+  <div class="row g-0">
+    <div class="col-md-2 bg">
+      <div class="row">
+        <div class="col">
+          <%= image_tag(Produit.find(@produitId).default_image, style:"width: 120px;", class:"img-fluid rounded-start bg-white") %> 
+        </div>
+        <div class="col">
+          <h5> <%= Produit.find(@produitId).nom %> </h5>
+          catégorie: <%= Produit.find(@produitId).categorie %>
+        </div>
       </div>
     </div>
-  </div>
+    <div class="col-md-8 bg">
+      <div class="card-body">
+        <p class="card-text"> 
+            description: <%= Produit.find(@produitId).description %>
+            
+        </p>
+      </div>
+    </div>
+   </div>
+</div>
+
+
+

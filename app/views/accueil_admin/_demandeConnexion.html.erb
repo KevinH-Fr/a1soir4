@@ -1,6 +1,14 @@
-<strong>Vous n'avez pas les droits...</strong> <br> <br>
 
-  <% unless current_user.present? %>
-    <%= link_to "Se connecter", new_user_session_path, class:"btn btn-outline-success" %> <br/> <br/>
-    <%= link_to "Créer un compte", new_user_registration_path, class:"btn btn-outline-primary" %>
-  <% end %>
+<div class="card m-4 mb-3 text-bg-dark text-center width-auto" style="max-width: 200px">
+  <div class="card-header bg-dark border-black"> 
+    <strong>Demande de connexion</strong> 
+  </div>
+  <div class="card-body">
+    <div class="col border border-dark m-4">
+      <% unless current_user.present? %>
+        <%= link_to "Se connecter", new_user_session_path, class:"btn btn-outline-success" %> | 
+        <%= link_to "Créer un compte", new_user_registration_path, class:"btn btn-outline-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
