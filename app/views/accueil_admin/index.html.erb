@@ -1,18 +1,15 @@
 
-<%# if user_signed_in? %>
-
-    <div class="text-center">
-    <h3> Dashboard </h3>
-    </div>
-    <hr>
+<% if user_signed_in? %>
 
     <%#= render "search/form" %>
     <%#= render "search/index" %>
 
-    <%= render "menuAccueilBis" %>
+<div class="m-2">
+  <%= render "menuAccueilTer" %>
+</div>
 
     <%#= render "fonctionsRapides" %>
 
-<%# else %>
-  <%#= render partial: "demandeConnexion" %>
-<%# end %>
+<% else %>
+  <%= render partial: "demandeConnexion" %>
+<% end %>
