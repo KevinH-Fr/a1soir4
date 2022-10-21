@@ -41,6 +41,13 @@ class CommandesController < ApplicationController
   end
 
   def edit
+    respond_to do |format|
+      format.html
+      format.turbo_stream do  
+        render turbo_stream: turbo_stream.update(@commande, partial: "commandes/form", 
+          locals: {commande: @commande})
+      end
+    end
   end
 
   def create
@@ -60,9 +67,21 @@ class CommandesController < ApplicationController
   def update
     respond_to do |format|
       if @commande.update(commande_params)
-        format.html { redirect_to commande_url(@commande), notice: "Commande was successfully updated." }
+
+        format.turbo_stream do  
+          render turbo_stream: turbo_stream.update(@commande, partial: "commandes/commande",
+             locals: {commande: @commande})
+        end
+
+        format.html { redirect_to commande_url(@commande), notice: "commande was successfully updated." }
         format.json { render :show, status: :ok, location: @commande }
       else
+
+        format.turbo_stream do 
+          render turbo_stream: turbo_stream.update(@commande, partial: "commandes/form", 
+            locals: {commande: @commande})
+        end
+
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @commande.errors, status: :unprocessable_entity }
       end

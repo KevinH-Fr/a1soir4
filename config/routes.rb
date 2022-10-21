@@ -26,11 +26,17 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :commandes do
+    member do
+      post :edit
+    end
+  end
+
   devise_for :users
   resources :produits
   resources :posts
   resources :annonces
-  resources :commandes
+
   resources :labels
   
   # partie publique
