@@ -38,20 +38,29 @@
           <%= render "produitLie" %> <br>
           <%= link_to 'Annuler selection', new_article_path(commandeId: @commandeId), class:"btn btn-outline-danger btn-sm" %>
         </div>
-
-<%# reprendre ajouter un separateur vertical et faire format champs %>
         <div class="col border border-dark"> 
           <div data-controller="form-element">
             <%= form.button "Validate", formaction: new_article_path(commandeId: @commandeId, produitId: @produitId), 
                                       formmethod: :get, data: { turbo_frame: :total_field, form_element_target: "submitbtn" } %>
               <div>
-                <%= form.label :quantite, class:"bg-secondary m-2 p-1", style: "width: 80px; display: inline-block" %>
-                <%= form.number_field :quantite, { data: { action: "change->form-element#remotesubmit"}, class:"w-25 text-center"} %>
+                <%#= form.label :quantite, class:"bg-secondary m-2 p-1", style: "width: 80px; display: inline-block" %>
+                <%#= form.number_field :quantite, { data: { action: "change->form-element#remotesubmit"}, class:"w-25 text-center"} %>
+             </div>
+             <div class="input-group mb-3">
+                <%= form.label :quantite, class:"input-group-text", style:"width: 100px;"%>
+                <%= form.number_field :quantite, { data: { action: "change->form-element#remotesubmit"},  class:"form-control"} %>
               </div>
+
               <div>
-                <%= form.label :prix, class:"bg-secondary m-2 p-1", style: "width: 80px; display: inline-block" %>
-                <%= form.number_field :prix, { data: { action: "change->form-element#remotesubmit"},  value: @valPrix, class:"w-25 text-center"} %>
+                <%#= form.label :prix, class:"bg-secondary m-2 p-1", style: "width: 80px; display: inline-block" %>
+                <%#= form.number_field :prix, { data: { action: "change->form-element#remotesubmit"},  value: @valPrix, class:"w-25 text-center"} %>
               </div>
+              
+              <div class="input-group mb-3">
+                <%= form.label :prix, class:"input-group-text", style:"width: 100px;"%>
+                <%= form.number_field :prix, { data: { action: "change->form-element#remotesubmit"}, value: @valPrix, class:"form-control"} %>
+              </div>
+        
             <% end %>
           </div>
             <%= turbo_frame_tag :total_field do %>
@@ -59,9 +68,14 @@
                 <% valPrix = form.object.prix.to_d %>
                 <% produitId = form.object.produit_id %>
                     <% if produitId.present? %> 
-                      <%= form.label :total, class:"bg-secondary m-2 p-1", style: "width: 80px; display: inline-block" %>
-                      <%= form.number_field :total, value:  valQuantite * valPrix, class:"w-25 text-center fw-bold" %>
+                      <%#= form.label :total, class:"bg-secondary m-2 p-1", style: "width: 80px; display: inline-block" %>
+                      <%#= form.number_field :total, value:  valQuantite * valPrix, class:"w-25 text-center fw-bold" %>
                     
+                    <div class="input-group mb-3">
+                      <%= form.label :total, class:"input-group-text", style:"width: 100px;"%>
+                      <%= form.number_field :total, value:  valQuantite * valPrix, class:"form-control" %>
+                    </div>
+
                     <div> <br>
                       <%= form.submit "Créer", class: 'btn btn-sm btn-success' %>
                     </div>
