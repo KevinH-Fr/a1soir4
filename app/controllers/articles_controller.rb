@@ -60,6 +60,7 @@ class ArticlesController < ApplicationController
   def edit
     @commandeId = params[:commandeId]
     @produitId = params[:produitId]
+    @natures = Modelsousarticle.distinct.pluck(:nature)
     
     session[:articleId] = params[:articleId]
     @sousarticles = Sousarticle.article_courant(@article)
@@ -72,6 +73,7 @@ class ArticlesController < ApplicationController
     else
       @valTotal = 0  
     end
+    
 
   end
 

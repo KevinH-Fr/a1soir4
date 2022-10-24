@@ -15,8 +15,22 @@
  <%= link_to "Sous-articles auto", toggle_sousarticleauto_sousarticle_path(
       produitId: @produitId, commandeId: @commandeId, articleId: @articleId), 
       class:"btn btn-sm btn-warning" %>
-  <%= link_to "Nouveau sous article", new_sousarticle_path(articleId: @article), 
+  <%#= link_to "Nouveau sous article", new_sousarticle_path(articleId: @article), 
       class:"btn btn-sm btn-success" %>
   <%= link_to "Retour", articles_path, class:"btn btn-sm btn-secondary" %>
-</div>
 
+
+  <div data-controller="nouveau", class="mx my-2" style="max-width: 36rem;">
+    <div role="button" data-action="click->nouveau#openNouveau" data-nouveau-target="openNouveau", class="btn btn-sm btn-success", style="inline;">
+      Nouveau sous-article
+    </div>
+    <div role="button" data-action="click->nouveau#closeNouveau" data-nouveau-target="closeNouveau", class="btn btn-sm btn-danger", style="inline;">
+      Fermer nouveau
+    </div>
+    <div id="new_sousarticle">
+      <div data-nouveau-target="nouveauContent">
+        <%= render partial: "sousarticles/form", locals: {sousarticle: Sousarticle.new} %>
+      </div>
+    </div>
+  </div>
+</div>

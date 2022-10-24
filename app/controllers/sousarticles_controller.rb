@@ -40,7 +40,7 @@ class SousarticlesController < ApplicationController
 
     respond_to do |format|
       if @sousarticle.save
-        format.html { redirect_to sousarticle_path(@sousarticle), 
+        format.html { redirect_to edit_article_path(@sousarticle.article_id, commandeId: @commandeId, produitId:  @produitId), 
              notice: "Sousarticle was successfully created." }
         format.json { render :show, status: :created, location: @sousarticle }
       else

@@ -41,7 +41,7 @@
                 <td></td>
                 <td class="text-end"> </td>
                 <td class="text-end"> <%= sousarticle.prix_sousarticle %></td>
-                <td style="width:10px"> <%= link_to "", edit_sousarticle_path(), class:"fa-regular fa-pen-to-square btn btn-secondary btn-sm" %> </td> 
+                <td style="width:10px"> <%= link_to "", edit_sousarticle_path(sousarticle, articleId: article.id), class:"fa-regular fa-pen-to-square btn btn-secondary btn-sm" %> </td> 
                 <td style="width:10px"> <%= button_to '', sousarticle, class:"fa-solid fa-trash-can btn btn-danger btn-sm", method: :delete, :onclick => "return confirm('Sûr ?')" %>  </td> 
               </tr>
             <% end %>       

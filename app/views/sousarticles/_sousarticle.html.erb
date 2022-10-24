@@ -26,7 +26,7 @@
               class:"fa-regular fa-folder-open btn btn-sm btn-warning" %> 
           </td>
           <td>   
-            <%= button_to "", edit_sousarticle_path(sousarticle), 
+            <%= button_to "", edit_sousarticle_path(sousarticle, articleId: sousarticle.article_id), 
                 class:"fa-regular fa-pen-to-square btn btn-sm btn-secondary", method: :post %> 
           </td>
           <td>

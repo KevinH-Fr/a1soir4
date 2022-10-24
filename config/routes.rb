@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     member do
       get :toggle_selectProduit
       get :toggle_increaseQuantite
+      post :edit
     end 
   end
 

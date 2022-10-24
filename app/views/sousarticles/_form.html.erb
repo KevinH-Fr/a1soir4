@@ -18,7 +18,7 @@
         <div>
           <% form.label :article_id, style: "display: block" %>
           <%#= form.select :article_id, Article.all.collect { |a| [ a.id, a.id ] },  include_blank: true %>
-          <%= form.hidden_field(:article_id, value: session[:articleId]) %>
+          <%= form.number_field(:article_id, value: @articleId) %>
         </div>
       </div>
 
