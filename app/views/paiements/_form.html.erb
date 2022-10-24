@@ -2,7 +2,8 @@
 <%= form_with(model: paiement) do |form| %>
   <% if paiement.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(paiement.errors.count, "error") %> prohibited this paiement from being saved:</h2>
+      <h2><%= pluralize(paiement.errors.count, "error") %> 
+              prohibited this paiement from being saved:</h2>
       <ul>
         <% paiement.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -11,21 +12,24 @@
     </div>
   <% end %>
 
- <div>
-   <% form.label :commande_id, style: "display: block" %>
-   <%= form.hidden_field(:commande_id, value: @commandeId) %>
- </div>
-
-  <div>
-    <%= form.label :type, style: "display: block" %>
-    <%= form.select(:typepaiement, Paiement.typePaiements.keys, {include_blank: true}) %>
-  </div>
-  <div>
-    <%= form.label :montant, style: "display: block" %>
-    <%= form.text_field :montant %>
-  </div>
-
-  <div> <br>
-    <%= form.submit "Créer", class: 'btn btn-success' %>
+  <div class="card mb-3 text-bg-dark">
+    <div class="card-body">
+      <div class="input-group mb-3">
+        <%= form.label :commande_id, class:"input-group-text", style:"width: 100x;"%>
+        <%= form.number_field :commande_id, value: session[:commandeId], class:"form-control" %> 
+      </div>
+      <div class="input-group mb-3">
+        <%= form.label :type, class:"input-group-text", style:"width: 100x;"%>
+        <%= form.select :typepaiement, Paiement.typePaiements.keys, {include_blank: true}, 
+            class:"form-control" %> 
+      </div>
+      <div class="input-group mb-3">
+        <%= form.label :montant, class:"input-group-text", style:"width: 100x;"%>
+        <%= form.text_field :montant, class:"form-control" %> 
+      </div>
+      <div> <br>
+        <%= form.submit "Créer", class: 'btn btn-success' %>
+      </div>
+    </div>
   </div>
 <% end %>

@@ -3,5 +3,18 @@
 <%= render @commande %> 
 
 <%= render "listeArticles" %>
-<%= render "listePaiements" %>
+<%#= render "listePaiements" %>
+
+<div class="card mb-3 text-bg-dark">
+  <div class="card-header bg-black border-light"> 
+    <strong>Paiements</strong> 
+  </div>
+  <div class="card-body bg-dark border-light"> 
+    <%= render @paiements %>
+  </div>
+  <div class="card-footer bg-black border-light">
+    <%= render "nouveauPaiement" %>
+  </div>
+</div>
+
 <%= render "syntheseCommande" %>

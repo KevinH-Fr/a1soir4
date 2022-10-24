@@ -20,6 +20,9 @@ class CommandesController < ApplicationController
     @paiements = Paiement.commande_courante(@commande)
     @sousarticles = Sousarticle.all
 
+    @commandeId = params[:id]
+    session[:commandeId] = @commandeId
+
     respond_to do |format|
       format.html
       format.png do

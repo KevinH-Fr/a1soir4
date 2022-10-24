@@ -17,6 +17,14 @@ class PaiementsController < ApplicationController
 
   def edit
     @commandeId = params[:commandeId]
+
+    respond_to do |format|
+      format.html
+      format.turbo_stream do  
+        render turbo_stream: turbo_stream.update(@paiement, partial: "paiements/form", 
+          locals: {paiement: @paiement})
+      end
+    end
   end
 
   def create
@@ -36,6 +44,12 @@ class PaiementsController < ApplicationController
   def update
     respond_to do |format|
       if @paiement.update(paiement_params)
+
+        format.turbo_stream do  
+          render turbo_stream: turbo_stream.update(@paiement, partial: "paiements/paiement",
+             locals: {paiement: @paiement})
+        end
+
         format.html { redirect_to commande_url(@paiement.commande_id), notice: "Paiement was successfully updated." }
         format.json { render :show, status: :ok, location: @paiement }
       else

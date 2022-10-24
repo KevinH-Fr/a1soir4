@@ -19,8 +19,18 @@
             <td> <%= i + 1 %> </td>
             <td class="text-center"> <%= paiement.typepaiement %> </td>
             <td class="text-end" > <%= paiement.montant %> </td>
-            <td style="width:10px"> <%= link_to "", edit_paiement_path(paiement, commandeId: paiement.commande_id), class:"fa-regular fa-pen-to-square btn btn-secondary btn-sm" %> </td> 
-            <td style="width:10px"> <%= button_to '', paiement, class:"fa-solid fa-trash-can btn btn-danger btn-sm", method: :delete, :onclick => "return confirm('Sûr ?')" %>  </td> 
+            <td style="width:10px"> 
+              <%#= link_to "", edit_paiement_path(paiement, commandeId: paiement.commande_id), 
+                class:"fa-regular fa-pen-to-square btn btn-secondary btn-sm" %> 
+            
+              <%= button_to "", edit_paiement_path(paiement), 
+                class:"fa-regular fa-pen-to-square btn btn-sm btn-secondary", method: :post %> 
+
+            </td> 
+            <td style="width:10px"> 
+              <%= button_to '', paiement, class:"fa-solid fa-trash-can btn btn-danger btn-sm", 
+                method: :delete, :onclick => "return confirm('Sûr ?')" %>  
+              </td> 
           </tr> 
         <% end %>
       </tbody>
@@ -41,10 +51,25 @@
       </tfoot>
     </table>
 
-    <div class="position-relative">
-      <div class="position-absolute top-0 end-0">
-        <%= link_to "Nouveau paiement", new_paiement_path(commandeId: @commande), class:"btn btn-sm btn-primary" %>
-      </div> 
-    </div><br>
+    <div data-controller="nouveau", class="mx-auto">
+      <div class="position-relative">
+        <div class="position-absolute top-0 end-0">
+          <div role="button" data-action="click->nouveau#openNouveau" data-nouveau-target="openNouveau", 
+               class="btn btn-sm btn-success", style="inline;">
+            Nouveau paiement
+          </div>
+          <div role="button" data-action="click->nouveau#closeNouveau" data-nouveau-target="closeNouveau", 
+               class="btn btn-sm btn-danger", style="inline;">
+            Fermer nouveau
+          </div>
+        </div>
+      </div> <br>
+      <div id="new_paiement">
+        <div data-nouveau-target="nouveauContent">
+          <br>
+          <%= render partial: "paiements/form", locals: {paiement: Paiement.new} %>
+        </div>
+      </div>
+   </div>
   </div>
-</div>  
+</div>

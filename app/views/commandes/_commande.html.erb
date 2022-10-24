@@ -2,12 +2,12 @@
 
 <div class="card mb-3 text-bg-dark">
   <div class="card-header bg-black border-light"> <strong>Commande</strong> </div>
-    <div class="card-body">
-        <div class="col border border-dark">
-          commande: <%= commande.nom %> |
-          client:  <%= Client.find(commande.client_id).full_name if commande.client_id.present? %> 
-        </div>
+  <div class="card-body">
+    <div class="col border border-dark">
+       commande: <%= commande.nom %> |
+       client:  <%= Client.find(commande.client_id).full_name if commande.client_id.present? %> 
     </div>
+  </div>
 
     <div data-controller="dropdown", class="mx-3">
       <div role="button" data-action="click->dropdown#openDropdown" data-dropdown-target="openButton", 

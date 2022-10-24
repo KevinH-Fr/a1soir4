@@ -1,8 +1,8 @@
 <%= form_with(model: commande) do |form| %>
   <% if commande.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(commande.errors.count, "error") %> prohibited this commande from being saved:</h2>
-
+      <h2><%= pluralize(commande.errors.count, "error") %> 
+              prohibited this commande from being saved:</h2>
       <ul>
         <% commande.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -10,24 +10,25 @@
       </ul>
     </div>
   <% end %>
-
-  <div>
-    <%= form.label :nom, style: "display: block" %>
-    <%= form.text_field :nom %>
-  </div>
-
-  <div>
-    <%= form.label :client_id, style: "display: block" %>
-    <%= form.select :client_id, Client.all.collect { |c| [ c.nom, c.id ] }, include_blank: true %>
-  </div>
-
-  <div>
-    <%= form.label :montant, style: "display: block" %>
-    <%= form.text_field :montant, value: 1 %>
-    
-  </div>
-
-  <div> <br>
-    <%= form.submit 'Valider', class:'btn btn-sm btn-success' %>
+  <div class="card mb-3 text-bg-dark">
+    <div class="card-header bg-black border-light"> <strong>Commande</strong> </div>
+    <div class="card-body">
+      <div class="input-group mb-3">
+        <%= form.label :nom, class:"input-group-text", style:"width: 100x;"%>
+        <%= form.text_field :nom, class:"form-control" %>
+      </div>
+      <div class="input-group mb-3">
+        <%= form.label :client_id, class:"input-group-text", style:"width: 100x;"%>
+        <%= form.select :client_id, Client.all.collect { |c| [ c.nom, c.id ] }, 
+              include_blank: true, class:"form-control" %>
+      </div>
+      <div class="input-group mb-3">
+        <%= form.label :montant, class:"input-group-text", style:"width: 100x;"%>
+        <%= form.text_field :montant, value: 1, class:"form-control" %>  
+      </div>
+      <div> <br>
+        <%= form.submit 'Valider', class:'btn btn-sm btn-success' %>
+      </div>
+    </div>
   </div>
 <% end %>

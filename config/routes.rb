@@ -2,11 +2,16 @@ Rails.application.routes.draw do
 
   resources :modelsousarticles
   resources :articleoptions
-  resources :paiements
   resources :textes
   resources :messages
   resources :friends
 
+  resources :paiements do
+    member do 
+      post :edit
+    end
+  end
+  
   resources :articles do
     member do
       get :toggle_selectProduit
