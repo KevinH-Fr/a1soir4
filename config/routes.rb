@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   resources :sousarticles do
     member do
       get :toggle_sousarticleauto
+      post :edit
     end
   end 
 

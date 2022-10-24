@@ -60,7 +60,8 @@ class ArticlesController < ApplicationController
   def edit
     @commandeId = params[:commandeId]
     @produitId = params[:produitId]
-
+    
+    session[:articleId] = params[:articleId]
     @sousarticles = Sousarticle.article_courant(@article)
 
     @quantite = Article.find(@article.id).quantite
@@ -81,8 +82,6 @@ class ArticlesController < ApplicationController
 
     @produitId = @article.produit_id
     @commandeId = @article.commande_id
-
-  
 
     respond_to do |format|
       if @article.save

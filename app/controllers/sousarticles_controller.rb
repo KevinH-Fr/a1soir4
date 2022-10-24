@@ -21,10 +21,19 @@ class SousarticlesController < ApplicationController
   def edit
     @articleId = params[:articleId]
     @natures = Modelsousarticle.distinct.pluck(:nature)
+
+    respond_to do |format|
+      format.html
+      format.turbo_stream do  
+        render turbo_stream: turbo_stream.update(@sousarticle, partial: "sousarticles/form", 
+          locals: {sousarticle: @sousarticle})
+      end
+    end
+
   end
 
   def create
-   
+    @articleId = params[:articleId]
     @sousarticle = Sousarticle.new(sousarticle_params)
     @commandeId = Article.find(@sousarticle.article_id).commande_id
     @produitId = Article.find(@sousarticle.article_id).produit_id
@@ -44,9 +53,17 @@ class SousarticlesController < ApplicationController
   def update
     @commandeId = Article.find(@sousarticle.article_id).commande_id
     @produitId = Article.find(@sousarticle.article_id).produit_id
+    @natures = Modelsousarticle.distinct.pluck(:nature)
+    @articleId = params[:articleId]
 
     respond_to do |format|
       if @sousarticle.update(sousarticle_params)
+
+        format.turbo_stream do  
+          render turbo_stream: turbo_stream.update(@sousarticle, partial: "sousarticles/sousarticle",
+             locals: {sousarticle: @sousarticle})
+        end
+
         format.html { redirect_to edit_article_path(@sousarticle.article_id, commandeId: @commandeId, produitId:  @produitId), 
              notice: "Sousarticle was successfully updated." }
         format.json { render :show, status: :ok, location: @sousarticle }

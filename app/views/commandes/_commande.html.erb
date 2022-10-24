@@ -25,13 +25,16 @@
       <table>
       <tr>
         <td>
-           <%= link_to "", commande_path(commande), class:"fa-regular fa-folder-open btn btn-sm btn-warning" %> 
+           <%= link_to "", commande_path(commande), 
+              class:"fa-regular fa-folder-open btn btn-sm btn-warning" %> 
         </td>
         <td>   
-          <%= button_to "", edit_commande_path(commande), class:"fa-regular fa-pen-to-square btn btn-sm btn-secondary", method: :post %> 
+          <%= button_to "", edit_commande_path(commande), 
+              class:"fa-regular fa-pen-to-square btn btn-sm btn-secondary", method: :post %> 
         </td>
         <td>
-          <%= button_to '', commande_path(commande), class:"fa-solid fa-trash-can btn btn-danger btn-sm", method: :delete %> 
+          <%= button_to '', commande_path(commande), 
+              class:"fa-solid fa-trash-can btn btn-danger btn-sm", method: :delete %> 
         </td>
       </tr>
       </table>

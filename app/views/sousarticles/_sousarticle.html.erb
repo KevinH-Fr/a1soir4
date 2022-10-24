@@ -2,11 +2,11 @@
 
   <div class="card text-bg-dark my-2 mx-auto" style="max-width: 55rem;">
     <div class="card-header border-secondary"> 
-      <div class="card-title"> Type:  <%= sousarticle.nature %> </div>
+      <div class="card-title"> Nature:  <%= sousarticle.nature %> </div>
     </div>
       <div class="card-body">
-        <div class="card-text"> nature: <%= sousarticle.nature %></div>
-      
+        <div class="card-text"> Description: <%= sousarticle.description %></div>
+        <div class="card-text"> Prix: <%= sousarticle.prix_sousarticle %></div>
       </div>
       <div data-controller="dropdown", class="mx-3">
         <div role="button" data-action="click->dropdown#openDropdown" data-dropdown-target="openButton", class="fa-solid fa-eye btn btn-primary btn-sm">
@@ -14,8 +14,6 @@
         <div role="button" data-action="click->dropdown#closeDropdown" data-dropdown-target="closeButton", class="fa-solid fa-eye-slash btn btn-primary btn-sm">
         </div>
         <div data-dropdown-target="dropdownContent">
-          <p class="card-text"> description: <%= sousarticle.description %></p>
-          <p class="card-text"> prix: <%= sousarticle.prix_sousarticle %></p>
           <p class="card-text"> caution: <%= sousarticle.caution %></p>
           <p class="card-text"> taille: <%= sousarticle.taille %></p>
         </div>
@@ -23,11 +21,17 @@
       <div class="card-footer border-secondary mt-2">    
         <table>
         <tr>
+        <td>
+          <%= link_to "", sousarticle_path(sousarticle), 
+              class:"fa-regular fa-folder-open btn btn-sm btn-warning" %> 
+          </td>
           <td>   
-            <%= button_to "", edit_sousarticle_path(sousarticle), class:"fa-regular fa-pen-to-square btn btn-sm btn-secondary", method: :post %> 
+            <%= button_to "", edit_sousarticle_path(sousarticle), 
+                class:"fa-regular fa-pen-to-square btn btn-sm btn-secondary", method: :post %> 
           </td>
           <td>
-            <%= button_to '', sousarticle_path(sousarticle), class:"fa-solid fa-trash-can btn btn-danger btn-sm", method: :delete %> 
+            <%= button_to '', sousarticle_path(sousarticle), 
+                class:"fa-solid fa-trash-can btn btn-danger btn-sm", method: :delete %> 
           </td>
         </tr>
         </table>
