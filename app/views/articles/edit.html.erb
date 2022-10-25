@@ -1,15 +1,16 @@
 
-<h1 class="my-2">Editer article</h1>
+<h3 class="my-2", style="font-family: Arial;">EDITER ARTICLE</h3>
 
 <%= render "infosCommande" %>
 <%= render "form", article: @article %>
-<%= render "sousarticles/sousarticlesLiesBis" %>
+
+<div class="mx-2"> 
+  <%= render "sousarticles/sousarticlesLiesBis" %>
+</div>
 
 <% @commandeId = params[:commandeId] %>
 <% @produitId = params[:produitId] %>
 <% @articleId = params[:articleId] %>
-
- 
 
 <div class="m-3"> 
  <%= link_to "Sous-articles auto", toggle_sousarticleauto_sousarticle_path(

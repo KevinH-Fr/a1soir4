@@ -27,7 +27,7 @@
 
 <div class="card text-bg-dark">
 
- <div class="card-header bg-black border-light">
+ <div class="card-header bg-black ">
     <strong>Article</strong> 
   </div>
 
@@ -46,7 +46,7 @@
                 <%#= form.label :quantite, class:"bg-secondary m-2 p-1", style: "width: 80px; display: inline-block" %>
                 <%#= form.number_field :quantite, { data: { action: "change->form-element#remotesubmit"}, class:"w-25 text-center"} %>
              </div>
-             <div class="input-group mb-3">
+             <div class="input-group input-group-sm mb-1">
                 <%= form.label :quantite, class:"input-group-text", style:"width: 100px;"%>
                 <%= form.number_field :quantite, { data: { action: "change->form-element#remotesubmit"},  class:"form-control"} %>
               </div>
@@ -56,7 +56,7 @@
                 <%#= form.number_field :prix, { data: { action: "change->form-element#remotesubmit"},  value: @valPrix, class:"w-25 text-center"} %>
               </div>
               
-              <div class="input-group mb-3">
+              <div class="input-group input-group-sm mb-1">
                 <%= form.label :prix, class:"input-group-text", style:"width: 100px;"%>
                 <%= form.number_field :prix, { data: { action: "change->form-element#remotesubmit"}, value: @valPrix, class:"form-control"} %>
               </div>
@@ -71,9 +71,10 @@
                       <%#= form.label :total, class:"bg-secondary m-2 p-1", style: "width: 80px; display: inline-block" %>
                       <%#= form.number_field :total, value:  valQuantite * valPrix, class:"w-25 text-center fw-bold" %>
                     
-                    <div class="input-group mb-3">
-                      <%= form.label :total, class:"input-group-text", style:"width: 100px;"%>
-                      <%= form.number_field :total, value:  valQuantite * valPrix, class:"form-control" %>
+                    <div class="input-group input-group-sm mb-1">
+                      <%= form.label :total, class:"input-group-text bg-dark text-white", style:"width: 100px;"%>
+                      <%= form.number_field :total, value:  valQuantite * valPrix, class:"form-control bg-dark text-white" %>
+                      <%#= form.number_field :total, value:  valQuantite * valPrix, class:"form-control" %>
                     </div>
 
                     <div> <br>
@@ -87,6 +88,4 @@
         </div>
  
     </div>
-
-  <br>
 <% end %>
