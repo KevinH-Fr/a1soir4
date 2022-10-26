@@ -1,24 +1,24 @@
-<div id="<%= dom_id commande %>">
 
+<div id="<%= dom_id commande %>">
   <% clientId = Commande.find(commande.id).client_id %>
-  <div class="card border-dark mb-1">
+  <div class="card border-dark mt-3 mb-1">
     <div class="card-header bg-black text-center">
       <strong>Commande</strong> 
     </div>
     <div class="card-body p-2">
       <div class="row">
         <div class="col">
-          <div class="shadow rounded text-dark text-center">
+          <div class="shadow rounded text-dark text-center border border-seconary">
             <%= Commande.find(commande.id).full_name %>
           </div>
         </div>
         <div class="col">
-          <div class="shadow rounded text-dark text-center">
+          <div class="shadow rounded text-dark text-center border border-seconary">
             <%= Client.find(clientId).full_name %>
           </div>
         </div>
         <div class="col">
-          <div class="shadow rounded text-dark text-center">
+          <div class="shadow rounded text-dark text-center border border-seconary">
             <%= Commande.find(commande.id).created_at %>
           </div>
         </div>
@@ -49,5 +49,5 @@
 
     </div>
   </div> 
-
+  
 </div>

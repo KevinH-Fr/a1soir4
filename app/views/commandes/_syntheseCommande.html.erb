@@ -1,23 +1,26 @@
 <div class="card mb-2 mx-2 text-bg-dark">
-  <div class="card-header bg-black border-light"> <strong>Synthèse</strong> </div>
-  <div class="card-body">
-    <div class="col border border-dark">
+  <div class="card-header bg-black text-center text-white"> 
+    <strong>Synthèse</strong> 
+  </div>
+  <div class="card-body bg-grey">
+    <div class="col">
       <% duPrix = Article.commande_courante(@commande).sum_articles %> 
       <% recuPrix = Paiement.commande_courante(@commande).sum_paiements %> 
-        restant prix: <%= soldePrix = duPrix - recuPrix %> <br> 
-
+      <% soldePrix = duPrix - recuPrix %>
+       
       <% if soldePrix > 0 %>
-        <div class="text-center text-danger my-2 border rounded-3 border-danger">
+        <div class="text-center text-danger mb-2 border rounded-3 bg-dark border-danger">
           <%= "attention, la commande n'a pas été réglée en totalité" %>
+           restant prix: <%= soldePrix %> <br> 
         </div>
       <% else %>
-        <div class="text-center text-success my-2 border rounded-3 border-success">
+        <div class="text-center text-success my-1 border rounded-3 bg-dark border-success">
           <%= "Tout est bon !" %>
         </div>
       <% end %>
     </div>
-    <div class="card-footer">
-      <%= link_to "PDF", commande_path(@commande, format: :pdf), class:"btn btn-warning" %>
-    </div>
+  </div>
+  <div class="card-footer bg-black">
+    <%= link_to "PDF", commande_path(@commande, format: :pdf), class:"btn btn-warning" %>
   </div>
 </div>
