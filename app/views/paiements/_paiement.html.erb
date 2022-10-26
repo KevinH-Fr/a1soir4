@@ -1,29 +1,43 @@
 <div id="<%= dom_id paiement %>">
 
-  <div class="card text-bg-dark">
-    <div class="card-body">
-      <div class="col border border-dark">
-        <strong>Type:</strong> <%= paiement.typepaiement %> <br>
-        <strong>Montant:</strong> <%= paiement.montant %> <br>
-        <strong>Commande:</strong>  <%= paiement.commande_id %> <br>
+  <div class="card bg-light text-dark m-1 shadow rounded text-dark text-center">
+    <div class="card-body m-0 bg-light">
+      <div class="row">
+        <div class="col">
+          <div class="text-dark text-center">
+            <%= paiement.typepaiement %>
+          </div>
+        </div>
+        <div class="col">
+          <div class="text-dark text-center">
+            <%= paiement.montant %>
+          </div>
+        </div>
+        <div class="col">
+          <div class="text-dark text-center">
+            <%= paiement.updated_at %>
+          </div>
+        </div>
+        <div class="col">
+          <div class="position-relative">
+            <div class="position-absolute top-0 end-0">
+              <table>
+                <tr>
+                  <td>   
+                    <%= button_to "", edit_paiement_path(paiement), 
+                        class:"fa-regular fa-pen-to-square btn btn-sm btn-secondary", method: :post %> 
+                  </td>
+                  <td>
+                    <%= button_to '', paiement_path(paiement), 
+                        class:"fa-solid fa-trash-can btn btn-danger btn-sm", method: :delete %> 
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="card-footer border-light mt-2">    
-      <table>
-        <tr>
-          <td> 
-            <%= button_to "", edit_paiement_path(paiement), 
-              class:"fa-regular fa-pen-to-square btn btn-sm btn-secondary", method: :post %> 
-          </td>
-          <td>
-            <%= button_to '', paiement_path(paiement), 
-              class:"fa-solid fa-trash-can btn btn-danger btn-sm", method: :delete %> 
-          </td>
-        </tr>
-      </table>
-    </div>
   </div>
-
- 
 
 </div>

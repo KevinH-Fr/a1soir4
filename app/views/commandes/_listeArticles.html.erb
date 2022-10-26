@@ -1,26 +1,26 @@
 
-<div class="card mb-3 text-bg-dark">
-  <div class="card-header bg-black border-light">
+<div class="card mb-3 text-bg-dark m-2">
+  <div class="card-header bg-black border-light text-center">
     <strong>Articles</strong> 
   </div>
-  <div class="card-body">
+  <div class="card-body bg-light p-1">
     <table class="table table-secondary table-striped table-bordered table-hover">
       <thead class="table-dark">
-        <tr>
+        <tr style="line-height: 5px;">
           <th style="text-align: center;">#</th>
-          <th colspan="2">produit</th>
+          <th class="text-center" colspan="2">produit</th>
           <th class="text-center">quantité</th>
-          <th>prix</th>
-          <th>total</th>
-          <th colspan=2> Actions</th>
+          <th class="text-center">prix</th>
+          <th class="text-center">total</th>
+          <th class="text-center" colspan=2> Actions</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <% @articles.each_with_index do | article, i | %>
-            <td> <%= i + 1 %> </td>
+            <td class="text-center"> <%= i + 1 %> </td>
             <td> 
-              <%= image_tag(Produit.find(article.produit_id).default_image, style: "width: 50px; display: block", 
+              <%= image_tag(Produit.find(article.produit_id).default_image, style: "width: 40px; display: block", 
                     class: "img-fluid rounded") %> 
             </td>
             <td> <%= Produit.find(article.produit_id).nom %> </td>
@@ -60,11 +60,13 @@
           </tr>  
         </tfoot>
       </table>
-      
-      <div class="position-relative">
-        <div class="position-absolute top-0 end-0">
-          <%= link_to "Nouvel article", new_article_path(commandeId: @commande), class:"btn btn-sm btn-primary" %>
-        </div> 
-      </div> <br>
-  </div>
+    </div>
+      <div class="card-footer bg-black text-center">
+        <div class="position-relative">
+          <div class="position-absolute top-0 end-0">
+            <%= link_to "Nouvel article", new_article_path(commandeId: @commande), 
+               class:"btn btn-sm btn-primary" %>
+          </div> 
+        </div> <br>
+      </div>
 </div>  

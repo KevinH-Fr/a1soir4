@@ -1,43 +1,53 @@
 <div id="<%= dom_id commande %>">
 
-<div class="card mb-3 text-bg-dark">
-  <div class="card-header bg-black border-light"> <strong>Commande</strong> </div>
-  <div class="card-body">
-    <div class="col border border-dark">
-       commande: <%= commande.nom %> |
-       client:  <%= Client.find(commande.client_id).full_name if commande.client_id.present? %> 
+  <% clientId = Commande.find(commande.id).client_id %>
+  <div class="card border-dark mb-1">
+    <div class="card-header bg-black text-center">
+      <strong>Commande</strong> 
     </div>
-  </div>
+    <div class="card-body p-2">
+      <div class="row">
+        <div class="col">
+          <div class="shadow rounded text-dark text-center">
+            <%= Commande.find(commande.id).full_name %>
+          </div>
+        </div>
+        <div class="col">
+          <div class="shadow rounded text-dark text-center">
+            <%= Client.find(clientId).full_name %>
+          </div>
+        </div>
+        <div class="col">
+          <div class="shadow rounded text-dark text-center">
+            <%= Commande.find(commande.id).created_at %>
+          </div>
+        </div>
+        <div class="col">
+          <div class="position-relative">
+            <div class="position-absolute top-0 end-0">
+              <table>
+                <tr>
+                  <td>
+                    <%= link_to "", commande_path(commande), 
+                        class:"fa-regular fa-folder-open btn btn-sm btn-warning" %> 
+                  </td>
+                  <td>   
+                    <%= button_to "", edit_commande_path(commande), 
+                        class:"fa-regular fa-pen-to-square btn btn-sm btn-secondary", method: :post %> 
+                  </td>
+                  <td>
+                    <%= button_to '', commande_path(commande), 
+                        class:"fa-solid fa-trash-can btn btn-danger btn-sm", method: :delete %> 
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-    <div data-controller="dropdown", class="mx-3">
-      <div role="button" data-action="click->dropdown#openDropdown" data-dropdown-target="openButton", 
-            class="fa-solid fa-eye btn btn-primary btn-sm">
-      </div>
-      <div role="button" data-action="click->dropdown#closeDropdown" data-dropdown-target="closeButton", 
-            class="fa-solid fa-eye-slash btn btn-primary btn-sm">
-      </div>
-      <div data-dropdown-target="dropdownContent">
-         <p class="card-text"> info1: <%=  %></p>
-      </div>
     </div>
+  </div> 
 
-    <div class="card-footer border-light mt-2">    
-      <table>
-      <tr>
-        <td>
-           <%= link_to "", commande_path(commande), 
-              class:"fa-regular fa-folder-open btn btn-sm btn-warning" %> 
-        </td>
-        <td>   
-          <%= button_to "", edit_commande_path(commande), 
-              class:"fa-regular fa-pen-to-square btn btn-sm btn-secondary", method: :post %> 
-        </td>
-        <td>
-          <%= button_to '', commande_path(commande), 
-              class:"fa-solid fa-trash-can btn btn-danger btn-sm", method: :delete %> 
-        </td>
-      </tr>
-      </table>
-    </div>
-  </div>
 </div>
