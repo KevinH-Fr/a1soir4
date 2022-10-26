@@ -12,8 +12,7 @@
     </div>
   <% end %>
 
-  <div class="card text-bg-dark mb-3 mx-auto" style="max-width: 56rem;">
-    <div class="card-body">
+    <div class="card-body with-shadow m-2">
       <div class="mb-3">
         <div>
           <% form.label :article_id, style: "display: block" %>
@@ -23,18 +22,16 @@
       </div>
 
 
-    <div data-controller="form-element"> 
-      <%= form.button "Validate", formaction: new_sousarticle_path(article_id: @articleId), 
-                      formmethod: :get, data: { turbo_frame: :prix_sousarticle_field, form_element_target: "submitbtn" } %>
-
-       <div class="input-group mb-3">
-          <%= form.label :nature, class:"input-group-text", style:"width: 100px;"%>
-          <%= form.select :nature,  @natures, {include_blank: true}, 
-               { data: { action: "change->form-element#remotesubmit"},  
-                class:"form-control"} %>
+      <div data-controller="form-element"> 
+        <%= form.button "Validate", formaction: new_sousarticle_path(article_id: @articleId), 
+                        formmethod: :get, data: { turbo_frame: :prix_sousarticle_field, form_element_target: "submitbtn" } %>
+        <div class="input-group mb-3">
+            <%= form.label :nature, class:"input-group-text bg-secondary text-light", style:"width: 100px;"%>
+            <%= form.select :nature,  @natures, {include_blank: true}, 
+                { data: { action: "change->form-element#remotesubmit"},  
+                  class:"form-control"} %>
         </div>
-
-  </div>
+      </div>
 
         <%= turbo_frame_tag :prix_sousarticle_field do %>
           <% natureSousArticle = form.object.nature %>
@@ -43,31 +40,29 @@
               <% valPrixSousArticle = Modelsousarticle.find(iDmodelSousArticle).prix %>
               <% valDescriptionSousArticle = Modelsousarticle.find(iDmodelSousArticle).description %>
 
-
-
           <div class="input-group mb-3">
-            <%= form.label :prix_sousarticle, class:"input-group-text", style:"width: 100x;"%>
+            <%= form.label :prix, class:"input-group-text bg-secondary text-light", style:"width: 100px;"%>
             <%= form.number_field :prix_sousarticle, value:  valPrixSousArticle, class:"form-control" %>
           </div>
         
           <div class="input-group mb-3">
-            <%= form.label :description, class:"input-group-text", style:"width: 100x;"%>
+            <%= form.label :description, class:"input-group-text bg-secondary text-light", style:"width: 100px;"%>
             <%= form.text_field :description, value: valDescriptionSousArticle, class:"form-control" %>
           </div>
             <div class="input-group mb-3">
-            <%= form.label :caution, class:"input-group-text", style:"width: 100x;"%>
+            <%= form.label :caution, class:"input-group-text bg-secondary text-light", style:"width: 100px;"%>
             <%= form.number_field :caution, class:"form-control" %>
           </div>
           <div class="input-group mb-3">
-            <%= form.label :taille, class:"input-group-text", style:"width: 100x;"%>
+            <%= form.label :taille, class:"input-group-text bg-secondary text-light", style:"width: 100px;"%>
             <%= form.text_field :taille, class:"form-control" %>
-          </div> <br>
+          </div> 
             
-          <div> <br>
+          <div> 
             <%= form.submit "Créer", class: 'btn btn-sm btn-success' %>
           </div>
         <% end %>
       <% end %>
-    </div>
+    
   </div>
 <% end %>

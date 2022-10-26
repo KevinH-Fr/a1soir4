@@ -1,27 +1,18 @@
 <div id="<%= dom_id sousarticle %>">
 
-  <div class="card rounded m-1 border-white">
-    <div class="card-body p-1">
-      <div class="row">
-        <div class="col">
-          <div class="shadow rounded text-dark text-start">
-            <%= sousarticle.nature %>
-          </div>
+  <div class="with-shadow m-2">
+    <div class="row">
+      <div class="col-8">   
+        <div class="text-dark text-start mx-2 p-0">   
+          <%= sousarticle.texte_record %>
         </div>
-        <div class="col">
-          <div class="shadow rounded text-dark text-center">
-             <%= sousarticle.prix_sousarticle %>
-          </div>
-        </div>
-        <div class="col">
-          <div class="position-relative">
-            <div class="position-absolute top-0 end-0">
-              <table>
-                <tr>
-                  <td>
-                    <%= link_to "", sousarticle_path(sousarticle), 
-                        class:"fa-regular fa-folder-open btn btn-sm btn-warning" %> 
-                  </td>
+      </div>
+    
+      <div class="col-4 m-0 pe-3">
+        <div class="position-relative">
+          <div class="position-absolute top-0 end-0">
+            <table>
+              <tr >
                   <td>   
                     <%= button_to "", edit_sousarticle_path(sousarticle), 
                         class:"fa-regular fa-pen-to-square btn btn-sm btn-secondary", method: :post %> 
@@ -35,9 +26,7 @@
             </div>
           </div>
         </div>
-      
       </div>
     </div>
-  </div> 
 
 </div>

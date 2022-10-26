@@ -10,27 +10,23 @@
       </ul>
     </div>
   <% end %>
-  <div class="card mb-3 text-bg-dark">
-    <div class="card-header bg-black border-black text-center"> 
-      <strong>Commande</strong> 
-    </div>
-    <div class="card-body">
+
+    <div class="card-body with-shadow">
       <div class="input-group mb-3">
-        <%= form.label :nom, class:"input-group-text", style:"width: 100x;"%>
-        <%= form.text_field :nom, class:"form-control" %>
+        <%= form.label :nom, class:"input-group-text bg-secondary text-light", style:"width: 100px;"%>
+        <%= form.text_field :nom, class:"form-control border border-secondary" %>
       </div>
       <div class="input-group mb-3">
-        <%= form.label :client_id, class:"input-group-text", style:"width: 100x;"%>
+        <%= form.label :client_id, class:"input-group-text bg-secondary text-light", style:"width: 100px;"%>
         <%= form.select :client_id, Client.all.collect { |c| [ c.nom, c.id ] }, 
-              include_blank: true, class:"form-control" %>
+              include_blank: true, class:"form-control border border-secondary" %>
       </div>
       <div class="input-group mb-3">
-        <%= form.label :montant, class:"input-group-text", style:"width: 100x;"%>
-        <%= form.text_field :montant, value: 1, class:"form-control" %>  
+        <%= form.label :montant, class:"input-group-text bg-secondary text-light", style:"width: 100px;"%>
+        <%= form.text_field :montant, value: 1, class:"form-control border border-secondary" %>  
       </div>
-      <div> <br>
-        <%= form.submit 'Valider', class:'btn btn-sm btn-success' %>
-      </div>
+          <%= form.submit 'Valider', class:'btn btn-sm btn-success' %>
+
     </div>
-  </div>
+
 <% end %>

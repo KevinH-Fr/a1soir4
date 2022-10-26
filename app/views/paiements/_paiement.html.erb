@@ -1,35 +1,24 @@
 <div id="<%= dom_id paiement %>">
 
-  <div class="card bg-light text-dark m-1 shadow rounded text-dark text-center">
-    <div class="card-body m-1 bg-light p-0">
+     <div class="with-shadow m-2">
       <div class="row">
-        <div class="col">
-          <div class="text-dark text-start mx-2">
-            <%= paiement.typepaiement %>
+        <div class="col-8">
+          <div class="text-dark text-start mx-2 p-0">
+            <%= paiement.texte_record %>
           </div>
         </div>
-        <div class="col">
-          <div class="text-dark text-end">
-            <%= paiement.montant %>
-          </div>
-        </div>
-        <div class="col">
-          <div class="text-dark text-center">
-            <%= paiement.updated_at %>
-          </div>
-        </div>
-        <div class="col">
+        <div class="col-4 m-0 p-0">
           <div class="position-relative">
             <div class="position-absolute top-0 end-0">
               <table>
                 <tr>
                   <td>   
                     <%= button_to "", edit_paiement_path(paiement), 
-                        class:"fa-regular fa-pen-to-square btn btn-sm btn-secondary", method: :post %> 
+                        class:"fa-regular fa-pen-to-square btn btn-sm btn-secondary mb-2", method: :post %> 
                   </td>
                   <td>
                     <%= button_to '', paiement_path(paiement), 
-                        class:"fa-solid fa-trash-can btn btn-danger btn-sm", method: :delete %> 
+                        class:"fa-solid fa-trash-can btn btn-danger btn-sm mb-2 me-3", method: :delete %> 
                   </td>
                 </tr>
               </table>
@@ -38,6 +27,6 @@
         </div>
       </div>
     </div>
-  </div>
+
 
 </div>

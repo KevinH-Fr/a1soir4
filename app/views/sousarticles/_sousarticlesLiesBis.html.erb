@@ -22,14 +22,14 @@
         <div> 
           <div data-controller="nouveau">
             <div class="row">
-                <div class="col">
+                <div class="col p-2 m-4">
                   <div class="shadow rounded text-dark text-center">
                     <%= link_to "Auto", toggle_sousarticleauto_sousarticle_path(
                       produitId: @produitId, commandeId: @commandeId, articleId: @articleId), 
                       class:"btn btn-sm btn-primary" %> 
                   </div>
                 </div>
-                <div class="col">
+                <div class="col p-2 m-4">
                   <div class="shadow rounded text-dark text-center">
                     <div role="button" data-action="click->nouveau#openNouveau" data-nouveau-target="openNouveau", class="btn btn-sm btn-success", style="inline;">
                       Nouveau

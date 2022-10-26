@@ -12,24 +12,22 @@
     </div>
   <% end %>
 
-  <div class="card mb-3 text-bg-dark">
-    <div class="card-body">
+    <div class="card-body with-shadow m-2">
       <div class="input-group mb-3">
-        <%= form.label :commande_id, class:"input-group-text", style:"width: 100x;"%>
+        <%= form.label :commande_id, class:"input-group-text bg-secondary text-light", style:"width: 100px;"%>
         <%= form.number_field :commande_id, value: session[:commandeId], class:"form-control" %> 
       </div>
       <div class="input-group mb-3">
-        <%= form.label :type, class:"input-group-text", style:"width: 100x;"%>
+        <%= form.label :type, class:"input-group-text bg-secondary text-light", style:"width: 100px;"%>
         <%= form.select :typepaiement, Paiement.typePaiements.keys, {include_blank: true}, 
             class:"form-control" %> 
       </div>
       <div class="input-group mb-3">
-        <%= form.label :montant, class:"input-group-text", style:"width: 100x;"%>
+        <%= form.label :montant, class:"input-group-text bg-secondary text-light", style:"width: 100px;"%>
         <%= form.text_field :montant, class:"form-control" %> 
       </div>
-      <div> <br>
+      <div> 
         <%= form.submit "Créer", class: 'btn btn-success' %>
       </div>
-    </div>
   </div>
 <% end %>

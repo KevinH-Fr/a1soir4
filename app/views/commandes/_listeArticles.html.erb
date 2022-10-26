@@ -1,9 +1,9 @@
 
-<div class="card mb-3 text-bg-dark m-2">
-  <div class="card-header bg-black border-light text-center">
+<div class="card text-light p-0 border border-dark m-4">
+  <div class="card-header bg-black text-center p-1">
     <strong>Articles</strong> 
   </div>
-  <div class="card-body bg-light p-1">
+  <div class="card-body bg-dark p-0">
     <table class="table table-secondary table-striped table-bordered table-hover">
       <thead class="table-dark">
         <tr style="line-height: 5px;">
@@ -26,7 +26,7 @@
             <td> <%= Produit.find(article.produit_id).nom %> </td>
             <td class="text-center"> <%= article.quantite %> </td>
             <td class="text-end"> <%= article.prix %> </td>
-            <td class="text-end"> <%= article.total %> </td>
+            <td class="text-end fw-bold"> <%= number_with_precision(article.total, precision: 2) %> € </td>
             <td style="width:10px"> <%= link_to "", edit_article_path(article, 
                   produitId: article.produit_id, commandeId: article.commande_id, articleId: article), 
                   class:"fa-regular fa-pen-to-square btn btn-secondary btn-sm" %> </td> 
@@ -40,7 +40,7 @@
                 <td></td>
                 <td></td>
                 <td class="text-end"> </td>
-                <td class="text-end"> <%= sousarticle.prix_sousarticle %></td>
+                <td class="text-end fw-bold"> <%= number_with_precision(sousarticle.prix_sousarticle, precision: 2) %> € </td>
                 <td style="width:10px"> <%= link_to "", edit_sousarticle_path(sousarticle, articleId: article.id), class:"fa-regular fa-pen-to-square btn btn-secondary btn-sm" %> </td> 
                 <td style="width:10px"> <%= button_to '', sousarticle, class:"fa-solid fa-trash-can btn btn-danger btn-sm", method: :delete, :onclick => "return confirm('Sûr ?')" %>  </td> 
               </tr>
@@ -49,21 +49,26 @@
         </tbody>
         <tfoot class="table-dark fs-bold">
           <tr>
-            <td colspan=3> totaux </td>
+            <td  class="text-center" colspan=3> totaux </td>
             <td class="text-center"> <%= Article.commande_courante(@commande).compte_articles %> </td>
             <td></td>
             <td class="text-end">
-              <%= Article.commande_courante(@commande).sum_articles + 
-                    Article.joins(:sousarticles).commande_courante(@commande).sum_sousarticles %>
+              <%= number_with_precision(
+                Article.commande_courante(@commande).sum_articles + 
+                Article.joins(:sousarticles).commande_courante(@commande).sum_sousarticles, 
+                precision: 2,
+                delimiter: " ") 
+              %> € 
+             
             </td>
             <td colspan=3></td>
           </tr>  
         </tfoot>
       </table>
     </div>
-      <div class="card-footer bg-black text-center">
-        <div class="position-relative">
-          <div class="position-absolute top-0 end-0">
+      <div class="card-footer bg-dark text-center p-0">
+        <div class="position-relative mb-3">
+          <div class="position-absolute end-0 m-1">
             <%= link_to "Nouvel article", new_article_path(commandeId: @commande), 
                class:"btn btn-sm btn-primary" %>
           </div> 

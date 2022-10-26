@@ -1,8 +1,8 @@
-<div class="card mb-2 mx-2 text-bg-dark">
-  <div class="card-header bg-black text-center text-white"> 
+<div class="card text-light p-0 border border-dark m-4">
+  <div class="card-header bg-black text-center p-1"> 
     <strong>Synthèse</strong> 
   </div>
-  <div class="card-body bg-grey p-1">
+  <div class="card-body bg-dark p-1">
     <div class="col">
       <% duPrix = Article.commande_courante(@commande).sum_articles %> 
       <% recuPrix = Paiement.commande_courante(@commande).sum_paiements %> 
@@ -20,7 +20,7 @@
       <% end %>
     </div>
   </div>
-  <div class="card-footer bg-black text-center">
+  <div class="card-footer bg-dark text-center">
     <%= link_to "PDF", commande_path(@commande, format: :pdf), class:"btn btn-warning btn-sm mx-2" %>
     <%= link_to "Mail", "", class:"btn btn-primary btn-sm mx-2" %>
     <%= link_to "Print", "", class:"btn btn-secondary btn-sm mx-2" %>

@@ -12,5 +12,8 @@ class Sousarticle < ApplicationRecord
   scope :sum_sousarticles, -> {sum('prix_sousarticle')}
   scope :compte_sousarticles, -> {count('nature')}
 
+  def texte_record
+    "#{nature} | prix " "#{prix_sousarticle}" " €" 
+  end
 
 end

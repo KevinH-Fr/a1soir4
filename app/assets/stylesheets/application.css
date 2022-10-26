@@ -76,3 +76,13 @@ h1, h2, p, div, li, ul, a {
     border-radius: 6px;
   }
 
+
+  .with-shadow{
+    box-shadow: 2px 2px 3px 3px rgb(78, 75, 75);
+    color: black;
+   /* text-align: center; */
+    background-color: whitesmoke;
+    padding-left: 20px;
+    line-height: 40px;
+    
+}

@@ -1,9 +1,9 @@
 
-<div class="card text-light m-1 border border-dark">
-  <div class="card-header bg-black text-center">
+<div class="card text-light p-0 border border-dark m-4">
+  <div class="card-header bg-black text-center p-1">
     <strong>Commande</strong> 
   </div>
-  <div class="card-body"> 
+  <div class="card-body m-0 p-0"> 
     <%= render @commande %> 
   </div>
 </div>
@@ -11,14 +11,14 @@
 <%= render "listeArticles" %>
 <%#= render "listePaiements" %>
 
-<div class="card text-bg-dark m-2">
-  <div class="card-header bg-black text-center"> 
+<div class="card text-light p-0 border border-dark mx-4">
+  <div class="card-header bg-black text-center p-1"> 
     <strong>Paiements</strong> 
   </div>
-  <div class="card-body bg-light"> 
+  <div class="card-body bg-light m-1 p-0"> 
     <%= render @paiements %>
   </div>
-  <div class="card-footer bg-black border-light">
+  <div class="card-footer bg-dark border-light p-1">
     <%= render "nouveauPaiement" %>
   </div>
 </div>

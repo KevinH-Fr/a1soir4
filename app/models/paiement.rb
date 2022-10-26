@@ -7,4 +7,15 @@ class Paiement < ApplicationRecord
   scope :sum_paiements, -> {sum('montant')}
   scope :compte_paiements, -> {count('montant')}
 
+
+  def format_date
+    datetime = created_at.to_date
+    created_at.strftime("%d/%m/%y")
+  end 
+
+  def texte_record
+    datetime = created_at.to_date
+     "#{typepaiement}" " d'un montant de " "#{montant}" " € reçu le " "#{created_at.strftime("%d/%m/%y")}"
+  end 
+
 end

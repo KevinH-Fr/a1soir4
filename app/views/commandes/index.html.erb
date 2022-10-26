@@ -17,18 +17,21 @@
         Fermer nouveau
       </div>
       <hr>
-      <div id="new_client">
+      <div id="new_commande">
         <div data-nouveau-target="nouveauContent">
           <%= render partial: "commandes/form", locals: {commande: Commande.new} %>
         </div>
       </div>
   </div>
 
-  <div id="commandes">
-    <%#= render "liste" %>
-    <%= render @commandes %>
+<div class="card text-light p-1 m-2">
+  <div class="card-header bg-light text-start p-1 m-2"> 
+    <div id="commandes">
+      <%#= render "liste" %>
+      <%= render @commandes %>
+    </div>
   </div>
-
+</div>
 
 <%#= link_to "commandes PDF", commandes_path(format: :pdf), class:"btn btn-warning" %>
 

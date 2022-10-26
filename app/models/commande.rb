@@ -12,4 +12,8 @@ class Commande < ApplicationRecord
       created_at.strftime("%d/%m/%y")
     end 
 
+    def texte_record
+      "n°#{id} | #{nom} | #{created_at.strftime("%d/%m/%y")}" 
+    end
+
 end
