@@ -4,7 +4,12 @@ class Commande < ApplicationRecord
     scope :client_courant, ->  (client_courant) { where("client_id = ?", client_courant)}
 
     def full_name
-        "n°#{id} | #{nom}"
+      "n°#{id} | #{nom}"
     end
+
+    def format_date
+      datetime = created_at.to_date
+      created_at.strftime("%d/%m/%y")
+    end 
 
 end

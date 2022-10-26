@@ -19,7 +19,7 @@
         </div>
         <div class="col">
           <div class="shadow p-1 mb-1 bg-body rounded text-dark text-center">
-            <%= Commande.find(@commandeId).created_at %>
+            <%= Commande.find(@commandeId).format_date %>
           </div>
         </div>
       </div>
