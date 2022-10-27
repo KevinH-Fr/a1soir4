@@ -1,13 +1,11 @@
 /*
-
  *= require_tree .
  *= require_self
  */
  
- body {
+body {
     background-color: rgb(50, 50, 50);
- }
-
+}
 
 h1, h2, p, div, li, ul, a {
     color: rgb(255, 255, 255);
@@ -38,47 +36,43 @@ h1, h2, p, div, li, ul, a {
     background-color: rgb(63, 57, 57);
     content: "\270f";
     font-family: 'Glyphicons Halflings';
- }
+}
 
-
- .normal-text{
+.normal-text{
     border-left-width: 1px !important;
     font-size: 110% !important;
     color:rgb(255, 255, 255);
     background-color: rgb(63, 57, 57);
     font-family: 'Book Antiqua';
- }
- .normal-text::after{
+}
+
+.normal-text::after{
     content: "\270f";
     font-family: 'Glyphicons Halflings';
- }
+}
 
-
- .test-icon{
+.test-icon{
     border-left-width: 1px !important;
     font-size: 110% !important;
     color:rgb(255, 255, 255);
     background-color: rgb(168, 39, 39);
     font-family: 'Book Antiqua';
-    
- }
- .test-icon::after{
-    content: "\270f";
+}
+
+.test-icon::after{
+   content: "\270f";
    /* font-family: 'Glyphicons Halflings'; */
+}
 
- }
-
-
- #notice{
+#notice{
     background-color: green;
     color: white;
     padding: 6px;
     border-radius: 6px;
-  }
+}
 
-
-  .with-shadow{
-    box-shadow: 2px 2px 3px 3px rgb(78, 75, 75);
+.with-shadow{
+    box-shadow: 1px 1px 2px 2px rgb(78, 75, 75);
     color: black;
    /* text-align: center; */
     background-color: whitesmoke;
@@ -90,4 +84,9 @@ h1, h2, p, div, li, ul, a {
     padding: 1.5em .5em .5em;
     border-radius: 2em;
     box-shadow: 0 5px 10px rgba(0,0,0,.2);
+}
+
+.a1soir-colored {
+    color:rgb(255, 255, 255);
+    background-color: rgb(204, 46, 102);
 }

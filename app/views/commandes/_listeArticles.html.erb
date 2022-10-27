@@ -8,8 +8,9 @@
       <table class="table table-light table-striped table-bordered table-hover">
         <thead class="table-dark">
           <tr style="line-height: 5px;">
-            <th style="text-align: center;">#</th>
+            <th style="text-center">#</th>
             <th class="text-center" colspan="2">produit</th>
+            <th class="text-center">type</th>
             <th class="text-center">quantité</th>
             <th class="text-center">prix</th>
             <th class="text-center">total</th>
@@ -20,7 +21,7 @@
       <tbody>
         <% @articles.each_with_index do | article, i | %>
           <tr>
-            <td class="text-center"> 
+            <td class="text-center align-middle"> 
               <%= i + 1 %> 
             </td>
             <td> 
@@ -28,26 +29,29 @@
                     class: "img-fluid rounded"),
                     edit_article_path(article, produitId: article.produit_id, commandeId: article.commande_id, articleId: article) %> 
             </td>
-            <td> 
+            <td class="align-middle"> 
               <%= link_to Produit.find(article.produit_id).nom,
                     edit_article_path(article, produitId: article.produit_id, commandeId: article.commande_id, articleId: article), 
                     class:"text-dark fw-bold" %> 
             </td>
-            <td class="text-center"> 
+            <td class="align-middle"> 
+              <%= article.locvente %> 
+            </td>
+            <td class="text-center align-middle"> 
               <%= article.quantite %> 
             </td>
-            <td class="text-end"> 
+            <td class="text-end align-middle"> 
               <%= article.prix %> 
             </td>
-            <td class="text-end fw-bold">
+            <td class="text-end fw-bold align-middle">
               <%= number_with_precision(article.total, precision: 2) %> 
             </td>
-            <td style="width:10px"> 
+            <td style="width:10px" class="align-middle"> 
               <%= link_to "", edit_article_path(article, 
                   produitId: article.produit_id, commandeId: article.commande_id, articleId: article), 
                   class:"fa-regular fa-pen-to-square btn btn-secondary btn-sm" %> 
             </td> 
-            <td style="width:10px"> 
+            <td style="width:10px" class="align-middle"> 
               <%= button_to '', article, class:"fa-solid fa-trash-can btn btn-danger btn-sm", method: :delete, :onclick => "return confirm('Sûr ?')" %>  
             </td> 
           </tr> 
@@ -57,7 +61,7 @@
             <% @sousarticles.each do |sousarticle| %>
                <tr>
                 <td></td>
-                <td class="fst-italic"> <%= sousarticle.nature %> </td>
+                <td colspan="2" class="fst-italic"> <%= sousarticle.nature %> </td>
                 <td></td>
                 <td></td>
                 <td class="text-end"> </td>

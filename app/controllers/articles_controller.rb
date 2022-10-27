@@ -20,10 +20,14 @@ class ArticlesController < ApplicationController
 
     @sousarticles = Sousarticle.article_courant(@article)
 
+    @typelocvente = ["location", "vente"]
+    
+    
     @quantite = 1
     
     if @produitId.present?
      @valPrix = Produit.find(@produitId).prix
+     @valCaution = 10
     else
       @valPrix = 0
     end 
@@ -61,7 +65,7 @@ class ArticlesController < ApplicationController
     @commandeId = params[:commandeId]
     @produitId = params[:produitId]
     @natures = Modelsousarticle.distinct.pluck(:nature)
-    
+    @typelocvente = ["location", "vente"]
     
     @articleId = 5
 
@@ -69,6 +73,8 @@ class ArticlesController < ApplicationController
 
     @quantite = Article.find(@article.id).quantite
     @valPrix = Article.find(@article.id).prix
+  
+   
 
     if @quantite.present? && @valPrix.present? 
       @valTotal =  @quantite * @valPrix 
@@ -76,7 +82,6 @@ class ArticlesController < ApplicationController
       @valTotal = 0  
     end
     
-
   end
 
   def create
@@ -143,6 +148,6 @@ class ArticlesController < ApplicationController
     end
 
     def article_params
-      params.fetch(:article, {}).permit(:quantite, :commande_id, :produit_id, :prix, :total)
+      params.fetch(:article, {}).permit(:quantite, :commande_id, :produit_id, :prix, :caution, :total, :locvente)
     end
 end

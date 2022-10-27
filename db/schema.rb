@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_20_131608) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_27_232859) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -80,6 +80,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_20_131608) do
     t.datetime "updated_at", null: false
     t.decimal "prix"
     t.decimal "total"
+    t.string "locvente"
+    t.decimal "caution"
     t.index ["commande_id"], name: "index_articles_on_commande_id"
     t.index ["produit_id"], name: "index_articles_on_produit_id"
   end
@@ -163,6 +165,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_20_131608) do
     t.string "categorie"
     t.boolean "vitrine"
     t.string "couleur"
+    t.decimal "caution"
   end
 
   create_table "sousarticles", force: :cascade do |t|

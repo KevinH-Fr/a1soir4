@@ -17,11 +17,16 @@
         Fermer nouveau
       </div>
       <hr>
+
+
       <div id="new_commande">
         <div data-nouveau-target="nouveauContent">
-          <%= render partial: "commandes/form", locals: {commande: Commande.new} %>
+          <div class="card rounded px-4">
+            <%= render partial: "commandes/form", locals: {commande: Commande.new} %>
+          </div>
         </div>
       </div>
+
   </div>
 </div>
 

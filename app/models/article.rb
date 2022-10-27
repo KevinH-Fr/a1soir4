@@ -4,6 +4,8 @@ class Article < ApplicationRecord
 
   has_many :sousarticles
 
+  enum typelocventes: ["Location", "Vente"]
+  
  # enum quantite: {1 => 1, 2 => 2, 3 => 3}
 
   scope :commande_courante, ->  (commande_courante) { where("commande_id = ?", commande_courante)}
