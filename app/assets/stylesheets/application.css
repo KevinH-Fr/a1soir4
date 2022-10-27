@@ -83,6 +83,11 @@ h1, h2, p, div, li, ul, a {
    /* text-align: center; */
     background-color: whitesmoke;
     padding-left: 20px;
-    line-height: 40px;
-    
+    line-height: 40px;   
+}
+
+.rounded{
+    padding: 1.5em .5em .5em;
+    border-radius: 2em;
+    box-shadow: 0 5px 10px rgba(0,0,0,.2);
 }

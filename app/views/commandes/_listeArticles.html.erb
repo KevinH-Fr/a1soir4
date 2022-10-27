@@ -1,10 +1,10 @@
 
-<div class="card text-light p-0 border border-dark m-4">
+<div class="card rounded m-0 p-0 m-4">
   <div class="card-header bg-black text-center p-1">
     <strong>Articles</strong> 
   </div>
   <div class="card-body p-0">
-    <div class="table-responsive">
+    <div class="table-responsive bg-dark">
       <table class="table table-light table-striped table-bordered table-hover">
         <thead class="table-dark">
           <tr style="line-height: 5px;">
@@ -24,11 +24,14 @@
               <%= i + 1 %> 
             </td>
             <td> 
-              <%= image_tag(Produit.find(article.produit_id).default_image, style: "width: 80px; display: block", 
-                    class: "img-fluid rounded") %> 
+              <%= link_to image_tag(Produit.find(article.produit_id).default_image, style: "width: 80px; display: block", 
+                    class: "img-fluid rounded"),
+                    edit_article_path(article, produitId: article.produit_id, commandeId: article.commande_id, articleId: article) %> 
             </td>
             <td> 
-              <%= Produit.find(article.produit_id).nom %> 
+              <%= link_to Produit.find(article.produit_id).nom,
+                    edit_article_path(article, produitId: article.produit_id, commandeId: article.commande_id, articleId: article), 
+                    class:"text-dark fw-bold" %> 
             </td>
             <td class="text-center"> 
               <%= article.quantite %> 
@@ -59,8 +62,8 @@
                 <td></td>
                 <td class="text-end"> </td>
                 <td class="text-end fw-bold"> <%= number_with_precision(sousarticle.prix_sousarticle, precision: 2) %> </td>
-                <td style="width:10px"> <%= link_to "", edit_sousarticle_path(sousarticle, articleId: article.id), class:"fa-regular fa-pen-to-square btn btn-secondary btn-sm" %> </td> 
-                <td style="width:10px"> <%= button_to '', sousarticle, class:"fa-solid fa-trash-can btn btn-danger btn-sm", method: :delete, :onclick => "return confirm('Sûr ?')" %>  </td> 
+                <td style="width:10px"> <%#= link_to "", edit_sousarticle_path(sousarticle, articleId: article.id), class:"fa-regular fa-pen-to-square btn btn-secondary btn-sm" %> </td> 
+                <td style="width:10px"> <%#= button_to '', sousarticle, class:"fa-solid fa-trash-can btn btn-danger btn-sm", method: :delete, :onclick => "return confirm('Sûr ?')" %>  </td> 
               
               </tr>
             <% end %>   
@@ -85,7 +88,7 @@
       </table>
     </div>
      <div class="card-footer bg-dark text-center p-0">
-        <div class="position-relative mb-3">
+        <div class="position-relative mb-4">
           <div class="position-absolute end-0 m-1">
             <%= link_to "Nouvel article", new_article_path(commandeId: @commande), 
                class:"btn btn-sm btn-primary" %>

@@ -1,5 +1,5 @@
 
-<div class="card text-light p-0 border border-dark m-4">
+<div class="card rounded m-0 p-0 mx-4 mt-4">
   <div class="card-header bg-black text-center p-1">
     <strong>Commande</strong> 
   </div>
@@ -9,18 +9,31 @@
 </div>
 
 <%= render "listeArticles" %>
-<%#= render "listePaiements" %>
 
-<div class="card text-light p-0 border border-dark mx-4">
+<div class="card rounded m-0 p-0 mx-4 mt-4">
   <div class="card-header bg-black text-center p-1"> 
     <strong>Paiements</strong> 
   </div>
   <div class="card-body bg-light m-1 p-0"> 
     <%= render @paiements %>
   </div>
-  <div class="card-footer bg-dark border-light p-1">
+  <div class="card-footer bg-light border-light p-1">
     <%= render "nouveauPaiement" %>
   </div>
 </div>
 
-<%= render "syntheseCommande" %>
+<div class="card rounded m-0 p-0 mx-4 my-2">
+  <div class="card-header bg-black text-center p-1"> 
+    <strong>Synthèse</strong> 
+  </div>
+  <div class="card-body p-0 m-2"> 
+    <%= render "syntheseCommande" %> 
+  </div>
+  <div class="card-footer text-center bg-dark p-1">
+    <%= link_to "PDF", commande_path(@commande, format: :pdf), class:"btn btn-warning btn-sm mx-2" %>
+    <%= link_to "Mail", "", class:"btn btn-primary btn-sm mx-2" %>
+    <%= link_to "Print", "", class:"btn btn-secondary btn-sm mx-2" %>
+    <%= link_to "Lien", "", class:"btn btn-success btn-sm mx-2" %>
+    <%= link_to "Lien", "", class:"btn btn-danger btn-sm mx-2" %>
+  </div>
+</div>
