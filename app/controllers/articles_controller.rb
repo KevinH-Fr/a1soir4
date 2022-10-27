@@ -62,7 +62,9 @@ class ArticlesController < ApplicationController
     @produitId = params[:produitId]
     @natures = Modelsousarticle.distinct.pluck(:nature)
     
-    session[:articleId] = params[:articleId]
+    
+    @articleId = 5
+
     @sousarticles = Sousarticle.article_courant(@article)
 
     @quantite = Article.find(@article.id).quantite

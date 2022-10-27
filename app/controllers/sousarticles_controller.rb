@@ -20,6 +20,7 @@ class SousarticlesController < ApplicationController
 
   def edit
     @articleId = params[:articleId]
+    session[:articleId] = params[:articleId]
     @natures = Modelsousarticle.distinct.pluck(:nature)
 
     respond_to do |format|

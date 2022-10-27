@@ -19,34 +19,34 @@
 
     <div class="position-relative">
       <div class="position-absolute top-0 end-0">
-        <div> 
+  
           <div data-controller="nouveau">
-            <div class="row">
-                <div class="col p-2 m-4">
-                  <div class="shadow rounded text-dark text-center">
-                    <%= link_to "Auto", toggle_sousarticleauto_sousarticle_path(
+            <div class="row p-0 m-0">
+              <div class="col p-0 mx-1">
+                <div class="shadow rounded text-dark text-center">
+                  <%= link_to "Auto", toggle_sousarticleauto_sousarticle_path(
                       produitId: @produitId, commandeId: @commandeId, articleId: @articleId), 
                       class:"btn btn-sm btn-primary" %> 
-                  </div>
-                </div>
-                <div class="col p-2 m-4">
-                  <div class="shadow rounded text-dark text-center">
-                    <div role="button" data-action="click->nouveau#openNouveau" data-nouveau-target="openNouveau", class="btn btn-sm btn-success", style="inline;">
-                      Nouveau
-                    </div>
-                    <div role="button" data-action="click->nouveau#closeNouveau" data-nouveau-target="closeNouveau", class="btn btn-sm btn-danger", style="inline;">
-                      Fermer
-                    </div> 
-                  </div>
                 </div>
               </div>
-              <div id="new_sousarticle">
-                <div data-nouveau-target="nouveauContent">
-                  <%= render partial: "sousarticles/form", locals: {sousarticle: Sousarticle.new} %>
+              <div class="col p-0 mx-1">
+                <div class="shadow rounded text-dark text-center">
+                  <div role="button" data-action="click->nouveau#openNouveau" data-nouveau-target="openNouveau", class="btn btn-sm btn-success", style="inline;">
+                    Nouveau
+                  </div>
+                  <div role="button" data-action="click->nouveau#closeNouveau" data-nouveau-target="closeNouveau", class="btn btn-sm btn-danger", style="inline;">
+                    Fermer
+                  </div> 
                 </div>
               </div>
+            </div>
+            <div id="new_sousarticle">
+              <div data-nouveau-target="nouveauContent">
+                <%= render partial: "sousarticles/form", locals: {sousarticle: Sousarticle.new} %>
+              </div>
+            </div>
           </div>
-        </div>
+
       </div>
     </div>
   </div>

@@ -4,7 +4,7 @@
     <strong>Articles</strong> 
   </div>
   <div class="card-body p-0">
-    <div class="table-responsive-xxl">
+    <div class="table-responsive">
       <table class="table table-light table-striped table-bordered table-hover">
         <thead class="table-dark">
           <tr style="line-height: 5px;">
@@ -67,8 +67,31 @@
           
         <% end %>
       </tbody>
+      <tfoot class="table-dark fs-bold">
+          <tr>
+            <td  class="text-center" colspan=3> totaux </td>
+            <td class="text-center"> <%= Article.commande_courante(@commande).compte_articles %> </td>
+            <td></td>
+            <td class="text-end">
+              <%= number_with_precision(
+                Article.commande_courante(@commande).sum_articles + 
+                Article.joins(:sousarticles).commande_courante(@commande).sum_sousarticles, 
+                precision: 2, delimiter: " ") %> 
+            </td>
+            <td colspan=3></td>
+          </tr>  
+        </tfoot>
 
       </table>
     </div>
+     <div class="card-footer bg-dark text-center p-0">
+        <div class="position-relative mb-3">
+          <div class="position-absolute end-0 m-1">
+            <%= link_to "Nouvel article", new_article_path(commandeId: @commande), 
+               class:"btn btn-sm btn-primary" %>
+          </div> 
+        </div> <br>
+      </div>
+
   </div>
 </div>  
