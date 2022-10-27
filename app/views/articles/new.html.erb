@@ -1,7 +1,11 @@
   
-<h1>Nouvel article</h1>
+<div class="m-4">
+  <h1>Nouvel article</h1>
+</div>
 
-<%= render "infosCommande" %>
+<div class="card mx-4">
+  <%= render "infosCommande" %>
+</div>
 
 <%= render "search" %>
 
@@ -10,17 +14,15 @@
     <%= render "listeSelection" %>
   <% end %>
 
+<div class="mx-4">
   <%= render "form", article: @article %>
+</div>
 
 <div>
   <% @commandeId = session[:commandeId] %>
 </div>
 
-<div class="m-4"> 
-  <%#= render "sousarticles/sousarticlesLies" %>
-  <%#= link_to "Nouveau sous article", 
-      new_sousarticle_path(articleId: @article), 
-      class:"btn btn-sm btn-success" %>
+<div class="m-0"> 
   <%#= link_to "Retour", commande_path(@commandeId), 
       class:"btn btn-sm btn-secondary" %>
 </div>

@@ -1,13 +1,13 @@
 
-      <h3 class="my-2"> Commandes </h3> 
-      <span id="commande_counter">
-        nombre: <%= Commande.count %>
-      </span> <br>  
-
-
+<div class="m-4">
+  <h3 class="my-2"> Commandes </h3> 
+  <span id="commande_counter">
+    nombre: <%= Commande.count %>
+  </span> <br>  
+  
   <div class="mb-1">
-   <%= render "search" %>
- </div>
+    <%= render "search" %>
+  </div>
 
    <div data-controller="nouveau", class="mx-auto">
       <div role="button" data-action="click->nouveau#openNouveau" data-nouveau-target="openNouveau", class="btn btn-sm btn-success", style="inline;">
@@ -23,8 +23,9 @@
         </div>
       </div>
   </div>
+</div>
 
-<div class="card text-light p-1 m-2">
+<div class="card text-light p-1 m-4">
   <div class="card-header bg-light text-start p-1 m-2"> 
     <div id="commandes">
       <%#= render "liste" %>

@@ -68,28 +68,21 @@
                           <%= form.number_field :total, value:  valQuantite * valPrix, 
                             class:"form-control bg-dark text-white text-center" %>
                         </div>
+
+                        <div class="position-relative p-1 mb-4">
+                          <div class="position-absolute top-0 end-0">
+                            <%= link_to 'Annuler selection', new_article_path(commandeId: @commandeId), class:"btn btn-outline-danger btn-sm" %>
+                            <%= form.submit "Créer", class: 'btn btn-sm btn-success' %>
+                          </div>
+                        </div>
+
                         <% end %>  
                       </div>
                  <% end %>
- 
-                <div class="position-relative p-1 mb-4">
-                  <div class="position-absolute top-0 end-0">
-                    <%= link_to 'Annuler selection', new_article_path(commandeId: @commandeId), class:"btn btn-outline-danger btn-sm" %>
-                    <%= form.submit "Créer", class: 'btn btn-sm btn-success' %>
-                  </div>
-                </div>
+
               </div>
-
-
-
       </div>
-
-    
-
- 
-    
-    </div>
- 
+    </div> 
   </div>
 
 <% end %>

@@ -3,10 +3,10 @@
   <div class="card-header bg-dark border-black"> 
     <strong>Demande de connexion</strong> 
   </div>
-  <div class="card-body bg-light p-1 m-1">
+  <div class="card-body bg-light p-3 m-1">
     <% unless current_user.present? %>
-      <%= link_to "Se connecter", new_user_session_path, class:"btn btn-success p-2" %> 
-      <%= link_to "Créer un compte", new_user_registration_path, class:"btn btn-primary p-2" %>
+      <%= link_to "Se connecter", new_user_session_path, class:"btn btn-success p-2 m-2" %> 
+      <%= link_to "Créer un compte", new_user_registration_path, class:"btn btn-primary p-2 m-2" %>
     <% end %>
   </div>
 </div>

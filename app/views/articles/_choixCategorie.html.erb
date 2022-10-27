@@ -1,19 +1,24 @@
 
-  Categories | 
-  <% @categories.each do |categorie| %>
-    <%= link_to "#{categorie}", url_for(commandeId: session[:commandeId], categorieVal: categorie), class:"btn btn-sm btn-secondary", :method => :post %> 
-  <% end %>
-  <% @categorie = params[:categorieVal]%>
-  <br> 
-
-  <% if @categorie.present? %>  <br>
-    Couleur | 
-    <% @couleurs.each do |couleur| %>
-      <% if couleur.present? %>
-        <%= link_to "#{couleur}", url_for(commandeId: session[:commandeId],  categorieVal: @categorie, couleurVal: couleur), class:"btn btn-sm btn-secondary", :method => :post %> 
-      <% end %>
+<div class="card rounded text-dark p-0 m-0 ">
+  <div class="text-dark m-2">
+    Categories | 
+    <% @categories.each do |categorie| %>
+      <%= link_to "#{categorie}", url_for(commandeId: session[:commandeId], categorieVal: categorie), 
+            class:"btn btn-sm btn-secondary mx-1", :method => :post %> 
     <% end %>
-    <% @couleur = params[:couleurVal]%>
- <% end %>
+    <% @categorie = params[:categorieVal]%>
+  </div> 
 
-<hr/> 
+  <div class="text-dark mx-2 my-1">
+    <% if @categorie.present? %> 
+      Couleur | 
+        <% @couleurs.each do |couleur| %>
+          <% if couleur.present? %>
+            <%= link_to "#{couleur}", url_for(commandeId: session[:commandeId],  categorieVal: @categorie, couleurVal: couleur), 
+                  class:"btn btn-sm btn-secondary mx-2", :method => :post %> 
+          <% end %>
+        <% end %>
+        <% @couleur = params[:couleurVal]%>
+    <% end %>
+  </div>
+</div>
