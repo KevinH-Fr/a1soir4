@@ -13,7 +13,7 @@ class Commande < ApplicationRecord
     end 
 
     def texte_record
-      "n°#{id} | #{nom} | #{created_at.strftime("%d/%m/%y")}" 
+      "n°#{id} | #{type_locvente} | #{nom} | #{created_at.strftime("%d/%m/%y")}" 
     end
 
     def type_locvente

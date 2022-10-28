@@ -12,18 +12,18 @@
 
   <div class="card-body with-shadow">
       <div class="input-group mb-3">
-        <%= form.label :nom, { class: "form-label"} %>
-        <%= form.text_field :nom, { class: "form-control", placeholder: "nom" } %>
+        <%= form.label :nom, class:"input-group-text bg-secondary text-light", style:"width: 100px;" %>
+        <%= form.text_field :nom, class:"form-control border border-secondary" %>
       </div>
 
-      <div class="mb-3">
-        <%= form.label :mail, { class: "form-label"} %>
-        <%= form.text_field :mail, { class: "form-control", placeholder: "mail" } %>
+      <div class="input-group mb-3">
+        <%= form.label :mail, class:"input-group-text bg-secondary text-light", style:"width: 100px;" %>
+        <%= form.text_field :mail, class:"form-control border border-secondary" %>
       </div>
 
-      <div class="mb-3">
-        <%= form.label :commentaires, { class: "form-label"} %>
-        <%= form.text_area :commentaires, { class: "form-control", placeholder: "commentaires" } %>
+      <div class="input-group mb-3">
+        <%= form.label :commentaires, class:"input-group-text bg-secondary text-light", style:"width: 100px;" %>
+        <%= form.text_area :commentaires, class:"form-control border border-secondary" %>
       </div>
       <%= form.submit "Valider", class: "btn btn-primary" %>
   </div>
