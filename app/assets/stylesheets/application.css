@@ -82,8 +82,8 @@ h1, h2, p, div, li, ul, a {
 
 .rounded{
     padding: 1.5em .5em .5em;
-    border-radius: 2em;
-    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+    border-radius: 4em;
+    box-shadow: 0 5px 10px rgba(195, 191, 191, 0.2);
 }
 
 .a1soir-colored {

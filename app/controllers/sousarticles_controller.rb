@@ -90,7 +90,7 @@ class SousarticlesController < ApplicationController
 
   def toggle_sousarticleauto
 
-    @articleId = params[:articleId]
+    @articleId = params[:id]
     @commandeId = params[:commandeId]
     @produitId = params[:produitId]
 

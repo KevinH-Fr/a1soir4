@@ -1,14 +1,27 @@
 
 <div class="m-4">
-  <h3 class="my-2"> Commandes </h3> 
-  <span id="commande_counter">
-    nombre: <%= Commande.count %>
-  </span> <br>  
+
+<div class="rounded with-shadow p-0 mb-2">
+  <div class="card card-header bg-dark text-white p-0 m-0">
+
+  <div class="row p-0">
+    <div class="col ms-4">
+       <strong>Commandes</strong> 
+    </div>
+    <div class="col">
+        <span id="commande_counter" class="position-absolute top-0 start-100 
+            translate-middle badge rounded-pill bg-warning text-dark">
+          <%= Commande.count %>
+        </span>
+    </div>
+  </div>
+</div> 
   
   <div class="mb-1">
     <%= render "search" %>
   </div>
-
+</div>
+  
    <div data-controller="nouveau", class="mx-auto">
       <div role="button" data-action="click->nouveau#openNouveau" data-nouveau-target="openNouveau", class="btn btn-sm btn-success", style="inline;">
         Nouvelle commande
@@ -16,12 +29,10 @@
       <div role="button" data-action="click->nouveau#closeNouveau" data-nouveau-target="closeNouveau", class="btn btn-sm btn-danger", style="inline;">
         Fermer nouveau
       </div>
-      <hr>
-
-
+     
       <div id="new_commande">
         <div data-nouveau-target="nouveauContent">
-          <div class="card rounded px-4">
+          <div class="card rounded mt-4 px-4 py-4"> 
             <%= render partial: "commandes/form", locals: {commande: Commande.new} %>
           </div>
         </div>
@@ -33,12 +44,8 @@
 <div class="card text-light p-1 m-4">
   <div class="card-header bg-light text-start p-1 m-2"> 
     <div id="commandes">
-      <%#= render "liste" %>
       <%= render @commandes %>
     </div>
   </div>
 </div>
-
-<%#= link_to "commandes PDF", commandes_path(format: :pdf), class:"btn btn-warning" %>
-
 

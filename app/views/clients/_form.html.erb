@@ -10,9 +10,8 @@
     </div>
   <% end %>
 
-<div class="card text-bg-dark mb-3 mx-auto" style="max-width: 36rem;">
-    <div class="card-body">
-      <div class="mb-3">
+  <div class="card-body with-shadow">
+      <div class="input-group mb-3">
         <%= form.label :nom, { class: "form-label"} %>
         <%= form.text_field :nom, { class: "form-control", placeholder: "nom" } %>
       </div>
@@ -28,6 +27,5 @@
       </div>
       <%= form.submit "Valider", class: "btn btn-primary" %>
   </div>
-</div>
 
 <% end %>
