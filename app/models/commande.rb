@@ -16,4 +16,17 @@ class Commande < ApplicationRecord
       "n°#{id} | #{nom} | #{created_at.strftime("%d/%m/%y")}" 
     end
 
+    def type_locvente
+      arr = Article.commande_courante(id).distinct.pluck(:locvente)
+      if (arr - ["location"]).empty?
+        "location"
+      else
+        if (arr - ["vente"]).empty?
+          "vente"
+        else
+          "location & vente"
+        end
+      end
+    end
+
 end
