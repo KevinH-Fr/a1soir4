@@ -23,19 +23,21 @@
   </head>
 
   <body>
-  
-    <%#= render partial: "shared/navbarDashboard" %>
-    <%#= render "dashboard" %>
 
-      <main> 
+    <div class="row p-0 m-0">
+      <div class="col-4 p-0 m-0">
+        <%= render partial: "shared/navbarDashboard" %>
+      </div>
+      <div class="col-8 p-0 m-0">
+       <main> 
         <div id="flash" style="position:absolute; z-index: 2; right: 10px;">
           <%= render partial: "layouts/flash" %>
         </div>
-          <%#= render partial: "layouts/alerts" %>
-        <div class="container-fluid">
-          <%#= Time.zone.now %>
-           <%= yield %>
-        </div>
-      </main>
+          <%= yield %>
+        </main>
+      </div> 
+    </div>
+
   </body>
+
 </html>

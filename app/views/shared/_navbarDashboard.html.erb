@@ -1,71 +1,96 @@
 
-
 <nav class="navbar a1soir-colored">
-  <div> 
+  <div class="d-none d-sm-block"> 
     <%= image_tag('logo2.png', class: 'fit-image') %>
   </div>
   
-  <div>
+  <%# <div class="bg-dark w-100"> %>
 
-          <div class="row">
-            <div class="col-2">
-              <i class="fa iconcolor fa-user"></i> 
-            </div>
-            <div class="col-10">
-              <a>CLIENTS</a>
-            </div>
-          </div>
-
-
-  <ul class="navbar-nav navbar-responsive">
     <% if current_user %>
-     <li class="nav-item">
-        <%= link_to clients_path, class:"navbar-link" do %>
-        <div class="row">
-          <div class="col-6">
-            <i class="fa iconcolor fa-user"></i> 
-          </div>
-          <div class="col">
-            <a>CLIENTS</a>
-          </div>
+
+      <div class="row navbar-item">
+        <div class="col-3 p-0 m-0">
+          <%= link_to accueil_admin_path, class:"navbar-link" do %>
+            <i class="fa iconcolor fa-house"></i> 
+          <% end %>
         </div>
+        <div class="col-9 d-none d-sm-block">
+          <%= link_to "ACCUEIL", accueil_admin_path %>
+        </div>
+      </div>
 
-        <% end %>
-     </li>
-      <li class="nav-item">
+      <div class="row navbar-item">
+        <div class="col-3 p-0 m-0">
+          <%= link_to clients_path, class:"navbar-link" do %>
+            <i class="fa iconcolor fa-user"></i> 
+          <% end %>
+        </div>
+        <div class="col-9 d-none d-sm-block">
+          <%= link_to "CLIENTS", clients_path %>
+        </div>
+      </div>
+
+
+    <div class="row navbar-item">
+      <div class="col-3 p-0 m-0">
         <%= link_to produits_path, class:"navbar-link" do %>
-          <i class="fa iconcolor fa-shirt"></i> PRODUITS
+          <i class="fa iconcolor fa-shirt"></i> 
         <% end %>
-     </li>
+      </div>
+      <div class="col-9 d-none d-sm-block ">
+         <%= link_to "PRODUITS", produits_path %>
+      </div>
+    </div>
 
+    <div class="row navbar-item">
+      <div class="col-3 p-0 m-0">
+        <%= link_to commandes_path, class:"navbar-link" do %>
+          <i class="fa iconcolor fa-file-invoice"></i> 
+        <% end %>
+      </div>
+      <div class="col-9 d-none d-sm-block">
+         <%= link_to "COMMANDES", commandes_path %>
+      </div>
+    </div>
 
-      <li class="nav-item">
-        <%= link_to "Produits", produits_path, class:"nav-link" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Modèles sous articles", modelsousarticles_path, class:"nav-link" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Commandes", commandes_path, class:"nav-link" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Articles", articles_path, class:"nav-link" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Paiements", paiements_path, class:"nav-link" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Calendrier", root_path, class:"nav-link" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Analyses", root_path, class:"nav-link" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Marketing", marketing_path, class:"nav-link" %>
-      </li>
-      <li class="nav-item">
+    <div class="row navbar-item">
+      <div class="col-3 p-0 m-0">
+        <%= link_to root_path, class:"navbar-link" do %>
+          <i class="fa iconcolor fa-calendar"></i> 
+        <% end %>
+      </div>
+      <div class="col-9 d-none d-sm-block">
+         <%= link_to "CALENDRIER", root_path %>
+      </div>
+    </div>
+
+    <div class="row navbar-item">
+      <div class="col-3 p-0 m-0">
+        <%= link_to root_path, class:"navbar-link" do %>
+          <i class="fa iconcolor fa-chart-line"></i> 
+        <% end %>
+      </div>
+      <div class="col-9 d-none d-sm-block">
+         <%= link_to "ANALYSES", root_path %>
+      </div>
+    </div>
+
+    <div class="row navbar-item">
+      <div class="col-3 p-0 m-0">
+        <%= link_to marketing_path, class:"navbar-link" do %>
+          <i class="fa iconcolor fa-bullhorn"></i> 
+        <% end %>
+      </div>
+      <div class="col-9 d-none d-sm-block">
+         <%= link_to "MARKETING", marketing_path %>
+      </div>
+    </div>
+
+   
+
+      <div class="nav-item">
         <%= button_to "logout", destroy_user_session_path, method: :delete, class:"btn btn-outline-danger" %>
-      </li>
+      </div>
 
 
     <% else %>
@@ -78,9 +103,8 @@
     <% end %>
 
 
-  </ul>
   
-  </div>
+   <%# </div> %>
  
 </nav>
 

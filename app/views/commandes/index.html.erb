@@ -1,11 +1,9 @@
 
-<div class="m-4">
-
-<div class="rounded with-shadow p-0 mb-2">
+<div class="bloc-entete-model">
   <div class="card card-header bg-dark text-white p-0 m-0">
 
-  <div class="row p-0">
-    <div class="col ms-4">
+  <div class="row m-0 p-0">
+    <div class="col ms-1">
        <strong>Commandes</strong> 
     </div>
     <div class="col">
@@ -32,20 +30,18 @@
      
       <div id="new_commande">
         <div data-nouveau-target="nouveauContent">
-          <div class="card rounded mt-4 px-4 py-4"> 
+
             <%= render partial: "commandes/form", locals: {commande: Commande.new} %>
-          </div>
+
         </div>
       </div>
 
   </div>
-</div>
 
-<div class="card text-light p-1 m-4">
-  <div class="card-header bg-light text-start p-0 m-2"> 
+
+
     <div id="commandes">
       <%= render @commandes %>
     </div>
-  </div>
-</div>
+
 
