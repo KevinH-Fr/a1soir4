@@ -20,7 +20,8 @@ class ClientsController < ApplicationController
     respond_to do |format|
       format.html
       format.turbo_stream do  
-        render turbo_stream: turbo_stream.update(@client, partial: "clients/form", locals: {client: @client})
+        render turbo_stream: turbo_stream.update(@client, partial: "clients/form", 
+          locals: {client: @client})
       end
     end
   end

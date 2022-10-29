@@ -1,0 +1,87 @@
+
+
+<nav class="navbar a1soir-colored">
+  <div> 
+    <%= image_tag('logo2.png', class: 'fit-image') %>
+  </div>
+  
+  <div>
+
+          <div class="row">
+            <div class="col-2">
+              <i class="fa iconcolor fa-user"></i> 
+            </div>
+            <div class="col-10">
+              <a>CLIENTS</a>
+            </div>
+          </div>
+
+
+  <ul class="navbar-nav navbar-responsive">
+    <% if current_user %>
+     <li class="nav-item">
+        <%= link_to clients_path, class:"navbar-link" do %>
+        <div class="row">
+          <div class="col-6">
+            <i class="fa iconcolor fa-user"></i> 
+          </div>
+          <div class="col">
+            <a>CLIENTS</a>
+          </div>
+        </div>
+
+        <% end %>
+     </li>
+      <li class="nav-item">
+        <%= link_to produits_path, class:"navbar-link" do %>
+          <i class="fa iconcolor fa-shirt"></i> PRODUITS
+        <% end %>
+     </li>
+
+
+      <li class="nav-item">
+        <%= link_to "Produits", produits_path, class:"nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Modèles sous articles", modelsousarticles_path, class:"nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Commandes", commandes_path, class:"nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Articles", articles_path, class:"nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Paiements", paiements_path, class:"nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Calendrier", root_path, class:"nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Analyses", root_path, class:"nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Marketing", marketing_path, class:"nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= button_to "logout", destroy_user_session_path, method: :delete, class:"btn btn-outline-danger" %>
+      </li>
+
+
+    <% else %>
+      <li class="nav-item">
+        <%= link_to "sign up", new_user_registration_path %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "login", new_user_session_path %>
+      </li>
+    <% end %>
+
+
+  </ul>
+  
+  </div>
+ 
+</nav>
+
+

@@ -2,8 +2,12 @@
  *= require_tree .
  *= require_self
  */
- 
-body {
+
+html {
+    height: 100%;
+}
+
+ body {
     background-color: rgb(50, 50, 50);
 }
 
@@ -82,7 +86,7 @@ h1, h2, p, div, li, ul, a {
     border-radius: 1em;
 }
 
-.rounded{
+.with-round{
     padding: 1.5em .5em .5em;
     border-radius: 4em;
     box-shadow: 0 5px 10px rgba(195, 191, 191, 0.2);
@@ -91,4 +95,54 @@ h1, h2, p, div, li, ul, a {
 .a1soir-colored {
     color:rgb(255, 255, 255);
     background-color: rgb(204, 46, 102);
+}
+
+
+/* dashboard */
+
+.navbar{
+    padding: 1.5em 1.5em 1.5em;
+    border-radius: 1em;
+    box-shadow: 2px 3px 4px rgba(165, 163, 163, 0.8);
+    margin: 20px;
+    /*width: 25%;*/
+    height: calc(100vh - 40px);
+  }
+
+.bloc-dashboard{
+    background-color: rgb(233, 228, 229);
+    padding: .5em .5em .5em;
+    border-radius: 1em;
+    box-shadow: 2px 3px 4px rgba(165, 163, 163, 0.8);
+    margin: 20px 20px 0px 0px;
+    /*max-width: 50%;*/
+    height: calc(25vh - 25px);
+
+  }
+
+  .bloc-large-dashboard{
+    background-color: rgb(233, 228, 229);
+    padding: .5em .5em .5em;
+    border-radius: 1em;
+    box-shadow: 2px 3px 4px rgba(165, 163, 163, 0.8);
+    margin: 20px 0px 20px 0px;
+    /*width: 25%;*/
+    height: calc(25vh - 25px);
+
+  }
+
+  .fit-image{
+    background-color: rgb(200, 193, 193);
+    border-radius: 0.5em;
+    padding: .5em;
+    width: 100%;
+  }
+
+.navbar-link { 
+    text-decoration: none; 
+    color:rgb(177, 173, 173);
+}
+ 
+.iconcolor {
+    color:rgb(222, 218, 218);
 }
