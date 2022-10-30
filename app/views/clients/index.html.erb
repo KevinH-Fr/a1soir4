@@ -31,12 +31,12 @@
         
         <div id="new_client">
           <div data-nouveau-target="nouveauContent">
-  
+              <%= render partial: "modal" %>
               <%= render partial: "clients/form", locals: {client: Client.new} %>
           </div>
         </div>
     </div>
-   </div>
+  </div>
 
 <div class="overflow-auto me-3 mb-1" style="height: 76vh">
   <div id="clients">

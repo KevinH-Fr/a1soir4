@@ -8,7 +8,7 @@ html {
 }
 
  body {
-    background-color: rgb(50, 50, 50);
+    background-color: rgb(255, 251, 251);
 }
 
 h1, h2, p, div, li, ul, a {
@@ -101,20 +101,21 @@ h1, h2, p, div, li, ul, a {
 /* dashboard */
 
 .navbar{
-    padding: .5em;
+    padding: .2em;
     border-radius: .5em;
     box-shadow: 2px 3px 4px rgba(165, 163, 163, 0.8);
     margin: .5em;
     /*width: 25%;*/
-    height: calc(100vh - 40px);
-    width: (100vh - 0px);
+    height: calc(100vh - 1em);
+    background-color:rgb(83, 83, 83);
+  
   }
 
 .bloc-dashboard{
-    background-color: rgb(233, 228, 229);
-    padding: .5em .5em .5em;
-    border-radius: .5em;
-    box-shadow: 2px 3px 4px rgba(165, 163, 163, 0.8);
+    background-color: rgb(204, 202, 202);
+    padding: .2em;
+    border-radius: .2em;
+    box-shadow: 2px 3px 4px rgb(83, 83, 83, 0.8);
     margin: 10px 10px 20px 10px; 
     /*max-width: 50%;*/
     height: calc(25vh - 25px);
@@ -128,6 +129,15 @@ h1, h2, p, div, li, ul, a {
     margin: 10px 20px 10px 10px; 
   }
 
+  .header-bloc-dashboard{
+    background-color: rgb(83, 83, 83);
+    padding: .2em;
+    border-radius: .5em;
+    box-shadow: 2px 3px 4px rgba(165, 163, 163, 0.8);
+    margin: .1em;
+    font-size: 0.8em;
+  }
+
   .bloc-record{
     background-color: rgb(233, 228, 229);
     padding: .5em;
@@ -138,10 +148,10 @@ h1, h2, p, div, li, ul, a {
   }
 
   .bloc-large-dashboard{
-    background-color: rgb(233, 228, 229);
+    background-color:rgb(147, 145, 145);
     padding: .5em .5em .5em;
     border-radius: .5em;
-    box-shadow: 2px 3px 4px rgba(165, 163, 163, 0.8);
+    box-shadow: 2px 3px 4px rgb(204, 46, 102);
     margin: 0px 10px 0px 10px;
     /*width: 25%;*/
     height: calc(25vh - 25px);
@@ -158,12 +168,20 @@ h1, h2, p, div, li, ul, a {
 .navbar-item { 
     width:100%;
     padding: 0em;
-    margin: 0.5em;
+    margin: 0em;
     text-align: center;
+}
+
+.text-navbar { 
+    font-size: 0.7rem;
+    padding: 0em;
+    margin: 0em;
+    text-align: center;
+    color:rgb(204, 46, 102);
 }
  
 .iconcolor {
-    color:rgb(222, 218, 218);
+    color:rgb(204, 46, 102);
     font-size: 1.5em;
     
 }

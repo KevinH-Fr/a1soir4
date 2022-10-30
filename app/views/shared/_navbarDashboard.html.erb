@@ -1,12 +1,11 @@
 
-<nav class="navbar a1soir-colored">
-  <div class="d-none d-sm-block"> 
+<nav class="navbar">
+ 
     <%= image_tag('logo2.png', class: 'fit-image') %>
-  </div>
+
   
   <%# <div class="bg-dark w-100"> %>
 
-    <% if current_user %>
 
       <div class="row navbar-item">
         <div class="p-0 m-0">
@@ -14,7 +13,7 @@
             <i class="fa iconcolor fa-house"></i> 
           <% end %>
         </div>
-        <div class="d-none d-sm-block">
+        <div class="d-none d-sm-block text-navbar">
           <%= link_to "ACCUEIL", accueil_admin_path %>
         </div>
       </div>
@@ -25,7 +24,7 @@
             <i class="fa iconcolor fa-user"></i> 
           <% end %>
         </div>
-        <div class="d-none d-sm-block">
+        <div class="d-none d-sm-block text-navbar">
           <%= link_to "CLIENTS", clients_path %>
         </div>
       </div>
@@ -37,7 +36,7 @@
           <i class="fa iconcolor fa-shirt"></i> 
         <% end %>
       </div>
-      <div class="d-none d-sm-block ">
+      <div class="d-none d-sm-block text-navbar">
          <%= link_to "PRODUITS", produits_path %>
       </div>
     </div>
@@ -48,7 +47,7 @@
           <i class="fa iconcolor fa-file-invoice"></i> 
         <% end %>
       </div>
-      <div class="d-none d-sm-block">
+      <div class="d-none d-sm-block text-navbar">
          <%= link_to "COMMANDES", commandes_path %>
       </div>
     </div>
@@ -59,7 +58,7 @@
           <i class="fa iconcolor fa-calendar"></i> 
         <% end %>
       </div>
-      <div class="d-none d-sm-block">
+      <div class="d-none d-sm-block text-navbar">
          <%= link_to "CALENDRIER", root_path %>
       </div>
     </div>
@@ -70,7 +69,7 @@
           <i class="fa iconcolor fa-chart-line"></i> 
         <% end %>
       </div>
-      <div class="d-none d-sm-block">
+      <div class="d-none d-sm-block text-navbar">
          <%= link_to "ANALYSES", root_path %>
       </div>
     </div>
@@ -81,28 +80,16 @@
           <i class="fa iconcolor fa-bullhorn"></i> 
         <% end %>
       </div>
-      <div class="d-none d-sm-block">
+      <div class="d-none d-sm-block text-navbar">
          <%= link_to "MARKETING", marketing_path %>
       </div>
     </div>
 
-   
-
-      <div class="nav-item">
-        <%= button_to "logout", destroy_user_session_path, method: :delete, class:"btn btn-outline-danger" %>
+    <div class="row navbar-item">
+      <div class="p-0 m-0">
+        <%= button_to "logout", destroy_user_session_path, method: :delete, class:"btn btn-sm btn-outline-danger" %>
       </div>
-
-
-    <% else %>
-      <li class="nav-item">
-        <%= link_to "sign up", new_user_registration_path %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "login", new_user_session_path %>
-      </li>
-    <% end %>
-
-
+    </div>
   
    <%# </div> %>
  
