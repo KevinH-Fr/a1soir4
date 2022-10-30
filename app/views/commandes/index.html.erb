@@ -1,26 +1,26 @@
 
 <div class="bloc-entete-model">
   <div class="card card-header bg-dark text-white p-0 m-0">
-
-  <div class="row m-0 p-0">
-    <div class="col ms-1">
-       <strong>Commandes</strong> 
-    </div>
-    <div class="col">
+    <div class="row m-0 p-0">
+      <div class="col ms-1">
+        <strong>Commandes</strong> 
+      </div>
+      <div class="col">
         <span id="commande_counter" class="position-absolute top-0 start-100 
             translate-middle badge rounded-pill bg-warning text-dark">
           <%= Commande.count %>
         </span>
+      </div>
     </div>
-  </div>
-</div> 
+  </div> 
   
   <div class="mb-1">
     <%= render "search" %>
   </div>
 </div>
   
-   <div data-controller="nouveau", class="mx-auto">
+ <div class="m-2">
+   <div data-controller="nouveau">
       <div role="button" data-action="click->nouveau#openNouveau" data-nouveau-target="openNouveau", class="btn btn-sm btn-success", style="inline;">
         Nouvelle commande
       </div>
@@ -32,16 +32,14 @@
         <div data-nouveau-target="nouveauContent">
 
             <%= render partial: "commandes/form", locals: {commande: Commande.new} %>
-
         </div>
       </div>
-
+    </div>
   </div>
 
-
-
-    <div id="commandes">
-      <%= render @commandes %>
-    </div>
-
+<div class="overflow-auto me-3 mb-1" style="height: 76vh">
+  <div id="commandes">
+    <%= render @commandes %>
+  </div>
+</div>
 

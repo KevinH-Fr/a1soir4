@@ -1,10 +1,9 @@
-<div class="m-4">
 
-  <div class="rounded with-shadow p-0 mb-2">
+  <div class="bloc-entete-model">
     <div class="card card-header bg-dark text-white p-0 m-0">
 
-      <div class="row p-0">
-        <div class="col ms-4">
+      <div class="row m-0 p-0">
+        <div class="col ms-1">
           <strong>Clients</strong> 
         </div>
         <div class="col">
@@ -21,9 +20,8 @@
   </div>
 </div>
 
-
-
-      <div data-controller="nouveau", class="mx-auto" style="max-width: 36rem;">
+ <div class="m-2">
+      <div data-controller="nouveau">
         <div role="button" data-action="click->nouveau#openNouveau" data-nouveau-target="openNouveau", class="btn btn-sm btn-success", style="inline;">
           Nouveau client
         </div>
@@ -33,18 +31,16 @@
         
         <div id="new_client">
           <div data-nouveau-target="nouveauContent">
-            <div class="card rounded mt-4 px-4 py-4"> 
+  
               <%= render partial: "clients/form", locals: {client: Client.new} %>
-            </div>
           </div>
         </div>
     </div>
    </div>
 
-  <div class="card text-light p-0 m-4">
-    <div class="card-header bg-light text-start p-0 m-2"> 
-      <div id="clients">
-        <%= render @clients %>
-      </div>
-    </div>
+<div class="overflow-auto me-3 mb-1" style="height: 76vh">
+  <div id="clients">
+    <%= render @clients %>
   </div>
+</div>
+  

@@ -1,16 +1,49 @@
-<p style="color: green"><%= notice %></p>
+<div class="bloc-entete-model">
+  <div class="card card-header bg-dark text-white p-0 m-0">
+    <div class="row m-0 p-0">
+      <div class="col ms-1">
+        <strong>Produits</strong> 
+      </div>
+      <div class="col">
+        <span id="produit_counter" class="position-absolute top-0 start-100 
+            translate-middle badge rounded-pill bg-warning text-dark">
+          <%= Produit.count %>
+        </span>
+      </div>
+    </div>
+  </div> 
 
-<h3>Produits</h3>
-
- <%= render "choixCategorie" %>
-
- <%= render "search" %>
-
-
-<div id="produits">
-  <%= render "produits/liste" %>
+  <div class="mb-0 text-dark">
+    <%= render "search" %> <br> 
+  </div>
+</div>
+<div class="bloc-entete-model">
+  <div class="mb-1 text-light">
+    <%= render "choixCategorie" %> 
+  </div>
 </div>
 
+ <div class="m-2">
+   <div data-controller="nouveau">
+      <div role="button" data-action="click->nouveau#openNouveau" data-nouveau-target="openNouveau", class="btn btn-sm btn-success", style="inline;">
+        Nouveau produit
+      </div>
+      <div role="button" data-action="click->nouveau#closeNouveau" data-nouveau-target="closeNouveau", class="btn btn-sm btn-danger", style="inline;">
+        Fermer nouveau
+      </div>
+     
+      <div id="new_produit">
+        <div data-nouveau-target="nouveauContent">
 
+            <%= render partial: "produits/form", locals: {produit: Produit.new} %>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<%= link_to "Nouveau produit", new_produit_path, class:"btn btn-sm btn-primary" %>
+<div class="overflow-auto me-3 mb-1" style="height: 50vh">
+  <div id="produits">
+    <%= render @produits %>
+    <%#= render "produits/liste" %>
+  </div>
+</div>

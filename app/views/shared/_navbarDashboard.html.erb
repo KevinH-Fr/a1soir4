@@ -9,79 +9,79 @@
     <% if current_user %>
 
       <div class="row navbar-item">
-        <div class="col-3 p-0 m-0">
+        <div class="p-0 m-0">
           <%= link_to accueil_admin_path, class:"navbar-link" do %>
             <i class="fa iconcolor fa-house"></i> 
           <% end %>
         </div>
-        <div class="col-9 d-none d-sm-block">
+        <div class="d-none d-sm-block">
           <%= link_to "ACCUEIL", accueil_admin_path %>
         </div>
       </div>
 
       <div class="row navbar-item">
-        <div class="col-3 p-0 m-0">
+        <div class="p-0 m-0">
           <%= link_to clients_path, class:"navbar-link" do %>
             <i class="fa iconcolor fa-user"></i> 
           <% end %>
         </div>
-        <div class="col-9 d-none d-sm-block">
+        <div class="d-none d-sm-block">
           <%= link_to "CLIENTS", clients_path %>
         </div>
       </div>
 
 
     <div class="row navbar-item">
-      <div class="col-3 p-0 m-0">
+      <div class="p-0 m-0">
         <%= link_to produits_path, class:"navbar-link" do %>
           <i class="fa iconcolor fa-shirt"></i> 
         <% end %>
       </div>
-      <div class="col-9 d-none d-sm-block ">
+      <div class="d-none d-sm-block ">
          <%= link_to "PRODUITS", produits_path %>
       </div>
     </div>
 
     <div class="row navbar-item">
-      <div class="col-3 p-0 m-0">
+      <div class="p-0 m-0">
         <%= link_to commandes_path, class:"navbar-link" do %>
           <i class="fa iconcolor fa-file-invoice"></i> 
         <% end %>
       </div>
-      <div class="col-9 d-none d-sm-block">
+      <div class="d-none d-sm-block">
          <%= link_to "COMMANDES", commandes_path %>
       </div>
     </div>
 
     <div class="row navbar-item">
-      <div class="col-3 p-0 m-0">
+      <div class="p-0 m-0">
         <%= link_to root_path, class:"navbar-link" do %>
           <i class="fa iconcolor fa-calendar"></i> 
         <% end %>
       </div>
-      <div class="col-9 d-none d-sm-block">
+      <div class="d-none d-sm-block">
          <%= link_to "CALENDRIER", root_path %>
       </div>
     </div>
 
     <div class="row navbar-item">
-      <div class="col-3 p-0 m-0">
+      <div class="p-0 m-0">
         <%= link_to root_path, class:"navbar-link" do %>
           <i class="fa iconcolor fa-chart-line"></i> 
         <% end %>
       </div>
-      <div class="col-9 d-none d-sm-block">
+      <div class="d-none d-sm-block">
          <%= link_to "ANALYSES", root_path %>
       </div>
     </div>
 
     <div class="row navbar-item">
-      <div class="col-3 p-0 m-0">
+      <div class="p-0 m-0">
         <%= link_to marketing_path, class:"navbar-link" do %>
           <i class="fa iconcolor fa-bullhorn"></i> 
         <% end %>
       </div>
-      <div class="col-9 d-none d-sm-block">
+      <div class="d-none d-sm-block">
          <%= link_to "MARKETING", marketing_path %>
       </div>
     </div>
