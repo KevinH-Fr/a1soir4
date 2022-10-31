@@ -1,3 +1,33 @@
- <div class="header-bloc-dashboard">
-  <i class="fa iconcolor fa-shirt mx-2"></i> PRODUITS
+
+<div class="container">
+  <div class="card header-bloc-dashboard">
+    <div class="row m-0">
+      <div class="col-11 ms-1 p-0 m-0">
+        <i class="fa iconcolor fa-shirt mx-2"></i>PRODUITS 
+      </div>
+      <div class="col-1 m-0 p-0">
+        <span id="produit_counter" class="position-absolute top-0 end-0
+              translate-middle badge rounded-pill bg-warning text-dark">
+          <%= Produit.count %>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card body-bloc-dashboard">
+ 
+      <table class="table bloc-table table-primary table-striped table-hover">
+      <tbody class="table-light">
+          <tr>
+            <% @produits.limit(5).each do | produit | %>
+              <td> 
+                <%= link_to produit.nom, produit_path(produit), class:"text-dark fs-6", style:"text-decoration: none;" %> 
+              </td>
+            </tr> 
+          <% end %>
+        </tbody>
+      </table>
+   
+    </div> 
+  </div>
 </div>

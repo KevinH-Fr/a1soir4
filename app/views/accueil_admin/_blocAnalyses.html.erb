@@ -1,3 +1,30 @@
- <div class="header-bloc-dashboard">
-  <i class="fa iconcolor fa-chart-line mx-2"></i> ANALYSES
+
+<div class="container">
+  <div class="card header-bloc-dashboard">
+    <div class="row m-0">
+      <div class="col-11 ms-1 p-0 m-0">
+        <i class="fa iconcolor fa-chart-line mx-2"></i>ANALYSES 
+      </div>
+      <div class="col-1 m-0 p-0">
+        <span id="client_counter" class="position-absolute top-0 end-0
+              translate-middle badge rounded-pill bg-warning text-dark">
+          <%= Client.count %>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card body-bloc-dashboard">
+    <table class="table bloc-table table-primary table-striped table-hover">
+      <tbody class="table-light">
+        <% @clients.limit(5).each do | client | %>
+          <tr> 
+            <td> 
+              <%= link_to client.nom, client_path(client), class:"text-dark fs-6", style:"text-decoration: none;" %> 
+            </td>
+          </tr> 
+        <% end %>
+      </tbody>
+    </table>
+  </div> 
 </div>

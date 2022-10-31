@@ -108,18 +108,21 @@ h1, h2, p, div, li, ul, a {
     /*width: 25%;*/
     height: calc(100vh - 1em);
     background-color:rgb(83, 83, 83);
-  
+    overflow: hidden;
   }
 
 .bloc-dashboard{
-    background-color: rgb(204, 202, 202);
+    background-color: rgb(229, 225, 225);
     padding: .2em;
+    padding-top: .2em;
     border-radius: .2em;
     box-shadow: 2px 3px 4px rgb(83, 83, 83, 0.8);
-    margin: 10px 10px 20px 10px; 
+    margin: 5px; 
     /*max-width: 50%;*/
-    height: calc(25vh - 25px);
-  }
+    height: calc(32vh - .3em);
+    min-height: 30vh;
+    overflow: hidden;
+}
 
   .bloc-entete-model{
     background-color: rgb(233, 228, 229);
@@ -131,11 +134,48 @@ h1, h2, p, div, li, ul, a {
 
   .header-bloc-dashboard{
     background-color: rgb(83, 83, 83);
-    padding: .2em;
-    border-radius: .5em;
+    padding: .0em;
+    border-radius: .2em;
     box-shadow: 2px 3px 4px rgba(165, 163, 163, 0.8);
-    margin: .1em;
+    margin-bottom: .0em;
     font-size: 0.8em;
+    height: 15%;
+  }
+
+  .body-bloc-dashboard{
+    padding: .0em;
+    margin: .0em;
+    font-size: 0.4em;
+    height: 50%;
+  }
+
+  .footer-bloc-dashboard{
+    background-color: rgb(83, 83, 83);
+    border-radius: .5em;
+    margin: 0.0em;
+    padding: .1em;
+    height: 15%;
+    min-height: 30px;
+  }
+
+  .col-dashboard{
+    margin: .0em;
+    padding: .0em;
+  }
+
+  .search-dashboard{
+    margin: .0em;
+    margin-left: .1em;
+    padding-left: .5em;
+    padding: .0em;
+    line-height: 2%;
+    font-size: 10px;
+    background-color: rgb(210, 207, 207);
+  }
+
+  .bloc-table, td {
+    line-height: 4%;
+    font-size: 8px;
   }
 
   .bloc-record{
@@ -144,19 +184,8 @@ h1, h2, p, div, li, ul, a {
     border-radius: .5em;
     box-shadow: 2px 3px 4px rgba(165, 163, 163, 0.8);
     margin: 10px 10px 10px 10px; 
-
   }
 
-  .bloc-large-dashboard{
-    background-color:rgb(147, 145, 145);
-    padding: .5em .5em .5em;
-    border-radius: .5em;
-    box-shadow: 2px 3px 4px rgb(204, 46, 102);
-    margin: 0px 10px 0px 10px;
-    /*width: 25%;*/
-    height: calc(25vh - 25px);
-
-  }
 
   .fit-image{
     background-color: rgb(200, 193, 193);
@@ -173,7 +202,8 @@ h1, h2, p, div, li, ul, a {
 }
 
 .text-navbar { 
-    font-size: 0.7rem;
+    font-size: 1rem;
+    font-style: bold;
     padding: 0em;
     margin: 0em;
     text-align: center;
@@ -182,7 +212,19 @@ h1, h2, p, div, li, ul, a {
  
 .iconcolor {
     color:rgb(204, 46, 102);
-    font-size: 1.5em;
-    
+    padding: 0em;
+    font-size: 100%;
 }
 
+.iconcolor:hover{
+    color: white;
+}
+
+.iconcolor:focus {
+    color: #fff;
+}
+
+.container{
+    margin:0px;
+    padding:0px;
+}
