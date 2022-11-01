@@ -1,10 +1,8 @@
 
-  Filtres | 
+  <span class="m-1"> Filtres </span> 
   <% @categories.each do |categorie| %>
-    <%= link_to "#{categorie}", url_for(categorieVal: categorie), class:"btn btn-sm btn-secondary m-0 p-0", :method => :post %> 
+    <%= link_to "#{categorie}", url_for(categorieVal: categorie), class:"btn btn-sm btn-secondary m-1 p-0", :method => :post %> 
   <% end %>
 
 <% @categorie = params[:categorieVal]%>
 
- 
-<hr/> 

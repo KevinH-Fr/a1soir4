@@ -25,6 +25,26 @@ h1, h2, p, div, li, ul, a {
     color: rgb(255, 255, 255);
 }
 
+.label-with-format{
+  background-color: rgb(83, 83, 83, 0.8);
+  color: rgb(255, 255, 255);
+  padding: .1em;
+  padding-right: 2em;
+  margin: 0em;
+  width: 20%;
+  height: 5vh;
+  font-size: small;
+}
+
+.field-with-format{
+  padding: .1em;
+  padding-right: 2em;
+  margin: 0em;
+  width: 20%;
+  height: 5vh;
+  font-size: small;
+}
+
 .btn-creer{
     background-color: green;
     color: rgb(255, 255, 255);

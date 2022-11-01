@@ -1,5 +1,5 @@
 <div class="bloc-entete-model">
-  <div class="card card-header bg-dark text-white p-0 m-0">
+  <div class="card card-header entete-index">
     <div class="row m-0 p-0">
       <div class="col ms-1">
         <strong>Produits</strong> 
@@ -13,20 +13,20 @@
     </div>
   </div> 
 
-  <div class="mb-0 text-dark">
-    <%= render "search" %> <br> 
-  </div>
-</div>
-<div class="bloc-entete-model">
-  <div class="mb-1 text-light">
-    <%= render "choixCategorie" %> 
+  <div class="m-0 p-0 text-dark">
+    <%= render "search" %>  
   </div>
 </div>
 
- <div class="m-2">
+<div class="list-records-item">
+
+    <div class="bloc-entete-model text-dark">
+      <%= render "choixCategorie" %> 
+    </div>
+
    <div data-controller="nouveau">
       <div role="button" data-action="click->nouveau#openNouveau" data-nouveau-target="openNouveau", class="btn btn-sm btn-success", style="inline;">
-        Nouveau produit
+        Nouveau
       </div>
       <div role="button" data-action="click->nouveau#closeNouveau" data-nouveau-target="closeNouveau", class="btn btn-sm btn-danger", style="inline;">
         Fermer nouveau
@@ -34,16 +34,13 @@
      
       <div id="new_produit">
         <div data-nouveau-target="nouveauContent">
-
             <%= render partial: "produits/form", locals: {produit: Produit.new} %>
         </div>
       </div>
-    </div>
-  </div>
 
-<div class="overflow-auto me-3 mb-1" style="height: 50vh">
-  <div id="produits">
-    <%= render @produits %>
-    <%#= render "produits/liste" %>
-  </div>
-</div>
+      <div id="produits">
+        <%= render @produits %>
+      </div>
+    </div>
+</div> 
+

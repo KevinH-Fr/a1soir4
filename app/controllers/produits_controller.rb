@@ -27,6 +27,13 @@ class ProduitsController < ApplicationController
   end
 
   def edit
+    respond_to do |format|
+      format.html
+      format.turbo_stream do  
+        render turbo_stream: turbo_stream.update(@produit, partial: "produits/form", 
+          locals: {produit: @produit})
+      end
+    end
   end
 
   def create
@@ -46,9 +53,19 @@ class ProduitsController < ApplicationController
   def update
     respond_to do |format|
       if @produit.update(produit_params)
+
+        format.turbo_stream do  
+          render turbo_stream: turbo_stream.update(@produit, partial: "produits/produit", locals: {produit: @produit})
+        end
+
         format.html { redirect_to produit_url(@produit), notice: "Produit was successfully updated." }
         format.json { render :show, status: :ok, location: @produit }
       else
+
+        format.turbo_stream do  
+          render turbo_stream: turbo_stream.update(@produit, partial: "produits/form", locals: {produit: @produit})
+        end
+
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @produit.errors, status: :unprocessable_entity }
       end

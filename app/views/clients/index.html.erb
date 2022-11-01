@@ -19,9 +19,7 @@
   </div>
 </div>
   
-
-<div class="list-records-item" >
-
+<div class="list-records-item">
    <div data-controller="nouveau">
      <div role="button" data-action="click->nouveau#openNouveau" data-nouveau-target="openNouveau", class="btn btn-sm btn-success", style="inline;">
         Nouveau
@@ -29,19 +27,18 @@
      <div role="button" data-action="click->nouveau#closeNouveau" data-nouveau-target="closeNouveau", class="btn btn-sm btn-danger", style="inline;">
         Fermer nouveau
      </div>
-   
+
       <div id="new_client">
         <div data-nouveau-target="nouveauContent">
             <%= render partial: "clients/form", locals: {client: Client.new} %>
         </div>
       </div>
 
-
       <div id="clients">
         <%= render @clients %>
       </div>
-
     </div>
+</div> 
 
 
 

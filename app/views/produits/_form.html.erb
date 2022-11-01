@@ -11,49 +11,51 @@
     </div>
   <% end %>
 
-<div class="bloc-record">
-  <div>
-    <%= form.label :nom, style: "display: block" %>
-    <%= form.text_field :nom %>
+<div class="card-body bloc-record">
+  <div class="input-group mb-1">
+    <%= form.label :nom, class:"input-group-text label-with-format" %>
+    <%= form.text_field :nom, class:"form-control field-with-format" %>
+  </div>
+
+  <div class="input-group mb-1">
+    <%= form.label :categorie, class:"input-group-text label-with-format" %>
+    <%= form.select(:categorie, Produit.categories.keys, {include_blank: true}, 
+          class:"form-control field-with-format") %> 
+  </div>
+
+  <div class="input-group mb-1">
+    <%= form.label :couleur, class:"input-group-text label-with-format" %>
+    <%= form.select(:couleur, Produit.couleurs.keys, {include_blank: true}, 
+          class:"form-control field-with-format") %> 
+  </div>
+
+  <div class="input-group mb-1">
+    <%= form.label :prix, class:"input-group-text label-with-format" %>
+    <%= form.text_field :prix, class:"form-control field-with-format" %>
+  </div>
+
+  <div class="input-group mb-1">
+    <%= form.label :caution, class:"input-group-text label-with-format" %>
+    <%= form.number_field :caution, class:"form-control field-with-format" %>
+  </div>
+
+  <div class="input-group mb-1">
+    <%= form.label :description, class:"input-group-text label-with-format" %>
+    <%= form.text_area :description, class:"form-control field-with-format" %>
+  </div>
+
+  <div class="input-group mb-1">
+    <%= form.label :vitrine, class:"input-group-text label-with-format" %>
+    <%= form.check_box :vitrine, class:"form-control field-with-format" %>
+  </div>
+
+  <div class="input-group mb-1">
+    <%= form.label :image1, class:"input-group-text label-with-format" %>
+    <%= form.file_field :image1, class:"form-control form-control-sm" %>
   </div>
 
   <div>
-    <%= form.label :categorie, style: "display: block" %>
-    <%= form.select(:categorie, Produit.categories.keys, {include_blank: true}) %>
-  </div>
-
-    <div>
-    <%= form.label :couleur, style: "display: block" %>
-    <%= form.select(:couleur, Produit.couleurs.keys, {include_blank: true}) %>
-  </div>
-
-  <div>
-    <%= form.label :prix, style: "display: block" %>
-    <%= form.text_field :prix %>
-  </div>
-
-  <div>
-    <%= form.label :caution, style: "display: block" %>
-    <%= form.number_field :caution %>
-  </div>
-
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_area :description %>
-  </div>
-
-  <div>
-    <%= form.label :vitrine, style: "display: block" %>
-    <%= form.check_box :vitrine %>
-  </div>
-
-  <div class="field">
-    <%= form.label :image1 %>
-    <%= form.file_field :image1 %>
-  </div>
-
-  <div>
-    <%= form.submit "valider", class:"btn btn-creer" %>
+   <%= form.submit "Valider", class: "btn btn-primary btn-sm" %>
   </div>
 </div>
 

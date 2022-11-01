@@ -1,21 +1,23 @@
 <div id="<%= dom_id produit %>">
 
   <div class="bloc-record">
-    <div class="row">
-      <div class="col-9 p-2 m-0 text-dark">
-        <%= image_tag(produit.image1, class:"img-fluid rounded-start w-25") if produit.image1.attached? %> 
- 
-          <%= produit.nom %>
-        </div>
-        <div class="col-3 p-2 m-0 text-end">
-          <%= link_to '', produit_path(produit), 
-              class:"fa-regular fa-folder-open btn btn-sm btn-primary" %> 
-          <%= button_to '', edit_produit_path(produit), 
-              class:"fa-regular fa-pen-to-square btn btn-sm btn-secondary", 
-              method: :post %> 
-          <%= button_to '', produit_path(produit), 
-              class:"fa-solid fa-trash-can btn btn-danger btn-sm", method: :delete %>      
-        </div> 
+    <div class="card-body p-0">
+      <div class="row">
+        <div class="col-9 p-2 m-0 text-dark">
+          <%= image_tag(produit.image1, class:"img-fluid rounded-start w-25") if produit.image1.attached? %> 
+  
+            <%= produit.nom %>
+          </div>
+          <div class="col-3 p-2 m-0 text-end">
+            <%= link_to '', produit_path(produit), 
+                class:"fa-regular fa-folder-open btn btn-sm btn-primary" %> 
+            <%= button_to '', edit_produit_path(produit), 
+                class:"fa-regular fa-pen-to-square btn btn-sm btn-secondary", 
+                method: :post %> 
+            <%= button_to '', produit_path(produit), 
+                class:"fa-solid fa-trash-can btn btn-danger btn-sm", method: :delete %>      
+          </div> 
+      </div>
     </div>
   </div>
 
