@@ -11,6 +11,16 @@ html {
     background-color: rgb(255, 251, 251);
 }
 
+.body-main{
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */ 
+  overflow-y: scroll; 
+}
+
+.body-main::-webkit-scrollbar {
+  display: none; 
+}
+
 h1, h2, p, div, li, ul, a {
     color: rgb(255, 255, 255);
 }
@@ -102,22 +112,36 @@ h1, h2, p, div, li, ul, a {
 
 .navbar{
     padding: .2em;
-    border-radius: .5em;
+    border-radius: .2em;
     box-shadow: 2px 3px 4px rgba(165, 163, 163, 0.8);
     margin: .5em;
     /*width: 25%;*/
-    height: calc(100vh - 1em);
+    height: calc(100vh - 2em);
     background-color:rgb(83, 83, 83);
     overflow: hidden;
   }
 
-.bloc-dashboard{
-    background-color: rgb(229, 225, 225);
+  .container-index-items{
     padding: .2em;
-    padding-top: .2em;
     border-radius: .2em;
-    box-shadow: 2px 3px 4px rgb(83, 83, 83, 0.8);
-    margin: 5px; 
+    box-shadow: 2px 3px 4px rgba(165, 163, 163, 0.8);
+    margin: .5em;
+    /*width: 25%;*/
+    height: calc(100vh - 2em);
+    background-color:rgb(27, 62, 180);
+   /* overflow: hidden; */
+  }
+
+.bloc-dashboard{
+    background-color: rgb(233, 228, 229);
+    padding: .0em;
+    border-radius: .2em;
+    box-shadow: 2px 3px 4px rgba(165, 163, 163, 0.8);
+    box-shadow: 2px 3px 4px rgba(165, 163, 163, 0.8);
+
+    margin-top: 0.3em;
+    margin-bottom: 0.0em;
+    margin-right: 0.4em;
     /*max-width: 50%;*/
     height: calc(32vh - .3em);
     min-height: 30vh;
@@ -126,10 +150,13 @@ h1, h2, p, div, li, ul, a {
 
   .bloc-entete-model{
     background-color: rgb(233, 228, 229);
-    padding: .2em;
-    border-radius: .5em;
+    padding: .0em;
+    border-radius: .2em;
     box-shadow: 2px 3px 4px rgba(165, 163, 163, 0.8);
-    margin: 10px 20px 10px 10px; 
+    margin-top: 0.5em;
+    margin-right: 0.5em;
+    margin-bottom: .5em;
+    
   }
 
   .header-bloc-dashboard{
@@ -147,15 +174,19 @@ h1, h2, p, div, li, ul, a {
     margin: .0em;
     font-size: 0.4em;
     height: 50%;
+    max-height: 100%;
+    overflow: hidden;
   }
 
   .footer-bloc-dashboard{
-    background-color: rgb(83, 83, 83);
+    /*background-color: rgb(83, 83, 83);*/
     border-radius: .5em;
-    margin: 0.0em;
-    padding: .1em;
+    margin: 0.1em;
+    margin-right: 0.2em;
+    padding:0em;
     height: 15%;
     min-height: 30px;
+    overflow: hidden;
   }
 
   .col-dashboard{
@@ -164,13 +195,12 @@ h1, h2, p, div, li, ul, a {
   }
 
   .search-dashboard{
-    margin: .0em;
-    margin-left: .1em;
+    margin: .1em;
     padding-left: .5em;
     padding: .0em;
     line-height: 2%;
     font-size: 10px;
-    background-color: rgb(210, 207, 207);
+    background-color: rgb(255, 248, 248);
   }
 
   .bloc-table, td {
@@ -181,18 +211,19 @@ h1, h2, p, div, li, ul, a {
   .bloc-record{
     background-color: rgb(233, 228, 229);
     padding: .5em;
-    border-radius: .5em;
+    border-radius: .2em;
     box-shadow: 2px 3px 4px rgba(165, 163, 163, 0.8);
-    margin: 10px 10px 10px 10px; 
+    margin-top: 0.5em;
+    margin-right: 0.5em;
+    margin-bottom: .5em;
+
   }
 
 
-  .fit-image{
-    background-color: rgb(200, 193, 193);
-    border-radius: 0.5em;
-    padding: .5em;
-    width: 100%;
-  }
+.fit-image{
+    background-color:  rgb(83, 83, 83);
+    max-width: 50%;
+}
 
 .navbar-item { 
     width:100%;
@@ -202,7 +233,7 @@ h1, h2, p, div, li, ul, a {
 }
 
 .text-navbar { 
-    font-size: 1rem;
+    font-size: .8rem;
     font-style: bold;
     padding: 0em;
     margin: 0em;
@@ -224,7 +255,20 @@ h1, h2, p, div, li, ul, a {
     color: #fff;
 }
 
-.container{
-    margin:0px;
-    padding:0px;
+.entete-index {
+  background-color: rgb(83, 83, 83);
+  padding: 0em;
+  margin: 0em;
+
+} 
+
+.list-records-item{
+  height: 84vh;
+  overflow: auto;
+  padding: 0em;
+  margin: 0em;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
 }

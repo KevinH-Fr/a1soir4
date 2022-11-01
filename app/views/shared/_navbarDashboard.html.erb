@@ -1,7 +1,11 @@
 
 <nav class="navbar">
 
-  <%= image_tag('logo2.png', class: 'fit-image') %>
+<div class="text-center">
+  <%= link_to accueil_admin_path do %>
+    <i> <%= image_tag('logo.jpg', class: 'fit-image rounded-circle text-center') %></i> 
+   <% end %>
+ </div>
 
   <%# <div class="bg-dark w-100"> %>
 
@@ -85,7 +89,8 @@
 
     <div class="row navbar-item">
       <div class="p-0 m-0">
-        <%= button_to "logout", destroy_user_session_path, method: :delete, class:"btn btn-sm btn-outline-danger" %>
+        <%= button_to "", destroy_user_session_path, method: :delete, 
+          class:"btn btn-sm btn-danger fa-solid fa-right-from-bracket" %>
       </div>
     </div>
   

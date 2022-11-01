@@ -2,9 +2,10 @@
   <div class="header-bloc-dashboard"> 
     <div class="row m-0">
       <div class="col-11 ms-1 p-0 m-0">
-        <i class="fa iconcolor fa-file-invoice mx-2"></i>COMMANDES 
+        <i class="fa iconcolor fa-file-invoice mx-2"></i>
+         <%= link_to "COMMANDES", commandes_path %> 
       </div>
-      <div class="col-1 m-0 p-0">
+      <div class="col-1 ms-0 p-0">
         <span id="client_counter" class="position-absolute mt-2 top-0 end-0
               translate-middle badge rounded-pill bg-warning text-dark">
           <%= Commande.count %>

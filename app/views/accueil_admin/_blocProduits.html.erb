@@ -1,33 +1,37 @@
-
-<div class="container">
-  <div class="card header-bloc-dashboard">
+<div class="card bloc-dashboard">
+  <div class="header-bloc-dashboard"> 
     <div class="row m-0">
       <div class="col-11 ms-1 p-0 m-0">
         <i class="fa iconcolor fa-shirt mx-2"></i>PRODUITS 
       </div>
-      <div class="col-1 m-0 p-0">
-        <span id="produit_counter" class="position-absolute top-0 end-0
+      <div class="col-1 ms-0 p-0">
+        <span id="produit_counter" class="position-absolute mt-2 top-0 end-0
               translate-middle badge rounded-pill bg-warning text-dark">
           <%= Produit.count %>
         </span>
       </div>
     </div>
   </div>
-
-  <div class="card body-bloc-dashboard">
- 
-      <table class="table bloc-table table-primary table-striped table-hover">
+  <div class="card-body body-bloc-dashboard"> 
+    <table class="table bloc-table table-primary table-striped table-hover">
       <tbody class="table-light">
-          <tr>
-            <% @produits.limit(5).each do | produit | %>
-              <td> 
-                <%= link_to produit.nom, produit_path(produit), class:"text-dark fs-6", style:"text-decoration: none;" %> 
-              </td>
-            </tr> 
-          <% end %>
-        </tbody>
-      </table>
-   
-    </div> 
+        <% @produits.limit(5).each do | produit | %>
+          <tr> 
+            <td> 
+              <%= link_to produit.nom, produit_path(produit), class:"text-dark fs-6", style:"text-decoration: none;" %> 
+            </td>
+          </tr> 
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card-footer footer-bloc-dashboard">
+    <%= search_form_for(@q, url: produits_path, method: :get, class:'d-flex') do |f| %>
+      <%= f.search_field :nom_cont, placeholder: "recherche...", 
+         class: "form-control form-control-sm search-dashboard" %>
+      <%= f.submit "Go!", class:"btn btn-sm btn-success m-0 p-0 mx-1" %>
+    <%= link_to "", new_produit_path(), class:"fa fa-add btn btn-sm btn-primary m-0 p-1 mx-0" %> 
+    <% end %>
   </div>
 </div>
