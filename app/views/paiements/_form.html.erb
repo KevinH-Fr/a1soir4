@@ -12,19 +12,19 @@
     </div>
   <% end %>
 
-    <div class="card-body with-shadow m-2">
-      <div class="input-group mb-3">
+  <div class="card-body bloc-record">
+      <div class="input-group mb-0">
         <%#= form.label :commande_id, class:"input-group-text bg-secondary text-light", style:"width: 100px;"%>
         <%= form.hidden_field :commande_id, value: session[:commandeId], class:"form-control" %> 
       </div>
-      <div class="input-group mb-3">
-        <%= form.label :type, class:"input-group-text bg-secondary text-light", style:"width: 100px;"%>
-        <%= form.select :typepaiement, Paiement.typePaiements.keys, {include_blank: true}, 
-            class:"form-control" %> 
+      <div class="input-group mb-1">
+        <%= form.label :type, class:"input-group-text label-with-format" %>
+        <%= form.select(:typepaiement, Paiement.typePaiements.keys, {include_blank: true}, 
+          class:"form-control field-with-format") %> 
       </div>
-      <div class="input-group mb-3">
-        <%= form.label :montant, class:"input-group-text bg-secondary text-light", style:"width: 100px;"%>
-        <%= form.text_field :montant, class:"form-control" %> 
+      <div class="input-group mb-1">
+        <%= form.label :montant, class:"input-group-text label-with-format" %>
+        <%= form.text_field :montant, class:"form-control field-with-format" %>
       </div>
       <div> 
         <%= form.submit "Créer", class: 'btn btn-success' %>

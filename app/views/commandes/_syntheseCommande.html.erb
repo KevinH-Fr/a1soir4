@@ -1,4 +1,5 @@
-   
+
+  <div class="bloc-record">
       <% duPrix = Article.commande_courante(@commande).sum_articles + 
                 Article.joins(:sousarticles).commande_courante(@commande).sum_sousarticles %> 
 
@@ -6,13 +7,21 @@
       <% soldePrix = duPrix - recuPrix %>
        
       <% if soldePrix > 0 %>
-        <div class="with-shadow text-center text-white bg-danger">
+        <div class="format-synthese bg-danger">
           <%= "Attention, la commande n'a pas été réglée en totalité" %>
            restant prix: <%= soldePrix %> <br> 
         </div>
       <% else %>
-        <div class="with-shadow text-center text-white bg-success">
+        <div class="format-synthese bg-success">
           <%= "Tout est bon !" %>
         </div>
       <% end %>
-   
+
+      <div class="d-flex justify-content-evenly m-1">
+        <%= link_to "PDF", commande_path(@commande, format: :pdf), class:"btn btn-warning btn-sm mx-2" %>
+        <%= link_to "Mail", "", class:"btn btn-primary btn-sm" %>
+        <%= link_to "Print", "", class:"btn btn-secondary btn-sm" %>
+        <%= link_to "Lien", "", class:"btn btn-success btn-sm" %>
+        <%= link_to "Lien", "", class:"btn btn-danger btn-sm" %>
+      </div>   
+</div>

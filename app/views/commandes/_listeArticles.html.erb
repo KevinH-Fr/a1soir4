@@ -1,82 +1,78 @@
 
-<div class="card rounded m-0 p-0 m-4">
-  <div class="card-header bg-black text-center p-1">
-    <strong>Articles</strong> 
-  </div>
-  <div class="card-body p-0">
-    <div class="table-responsive bg-dark">
-      <table class="table table-light table-striped table-bordered table-hover">
+
+  <div class="card-body p-0 m-0">
+   <div class="table-responsive m-0 p-0">
+
+    <table class="table table-light table-striped table-bordered table-hover">
         <thead class="table-dark">
-          <tr style="line-height: 5px;">
-            <th style="text-center">#</th>
-            <th class="text-center" colspan="2">produit</th>
-            <th class="text-center">type</th>
-            <th class="text-center">quantité</th>
-            <th class="text-center">prix</th>
-            <th class="text-center">total</th>
-            <th style="width:10px" class="text-center" colspan=2> Actions</th>
+          <tr style="">
+            <th class="th-list-articles">#</th>
+            <th class="th-list-articles" colspan="2">produit</th>
+            <th class="th-list-articles">type</th>
+            <th class="th-list-articles">qté</th>
+            <th class="th-list-articles">prix</th>
+            <th class="th-list-articles">total</th>
+            <th class="th-list-articles" colspan=2> Actions</th>
           </tr>
         </thead>
 
-      <tbody>
-        <% @articles.each_with_index do | article, i | %>
-          <tr>
-            <td class="text-center align-middle"> 
-              <%= i + 1 %> 
-            </td>
-            <td> 
-              <%= link_to image_tag(Produit.find(article.produit_id).default_image, style: "width: 80px; display: block", 
-                    class: "img-fluid rounded"),
+        <tbody>
+          <% @articles.each_with_index do | article, i | %>
+            <tr>
+              <td class="text-center align-middle"> 
+                <%= i + 1 %> 
+              </td>
+              <td> 
+                <%= link_to image_tag(Produit.find(article.produit_id).default_image, style: "width: 100%; display: block", 
+                    class: "img-min-size"),
                     edit_article_path(article, produitId: article.produit_id, commandeId: article.commande_id, articleId: article) %> 
-            </td>
-            <td class="align-middle"> 
-              <%= link_to Produit.find(article.produit_id).nom,
-                    edit_article_path(article, produitId: article.produit_id, commandeId: article.commande_id, articleId: article), 
-                    class:"text-dark fw-bold" %> 
-            </td>
-            <td class="align-middle"> 
-              <%= article.locvente %> 
-            </td>
-            <td class="text-center align-middle"> 
-              <%= article.quantite %> 
-            </td>
-            <td class="text-end align-middle"> 
-              <%= article.prix %> 
-            </td>
-            <td class="text-end fw-bold align-middle">
-              <%= number_with_precision(article.total, precision: 2) %> 
-            </td>
-            <td style="width:10px" class="align-middle"> 
-              <%= link_to "", edit_article_path(article, 
-                  produitId: article.produit_id, commandeId: article.commande_id, articleId: article), 
-                  class:"fa-regular fa-pen-to-square btn btn-secondary btn-sm" %> 
-            </td> 
-            <td style="width:10px" class="align-middle"> 
-              <%= button_to '', article, class:"fa-solid fa-trash-can btn btn-danger btn-sm", method: :delete, :onclick => "return confirm('Sûr ?')" %>  
-            </td> 
-          </tr> 
+              </td>
+              <td class="align-middle"> 
+                <%= link_to Produit.find(article.produit_id).nom,
+                      edit_article_path(article, produitId: article.produit_id, commandeId: article.commande_id, articleId: article), 
+                      class:"text-dark fw-bold" %> 
+              </td>
+              <td class="align-middle"> 
+                <%= article.locvente %> 
+              </td>
+              <td class="text-center align-middle"> 
+                <%= article.quantite %> 
+              </td>
+              <td class="text-end align-middle"> 
+                <%= article.prix %> 
+              </td>
+              <td class="text-end fw-bold align-middle">
+                <%= number_with_precision(article.total, precision: 2) %> 
+              </td>
+              <td style="" class="align-middle"> 
+                <%= link_to "", edit_article_path(article, 
+                    produitId: article.produit_id, commandeId: article.commande_id, articleId: article), 
+                    class:"fa-regular fa-pen-to-square btn btn-secondary btn-sm" %> 
+              </td> 
+              <td style="" class="align-middle"> 
+                <%= button_to '', article, class:"fa-solid fa-trash-can btn btn-danger btn-sm", method: :delete, :onclick => "return confirm('Sûr ?')" %>  
+              </td> 
+            </tr> 
 
-          <% @sousarticles = Sousarticle.where(article_id: article.id) %>
+            <% @sousarticles = Sousarticle.where(article_id: article.id) %>
           
             <% @sousarticles.each do |sousarticle| %>
-               <tr>
+              <tr>
                 <td></td>
                 <td colspan="2" class="fst-italic"> <%= sousarticle.nature %> </td>
                 <td></td>
                 <td></td>
                 <td class="text-end"> </td>
                 <td class="text-end fw-bold"> <%= number_with_precision(sousarticle.prix_sousarticle, precision: 2) %> </td>
-                <td style="width:10px"> <%#= link_to "", edit_sousarticle_path(sousarticle, articleId: article.id), class:"fa-regular fa-pen-to-square btn btn-secondary btn-sm" %> </td> 
-                <td style="width:10px"> <%#= button_to '', sousarticle, class:"fa-solid fa-trash-can btn btn-danger btn-sm", method: :delete, :onclick => "return confirm('Sûr ?')" %>  </td> 
-              
+                <td style=""> <%#= link_to "", edit_sousarticle_path(sousarticle, articleId: article.id), class:"fa-regular fa-pen-to-square btn btn-secondary btn-sm" %> </td> 
+                <td style=""> <%#= button_to '', sousarticle, class:"fa-solid fa-trash-can btn btn-danger btn-sm", method: :delete, :onclick => "return confirm('Sûr ?')" %>  </td> 
               </tr>
             <% end %>   
-          
-        <% end %>
-      </tbody>
-      <tfoot class="table-dark fs-bold">
-          <tr>
-            <td  class="text-center" colspan=3> totaux </td>
+          <% end %>
+        </tbody>
+        <tfoot class="table-dark fs-bold p-0 m-0">
+         
+            <td class="text-center" colspan=4> totaux </td>
             <td class="text-center"> <%= Article.commande_courante(@commande).compte_articles %> </td>
             <td></td>
             <td class="text-end">
@@ -85,20 +81,18 @@
                 Article.joins(:sousarticles).commande_courante(@commande).sum_sousarticles, 
                 precision: 2, delimiter: " ") %> 
             </td>
-            <td colspan=3></td>
-          </tr>  
+            <td colspan=2> </td>
+         
         </tfoot>
 
       </table>
-    </div>
-     <div class="card-footer bg-dark text-center p-0">
-        <div class="position-relative mb-4">
-          <div class="position-absolute end-0 m-1">
-            <%= link_to "Nouvel article", new_article_path(commandeId: @commande), 
-               class:"btn btn-sm btn-primary mx-2" %>
-          </div> 
-        </div> <br>
+
+      <div class="position-relative">
+        <div class="position-absolute top-0 end-0">
+          <%= link_to "Nouvel article", new_article_path(commandeId: @commande), 
+             class:"btn btn-sm btn-primary mt-0 mb-0" %>
+        </div>
       </div>
 
   </div>
-</div>  
+</div>

@@ -1,16 +1,21 @@
-<div class="container">
-  <%= render partial: "shared/navbarPublic" %>
-</div>
 
-<div class="table-responsive">
-  <table class="table">
-    <th> <%= image_tag("logo.jpg", border: 0, width: 60) %> </th>
-      <% if @label.present? %> <%# message label paramétré par user %>
-      <th>  <%= render "labelPrincipale" %></th>   
-      <% end %>
-    </table>
-</div>
+<div class="body-main">
 
-<div class="text-center">
-  <%= render "accueil/slideshow" %>
+  <div class="container">
+    <%= render partial: "shared/navbarPublic" %>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table">
+      <th> <%= image_tag("logo.jpg", border: 0, width: 60) %> </th>
+        <% if @label.present? %> <%# message label paramétré par user %>
+        <th>  <%= render "labelPrincipale" %></th>   
+        <% end %>
+      </table>
+  </div>
+
+  <div class="text-center">
+    <%= render "accueil/slideshow" %>
+  </div>
+
 </div>

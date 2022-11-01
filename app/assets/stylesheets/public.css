@@ -3,8 +3,22 @@
  *= require_self
  */
 
+html {
+    height: 100%;
+}
+
 body {
     background-color: rgb(255, 255, 255);
+}
+
+.body-main{
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */ 
+    overflow-y: scroll; 
+  }
+  
+.body-main::-webkit-scrollbar {
+    display: none; 
 }
 
 h1, h2, p, div, li, ul, a {
@@ -21,14 +35,25 @@ h1, h2, p, div, li, ul, a {
     text-align: center;
 }
 
+.btn-categorie {
+    color:rgb(255, 255, 255);
+    background-color: rgb(204, 46, 102);
+    padding: .4em;
+    border-radius: .4em;
+    font-size: .8em;
+    text-align: center;
+    margin: .2em;
+}
+
 .a1soir-colored {
     color:rgb(255, 255, 255);
     background-color: rgb(204, 46, 102);
 }
 
+
 .img-max {
-    min-width: 40px;
-    max-width: 40px;
+    min-width: 2em;
+    max-width: 2em;
     width:100%;
   }
 
