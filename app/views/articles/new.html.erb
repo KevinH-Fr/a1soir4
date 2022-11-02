@@ -1,28 +1,29 @@
-  
-<div class="m-4">
-  <h1>Nouvel article</h1>
+<div class="bloc-entete-model">
+  <div class="card card-header entete-index">
+    <strong>Nouvel article</strong>
+  </div>
+
+  <div class="card m-1">
+    <%= render "infosCommande" %>
+  </div>
+
 </div>
+    <div class="card m-1">
+      <%= render "search" %>
+    </div>
 
-<div class="card mx-4">
-  <%= render "infosCommande" %>
-</div>
 
-<%= render "search" %>
+    <div class="card m-1">
+      <%= render "choixCategorie" %>
+    </div>
 
-  <%# liste des produits pour selection %>
-  <% unless @produitId.present? %> 
-    <%= render "listeSelection" %>
-  <% end %>
+      <%# liste des produits pour selection %>
+      <% unless @produitId.present? %> 
+        <%= render "listeSelection" %>
+      <% end %>
 
-<div class="mx-4">
-  <%= render "form", article: @article %>
-</div>
+      <%= render "form", article: @article %>
 
-<div>
-  <% @commandeId = session[:commandeId] %>
-</div>
+      <% @commandeId = session[:commandeId] %>
 
-<div class="m-0"> 
-  <%#= link_to "Retour", commande_path(@commandeId), 
-      class:"btn btn-sm btn-secondary" %>
 </div>

@@ -12,15 +12,12 @@
     </div>
   <% end %>
 
-    <div class="card-body with-shadow m-2">
-      <div class="mb-3">
-        <div>
-          <% form.label :article_id, style: "display: block" %>
-          <%#= form.select :article_id, Article.all.collect { |a| [ a.id, a.id ] },  include_blank: true %>
-          <%= form.hidden_field(:article_id, value: @articleId) %>
-        </div>
-      </div>
-
+  <div class="card-body bloc-record">
+    <div>
+      <% form.label :article_id, style: "display: block" %>
+      <%#= form.select :article_id, Article.all.collect { |a| [ a.id, a.id ] },  include_blank: true %>
+      <%= form.hidden_field(:article_id, value: @articleId) %>
+    </div>
 
       <div data-controller="form-element"> 
         <%= form.button "Validate", formaction: new_sousarticle_path(article_id: @articleId), 

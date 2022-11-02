@@ -1,15 +1,12 @@
 
-<div class="mx-4">
-  <%= render "choixCategorie" %>
+<div class="card-header bg-black text-center p-1">
+  <strong>Sélection</strong> 
 </div>
 
-<div class="card rounded m-0 p-0 m-4">
-  <div class="card-header bg-black text-center p-1">
-    <strong>Sélection</strong> 
-  </div>
-  <div class="card-body p-0">
-    <div class="table-responsive bg-dark">
-      <table class="table table-light table-striped table-bordered table-hover">
+  <div class="card-body p-0 m-0">
+   <div class="table-responsive m-0 p-0">
+
+    <table class="table table-light table-striped table-bordered table-hover">
         <thead class="table-dark">
         <tr>
           <th class="text-center">#</th>
@@ -20,27 +17,25 @@
         </tr>
       </thead>
       <tbody class="fs-6">
-        <tr>
-          <% @produits.each do | produit | %>
+        <% @produits.each do | produit | %>
+          <tr>
             <td class="text-center"> <%= produit.id %> </td>
             <td> 
               <%= image_tag(produit.default_image, style: "width: 50px; display: block", 
                 class: "img-fluid rounded") %>
-              </td> 
-              <td> <%= produit.nom %> </td>
-              <td> <%= produit.description %> </td>
-              <%#= link_to '', toggle_selectProduit_article_path(produit), class:"fa-solid fa-cart-plus btn btn-secondary btn-sm" %> 
-              <td class="text-center"> 
-                <%= link_to '', new_article_path(
+            </td> 
+            <td> <%= produit.nom %> </td>
+            <td> <%= produit.description %> </td>
+             <%#= link_to '', toggle_selectProduit_article_path(produit), class:"fa-solid fa-cart-plus btn btn-secondary btn-sm" %> 
+            <td class="text-center"> 
+              <%= link_to '', new_article_path(
                       commandeId: session[:commandeId], produitId: produit), 
                       class:"fa-solid fa-cart-plus btn btn-primary btn-sm" %>  
-              </td>
+            </td>
           </tr>
-          <% end %>
-        </tbody>
-      </div>
+        <% end %>
+      </tbody>
     </table>
-
   </div>
-
 </div>
+

@@ -1,5 +1,5 @@
 
- <div class="card rounded m-0 p-0 mx-4 mt-4">
+ <div>
 
   <%= search_form_for(@q, url: url_for, method: :get, class:'d-flex') do |f| %>
     <%= f.search_field :nom_or_description_cont, placeholder: "recherche...", 
@@ -10,6 +10,6 @@
   <% end %>
 </div>
 
-<br>
+
 
 

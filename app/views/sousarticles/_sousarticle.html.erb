@@ -1,32 +1,19 @@
 <div id="<%= dom_id sousarticle %>">
 
-  <div class="with-shadow m-2">
-    <div class="row">
-      <div class="col-8">   
-        <div class="text-dark text-start mx-2 p-0">   
-          <%= sousarticle.texte_record %>
-        </div>
+  <div class="bloc-record">
+    <div class="row p-0 m-0">
+      <div class="col-9 p-0 m-0 text-dark">  
+        <%= sousarticle.texte_record %>
       </div>
-    
-      <div class="col-4 m-0 pe-3">
-        <div class="position-relative">
-          <div class="position-absolute top-0 end-0">
-            <table>
-              <tr >
-                  <td>   
-                    <%= button_to "", edit_sousarticle_path(sousarticle, articleId: sousarticle.article_id), 
-                        class:"fa-regular fa-pen-to-square btn btn-sm btn-secondary", method: :post %> 
-                  </td>
-                  <td>
-                    <%= button_to '', sousarticle_path(sousarticle), 
-                        class:"fa-solid fa-trash-can btn btn-danger btn-sm", method: :delete %> 
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-        </div>
+
+      <div class="col-3 p-0 m-0 text-end">
+        <%= button_to "", edit_sousarticle_path(sousarticle, articleId: sousarticle.article_id), 
+              class:"fa-regular fa-pen-to-square btn btn-sm btn-secondary", method: :post %> 
+
+        <%= button_to '', sousarticle_path(sousarticle), 
+             class:"fa-solid fa-trash-can btn btn-danger btn-sm", method: :delete %> 
       </div>
     </div>
+  </div>
 
 </div>

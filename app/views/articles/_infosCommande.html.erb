@@ -1,14 +1,12 @@
 
 <% if @commandeId.present? %>
-  <div class="card rounded mb-3 m-0 p-0">
-    <div class="a1soir-colored card-header text-center p-0 m-0">
+  <div class="card card-header entete-index">
       <strong>Commande</strong> 
     </div>
     <div class="card-body p-0 m-1 bg-light text-dark">
       <div class="text-dark text-center">
         <%= Commande.find(@commandeId).texte_record %>
       </div>
-    </div>
   </div>   
  <% end %>
   

@@ -1,9 +1,13 @@
-<h1>New client</h1>
+
+<div class="bloc-entete-model">
+  <div class="card card-header entete-index">
+      <strong>Nouveau client</strong> 
+  </div>
+</div>
 
 <%= render "form", client: @client %>
 
-<br>
-
 <div>
-  <%= link_to "Back to clients", clients_path %>
+  <%= link_to "Retour", accueil_admin_path, class:"btn btn-sm btn-secondary" %>
 </div>
+

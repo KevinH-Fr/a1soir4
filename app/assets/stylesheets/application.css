@@ -307,6 +307,16 @@ h1, h2, p, div, li, ul, a {
   overflow: auto;
 }
 
+.list-long-blocs-article{
+  height: 40vh;
+  overflow: auto;
+}
+
+.list-long-blocs-sousarticle{
+  height: 10vh;
+  overflow: auto;
+}
+
 ::-webkit-scrollbar {
   width: 0px;
 }
@@ -331,3 +341,4 @@ h1, h2, p, div, li, ul, a {
   min-width: 25px;
   max-width: 100px;
 }
+
