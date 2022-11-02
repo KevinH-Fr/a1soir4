@@ -5,11 +5,25 @@
 
 html {
     height: 100%;
+
+    background-image: url("../../images/logo.jpg");
+
 }
 
  body {
-    background-color: rgb(255, 251, 251);
-}
+  /*  background-color: rgb(255, 251, 251); */
+
+  background-image: url("/images/logo.jpg");
+
+  /*background-image: url('logo.jpg');*/
+
+  background-image: url('svg/waves.svg');
+
+  /*  background-image: url(/images/svg/waves.svg); */
+  
+  }
+
+
 
 .body-main{
   -ms-overflow-style: none;  /* Internet Explorer 10+ */
