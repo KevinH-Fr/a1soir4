@@ -1,13 +1,16 @@
 
-<div class="bloc-entete-model">
-  <div class="card card-header entete-index">
-      <strong>Nouveau client</strong> 
-  </div>
-</div>
 
-<%= render "form", client: @client %>
+    <div class="bloc-entete-model">
+      <div class="card card-header entete-index">
+          <strong>Nouveau client</strong> 
+      </div>
+    </div>
 
-<div>
-  <%= link_to "Retour", accueil_admin_path, class:"btn btn-sm btn-secondary" %>
-</div>
+    <%= render "form", client: @client %>
+
+    <div>
+      <%= link_to "Retour", accueil_admin_path, class:"btn btn-sm btn-secondary" %>
+    </div>
+
+
 

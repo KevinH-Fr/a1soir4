@@ -1,9 +1,14 @@
-<h1>New post</h1>
 
-<%= render "form", post: @post %>
+<%= turbo_frame_tag :modal do %>
 
-<br>
+  <h1>New post</h1>
 
-<div>
-  <%= link_to "Retour", posts_path, class:"btn btn-dark" %>
-</div>
+  <%= render "form", post: @post %>
+
+  <br>
+
+  <div>
+    <%= link_to "Retour", posts_path, class:"btn btn-dark" %>
+  </div>
+
+<% end %>

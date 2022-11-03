@@ -35,7 +35,7 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new post_params
+    @post = Post.new 
   end
 
   def edit
@@ -83,6 +83,6 @@ class PostsController < ApplicationController
     end
 
     def post_params
-      params.fetch(:post, {}).permit(:name, :title, :content, :quantite)
+      params.require(:post).permit(:name, :title, :content, :quantite)
     end
 end

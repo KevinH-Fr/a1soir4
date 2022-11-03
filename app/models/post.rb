@@ -1,7 +1,7 @@
 class Post < ApplicationRecord
 
-    validates :title, presence: true
-    validates :content, presence: true
+    validates :name, presence: true
+    validates :content, presence: false
 
     enum title: {
         draf: 'draft',
