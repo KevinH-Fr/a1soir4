@@ -1,17 +1,15 @@
 
-<div class="bloc-entete-model">
-  <div class="card card-header entete-index"> 
-      <strong>Demande de connexion</strong> 
+<div class="container-centered">
+  <div class="bloc-entete-model">
+    <div class="card card-header entete-index text-center"> 
+        <strong>Demande de connexion</strong> 
+      </div>
+      <div class="card-body text-center">
+        <% unless current_user.present? %>
+          <%= link_to "Se connecter", new_user_session_path, class:"btn btn-success p-2 m-2" %> 
+          <%= link_to "Créer un compte", new_user_registration_path, class:"btn btn-primary p-2 m-2" %>
+        <% end %>
+      </div>
     </div>
-    <div class="card-body text-center">
-      <% unless current_user.present? %>
-        <%= link_to "Se connecter", new_user_session_path, class:"btn btn-success p-2 m-2" %> 
-        <%= link_to "Créer un compte", new_user_registration_path, class:"btn btn-primary p-2 m-2" %>
-      <% end %>
-    </div>
-
-    <%= render partial: "background" %>
-
-
   </div>
 </div>

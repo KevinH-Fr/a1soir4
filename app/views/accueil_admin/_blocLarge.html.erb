@@ -1,16 +1,9 @@
 <div class="card bloc-dashboard">
   <div class="header-bloc-dashboard"> 
-    <div class="row m-0">
-      <div class="col-11 ms-1 p-0 m-0">
+
         <i class="fa iconcolor fa-gear mx-2"></i>LARGE 
-      </div>
-      <div class="col-1 ms-0 p-0">
-        <span id="client_counter" class="position-absolute mt-2 top-0 end-0
-              translate-middle badge rounded-pill bg-warning text-dark">
-          <%= Commande.count %>
-        </span>
-      </div>
-    </div>
+         <span class="badge rounded-pill counter-model-dashboard"><%= Produit.count %></span>
+
   </div>
   <div class="card-body body-bloc-dashboard"> 
   content settings
