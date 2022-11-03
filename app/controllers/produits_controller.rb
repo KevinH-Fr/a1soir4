@@ -41,6 +41,17 @@ class ProduitsController < ApplicationController
 
     respond_to do |format|
       if @produit.save
+
+        format.turbo_stream do
+          render turbo_stream: [
+            turbo_stream.prepend("produits", partial: "produits/produit",
+            locals: {produit: @produit }),
+
+          ]
+        
+        end
+
+
         format.html { redirect_to produit_url(@produit), notice: "Produit was successfully created." }
         format.json { render :show, status: :created, location: @produit }
       else

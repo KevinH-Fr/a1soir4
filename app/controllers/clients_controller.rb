@@ -13,7 +13,7 @@ class ClientsController < ApplicationController
   end
 
   def new
-    @client = Client.new
+    @client = Client.new(client_params)
   end
 
   def edit
@@ -30,14 +30,19 @@ class ClientsController < ApplicationController
     @client = Client.new(client_params)
 
     respond_to do |format|
+
       if @client.save
        
-        flash.now[:notice] = "#{@client.id} added at #{Time.zone.now}"
+       flash.now[:notice] = "#{@client.id} added at #{Time.zone.now}"
 
         format.turbo_stream do
           render turbo_stream: [
-            turbo_stream.update("new_client", partial: "clients/form", 
-              locals: {client: Client.new }),
+            turbo_stream.prepend("clients", partial: "clients/client",
+            locals: {client: @client }),
+
+          
+          #  turbo_stream.update("new_client", partial: "clients/form", 
+           #   locals: {client: Client.new }),
 
            # turbo_stream.remove("new_client"),
            # turbo_stream.remove("closeNouveau"),
@@ -46,10 +51,10 @@ class ClientsController < ApplicationController
            # turbo_stream.prepend("openNouveau"),
            # turbo_stream.after("openNouveau"),
 
-            turbo_stream.prepend("clients", partial: "clients/client", 
-              locals: {client: @client }),
-            turbo_stream.update("client_counter", Client.count),
-            turbo_stream.update("flash", partial: "layouts/flash"),
+      #      turbo_stream.prepend("clients", partial: "clients/client", 
+      #        locals: {client: @client }),
+       #     turbo_stream.update("client_counter", Client.count),
+       #     turbo_stream.update("flash", partial: "layouts/flash"),
 
           ]
         end
@@ -58,12 +63,12 @@ class ClientsController < ApplicationController
         format.json { render :show, status: :created, location: @client }
       else
 
-        format.turbo_stream do
-          render turbo_stream: [
-            turbo_stream.update('new_client', partial: "clients/form", 
-              locals: {client: @client  }),
-          ]
-        end
+     #   format.turbo_stream do
+     #     render turbo_stream: [
+     #       turbo_stream.update('new_client', partial: "clients/form", 
+     #         locals: {client: @client  }),
+     #     ]
+     #   end
 
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @client.errors, status: :unprocessable_entity }
@@ -121,6 +126,6 @@ class ClientsController < ApplicationController
     end
 
     def client_params
-      params.require(:client).permit(:nom, :mail, :commentaires)
+      params.fetch(:client, {}).permit(:nom, :mail, :commentaires)
     end
 end

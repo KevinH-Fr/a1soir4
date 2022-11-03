@@ -1,5 +1,7 @@
 
-
+<%= turbo_frame_tag :modal do %>
+  <div data-controller="hidemodal" data-action="turbo:submit-end->hidemodal#submitEnd"> 
+  
     <div class="bloc-entete-model">
       <div class="card card-header entete-index">
           <strong>Nouveau client</strong> 
@@ -11,6 +13,9 @@
     <div>
       <%= link_to "Retour", accueil_admin_path, class:"btn btn-sm btn-secondary" %>
     </div>
+  
+  </div>
 
+<% end %>
 
 
