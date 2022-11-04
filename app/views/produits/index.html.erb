@@ -33,12 +33,24 @@
         <%= render @produits %>
       </div>
 
-    <%#= @pagy.next %>
-    <%#= pagy_url_for(@pagy, @pagy.next) %>
-    <%= render "produits/next_page" %>
-    <%#= turbo_frame_tag "produits-page-#{@pagy.next}", loading: :lazy, src: pagy_url_for(@pagy, @pagy.next)  %>
-
-
-  
 </div> 
 
+ <div class="card card-footer footer-index">
+  <div class="row m-0 p-0">
+     
+    <div class="col-6">
+       item1
+       item2
+       item3
+    </div>
+    <div class="col-6">
+      <div class="position-relative">
+        <div class="position-absolute end-0">
+          <div class="badge bg-dark">
+            <%== pagy_nav(@pagy) %>
+          </div>
+        </div>
+       </div>
+    </div>
+  </div>
+</div> 

@@ -3,7 +3,13 @@ class FriendsController < ApplicationController
 
   # GET /friends or /friends.json
   def index
-    @friends = Friend.all
+    #@friends = Friend.all
+    @pagy, @friends = pagy_countless(Friend.order(created_at: :desc), items: 2)
+
+    respond_to do |format|
+      format.html
+      format.turbo_stream
+    end
   end
 
   # GET /friends/1 or /friends/1.json

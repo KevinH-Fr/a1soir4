@@ -4,16 +4,20 @@ class ClientsController < ApplicationController
   def index
   #  @clients = Client.all
 
+    @pagy, @clients = pagy(Client.order(created_at: :desc), items: 5)
+
+
     @q = Client.ransack(params[:q])
-    @clients = @q.result(distinct: true)
+    if @q.present?  
+      @clients = @q.result(distinct: true)
+    end
 
-    @pagy, @clients = pagy(Client.order(created_at: :desc), items: 15)
+   @pagy, @clients = pagy(Client.order(created_at: :desc), items: 10)
 
-    respond_to do |format|
-      format.html
-      format.turbo_stream 
-
-    end 
+  #  respond_to do |format|
+  #    format.html
+  #    format.turbo_stream 
+  #  end 
 
 
   end
@@ -23,7 +27,7 @@ class ClientsController < ApplicationController
   end
 
   def new
-    @client = Client.new(client_params)
+    @client = Client.new
 
   end
 
@@ -44,25 +48,16 @@ class ClientsController < ApplicationController
 
       if @client.save
        
-       flash.now[:notice] = "#{@client.id} added at #{Time.zone.now}"
+       flash.now[:notice] = "le client #{@client.nom} a été ajouté à #{Time.zone.now}"
 
-
-     #   format.turbo_stream do
-      #    render turbo_stream: [
-      #      turbo_stream.prepend("clients", partial: "clients/client",
-      #      locals: {client: @client }),
-          
-          #  turbo_stream.update("new_client", partial: "clients/form", 
-           #   locals: {client: Client.new }),
-
-           # turbo_stream.remove("new_client"),
-      #      turbo_stream.prepend("clients", partial: "clients/client", 
-      #        locals: {client: @client }),
-       #     turbo_stream.update("client_counter", Client.count),
-       #     turbo_stream.update("flash", partial: "layouts/flash"),
-
-       #   ]
-       # end
+       format.turbo_stream do
+          render turbo_stream: [
+            turbo_stream.prepend("clients", partial: "clients/client",
+            locals: {client: @client }), 
+            turbo_stream.update("client_counter", Client.count),
+            turbo_stream.update("flash", partial: "layouts/flash"),
+          ]
+       end
 
         format.html { redirect_to client_url(@client), notice: "Client was successfully created." }
         format.json { render :show, status: :created, location: @client }
@@ -70,12 +65,12 @@ class ClientsController < ApplicationController
        
       else
 
-     #   format.turbo_stream do
-     #     render turbo_stream: [
-     #       turbo_stream.update('new_client', partial: "clients/form", 
-     #         locals: {client: @client  }),
-     #     ]
-     #   end
+        format.turbo_stream do
+          render turbo_stream: [
+            turbo_stream.update('new_client', partial: "clients/form", 
+              locals: {client: @client  }),
+          ]
+        end
 
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @client.errors, status: :unprocessable_entity }
@@ -110,7 +105,7 @@ class ClientsController < ApplicationController
   def destroy
     @client.destroy
 
-    flash.now[:notice] = "#{@client.id} deleted at #{Time.zone.now}"
+    flash.now[:notice] = "le client #{@client.nom} a été supprimé à #{Time.zone.now}"
 
     respond_to do |format|
 

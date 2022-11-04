@@ -1,9 +1,0 @@
-<%= turbo_stream.append "clients" do %>
-  <%= render @clients %>
-<% end %>
-
-<%= turbo_stream.update "load_more_button" do %>
-  <% if @pagy.next.present? %>
-    <%= button_to "Load more", pagy_url_for(@pagy, @pagy.next) %>
-  <% end %>
-<% end %>

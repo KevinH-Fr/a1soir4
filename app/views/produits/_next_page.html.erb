@@ -1,9 +1,0 @@
-
-<%= turbo_frame_tag "produits-page-#{@pagy.next}",
-                    loading: :lazy,
-                    # autoscroll: true,
-                    src: pagy_url_for(@pagy, @pagy.next) do %>
-
-  <div class="bg-primary">Loading...</div>
-
-<% end %>
