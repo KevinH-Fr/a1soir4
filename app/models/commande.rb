@@ -7,13 +7,17 @@ class Commande < ApplicationRecord
       "n°#{id} | #{nom}"
     end
 
+    def auto_name
+      "C_#{id}_#{client_id}_#{created_at.strftime("%d%m%y")}" 
+    end
+
     def format_date
       datetime = created_at.to_date
       created_at.strftime("%d/%m/%y")
     end 
 
     def texte_record
-      "n°#{id} | #{type_locvente} | #{nom} | #{created_at.strftime("%d/%m/%y")}" 
+      "n°#{id}  #{type_locvente}  #{nom} #{created_at.strftime("%d/%m/%y")}" 
     end
 
     def type_locvente

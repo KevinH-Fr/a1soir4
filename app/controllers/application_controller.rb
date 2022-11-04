@@ -10,4 +10,6 @@ class ApplicationController < ActionController::Base
         @produits = @q.result(distinct: true)
     end
 
+    include Pagy::Backend
+
 end

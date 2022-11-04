@@ -7,6 +7,10 @@ class ClientsController < ApplicationController
     @q = Client.ransack(params[:q])
     @clients = @q.result(distinct: true)
 
+    @pagy, @clients = pagy(Client.order(created_at: :desc), items: 12)
+
+
+
   end
 
   def show
