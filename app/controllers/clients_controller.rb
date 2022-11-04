@@ -7,7 +7,7 @@ class ClientsController < ApplicationController
     @q = Client.ransack(params[:q])
     @clients = @q.result(distinct: true)
 
-    @pagy, @clients = pagy(Client.order(created_at: :desc), items: 10)
+    @pagy, @clients = pagy(Client.order(created_at: :desc), items: 15)
 
     respond_to do |format|
       format.html

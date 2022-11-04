@@ -27,11 +27,18 @@
     <%= link_to "Nouveau", new_produit_path, data:{turbo_frame: "modal"}, 
       class:"btn btn-sm btn-warning" %>
 
-  <%= turbo_frame_tag :modal %>
+    <%= turbo_frame_tag :modal %>
 
       <div id="produits">
         <%= render @produits %>
       </div>
-    </div>
+
+    <%#= @pagy.next %>
+    <%#= pagy_url_for(@pagy, @pagy.next) %>
+    <%= render "produits/next_page" %>
+    <%#= turbo_frame_tag "produits-page-#{@pagy.next}", loading: :lazy, src: pagy_url_for(@pagy, @pagy.next)  %>
+
+
+  
 </div> 
 

@@ -3,11 +3,12 @@ class ProduitsController < ApplicationController
 
   def index
     categorieVal = params[:categorieVal]
-    if categorieVal.present?
-      @produits = Produit.categorie_selected(categorieVal)
-    else
-      @produits = Produit.all 
-    end
+   # if categorieVal.present?
+   #   @produits = Produit.categorie_selected(categorieVal)
+   # else
+   #   @produits = Produit.all 
+   # end
+    
     @categories = Produit.distinct.pluck(:categorie)
 
     qVal = params[:q]
@@ -15,6 +16,12 @@ class ProduitsController < ApplicationController
       @q = Produit.ransack(params[:q])
       @produits = @q.result(distinct: true)
     end 
+
+
+    @pagy, @produits = pagy(Produit.order(created_at: :desc), items: 5)
+   
+    render "scrollable_list"  if params[:page]
+   
 
       
   end
