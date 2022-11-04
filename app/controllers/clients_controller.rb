@@ -2,13 +2,18 @@ class ClientsController < ApplicationController
   before_action :set_client, only: %i[ show edit update destroy ]
 
   def index
-    @clients = Client.all
+  #  @clients = Client.all
 
     @q = Client.ransack(params[:q])
     @clients = @q.result(distinct: true)
 
-    @pagy, @clients = pagy(Client.order(created_at: :desc), items: 12)
+    @pagy, @clients = pagy(Client.order(created_at: :desc), items: 10)
 
+    respond_to do |format|
+      format.html
+      format.turbo_stream 
+
+    end 
 
 
   end

@@ -28,6 +28,10 @@ Rails.application.routes.draw do
   end 
 
   resources :clients do
+    collection do
+      post :index
+    end
+    
     member do
       post :edit
     end
