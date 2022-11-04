@@ -3,18 +3,20 @@ class CommandesController < ApplicationController
 
   def index
 
-   
    # @commandes = Commande.all
+  # @pagy, @commandes = pagy(Commande.order(created_at: :desc), items: 2)
 
+  @pagy, @commandes = pagy(Commande.order(created_at: :desc), items: 2)
 
+  
+   @q = Commande.ransack(params[:q])
+   if @q.present?  
+    # @commandes = @q.result(distinct: true)
+    @pagy, @commandes = pagy(Commande.ransack(params[:q]).result(distinct: true))
+ 
+  end
 
-    @pagy, @commandes = pagy(Commande.order(created_at: :desc), items: 10)
-
-
-   # @q = Commande.ransack(params[:q])
-   # if @q.present?  
-   #   @commandes = @q.result(distinct: true)
-   # end
+  # @pagy, @commandes = pagy(Commande.ransack(params[:q]).result(distinct: true))
 
   #  respond_to do |format|
   #    format.html
@@ -53,7 +55,7 @@ class CommandesController < ApplicationController
 
   end
 
-  def new sousarticle_params
+  def new 
     @commande = Commande.new 
     @clients = Client.all
     @clientId = params[:clientId]
@@ -123,11 +125,9 @@ class CommandesController < ApplicationController
   def toggle_commande_client
 
     @clientId = params[:clientId]
-
     commande = Commande.create(client_id: @clientId)
- 
     redirect_to commande_path(commande),
-        notice: "test sous commande client auto #{@clientId}" 
+        notice: "commande client auto #{@clientId}" 
   end
 
 

@@ -313,7 +313,7 @@ h1, h2, p, div, li, ul, a {
 } 
 
 .list-records-item{
-  height: 83.5vh;
+  height: 78vh;
   overflow: auto;
   padding: 0em;
   margin: 0em;
