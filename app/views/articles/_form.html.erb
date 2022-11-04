@@ -31,10 +31,10 @@
     </div>
       <div class="card-body p-1">
         <div class="row p-0 m-0">
-          <div class="col p-0">
+          <div class="col-6 p-0 m-0">
             <%= render "produitLie" %> <br>
           </div>
-            <div class="col p-1 m-0"> 
+            <div class="col-6 p-0 m-0"> 
 
 
               <div data-controller="form-element">
@@ -42,20 +42,20 @@
                     formmethod: :get, data: { turbo_frame: :total_field, form_element_target: "submitbtn" } %>
                   
                   <div class="input-group input-group-sm mb-2">
-                    <%= form.label :type, class:"input-group-text bg-primary text-light", style:"width: 100px;"%>
+                    <%= form.label :type, class:"input-group-text bg-primary text-light", style:"width: 75px;"%>
                     <%= form.select :locvente,  @typelocvente, {include_blank: true}, 
                       { data: { action: "change->form-element#remotesubmit"},  
                         class:"form-control text-center"} %>
                   </div>
 
                   <div class="input-group input-group-sm mb-2">
-                    <%= form.label :quantite, class:"input-group-text bg-secondary text-light", style:"width: 100px;"%>
+                    <%= form.label :quantite, class:"input-group-text bg-secondary text-light", style:"width: 75px;"%>
                     <%= form.number_field :quantite, { data: { action: "change->form-element#remotesubmit"},  
                           class:"form-control text-center"} %>
                   </div>
                     
                     <div class="input-group input-group-sm mb-2">
-                      <%= form.label :prix, class:"input-group-text bg-secondary text-light", style:"width: 100px;"%>
+                      <%= form.label :prix, class:"input-group-text bg-secondary text-light", style:"width: 75px;"%>
                       <%= form.number_field :prix, { data: { action: "change->form-element#remotesubmit"}, 
                         value: @valPrix, class:"form-control text-center"} %>
                     </div>
@@ -71,7 +71,7 @@
 
                         <% if produitId.present? %> 
                           <div class="input-group input-group-sm mb-1">
-                            <%= form.label :total, class:"input-group-text bg-dark text-light", style:"width: 100px;"%>
+                            <%= form.label :total, class:"input-group-text bg-dark text-light", style:"width: 75px;"%>
                             <%= form.number_field :total, value:  valQuantite * valPrix, 
                               class:"form-control bg-dark text-white text-center" %>
                           </div>
@@ -79,7 +79,7 @@
                             <% if typeLocVente == "location" %>
                               <% valCaution = Produit.find(produitId).caution %>
                                <div class="input-group input-group-sm mb-1"> 
-                                 <%= form.label :caution, class:"input-group-text bg-secondary text-light", style:"width: 100px;"%>
+                                 <%= form.label :caution, class:"input-group-text bg-secondary text-light", style:"width: 75px;"%>
                                  <%= form.number_field :caution, value: valCaution, 
                                       class:"form-control bg-secondary text-white text-center" %>
                                </div>

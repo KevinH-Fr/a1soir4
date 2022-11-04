@@ -26,8 +26,13 @@
         <%= form.label :montant, class:"input-group-text label-with-format" %>
         <%= form.text_field :montant, class:"form-control field-with-format" %>
       </div>
-      <div> 
-        <%= form.submit "Créer", class: 'btn btn-success' %>
-      </div>
-  </div>
+      
+          <div class="position-relative">
+          <div class="position-absolute top-0 end-0">
+            <%= form.submit "Créer", class: 'btn btn-sm btn-success' %>
+          </div>
+        </div>
+
+</div>
+ 
 <% end %>

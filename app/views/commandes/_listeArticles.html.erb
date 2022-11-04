@@ -2,8 +2,7 @@
 
   <div class="card-body p-0 m-0">
    <div class="table-responsive m-0 p-0">
-
-    <table class="table table-light table-striped table-bordered table-hover">
+    <table class="table table-light table-striped table-bordered table-hover table-articles">
         <thead class="table-dark">
           <tr style="">
             <th class="th-list-articles">#</th>
@@ -72,7 +71,12 @@
         </tbody>
         <tfoot class="table-dark fs-bold p-0 m-0">
          
-            <td class="text-center" colspan=4> totaux </td>
+            <td class="text-center" colspan=2> 
+              <%= link_to "Nouveau", new_article_path(commandeId: @commande), 
+             class:"btn btn-sm btn-primary mt-0 mb-0" %>
+             </td>
+
+            <td class="text-center" colspan=2> totaux </td>
             <td class="text-center"> <%= Article.commande_courante(@commande).compte_articles %> </td>
             <td></td>
             <td class="text-end">
@@ -81,18 +85,13 @@
                 Article.joins(:sousarticles).commande_courante(@commande).sum_sousarticles, 
                 precision: 2, delimiter: " ") %> 
             </td>
-            <td colspan=2> </td>
+            <td colspan=2>
+           
+             </td>
          
         </tfoot>
 
       </table>
-
-      <div class="position-relative">
-        <div class="position-absolute top-0 end-0">
-          <%= link_to "Nouvel article", new_article_path(commandeId: @commande), 
-             class:"btn btn-sm btn-primary mt-0 mb-0" %>
-        </div>
-      </div>
 
   </div>
 </div>

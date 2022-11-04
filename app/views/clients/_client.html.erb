@@ -45,7 +45,7 @@
                 <table class="table table-striped table-light table-hover", style="line-height: 0.5">
                   <% Commande.client_courant(client).each do |c| %>
                     <tr>
-                      <td> <%= c.texte_record %> </td>
+                      <td> <%= link_to c.texte_record, commande_path(c), class:"text-dark" %> </td>
                     </tr>
                   <% end %>
                 </table>

@@ -10,6 +10,7 @@ class ClientsController < ApplicationController
   end
 
   def show
+    @commandes = Commande.client_courant(@client)
   end
 
   def new

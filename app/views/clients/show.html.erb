@@ -1,10 +1,21 @@
 
-<%= render @client %>
+<div class="container-fluid m-0 p-0 mt-2 container-dashboard">
+  <div class="list-long-blocs-commande">
 
-<div>
- <%= link_to "Nouvelle commande", new_commande_path(clientId: @client), 
-      class:"btn btn-sm btn-primary" %>
- 
- <hr>
-  <%= link_to "Retour", clients_path, class:"btn btn-sm btn-secondary" %>
+    <div class="entete-show">
+      <strong>Client</strong> 
+    </div>
+      <%= render @client %> 
+
+      <%= link_to "Nouvelle commande", new_commande_path(clientId: @client), 
+            class:"btn btn-sm btn-primary mb-2" %>
+
+    <div class="entete-show">
+      <strong>Commandes</strong> 
+    </div>
+
+      <%= render @commandes %>
+
+  </div>
+
 </div>

@@ -2,25 +2,39 @@
 <div id="<%= dom_id commande %>">
   <% clientId = Commande.find(commande.id).client_id %>
   <div class="bloc-record">
+
     <div class="row">
-      
-      <div class="col-9 p-2 m-0 text-dark">
-        <%= Commande.find(commande.id).texte_record %>
+      <div class="col-8">
+        <div class="text-dark text-start mx-1 p-0">
+          <%= commande.texte_record %>
+        </div>
       </div>
-      <div class="col-3 p-2 m-0 text-end">
+      <div class="col-4 m-0 p-0">
+                <div class="position-relative">
+            <div class="position-absolute top-0 end-0">
+        <table>
+          <tr>
+            <td>
+               <%= link_to '', commande_path(commande), 
+                    class:"fa-regular fa-folder-open btn btn-sm btn-primary mb-2" %> 
+            </td>
+            <td>   
+              <%= button_to "", edit_commande_path(commande), 
+                   class:"fa-regular fa-pen-to-square btn btn-sm btn-secondary mb-2", method: :post %> 
+            </td>
+            <td>
+              <%= button_to '', commande_path(commande), 
+                   class:"fa-solid fa-trash-can btn btn-danger btn-sm mb-2 me-3", method: :delete %> 
+            </td>
+          </tr>
+        </table>
 
-      <%= link_to '', commande_path(commande), 
-             class:"fa-regular fa-folder-open btn btn-sm btn-primary" %> 
-             
-      <%= button_to '', edit_commande_path(commande), 
-             class:"fa-regular fa-pen-to-square btn btn-sm btn-secondary", 
-             method: :post %> 
-
-      <%= button_to '', commande_path(commande), 
-             class:"fa-solid fa-trash-can btn btn-danger btn-sm", method: :delete %>      
-
-      </div> 
-  
+        </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
+
+
+
