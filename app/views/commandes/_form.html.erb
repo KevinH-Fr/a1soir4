@@ -19,8 +19,16 @@
       </div>
       <div class="input-group mb-1">
         <%= form.label :client_id, class:"input-group-text label-with-format" %>
-        <%= form.select(:client_id, Client.all.collect { |c| [ c.nom, c.id ] },  {include_blank: true},
-              class:"form-control field-with-format")  %>
+        <%#= form.select(:client_id, Client.all.collect { |c| [ c.nom, c.id ]}, 
+             {include_blank: true},  class:"form-control field-with-format")  %>
+
+         <%#= form.select: client_id, value: 96  %>
+         <%#= form.select :client_id, options_for_select(Client.all.collect), html: {selected: true} %>
+
+     
+      <%= form.select :client_id, Client.all.collect { |c| [ c.nom, c.id ]}, 
+            {class: 'form-control', include_blank: true, selected: @clientId} %>
+
       </div>
       <div class="input-group mb-1">
         <%= form.label :montant, class:"input-group-text label-with-format" %>

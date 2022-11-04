@@ -9,12 +9,12 @@ export default class extends Controller {
 
   submitEnd(e) {
     if (e.detail.success) {
-      this.hidePartial()
+      this.hideModal()
     }
     console.log(e.detail.success)
   }
 
-  hidePartial(){
+  hideModal(){
     this.element.remove()
   }
 }

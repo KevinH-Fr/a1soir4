@@ -6,6 +6,7 @@ class CommandesController < ApplicationController
     @q = Commande.ransack(params[:q])
     @commandes = @q.result(distinct: true)
 
+
     respond_to do |format|
       format.html
       format.pdf do
@@ -22,6 +23,8 @@ class CommandesController < ApplicationController
 
     @commandeId = params[:id]
     session[:commandeId] = @commandeId
+
+
 
     respond_to do |format|
       format.html
@@ -41,9 +44,14 @@ class CommandesController < ApplicationController
 
   def new
     @commande = Commande.new 
+    @clients = Client.all
+    @clientId = params[:clientId]
   end
 
   def edit
+    @commandeId = params[:id]
+    @clientId = Commande.find(@commandeId).client_id
+
     respond_to do |format|
       format.html
       format.turbo_stream do  

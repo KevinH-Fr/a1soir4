@@ -14,6 +14,7 @@ class ClientsController < ApplicationController
 
   def new
     @client = Client.new(client_params)
+
   end
 
   def edit
@@ -35,32 +36,28 @@ class ClientsController < ApplicationController
        
        flash.now[:notice] = "#{@client.id} added at #{Time.zone.now}"
 
-        format.turbo_stream do
-          render turbo_stream: [
-            turbo_stream.prepend("clients", partial: "clients/client",
-            locals: {client: @client }),
 
+     #   format.turbo_stream do
+      #    render turbo_stream: [
+      #      turbo_stream.prepend("clients", partial: "clients/client",
+      #      locals: {client: @client }),
           
           #  turbo_stream.update("new_client", partial: "clients/form", 
            #   locals: {client: Client.new }),
 
            # turbo_stream.remove("new_client"),
-           # turbo_stream.remove("closeNouveau"),
-
-           # turbo_stream.before("openNouveau"),
-           # turbo_stream.prepend("openNouveau"),
-           # turbo_stream.after("openNouveau"),
-
       #      turbo_stream.prepend("clients", partial: "clients/client", 
       #        locals: {client: @client }),
        #     turbo_stream.update("client_counter", Client.count),
        #     turbo_stream.update("flash", partial: "layouts/flash"),
 
-          ]
-        end
+       #   ]
+       # end
 
         format.html { redirect_to client_url(@client), notice: "Client was successfully created." }
         format.json { render :show, status: :created, location: @client }
+ 
+       
       else
 
      #   format.turbo_stream do
