@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: dukne3lhz
+  api_key: '489226175322946'
+  api_secret: 3FtQv5zeIFvlhpWu_sWsccjopr0
+  enhance_image_tag: true
+  static_file_support: false
+production:
+  cloud_name: dukne3lhz
+  api_key: '489226175322946'
+  api_secret: 3FtQv5zeIFvlhpWu_sWsccjopr0
+  enhance_image_tag: true
+  static_file_support: true
+test:
+  cloud_name: dukne3lhz
+  api_key: '489226175322946'
+  api_secret: 3FtQv5zeIFvlhpWu_sWsccjopr0
+  enhance_image_tag: true
+  static_file_support: false

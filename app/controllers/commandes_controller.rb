@@ -21,6 +21,8 @@ class CommandesController < ApplicationController
     @paiements = Paiement.commande_courante(@commande)
     @sousarticles = Sousarticle.all
 
+    @client = Client.client_courant(@commande.client_id)
+
     @commandeId = params[:id]
     session[:commandeId] = @commandeId
 
