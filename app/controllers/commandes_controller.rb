@@ -2,17 +2,26 @@ class CommandesController < ApplicationController
   before_action :set_commande, only: %i[ show edit update destroy ]
 
   def index
-    @commandes = Commande.all
-    @q = Commande.ransack(params[:q])
-    @commandes = @q.result(distinct: true)
+
+   
+   # @commandes = Commande.all
 
 
-    respond_to do |format|
-      format.html
-      format.pdf do
-        render pdf: "commandes: #{@commandes.count}", template: "commandes/index", formats: [:html]
-      end
-    end
+
+    @pagy, @commandes = pagy(Commande.order(created_at: :desc), items: 10)
+
+
+   # @q = Commande.ransack(params[:q])
+   # if @q.present?  
+   #   @commandes = @q.result(distinct: true)
+   # end
+
+  #  respond_to do |format|
+  #    format.html
+  #    format.pdf do
+  #      render pdf: "commandes: #{@commandes.count}", template: "commandes/index", formats: [:html]
+  #    end
+  #  end
 
   end
 
@@ -23,8 +32,8 @@ class CommandesController < ApplicationController
 
     @client = Client.client_courant(@commande.client_id)
 
-    @commandeId = params[:id]
-    session[:commandeId] = @commandeId
+   # @commandeId = params[:id]
+   # session[:commandeId] = @commandeId
 
 
 
@@ -44,7 +53,7 @@ class CommandesController < ApplicationController
 
   end
 
-  def new
+  def new sousarticle_params
     @commande = Commande.new 
     @clients = Client.all
     @clientId = params[:clientId]
@@ -109,6 +118,18 @@ class CommandesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
+  def toggle_commande_client
+
+    @clientId = params[:clientId]
+
+    commande = Commande.create(client_id: @clientId)
+ 
+    redirect_to commande_path(commande),
+        notice: "test sous commande client auto #{@clientId}" 
+  end
+
 
   private
     def set_commande

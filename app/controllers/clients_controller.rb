@@ -12,7 +12,7 @@ class ClientsController < ApplicationController
       @clients = @q.result(distinct: true)
     end
 
-   @pagy, @clients = pagy(Client.order(created_at: :desc), items: 10)
+   #@pagy, @clients = pagy(Client.order(created_at: :desc), items: 10)
 
   #  respond_to do |format|
   #    format.html

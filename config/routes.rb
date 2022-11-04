@@ -40,6 +40,7 @@ Rails.application.routes.draw do
   resources :commandes do
     member do
       post :edit
+      get :toggle_commande_client
     end
   end
 

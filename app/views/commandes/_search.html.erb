@@ -1,8 +1,7 @@
- <div>
+
   <%= search_form_for(@q, url: commandes_path, method: :get, class:'d-flex') do |f| %>
     <%= f.search_field :nom_cont, placeholder: "recherche...", class: "form-control border-secondary form-control-sm mx-2 my-1" %>
     <%= f.submit "Go!", class:"btn btn-sm btn-outline-primary m-1" %>
     <%= link_to "Effacer", commandes_path(), 
        class:"btn btn-sm btn-outline-danger m-1" %> 
   <% end %>
-</div>
