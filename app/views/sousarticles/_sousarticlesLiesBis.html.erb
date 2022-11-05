@@ -1,27 +1,22 @@
  
-<div class="list-long-blocs-article">
-  <div class="bloc-entete-model">
-    <div class="card card-header entete-index">
-      <strong>Sous-articles</strong> 
-    </div>
-  </div>
+<div class="list-long-blocs-sousarticle">
 
   <div id="sousarticles">
     <%= render @sousarticles %>
   </div>
 
-    <%= link_to "Auto", toggle_sousarticleauto_sousarticle_path(
+  <table> 
+    <tr>
+      <td>
+          <%= link_to "Auto", toggle_sousarticleauto_sousarticle_path(
          produitId: @produitId, commandeId: @commandeId, articleId: @articleId), 
          class:"btn btn-sm btn-primary me-1" %>
-   
-    <%= render "sousarticles/nouveauSousarticle" %>
+      </td>
+      <td>
+          <%= render "sousarticles/nouveauSousarticle" %>
 
-    <div class="position-relative">
-      <div class="position-absolute end-0">
-        <%= link_to "Valider", commande_path(@commandeId), class:"btn btn-sm btn-success my-0" %> 
-      </div>
-    </div>
-
- 
+      </td>
+    </tr>
+  </table>
 
 </div>

@@ -12,20 +12,85 @@
 
   <div class="card-body bloc-record">
       <div class="input-group mb-1">
+        <%= form.label :prenom, class:"input-group-text label-with-format" %>
+        <%= form.text_field :prenom, class:"form-control field-with-format" %>
         <%= form.label :nom, class:"input-group-text label-with-format" %>
         <%= form.text_field :nom, class:"form-control field-with-format" %>
       </div>
 
+      <%# faire le select %>
+
+          <div class="input-group mb-1 me-1">
+            <%= form.label :type, class:"input-group-text label-with-format" %>
+            <%= form.select :typepropart, @typepropart, include_blank: true,
+                class:"form-select " %>
+
+            <%= form.label :intitule, class:"input-group-text label-with-format" %>
+            <%= form.select :intitule, @intitule, include_blank: true,
+                class:"form-select " %>
+          </div>
+
+
+      <%# pour personne contact client pro %>
       <div class="input-group mb-1">
-        <%= form.label :mail, class:"input-group-text label-with-format" %>
-        <%= form.text_field :mail, class:"form-control field-with-format" %>
+        <%= form.label :contact, class:"input-group-text label-with-format" %>
+        <%= form.text_field :contact, class:"form-control field-with-format" %>
+      </div>
+
+
+      <div class="input-group mt-3 mb-1">
+        <div class="input-group addon">
+          <span class="input-group-addon label-with-icon input-group-text">
+            <i class="fa fa-square-phone"></i>
+          </span>
+          <%= form.text_field :tel, class:"form-control field-with-format" %>
+          <span class="input-group-addon label-with-icon input-group-text">
+            <i class="fa fa-square-phone"></i>
+          </span>
+          <%= form.text_field :tel2, class:"form-control field-with-format" %>
+        </div>
+      </div>
+  
+      <div class="input-group mt-0 mb-1">
+        <div class="input-group addon">
+          <span class="input-group-addon label-with-icon input-group-text">
+            <i class="fa fa-at"></i>
+          </span>
+          <%= form.text_field :mail, class:"form-control field-with-format" %>
+          <span class="input-group-addon label-with-icon input-group-text">
+            <i class="fa fa-at"></i>
+          </span>
+          <%= form.text_field :mail2, class:"form-control field-with-format" %>
+        </div>
+      </div>
+
+      <div class="input-group mt-3 mb-1">
+        <%= form.label :adresse, class:"input-group-text label-with-format" %>
+        <%= form.text_field :adresse, class:"form-control field-with-format" %>
       </div>
 
       <div class="input-group mb-1">
-        <%= form.label :commentaires, class:"input-group-text label-with-format" %>
-        <%= form.text_area :commentaires, class:"form-control field-with-format" %>
+        <%= form.label :ville, class:"input-group-text label-with-format" %>
+        <%= form.text_field :ville, class:"form-control field-with-format" %>
+        <%= form.label :CP, class:"input-group-text label-with-format" %>
+        <%= form.text_field :cp, class:"form-control field-with-format" %>
       </div>
-      <%= form.submit "Valider", class: "btn btn-primary btn-sm" %>
+
+      <div class="input-group mb-1">
+        <%= form.label :pays, class:"input-group-text label-with-format" %>
+        <%= form.text_field :pays, class:"form-control field-with-format" %>
+      </div>
+
+      <div class="input-group mt-3">
+        <%= form.label :commentaires, class:"input-group-text label-with-format-large" %>
+        <%= form.text_area :commentaires, class:"form-control field-with-format-large" %>
+      </div>
+     
+        <div class="float-end mt-2 mb-4">
+          <%= form.submit "Valider", class: "btn btn-primary btn-sm" %>
+        </div><br> <br>
+
+
   </div>
 
 <% end %>

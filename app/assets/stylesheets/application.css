@@ -29,20 +29,49 @@ h1, h2, p, div, li, ul, a {
 .label-with-format{
   background-color: rgb(83, 83, 83, 0.8);
   color: rgb(255, 255, 255);
-  padding: .1em;
-  padding-right: 2em;
-  margin: 0em;
   width: 20%;
-  height: 5vh;
+  height: 4vh;
   font-size: small;
+  margin: 0px;
+  padding: 0px;
+  padding-left: .2em;
+}
+
+.label-with-icon{
+  background-color: rgb(83, 83, 83, 0.8);
+  color: rgb(255, 255, 255);
+  height: 4vh;
+
+}
+
+.label-with-format-large{
+  background-color: rgb(83, 83, 83, 0.8);
+  color: rgb(255, 255, 255);
+  width: 30%;
+  height: 8vh;
+  font-size: small;
+  margin: 0px;
+  padding: 0px;
+  padding-left: .2em;
 }
 
 .field-with-format{
   padding: .1em;
-  padding-right: 2em;
+  padding-right: 1em;
+  padding-left: 1em;
   margin: 0em;
-  width: 20%;
-  height: 5vh;
+  width: 50%;
+  height: 4vh;
+  font-size: small;
+}
+
+.field-with-format-large{
+  padding: .1em;
+  padding-right: 1em;
+  padding-left: 1em;
+  margin: 0em;
+  width: 50%;
+  height: 8vh;
   font-size: small;
 }
 
@@ -138,7 +167,7 @@ h1, h2, p, div, li, ul, a {
     margin: .5em;
     /*width: 25%;*/
     height: calc(100vh - 2em);
-    background-color:rgb(83, 83, 83);
+    background-color:rgb(59, 58, 58);
     overflow: hidden;
   }
 
@@ -240,6 +269,9 @@ h1, h2, p, div, li, ul, a {
 
   .table-articles{
     font-size: .8em;
+    border-radius: .2em;
+    box-shadow: 2px 3px 4px rgba(165, 163, 163, 0.8);
+
   }
 
   .bloc-record{
@@ -292,13 +324,13 @@ h1, h2, p, div, li, ul, a {
 }
 
 .entete-index {
-  background-color: rgb(83, 83, 83);
+  background-color: rgb(59, 58, 58);
   padding: 0em;
   margin: 0em;
 } 
 
 .footer-index {
-  background-color: rgb(83, 83, 83);
+  background-color: rgb(59, 58, 58);
   border-radius: .2em;
   box-shadow: 2px 3px 4px rgba(165, 163, 163, 0.8);
   padding: 0em;
@@ -306,14 +338,14 @@ h1, h2, p, div, li, ul, a {
 } 
 
 .entete-show {
-  background-color: rgb(83, 83, 83);
+  background-color: rgb(59, 58, 58);
   border-radius: .2em;
   padding: .2em;
   margin: 0em;
 } 
 
 .list-records-item{
-  height: 78vh;
+  height: 73vh;
   overflow: auto;
   padding: 0em;
   margin: 0em;
@@ -332,14 +364,21 @@ h1, h2, p, div, li, ul, a {
   overflow: auto;
 }
 
-.list-long-blocs-article{
-  height: 40vh;
+.list-long-95{
+  height: 95vh;
   overflow: auto;
 }
 
-.list-long-blocs-sousarticle{
-  height: 10vh;
+.list-long-blocs-article{
+  height: 40vh;
   overflow: auto;
+  /*margin-left: 0.4em;*/
+}
+
+.list-long-blocs-sousarticle{
+  height: 28vh;
+  overflow: auto;
+  margin-left: 0.4em;
 }
 
 ::-webkit-scrollbar {
@@ -349,6 +388,8 @@ h1, h2, p, div, li, ul, a {
 .th-list-articles{
   font-size: small;
   text-align: center;
+  background-color: rgb(121, 121, 121);
+  color: black;
 
 }
 
@@ -359,13 +400,15 @@ h1, h2, p, div, li, ul, a {
   margin: 0px;
   padding: .1em;
   border-radius: .2em;
-  box-shadow: 2px 3px 4px rgba(165, 163, 163, 0.8);
+  box-shadow: 1px 1px 1px rgba(165, 163, 163, 0.8);
   
 }
 
 .img-min-size{
   min-width: 25px;
-  max-width: 100px;
+  max-width: 80px;
+  border-radius: .2em;
+  box-shadow: 2px 3px 4px rgba(165, 163, 163, 0.8);
 }
 
 .counter-model-dashboard{

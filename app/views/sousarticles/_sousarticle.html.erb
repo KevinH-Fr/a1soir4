@@ -7,12 +7,23 @@
       </div>
 
       <div class="col-3 p-0 m-0 text-end">
-        <%= button_to "", edit_sousarticle_path(sousarticle, articleId: sousarticle.article_id), 
-              class:"fa-regular fa-pen-to-square btn btn-sm btn-secondary", method: :post %> 
 
-        <%= button_to '', sousarticle_path(sousarticle), 
+      <table>
+        <tr>
+          <td>
+             <%= button_to "", edit_sousarticle_path(sousarticle, articleId: sousarticle.article_id), 
+              class:"fa-regular fa-pen-to-square btn btn-sm btn-secondary", method: :post %> 
+          </td>
+          <td>
+             <%= button_to '', sousarticle_path(sousarticle), 
              class:"fa-solid fa-trash-can btn btn-danger btn-sm", method: :delete %> 
-      </div>
+          </td>
+        </tr>
+      </table>
+      
+      
+     
+           </div>
     </div>
   </div>
 

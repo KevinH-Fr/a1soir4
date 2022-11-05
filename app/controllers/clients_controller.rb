@@ -3,9 +3,7 @@ class ClientsController < ApplicationController
 
   def index
   #  @clients = Client.all
-
     @pagy, @clients = pagy(Client.order(created_at: :desc), items: 5)
-
 
     @q = Client.ransack(params[:q])
     if @q.present?  
@@ -13,13 +11,10 @@ class ClientsController < ApplicationController
     end
 
    #@pagy, @clients = pagy(Client.order(created_at: :desc), items: 10)
-
   #  respond_to do |format|
   #    format.html
   #    format.turbo_stream 
   #  end 
-
-
   end
 
   def show
@@ -28,10 +23,14 @@ class ClientsController < ApplicationController
 
   def new
     @client = Client.new
-
+    @typepropart = Client.typeproparts
+    @intitule = Client.intitules
   end
 
   def edit
+    @typepropart = Client.typeproparts
+    @intitule = Client.intitules
+    
     respond_to do |format|
       format.html
       format.turbo_stream do  
@@ -128,6 +127,7 @@ class ClientsController < ApplicationController
     end
 
     def client_params
-      params.fetch(:client, {}).permit(:nom, :mail, :commentaires)
+      params.fetch(:client, {}).permit(:nom, :prenom, :typepropart, :contact, :intitule,
+        :mail, :mail2, :tel, :tel2, :adresse, :ville, :cp, :pays, :commentaires)
     end
 end

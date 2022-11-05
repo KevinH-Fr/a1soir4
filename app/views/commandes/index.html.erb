@@ -17,13 +17,22 @@
   <div class="mb-1">
     <%= render "search" %>
   </div>
+
 </div>
-  
-<div class="list-records-item">
-  <%= link_to "Nouveau", new_commande_path, data:{turbo_frame: "modal"}, 
+
+ <div class="">
+    <%= link_to "Nouveau", new_commande_path, data:{turbo_frame: "modal"}, 
       class:"btn btn-sm btn-warning" %>
 
   <%= turbo_frame_tag :modal %>
+  
+
+</div>
+  
+
+
+
+<div class="list-records-item">
 
       <div id="commandes">
         <%= render @commandes %>

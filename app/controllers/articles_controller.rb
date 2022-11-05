@@ -62,6 +62,8 @@ class ArticlesController < ApplicationController
   end
 
   def edit
+
+
     @commandeId = params[:commandeId]
     @produitId = params[:produitId]
     @natures = Modelsousarticle.distinct.pluck(:nature)

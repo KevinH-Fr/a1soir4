@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_27_232859) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_05_120757) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -92,6 +92,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_27_232859) do
     t.text "commentaires"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "tel"
+    t.string "prenom"
+    t.string "typepropart"
+    t.string "intitule"
+    t.string "tel2"
+    t.string "mail2"
+    t.string "adresse"
+    t.string "ville"
+    t.string "cp"
+    t.string "pays"
+    t.string "contact"
   end
 
   create_table "commandes", force: :cascade do |t|
