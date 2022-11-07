@@ -3,23 +3,11 @@
  *= require_self
  */
 
-html {
-    height: 100%;
+
+.container-fluid {
+
 }
 
-body {
-    background-color: rgb(255, 255, 255);
-}
-
-.body-main{
-    -ms-overflow-style: none;  /* Internet Explorer 10+ */
-    scrollbar-width: none;  /* Firefox */ 
-    overflow-y: scroll; 
-  }
-  
-.body-main::-webkit-scrollbar {
-    display: none; 
-}
 
 h1, h2, p, div, li, ul, a {
     color: rgb(0, 0, 0);
@@ -52,14 +40,13 @@ h1, h2, p, div, li, ul, a {
 
 
 .img-max {
-    min-width: 2em;
-    max-width: 2em;
-    width:100%;
+    min-width: 20px;
+    max-width: 30px;
   }
 
 .img-big {
-    max-width: 300px;
-    width:100%;
+    min-width: 20px;
+    max-width: 180px;
   }
 
 .img-centered {
