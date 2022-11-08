@@ -1,39 +1,34 @@
+
 <div class="bloc-entete-model">
   <div class="card card-header entete-index">
     <div class="row m-0 p-0">
       <div class="col ms-1">
-        <strong>Produits</strong> 
+        <strong>Stocks</strong> 
       </div>
       <div class="col">
         <span id="produit_counter" class="position-absolute top-0 start-100 
             translate-middle badge rounded-pill bg-warning text-dark">
-          <%= Produit.count %>
+          <%= @produits.sum(:quantite) %> 
         </span>
       </div>
     </div>
   </div> 
 
-  <div class="m-0 p-0 text-dark">
-    <%= render "search" %>  
-  </div>
 </div>
 
 <div class="list-records-item-produits">
+  <div class="bloc-record text-dark">
+    nb produits : <%= total = @produits.sum(:quantite) %> <br>
 
-    <div class="bloc-entete-model text-dark">
-      <%= render "choixCategorie" %> 
-    </div>
-
-    <%= link_to "Nouveau", new_produit_path, data:{turbo_frame: "modal"}, 
-      class:"btn btn-sm btn-warning" %>
-
-
-    <%= turbo_frame_tag :modal %>
-
-      <div id="produits">
-        <%= render @produits %>
-      </div>
-
+    <%# to do 
+        chercher le nb d'articles loués
+        idem vendus 
+        faire soustraction
+    %>
+    nb produits loués : <%= loues = Article.articlesLoues.compte_articles %><br>
+    nb produits vendus : <%= vendus = Article.articlesVendus.compte_articles %><br>
+    nb produits restants : <%= restant = total - loues - vendus %><br>
+  </div>
 </div> 
 
 

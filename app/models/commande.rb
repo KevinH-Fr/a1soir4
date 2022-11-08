@@ -1,6 +1,9 @@
 class Commande < ApplicationRecord
     belongs_to :client
 
+    has_many :articles, :dependent => :delete_all 
+    has_many :paiements, :dependent => :delete_all 
+
     scope :client_courant, ->  (client_courant) { where("client_id = ?", client_courant)}
 
     def full_name
@@ -33,4 +36,5 @@ class Commande < ApplicationRecord
       end
     end
 
+ 
 end

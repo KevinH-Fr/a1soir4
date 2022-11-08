@@ -12,6 +12,9 @@ class Produit < ApplicationRecord
 
     enum couleurs: ["Bleu", "Blanc", "Rouge"]
 
+    enum tailles: ["S", "M", "L"]
+
+
     scope :showed_vitrine, -> { where("vitrine = ?", true) }
 
     scope :categorie_robes_soirees, -> { where("categorie = ?", "Robes de soirées") } # categorie 1
@@ -29,18 +32,13 @@ class Produit < ApplicationRecord
     end
 
     def full_details
-       # "n°#{id} | nom #{nom} "
         {
             id: id,
             nom: nom,
             description: description,
             image: image1
-          }
+        }
     end
-
-    def handle_created 
-        "test tempo"
-    end 
 
     def default_image
         if self.image1.filename.to_s.length > 0 

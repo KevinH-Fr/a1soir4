@@ -2,7 +2,7 @@ class Article < ApplicationRecord
   belongs_to :commande
   belongs_to :produit
 
-  has_many :sousarticles
+  has_many :sousarticles, :dependent => :delete_all 
 
   enum typelocventes: ["Location", "Vente"]
   
@@ -13,6 +13,13 @@ class Article < ApplicationRecord
   scope :compte_articles, -> {sum('quantite')}
 
   scope :sum_sousarticles, -> {joins(:sousarticles).sum('prix_sousarticle')}
+
+  scope :articlesLoues, -> { where("Locvente = ?", "location")}
+  scope :articlesVendus, -> { where("Locvente = ?", "vente")}
+
+
+
+
 
   after_initialize :set_defaults
 

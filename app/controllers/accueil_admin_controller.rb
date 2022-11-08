@@ -9,6 +9,10 @@ class AccueilAdminController < ApplicationController
       @q = Client.ransack(params[:q])
       @clients = @q.result(distinct: true)
     end
+
+    def stock
+      @pagy, @produits = pagy(Produit.order(created_at: :desc), items: 5)
+    end 
   
   end
   

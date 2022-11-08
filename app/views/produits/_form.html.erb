@@ -25,17 +25,14 @@
   </div>
 
   <div class="input-group mb-1">
-    <%= form.label :reffrs, class:"input-group-text label-with-format" %>
+    <%= form.label :ref_frs, class:"input-group-text label-with-format" %>
     <%= form.text_field :reffrs, class:"form-control field-with-format" %>
   </div>
 
   <div class="input-group mb-1">
-    <%= form.label :taille, class:"input-group-text label-with-format" %>
-    <%= form.text_field :taille, class:"form-control field-with-format" %>
+    <%= form.label :quantite, class:"input-group-text label-with-format" %>
+    <%= form.number_field :quantite, class:"form-control field-with-format" %> 
   </div>
-
-
-
 
   <div class="input-group mb-1">
     <%= form.label :categorie, class:"input-group-text label-with-format" %>
@@ -47,14 +44,20 @@
     <%= form.label :couleur, class:"input-group-text label-with-format" %>
     <%= form.select(:couleur, Produit.couleurs.keys, {include_blank: true}, 
           class:"form-control field-with-format") %> 
+
+    <%= form.label :taille, class:"input-group-text label-with-format" %>
+    <%= form.select(:taille,  Produit.tailles.keys, {include_blank: true}, 
+          class:"form-control field-with-format") %> 
   </div>
+
+
+
+
 
   <div class="input-group mb-1">
     <%= form.label :prix, class:"input-group-text label-with-format" %>
     <%= form.text_field :prix, class:"form-control field-with-format" %>
-  </div>
 
-  <div class="input-group mb-1">
     <%= form.label :caution, class:"input-group-text label-with-format" %>
     <%= form.number_field :caution, class:"form-control field-with-format" %>
   </div>
@@ -67,6 +70,10 @@
   <div class="input-group mb-1">
     <%= form.label :vitrine, class:"input-group-text label-with-format" %>
     <%= form.check_box :vitrine, class:"form-control field-with-format" %>
+    <%# a crééer dans db pour eshop, rempalcer les deux vitrine et eshop par des boutons radio%>
+    <%= form.label :eshop, class:"input-group-text label-with-format" %>
+    <%= form.check_box :vitrine, class:"form-control field-with-format" %>
+
   </div>
 
   <div class="input-group mb-1">
@@ -74,10 +81,10 @@
     <%= form.file_field :image1, class:"form-control form-control-sm" %>
   </div>
 
-  <div>
-   <%= form.submit "Valider", class: "btn btn-primary btn-sm" %>
-  </div>
-</div>
+  <div class="float-end mt-2 mb-4">
+    <%= form.submit "Valider", class: "btn btn-primary btn-sm" %>
+  </div><br> <br>
 
+</div>
 <% end %>
 

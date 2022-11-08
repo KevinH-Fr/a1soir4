@@ -73,5 +73,6 @@ Rails.application.routes.draw do
    get 'search', to: 'search#index'
    get 'marketing', to: 'accueil_admin#marketing'
    get 'listeSelection', to: 'accueil_admin#listeSelection'
+   get 'stock', to: 'accueil_admin#stock'
 
 end

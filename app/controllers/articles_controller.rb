@@ -124,12 +124,12 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    @commandeId = session[:commandeId]
+    @commandeId = @article.commande_id
     
     @article.destroy
 
     respond_to do |format|
-      format.html { redirect_to commande_url(@commandeId), notice: "Article was successfully destroyed." }
+      format.html { redirect_to commande_url( @commandeId ), notice: "Article was successfully destroyed." }
       format.json { head :no_content }
     end
   end
