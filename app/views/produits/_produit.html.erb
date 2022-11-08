@@ -1,35 +1,56 @@
 <div id="<%= dom_id produit %>">
 
-  <div class="bloc-record">
-    <div class="card-body p-0">
-      <div class="row">
-        <div class="col-9 p-2 m-0 text-dark">
-          <%= image_tag(produit.image1, class:"img-fluid rounded-start w-25") if produit.image1.attached? %> 
+    <div class="card mb-0 bloc-produit">
+      <div class="row g-0">
+        <div class="col-2">
+         <%= image_tag(produit.default_image, class:"img-fluid rounded-start image-produit-sized") %> 
+        </div>
 
-             <%= produit.nom %> <br>
-             <%= produit.categorie %> <br>
-             <%= produit.taille %> <br>
-             <%= produit.prix %> <br>
-             <%= produit.couleur %> <br>
+        <div class="col-1 m-0 p-0">
+          <% if produit.vitrine == true %>
+            <i class="fa-solid fa-globe iconcolor-true"></i>
+          <% else %>
+            <i class="fa-solid fa-globe iconcolor-false"></i>
+          <% end %>
+          <br>
+          <% if produit.eshop == true %>
+            <i class="fa-solid fa-cart-shopping iconcolor-true"></i>
+          <% else %>
+            <i class="fa-solid fa-cart-shopping iconcolor-false"></i>
+          <% end %>
+        </div>
 
-             <%= image_tag(produit.qr_code, style:"width: 100px") if produit.qr_code.attached? %>
-             <%= image_tag(produit.barcode) if produit.barcode.attached? %>
+        <div class="col-6 m-0 p-0">
+          <div class="card-body m-0 p-0">
+            <h6 class="card-title text-black m-0 p-0"><%= produit.nom %></h6>
+            <p class="card-text text-dark p-0 m-0"><%= produit.description %></p>
 
+            <span class="card-text"><small class="text-muted"><%= produit.categorie %></small></span>
+            <span class="card-text"><small class="text-muted"><%= produit.taille %></small></span>
+            <span class="card-text"><small class="text-muted"><%= produit.couleur %></small></span>
+            <span class="card-text"><small class="text-muted"><%= produit.prix %></small></span>
 
           </div>
-          <div class="col-3 p-2 m-0 text-end">
+        </div>
+
+        <div class="col-1 m-0 p-0">
+          <%= image_tag(produit.qr_code, class:"rounded-start image-qr-cb-sized") if produit.qr_code.attached? %>
+        </div>
+        <div class="col-1 m-0 p-0">
+          <%= image_tag(produit.barcode, class:"rounded-start image-qr-cb-sized") if produit.barcode.attached? %>
+        </div>
+        
+        <div class="col-1 text-end">
             <%= link_to '', produit_path(produit), 
-                class:"fa-regular fa-folder-open btn btn-sm btn-primary" %> 
+                class:"fa-regular fa-folder-open btn btn-sm btn-primary mb-1" %> 
             <%= button_to '', edit_produit_path(produit), 
-                class:"fa-regular fa-pen-to-square btn btn-sm btn-secondary", 
+                class:"fa-regular fa-pen-to-square btn btn-sm btn-secondary mb-1", 
                 method: :post %> 
             <%= button_to '', produit_path(produit), 
-                class:"fa-solid fa-trash-can btn btn-danger btn-sm", method: :delete %>      
-          </div> 
+                class:"fa-solid fa-trash-can btn btn-danger btn-sm mb-1", method: :delete %> 
+        </div>
       </div>
     </div>
-  </div>
-
 
 </div>
 

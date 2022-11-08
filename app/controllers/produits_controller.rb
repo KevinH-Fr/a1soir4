@@ -2,22 +2,38 @@ class ProduitsController < ApplicationController
   before_action :set_produit, only: %i[ show edit update destroy ]
 
   def index
+   
     categorieVal = params[:categorieVal]
+    couleurVal = params[:couleurVal]
+    tailleVal = params[:tailleVal]
+
+    
+
     if categorieVal.present?
-      @produits = Produit.categorie_selected(categorieVal)
+      @pagy, @produits =  pagy(Produit.categorie_selected(categorieVal).order(created_at: :desc), items: 5)
     else
-      @produits = Produit.all 
+      if couleurVal.present?
+        @pagy, @produits =  pagy(Produit.couleur_selected(couleurVal).order(created_at: :desc), items: 5)
+      else
+        if tailleVal.present?
+          @pagy, @produits =  pagy(Produit.taille_selected(tailleVal).order(created_at: :desc), items: 5)
+        else
+          @pagy, @produits = pagy(Produit.order(created_at: :desc), items: 5)
+        end
+      end
     end
     
+    #@produits = Produit.all 
+
     @categories = Produit.distinct.pluck(:categorie)
+    @couleurs = Produit.distinct.pluck(:couleur)
+    @tailles = Produit.distinct.pluck(:taille)
 
-    @pagy, @produits = pagy(Produit.order(created_at: :desc), items: 5)
-
-    qVal = params[:q]
-    if qVal.present?
-      @q = Produit.ransack(params[:q])
-      @produits = @q.result(distinct: true)
-    end 
+ #   qVal = params[:q]
+ #   if qVal.present?
+ #     @q = Produit.ransack(params[:q])
+ #     @produits = @q.result(distinct: true)
+ #   end 
 
   end
 
@@ -41,22 +57,17 @@ class ProduitsController < ApplicationController
   end
 
   def create
-
-   
-      @produit = Produit.new(produit_params)
+    @produit = Produit.new(produit_params)
   
-
     respond_to do |format|
       if @produit.save
 
-        5.times do 
           format.turbo_stream do
             render turbo_stream: [
               turbo_stream.prepend("produits", partial: "produits/produit",
               locals: {produit: @produit }),
             ]
           end
-        end
         
         format.html { redirect_to produit_url(@produit), notice: "Produit was successfully created." }
         format.json { render :show, status: :created, location: @produit }

@@ -27,9 +27,10 @@ class Produit < ApplicationRecord
     scope :categorie_accessoires, -> { where("categorie = ?", "Accessoires") }
     scope :categorie_costumes_deguisements, -> { where("categorie = ?", "Costumes et déguisements") }
 
-
     scope :categorie_selected, ->  (categorieVal) { where("categorie = ?", categorieVal)}
     scope :couleur_selected, ->  (couleurVal) { where("couleur = ?", couleurVal)}
+    scope :taille_selected, ->  (tailleVal) { where("taille = ?", tailleVal)}
+
 
     def full_name
         "n°#{id} | #{nom} "

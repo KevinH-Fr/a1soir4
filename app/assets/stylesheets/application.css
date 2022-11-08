@@ -284,9 +284,30 @@ h1, h2, p, div, li, ul, a {
     margin-bottom: 1em;
     font-size: .8em;
     min-height: 6vh;  
-
   }
 
+.bloc-produit{
+    background-color: rgb(233, 228, 229);
+    padding: .5em;
+    border-radius: .2em;
+    box-shadow: 2px 3px 4px rgba(165, 163, 163, 0.8);
+    margin-top: 0.5em;
+    margin-right: 0.5em;
+    margin-bottom: 1em;
+    font-size: .8em;
+    min-height: 14vh; 
+    max-height: 14vh; 
+}
+
+.image-produit-sized{
+  min-height: 6vh; 
+  max-height: 10vh; 
+}
+
+.image-qr-cb-sized{
+  min-height: 3vh; 
+  max-height: 6vh; 
+}
 
 .fit-image{
     background-color:  rgb(83, 83, 83);
@@ -313,6 +334,18 @@ h1, h2, p, div, li, ul, a {
     color:rgb(204, 46, 102);
     padding: 0em;
     font-size: 100%;
+}
+
+.iconcolor-true {
+  color:rgb(25, 148, 43);
+  padding: 0em;
+  font-size: 100%;
+}
+
+.iconcolor-false {
+  color:rgb(191, 5, 5);
+  padding: 0em;
+  font-size: 100%;
 }
 
 .iconcolor:hover{
@@ -360,7 +393,6 @@ h1, h2, p, div, li, ul, a {
   margin-left: 0.4em;
 }
 
-
 .list-records-item-full-height{
   overflow: auto;
   padding: .5em;
@@ -398,7 +430,6 @@ h1, h2, p, div, li, ul, a {
   text-align: center;
   background-color: rgb(121, 121, 121);
   color: black;
-
 }
 
 .format-synthese{
@@ -424,4 +455,8 @@ h1, h2, p, div, li, ul, a {
   right: .0em;
   background-color: rgb(232, 192, 10);
   color:black;
+}
+
+.small-text{
+  font-size: small;
 }

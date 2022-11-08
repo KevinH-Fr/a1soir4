@@ -1,8 +1,43 @@
-
-  <span class="m-1"> Filtres </span> 
-  <% @categories.each do |categorie| %>
-    <%= link_to "#{categorie}", url_for(categorieVal: categorie), class:"btn btn-sm btn-secondary m-1 p-0", :method => :post %> 
-  <% end %>
-
 <% @categorie = params[:categorieVal]%>
+<% @couleur = params[:couleurVal]%>
+<% @taille = params[:tailleVal]%>
+
+  <div class="row align-items-center m-1 p-0">
+    <div class="col m-0 p-0">
+      <select class="form-select small-text" onchange="window.location=this.value">
+        <option>catégorie</option>
+        <% @categories.each do |c| %> 
+          <option class="form-select small-text" value="
+            <%= url_for(categorieVal: c, couleurVal: @couleur) %>"><%= c %>
+          </option>
+        <% end %>
+      </select>
+    </div>
+    <% @categorie = params[:categorieVal]%>
+    <div class="col m-0 p-0">
+      <select class="form-select small-text" onchange="window.location=this.value">
+        <option>couleur</option>
+        <% @couleurs.each do |c| %> 
+          <option class="form-select small-text" value="
+            <%= url_for(categorieVal: @categorie, couleurVal: c) %>"> <%= c %>
+          </option>
+        <% end %>
+      </select>
+    </div>
+    <% @categorie = params[:categorieVal]%>
+    <div class="col m-0 p-0">
+      <select class="form-select small-text" onchange="window.location=this.value">
+        <option>taille</option>
+        <% @tailles.each do |t| %> 
+          <option class="form-select small-text" value="<%= url_for(tailleVal: t) %>"><%= t %></option>
+        <% end %>
+      </select>
+    </div>
+    <div class="col m-0 p-0 text-end">
+      <%= link_to "Nouveau", new_produit_path, data:{turbo_frame: "modal"}, 
+      class:" btn btn-sm btn-warning" %>
+    </div>
+  </div>  
+
+
 

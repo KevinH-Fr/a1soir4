@@ -15,18 +15,12 @@
 
   <div class="m-0 p-0 text-dark">
     <%= render "search" %>  
+    <%= render "choixCategorie" %> 
   </div>
+
 </div>
 
 <div class="list-records-item-produits">
-
-    <div class="bloc-entete-model text-dark">
-      <%= render "choixCategorie" %> 
-    </div>
-
-    <%= link_to "Nouveau", new_produit_path, data:{turbo_frame: "modal"}, 
-      class:"btn btn-sm btn-warning" %>
-
 
     <%= turbo_frame_tag :modal %>
 
