@@ -12,16 +12,12 @@ class ProduitsController < ApplicationController
     @categories = Produit.distinct.pluck(:categorie)
 
     @pagy, @produits = pagy(Produit.order(created_at: :desc), items: 5)
-   
-
 
     qVal = params[:q]
     if qVal.present?
       @q = Produit.ransack(params[:q])
       @produits = @q.result(distinct: true)
     end 
-
-
 
   end
 
@@ -33,6 +29,8 @@ class ProduitsController < ApplicationController
   end
 
   def edit
+    @handle = @produit.nom.parameterize
+    
     respond_to do |format|
       format.html
       format.turbo_stream do  
@@ -52,11 +50,8 @@ class ProduitsController < ApplicationController
           render turbo_stream: [
             turbo_stream.prepend("produits", partial: "produits/produit",
             locals: {produit: @produit }),
-
           ]
-        
         end
-
 
         format.html { redirect_to produit_url(@produit), notice: "Produit was successfully created." }
         format.json { render :show, status: :created, location: @produit }
@@ -105,6 +100,6 @@ class ProduitsController < ApplicationController
     end
 
     def produit_params
-      params.require(:produit).permit(:nom, :prix, :caution, :description, :categorie, :couleur, :image1, :vitrine)
+      params.require(:produit).permit(:nom, :prix, :caution, :description, :categorie, :couleur, :image1, :vitrine, :handle, :reffrs, :taille)
     end
 end

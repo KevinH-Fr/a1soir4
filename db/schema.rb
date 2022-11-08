@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_05_120757) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_08_082826) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -177,6 +177,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_05_120757) do
     t.boolean "vitrine"
     t.string "couleur"
     t.decimal "caution"
+    t.string "handle"
+    t.string "reffrs"
+    t.string "taille"
   end
 
   create_table "sousarticles", force: :cascade do |t|

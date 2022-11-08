@@ -38,6 +38,10 @@ class Produit < ApplicationRecord
           }
     end
 
+    def handle_created 
+        "test tempo"
+    end 
+
     def default_image
         if self.image1.filename.to_s.length > 0 
             image1

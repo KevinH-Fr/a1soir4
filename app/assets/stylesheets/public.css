@@ -4,8 +4,13 @@
  */
 
 
-.container-fluid {
+html {
+    height: 100%;
+}
 
+.container-fluid {
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -31,6 +36,7 @@ h1, h2, p, div, li, ul, a {
     font-size: .8em;
     text-align: center;
     margin: .2em;
+    display:inline-block;
 }
 
 .a1soir-colored {
@@ -56,3 +62,4 @@ h1, h2, p, div, li, ul, a {
 .verysmall-text {
     font-size: xx-small;
 }
+

@@ -352,6 +352,14 @@ h1, h2, p, div, li, ul, a {
   margin-left: 0.4em;
 }
 
+.list-records-item-produits{
+  height: 83vh;
+  overflow: auto;
+  padding: 0em;
+  margin: 0em;
+  margin-left: 0.4em;
+}
+
 
 .list-records-item-full-height{
   overflow: auto;
