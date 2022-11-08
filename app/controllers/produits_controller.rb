@@ -25,7 +25,7 @@ class ProduitsController < ApplicationController
   end
 
   def new
-    @produit = Produit.new
+    @produit = Produit.new  
   end
 
   def edit
@@ -41,18 +41,23 @@ class ProduitsController < ApplicationController
   end
 
   def create
-    @produit = Produit.new(produit_params)
+
+   
+      @produit = Produit.new(produit_params)
+  
 
     respond_to do |format|
       if @produit.save
 
-        format.turbo_stream do
-          render turbo_stream: [
-            turbo_stream.prepend("produits", partial: "produits/produit",
-            locals: {produit: @produit }),
-          ]
+        5.times do 
+          format.turbo_stream do
+            render turbo_stream: [
+              turbo_stream.prepend("produits", partial: "produits/produit",
+              locals: {produit: @produit }),
+            ]
+          end
         end
-
+        
         format.html { redirect_to produit_url(@produit), notice: "Produit was successfully created." }
         format.json { render :show, status: :created, location: @produit }
       else

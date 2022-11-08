@@ -5,8 +5,17 @@
       <div class="row">
         <div class="col-9 p-2 m-0 text-dark">
           <%= image_tag(produit.image1, class:"img-fluid rounded-start w-25") if produit.image1.attached? %> 
-  
-            <%= produit.nom %>
+
+             <%= produit.nom %> <br>
+             <%= produit.categorie %> <br>
+             <%= produit.taille %> <br>
+             <%= produit.prix %> <br>
+             <%= produit.couleur %> <br>
+
+             <%= image_tag(produit.qr_code, style:"width: 100px") if produit.qr_code.attached? %>
+             <%= image_tag(produit.barcode) if produit.barcode.attached? %>
+
+
           </div>
           <div class="col-3 p-2 m-0 text-end">
             <%= link_to '', produit_path(produit), 
@@ -23,6 +32,7 @@
 
 
 </div>
+
 
 
 

@@ -1,11 +1,15 @@
 class Produit < ApplicationRecord
+
     has_one_attached :image1
+
     has_one_attached :qr_code
+    has_one_attached :barcode
 
     after_create :generate_qr
 
     def generate_qr
         GenerateQr.call(self)
+        GenerateBarcode.call(self)
     end
     
     enum categories: ["Robes de soirées", "Robes de mariées", "Costumes hommes", "Accessoires", "Costumes et déguisements"]

@@ -20,6 +20,10 @@ gem 'cloudinary'
 gem "devise", "~> 4.8"
 gem "rqrcode", "~> 2.1"
 
+gem "chunky_png", "~> 1.4"
+
+gem "barby", "~> 0.6.8"
+
 #gem "wkhtmltopdf-binary", group: :development
 #gem "wkhtmltopdf-heroku", group: :production
 
