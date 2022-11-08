@@ -1,5 +1,5 @@
 class Paiement < ApplicationRecord
-  belongs_to :commande
+  belongs_to :commande, :optional => true
 
   enum typePaiements: ["Prix", "Caution"]
 

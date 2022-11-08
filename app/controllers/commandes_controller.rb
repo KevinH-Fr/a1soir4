@@ -34,8 +34,8 @@ class CommandesController < ApplicationController
 
     @client = Client.client_courant(@commande.client_id)
 
-   # @commandeId = params[:id]
-   # session[:commandeId] = @commandeId
+    @commandeId = params[:id]
+    session[:commandeId] = @commandeId
 
 
 

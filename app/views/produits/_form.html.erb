@@ -67,19 +67,28 @@
     <%= form.text_area :description, class:"form-control field-with-format" %>
   </div>
 
-  <div class="input-group mb-1">
-    <%= form.label :vitrine, class:"input-group-text label-with-format" %>
-    <%= form.check_box :vitrine, class:"form-control field-with-format" %>
-    <%# a crééer dans db pour eshop, rempalcer les deux vitrine et eshop par des boutons radio%>
-    <%= form.label :eshop, class:"input-group-text label-with-format" %>
-    <%= form.check_box :vitrine, class:"form-control field-with-format" %>
-
-  </div>
 
   <div class="input-group mb-1">
     <%= form.label :image1, class:"input-group-text label-with-format" %>
     <%= form.file_field :image1, class:"form-control form-control-sm" %>
   </div>
+
+  <div class="form-check form-switch">
+    <div class="custom-control custom-switch">
+      <%= form.check_box :vitrine, class: "form-check-input", id: "siteVitrine" %>
+      <label class="text-dark" for="siteVitrine">site Vitrine</label>
+    </div>
+  </div>
+
+  <div class="form-check form-switch">
+    <div class="custom-control custom-switch">
+      <%= form.check_box :eshop, class: "form-check-input", id: "siteEshop" %>
+      <label class="text-dark" for="siteEshop">site Eshop</label>
+    </div>
+  </div>
+
+    <%# a crééer dans db pour eshop %>
+
 
   <div class="float-end mt-2 mb-4">
     <%= form.submit "Valider", class: "btn btn-primary btn-sm" %>
