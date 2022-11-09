@@ -4,9 +4,15 @@ class Commande < ApplicationRecord
     has_many :articles, :dependent => :delete_all 
     has_many :paiements, :dependent => :delete_all 
 
+    enum statutarticleses: ["non-retiré", "retiré", "rendu"]
+
     scope :client_courant, ->  (client_courant) { where("client_id = ?", client_courant)}
 
-    enum statutarticles: ["non-retiré", "retiré", "rendu"]
+    scope :non_retire, -> { where("statutarticles = ?", "non-retiré")}
+    scope :retire, -> { where("statutarticles = ?", "retiré")}
+    scope :rendu, -> { where("statutarticles = ?", "rendu")}
+
+
 
     def full_name
       "n°#{id} | #{nom}"

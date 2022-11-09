@@ -17,23 +17,54 @@
 
 <div class="list-stock">
   <div class="bloc-record text-dark">
-    nb produits : <%= total = @produits.sum(:quantite) %> <br>
-    nb produits loués : <%= loues = Article.articlesLoues.compte_articles %><br>
-    nb produits vendus : <%= vendus = Article.articlesVendus.compte_articles %><br>
-    nb produits restants : <%= restant = total - loues - vendus %><br>
+    total : <%= total = @produits.sum(:quantite) %> <br>
+    loués : <%= loues = Article.articlesLoues.compte_articles %><br>
+    vendus : <%= vendus = Article.articlesVendus.compte_articles %><br>
+    restants : <%= restant = total - loues - vendus %><br>
   </div>
 
   <div class="bloc-record text-dark">
-    <i class="fa-solid fa-globe iconcolor-true"></i> site vitrine : <%= Produit.showed_vitrine.compte_produits %><br>
-    <i class="fa-solid fa-cart-shopping iconcolor-true"></i> site eshop : <%= Produit.showed_eshop.compte_produits %><br>
+    non retirés : 
+    <%= nonRetires = Commande.non_retire.joins(:articles).sum(:quantite) %> <br>
+    retirés : 
+    <%= retires = Commande.retire.joins(:articles).sum(:quantite) %> <br>
+    rendus : 
+    <%= rendus = Commande.rendu.joins(:articles).sum(:quantite) %> <br>
+  </div>
+
+  <div class="bloc-record text-dark">
+    loués non retirés : 
+    <%= louesNonRetires = Commande.non_retire.joins(:articles).merge(Article.articlesLoues).sum(:quantite) %> <br>
+    vendus non retirés :
+    <%= vendusNonRetires = Commande.non_retire.joins(:articles).merge(Article.articlesVendus).sum(:quantite) %> <br>
+  </div>
+
+
+
+  <div class="bloc-record text-dark">
+    <strong>  disponibilité produits à une date donnée </strong> <br>
+    stock avec non retirés:
+    <%= restant + louesNonRetires + vendusNonRetires %> <br>
+    stock sans non retirés:
+    <%= restant %>
+
+
+   
+  </div>
+
+
+
+  <div class="bloc-record text-dark">
+    <i class="fa-solid fa-globe iconcolor-true"></i> 
+      site vitrine : <%= Produit.showed_vitrine.compte_produits %><br>
+    <i class="fa-solid fa-cart-shopping iconcolor-true"></i> 
+      site eshop : <%= Produit.showed_eshop.compte_produits %><br>
   </div>
   
 </div> 
 
-
  <div class="footer-index">
   <div class="row m-0 p-0">
-     
     <div class="col-6">
        item1
        item2

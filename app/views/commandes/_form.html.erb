@@ -39,7 +39,8 @@
       
       <div class="input-group mb-1">
         <%= form.label :statut, class:"input-group-text label-with-format" %>
-        <%= form.select(:statutarticles, Commande.statutarticles.keys, {include_blank: true}, 
+        <%#= form.text_field :statutarticles, class:"form-control field-with-format" %>
+        <%= form.select(:statutarticles, Commande.statutarticleses.keys, 
           class:"form-control field-with-format") %> 
       </div>
   
