@@ -6,6 +6,8 @@ class Commande < ApplicationRecord
 
     scope :client_courant, ->  (client_courant) { where("client_id = ?", client_courant)}
 
+    enum statutarticles: ["non-retiré", "retiré", "rendu"]
+
     def full_name
       "n°#{id} | #{nom}"
     end

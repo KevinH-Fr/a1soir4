@@ -20,11 +20,30 @@
         <%= form.label :client_id, class:"input-group-text label-with-format" %>
         <%#= form.select(:client_id, Client.all.collect { |c| [ c.nom, c.id ]}, 
              {include_blank: true},  class:"form-control field-with-format")  %>
-
-      <%= form.select :client_id, Client.all.collect { |c| [ c.nom, c.id ]}, 
+        <%= form.select :client_id, Client.all.collect { |c| [ c.nom, c.id ]}, 
             {class: 'form-control', include_blank: true, selected: @clientId} %>
-
       </div>
+
+      <div class="input-group mb-1">
+        <%= form.label :debutloc, class:"input-group-text label-with-format" %>
+        <%= form.date_field :debutloc, class: 'form-control field-with-format' %>
+        
+        <%= form.label :finloc, class:"input-group-text label-with-format" %>
+        <%= form.date_field :finloc, class: 'form-control field-with-format', include_blank: true %>
+      </div>
+      
+      <div class="input-group mb-1">
+        <%= form.label :evenement, class:"input-group-text label-with-format" %>
+        <%= form.date_field :dateevenement, class: 'form-control field-with-format', include_blank: true %>
+      </div>
+      
+      <div class="input-group mb-1">
+        <%= form.label :statut, class:"input-group-text label-with-format" %>
+        <%= form.select(:statutarticles, Commande.statutarticles.keys, {include_blank: true}, 
+          class:"form-control field-with-format") %> 
+      </div>
+  
+  </div>
 
       <div class="position-relative">
         <div class="position-absolute bottom-0 end-0">

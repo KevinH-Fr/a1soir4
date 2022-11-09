@@ -1,7 +1,6 @@
 class Produit < ApplicationRecord
 
     has_one_attached :image1
-
     has_one_attached :qr_code
     has_one_attached :barcode
 
@@ -30,7 +29,6 @@ class Produit < ApplicationRecord
     scope :categorie_selected, ->  (categorieVal) { where("categorie = ?", categorieVal)}
     scope :couleur_selected, ->  (couleurVal) { where("couleur = ?", couleurVal)}
     scope :taille_selected, ->  (tailleVal) { where("taille = ?", tailleVal)}
-
 
     def full_name
         "n°#{id} | #{nom} "
