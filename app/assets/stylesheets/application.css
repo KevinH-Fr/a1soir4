@@ -286,6 +286,19 @@ h1, h2, p, div, li, ul, a {
     min-height: 6vh;  
   }
 
+  .bloc-details-record{
+    background-color: rgb(233, 228, 229);
+    padding: .5em;
+    border-radius: .2em;
+    box-shadow: 2px 3px 4px rgba(165, 163, 163, 0.8);
+    margin-top: 0.5em;
+    margin-right: 0.5em;
+    margin-bottom: 1em;
+    font-size: .8em;
+    min-height: 6vh;
+    max-height: 70vh;
+  }
+
 .bloc-produit{
     background-color: rgb(233, 228, 229);
     padding: .5em;
@@ -304,9 +317,19 @@ h1, h2, p, div, li, ul, a {
   max-height: 10vh; 
 }
 
+.image-produit-sized-large{
+  min-height: 24vh; 
+  max-height: 40vh; 
+}
+
 .image-qr-cb-sized{
   min-height: 3vh; 
   max-height: 6vh; 
+}
+
+.image-qr-cb-large-sized{
+  min-height: 9vh; 
+  max-height: 18vh; 
 }
 
 .fit-image{

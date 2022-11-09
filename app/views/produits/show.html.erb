@@ -1,11 +1,8 @@
-<p style="color: green"><%= notice %></p>
-
-<%= render @produit %>
-
-
-<div>
-  <%= link_to "Edit this produit", edit_produit_path(@produit), class: "btn btn-creer" %>
-  <%= link_to "Back to produits", produits_path, class: "btn btn-retour" %> 
-  <%= button_to "Destroy this produit", @produit, class: "btn btn-supprimer", method: :delete %>
+<div class="bloc-entete-model">
+  <div class="card card-header entete-index">
+    <strong>Produit</strong> 
+  </div>
 </div>
 
+<%= render "details" %>
+<%= render "stock" %>

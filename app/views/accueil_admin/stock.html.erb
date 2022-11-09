@@ -42,16 +42,14 @@
 
 
   <div class="bloc-record text-dark">
-    <strong>  disponibilité produits à une date donnée </strong> <br>
+    <strong>  disponibilité </strong> <br>
     stock avec non retirés:
     <%= restant + louesNonRetires + vendusNonRetires %> <br>
     stock sans non retirés:
-    <%= restant %>
-
-
-   
+    <%= restant %> <br>
+    à venir: <%= louesUpcoming = Commande.a_venir.joins(:articles).merge(Article.articlesLoues).sum(:quantite) %> <br>
+    terminées: <%= louesUpcoming = Commande.termine.joins(:articles).merge(Article.articlesLoues).sum(:quantite) %> <br>
   </div>
-
 
 
   <div class="bloc-record text-dark">

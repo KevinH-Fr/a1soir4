@@ -12,7 +12,11 @@ class Commande < ApplicationRecord
     scope :retire, -> { where("statutarticles = ?", "retiré")}
     scope :rendu, -> { where("statutarticles = ?", "rendu")}
 
+     # disponibilité des produits :
+   # scope :periode_loc, -> {where("finloc <= ?", Date.current, 30.days.from_now)}
 
+    scope :a_venir, ->{ where('debutloc > ?', Date.current) }
+    scope :termine, ->{ where('finloc < ?', Date.current) }
 
     def full_name
       "n°#{id} | #{nom}"

@@ -30,6 +30,9 @@ class Produit < ApplicationRecord
     scope :couleur_selected, ->  (couleurVal) { where("couleur = ?", couleurVal)}
     scope :taille_selected, ->  (tailleVal) { where("taille = ?", tailleVal)}
 
+
+
+
     def full_name
         "n°#{id} | #{nom} "
     end
