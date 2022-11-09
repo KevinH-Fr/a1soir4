@@ -3,7 +3,7 @@
     <div class="card mb-0 bloc-produit">
       <div class="row g-0">
         <div class="col-2">
-         <%= image_tag(produit.default_image, class:"img-fluid rounded-start image-produit-sized") %> 
+         <%= image_tag(produit.image1, class:"img-fluid rounded-start image-produit-sized") if produit.image1.present? %> 
         </div>
 
         <div class="col-1 m-0 p-0">

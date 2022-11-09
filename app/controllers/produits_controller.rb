@@ -7,8 +7,6 @@ class ProduitsController < ApplicationController
     couleurVal = params[:couleurVal]
     tailleVal = params[:tailleVal]
 
-    
-
     if categorieVal.present?
       @pagy, @produits =  pagy(Produit.categorie_selected(categorieVal).order(created_at: :desc), items: 5)
     else
