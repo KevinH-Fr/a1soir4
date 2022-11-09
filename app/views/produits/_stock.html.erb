@@ -2,5 +2,14 @@
 <div class="card mb-0 bloc-details-record text-dark">
 
   <strong> partial stock </strong>
+  <% @produitId = params[:id]%>
+  stock initial : <%= initial = Produit.find(@produitId).quantite %> <br> 
+  nb locations : <%= locations = Article.produit_courant(@produitId).articlesLoues.compte_articles %> <br>
+ 
+  loc terminées: <%= louesTermines = Commande.termine.joins(:articles).merge(Article.produit_courant(@produitId).articlesLoues).sum(:quantite) %> <br>
+  loc à venir: <%= louesAvenir = Commande.a_venir.joins(:articles).merge(Article.produit_courant(@produitId).articlesLoues).sum(:quantite) %> <br>
+ 
+  nb ventes : <%= ventes = Article.produit_courant(@produitId).articlesVendus.compte_articles %> <br>
+  nb restant : <%= initial - locations - ventes %> <br>
 
 </div>

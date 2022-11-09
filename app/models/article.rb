@@ -9,6 +9,8 @@ class Article < ApplicationRecord
  # enum quantite: {1 => 1, 2 => 2, 3 => 3}
 
   scope :commande_courante, ->  (commande_courante) { where("commande_id = ?", commande_courante)}
+  scope :produit_courant, ->  (produit_courant) { where("produit_id = ?", produit_courant)}
+
   scope :sum_articles, -> {sum('total')}
   scope :compte_articles, -> {sum('quantite')}
 

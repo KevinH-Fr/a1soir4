@@ -1,5 +1,5 @@
 
-<div class="card-header bg-black text-center p-1">
+<div class="card-header bg-dark text-center p-1">
   <strong>Sélection</strong> 
 </div>
 
@@ -12,7 +12,7 @@
           <th class="text-center">#</th>
           <th>Image</th>
           <th>Nom</th>
-          <th>Description</th>
+          <th>Dispo</th>
           <th style="width:10px" class="text-center"> Actions</th>
         </tr>
       </thead>
@@ -25,12 +25,25 @@
                 class: "img-fluid rounded") %>
             </td> 
             <td> <%= produit.nom %> </td>
-            <td> <%= produit.description %> </td>
+            
+            <td> 
+
+              <% initial = Produit.find(produit.id).quantite %> 
+              <% ventes = Article.produit_courant(produit.id).articlesVendus.compte_articles %> 
+              <% louesAvenir = Commande.a_venir.joins(:articles).merge(Article.produit_courant(produit.id).articlesLoues).sum(:quantite) %> 
+              <%= dispo = initial.to_i - ventes.to_i - louesAvenir.to_i %> 
+              
+            </td>
+
              <%#= link_to '', toggle_selectProduit_article_path(produit), class:"fa-solid fa-cart-plus btn btn-secondary btn-sm" %> 
             <td class="text-center"> 
-              <%= link_to '', new_article_path(
-                      commandeId: session[:commandeId], produitId: produit), 
-                      class:"fa-solid fa-cart-plus btn btn-primary btn-sm" %>  
+              <% if dispo > 0 %>
+                <%= link_to '', new_article_path(commandeId: session[:commandeId], produitId: produit), 
+                    class:"fa-solid fa-cart-plus btn btn-primary btn-sm" %>  
+              <% else %>
+              <%= link_to '', new_article_path(), 
+                    class:"fa-solid fa-cart-plus btn disabled btn-primary btn-sm" %>
+              <% end %>
             </td>
           </tr>
         <% end %>

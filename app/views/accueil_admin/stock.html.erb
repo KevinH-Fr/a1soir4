@@ -47,8 +47,8 @@
     <%= restant + louesNonRetires + vendusNonRetires %> <br>
     stock sans non retirés:
     <%= restant %> <br>
-    à venir: <%= louesUpcoming = Commande.a_venir.joins(:articles).merge(Article.articlesLoues).sum(:quantite) %> <br>
-    terminées: <%= louesUpcoming = Commande.termine.joins(:articles).merge(Article.articlesLoues).sum(:quantite) %> <br>
+    à venir: <%= louesAvenir = Commande.a_venir.joins(:articles).merge(Article.articlesLoues).sum(:quantite) %> <br>
+    terminées: <%= louesTermines = Commande.termine.joins(:articles).merge(Article.articlesLoues).sum(:quantite) %> <br>
   </div>
 
 
