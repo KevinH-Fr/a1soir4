@@ -13,26 +13,25 @@
       </div>
     </div>
   </div> 
-
 </div>
 
-<div class="list-records-item-produits">
+<div class="list-stock">
   <div class="bloc-record text-dark">
     nb produits : <%= total = @produits.sum(:quantite) %> <br>
-
-    <%# to do 
-        chercher le nb d'articles loués
-        idem vendus 
-        faire soustraction
-    %>
     nb produits loués : <%= loues = Article.articlesLoues.compte_articles %><br>
     nb produits vendus : <%= vendus = Article.articlesVendus.compte_articles %><br>
     nb produits restants : <%= restant = total - loues - vendus %><br>
   </div>
+
+  <div class="bloc-record text-dark">
+    <i class="fa-solid fa-globe iconcolor-true"></i> site vitrine : <%= Produit.showed_vitrine.compte_produits %><br>
+    <i class="fa-solid fa-cart-shopping iconcolor-true"></i> site eshop : <%= Produit.showed_eshop.compte_produits %><br>
+  </div>
+  
 </div> 
 
 
- <div class="card card-footer footer-index">
+ <div class="footer-index">
   <div class="row m-0 p-0">
      
     <div class="col-6">

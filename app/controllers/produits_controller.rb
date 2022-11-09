@@ -29,11 +29,11 @@ class ProduitsController < ApplicationController
     @couleurs = Produit.distinct.pluck(:couleur)
     @tailles = Produit.distinct.pluck(:taille)
 
- #   qVal = params[:q]
- #   if qVal.present?
- #     @q = Produit.ransack(params[:q])
- #     @produits = @q.result(distinct: true)
- #   end 
+    qVal = params[:q]
+    if qVal.present?
+      @q = Produit.ransack(params[:q])
+      @produits = @q.result(distinct: true)
+    end 
 
   end
 

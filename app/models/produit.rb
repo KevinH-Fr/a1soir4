@@ -13,13 +13,13 @@ class Produit < ApplicationRecord
     end
     
     enum categories: ["Robes de soirées", "Robes de mariées", "Costumes hommes", "Accessoires", "Costumes et déguisements"]
-
     enum couleurs: ["Bleu", "Blanc", "Rouge"]
-
     enum tailles: ["S", "M", "L"]
 
-
     scope :showed_vitrine, -> { where("vitrine = ?", true) }
+    scope :showed_eshop, -> { where("eshop = ?", true) }
+    
+    scope :compte_produits, -> {sum('quantite')}
 
     scope :categorie_robes_soirees, -> { where("categorie = ?", "Robes de soirées") } # categorie 1
     scope :categorie_robes_mariees, -> { where("categorie = ?", "Robes de mariées") }

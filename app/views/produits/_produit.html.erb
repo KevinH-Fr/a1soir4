@@ -42,18 +42,14 @@
         
         <div class="col-1 text-end">
             <%= link_to '', produit_path(produit), 
-                class:"fa-regular fa-folder-open btn btn-sm btn-primary mb-1" %> 
+                class:"fa-regular fa-folder-open btn btn-sm btn-primary mb-1 p-1" %> 
             <%= button_to '', edit_produit_path(produit), 
-                class:"fa-regular fa-pen-to-square btn btn-sm btn-secondary mb-1", 
+                class:"fa-regular fa-pen-to-square btn btn-sm btn-secondary mb-1 p-1", 
                 method: :post %> 
             <%= button_to '', produit_path(produit), 
-                class:"fa-solid fa-trash-can btn btn-danger btn-sm mb-1", method: :delete %> 
+                class:"fa-solid fa-trash-can btn btn-danger btn-sm p-1", method: :delete %> 
         </div>
       </div>
     </div>
 
 </div>
-
-
-
-

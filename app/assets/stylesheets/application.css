@@ -386,7 +386,7 @@ h1, h2, p, div, li, ul, a {
 }
 
 .list-records-item-produits{
-  height: 83vh;
+  height: 72vh;
   overflow: auto;
   padding: 0em;
   margin: 0em;
@@ -401,6 +401,12 @@ h1, h2, p, div, li, ul, a {
 
 .list-long-blocs-commande{
   height: 73vh;
+  overflow: auto;
+}
+
+.list-stock{
+  height: 85vh;
+  margin-left: 0.4em;
   overflow: auto;
 }
 
