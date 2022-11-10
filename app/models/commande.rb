@@ -19,7 +19,9 @@ class Commande < ApplicationRecord
     scope :termine, -> { where('finloc <= ?', Date.current) }
 
 
+    scope :a_date, -> (a_date) { where('finloc <= ?', a_date) }
 
+    
 
 
     def full_name
