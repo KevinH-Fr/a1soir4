@@ -6,7 +6,7 @@ class Commande < ApplicationRecord
 
     enum statutarticleses: ["non-retiré", "retiré", "rendu"]
 
-    scope :client_courant, ->  (client_courant) { where("client_id = ?", client_courant)}
+    scope :client_courant, -> (client_courant) { where("client_id = ?", client_courant)}
 
     scope :non_retire, -> { where("statutarticles = ?", "non-retiré")}
     scope :retire, -> { where("statutarticles = ?", "retiré")}
@@ -15,8 +15,12 @@ class Commande < ApplicationRecord
      # disponibilité des produits :
    # scope :periode_loc, -> {where("finloc <= ?", Date.current, 30.days.from_now)}
 
-    scope :a_venir, ->{ where('debutloc >= ?', Date.current) }
-    scope :termine, ->{ where('finloc <= ?', Date.current) }
+    scope :a_venir, -> { where('finloc >= ?', Date.current) }
+    scope :termine, -> { where('finloc <= ?', Date.current) }
+
+
+
+
 
     def full_name
       "n°#{id} | #{nom}"

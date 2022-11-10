@@ -12,4 +12,10 @@
   nb ventes : <%= ventes = Article.produit_courant(@produitId).articlesVendus.compte_articles %> <br>
   nb restant : <%= initial - locations - ventes %> <br>
 
+  <br>
+  <strong>tests sur periode loc et dispo</strong>
+  
+  date fin < courant : <%= Commande.termine.joins(:articles).merge(Article.produit_courant(@produitId)).sum(:quantite) %> <br>
+  date fin > courant : <%= Commande.a_venir.joins(:articles).merge(Article.produit_courant(@produitId)).sum(:quantite) %> <br>
+
 </div>

@@ -30,8 +30,35 @@
 
               <% initial = Produit.find(produit.id).quantite %> 
               <% ventes = Article.produit_courant(produit.id).articlesVendus.compte_articles %> 
+           
+              <%# louesTermines = Commande.termine.joins(:articles).merge(Article.produit_courant(produit.id).articlesLoues).sum(:quantite) %> 
+            
               <% louesAvenir = Commande.a_venir.joins(:articles).merge(Article.produit_courant(produit.id).articlesLoues).sum(:quantite) %> 
-              <%= dispo = initial.to_i - ventes.to_i - louesAvenir.to_i %> 
+             
+              <%#= Article.produit_courant(produit.id).articlesLoues.sum(:quantite) %> <br>
+
+              loués 2023 : <%= Commande.a_venir.joins(:articles)
+                    .merge(Article.produit_courant(produit.id).articlesLoues)
+                    .where("finloc < ?", "01/01/2023" ) 
+                    .sum(:quantite)%> <br>
+
+
+
+              loues 2022 : <%= louesPeriodeLocCourante = Commande.a_venir.joins(:articles)
+                    .merge(Article.produit_courant(produit.id).articlesLoues)
+                    .where("finloc < ?", "01/01/2022" ) 
+                    .sum(:quantite)%> <br>
+
+              <%# Commande.find(session[:commandeId]).debutloc %>
+
+              dispo <%= dispo = initial.to_i - ventes.to_i - louesAvenir.to_i %> 
+              
+            </td>
+
+            <td> 
+              debut com courante : <%= Commande.find(session[:commandeId]).debutloc %> 
+             <%# nb loc du produit courant dont les dates de locs se superposent avec la commande courante%>
+
               
             </td>
 

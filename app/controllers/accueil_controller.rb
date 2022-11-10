@@ -41,6 +41,22 @@ class AccueilController < ApplicationController
         @label = Label.last.principale
       end
     end
+
+    def boutique
+      if Texte.last.present?
+        @texteContact = Texte.last.contact
+        @texteHoraire = Texte.last.horaire
+        @texteBoutique = Texte.last.boutique
+      end
+    end
   
+    def contact
+      if Texte.last.present?
+        @texteContact = Texte.last.contact
+        @texteHoraire = Texte.last.horaire
+        @texteBoutique = Texte.last.boutique
+      end
+    end
+
   end
   
