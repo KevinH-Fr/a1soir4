@@ -24,45 +24,43 @@
   </div>
 
   <% if @produitId.present? %> 
-
-<div class="bloc-entete-model">
-  <div class="card card-header entete-index">
-    <strong>Article</strong> 
-    </div>
+  
+    <div class="bloc-entete-model">
+      <div class="card card-header entete-index">
+        <strong>Article</strong> 
+      </div>
       <div class="card-body p-1">
         <div class="row p-0 m-0">
           <div class="col-6 p-0 m-0">
             <%= render "produitLie" %> <br>
           </div>
-            <div class="col-6 p-0 m-0"> 
+          <div class="col-6 p-0 m-0"> 
+            <div data-controller="form-element">
+              <%= form.button "Validate", formaction: new_article_path(commandeId: @commandeId, produitId: @produitId), 
+                    formmethod: :get, data: { turbo_frame: :total_field, form_element_target: "submitbtn" } %>    
+              <div class="input-group input-group-sm mb-2">
+                <%= form.label :type, class:"input-group-text bg-primary text-light", style:"width: 75px;"%>
+                <%= form.select :locvente,  @typelocvente, {include_blank: true}, 
+                    { data: { action: "change->form-element#remotesubmit"},  
+                      class:"form-control text-center"} %>
+              </div>
+              <div class="input-group input-group-sm mb-2">
+                 <%= form.label :quantite, class:"input-group-text bg-secondary text-light", style:"width: 75px;"%>
+                 <%= form.number_field :quantite, { data: { action: "change->form-element#remotesubmit"},  
+                       class:"form-control text-center"} %>
+              </div>
+     
+              <div class="input-group input-group-sm mb-2">
+                  <%= form.label :prix, class:"input-group-text bg-secondary text-light", style:"width: 75px;"%>
+                  <%= form.number_field :prix, { data: { action: "change->form-element#remotesubmit"}, 
+                      value: @valPrix, class:"form-control text-center"} %>
+              </div>
+            </div>
 
-
-              <div data-controller="form-element">
-                <%= form.button "Validate", formaction: new_article_path(commandeId: @commandeId, produitId: @produitId), 
-                    formmethod: :get, data: { turbo_frame: :total_field, form_element_target: "submitbtn" } %>
-                  
-                  <div class="input-group input-group-sm mb-2">
-                    <%= form.label :type, class:"input-group-text bg-primary text-light", style:"width: 75px;"%>
-                    <%= form.select :locvente,  @typelocvente, {include_blank: true}, 
-                      { data: { action: "change->form-element#remotesubmit"},  
-                        class:"form-control text-center"} %>
-                  </div>
-
-                  <div class="input-group input-group-sm mb-2">
-                    <%= form.label :quantite, class:"input-group-text bg-secondary text-light", style:"width: 75px;"%>
-                    <%= form.number_field :quantite, { data: { action: "change->form-element#remotesubmit"},  
-                          class:"form-control text-center"} %>
-                  </div>
-                    
-                    <div class="input-group input-group-sm mb-2">
-                      <%= form.label :prix, class:"input-group-text bg-secondary text-light", style:"width: 75px;"%>
-                      <%= form.number_field :prix, { data: { action: "change->form-element#remotesubmit"}, 
-                        value: @valPrix, class:"form-control text-center"} %>
-                    </div>
-              
-                  <% end %>
-                </div>
-                  <%= turbo_frame_tag :total_field do %>
+  <% end %>
+                
+                
+                    <%= turbo_frame_tag :total_field do %>
                       <% valQuantite = form.object.quantite %>
                       <% valPrix = form.object.prix.to_d %>
                       <% produitId = form.object.produit_id %>
@@ -93,7 +91,7 @@
                           </div>
                         <% end %>  
                       </div>
-                  <% end %>
+                    <% end %>
                 </div>
               </div>
         </div> 

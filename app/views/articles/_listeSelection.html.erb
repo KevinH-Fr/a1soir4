@@ -32,42 +32,22 @@
               <% ventes = Article.produit_courant(produit.id).articlesVendus.compte_articles %> 
            
               <%# louesTermines = Commande.termine.joins(:articles).merge(Article.produit_courant(produit.id).articlesLoues).sum(:quantite) %> 
-            
-              <% louesAvenir = Commande.a_venir.joins(:articles).merge(Article.produit_courant(produit.id).articlesLoues).sum(:quantite) %> 
-             
-              <%#= Article.produit_courant(produit.id).articlesLoues.sum(:quantite) %> <br>
+              <% louesAvenir = Commande.a_venir.joins(:articles).
+                  merge(Article.produit_courant(produit.id).articlesLoues).
+                  sum(:quantite) %>             
 
-              <%#= Commande.a_venir.joins(:articles)
-                    .merge(Article.produit_courant(produit.id).articlesLoues)
-                    .where("finloc < ?", "01/01/2023" ) 
-                    .sum(:quantite)%> <br>
+              <% initial.to_i %> 
+              <% ventes  %> 
+              <% commandeId = params[:commandeId] %>
+              <% if commandeId.present? %>
+              <%# nb loc du produit courant dont les dates de locs se superposent avec la commande courante%>
+                <% valDate = Commande.find(commandeId).debutloc.to_date %>
+                <% louesPeriode = Commande.a_date(valDate).joins(:articles).merge(Article.produit_courant(produit.id)).sum(:quantite) %> <br>
+              <% end %>
+               <%= dispo = initial - ventes - louesPeriode %>
 
-
-
-              <%#= louesPeriodeLocCourante = Commande.a_venir.joins(:articles)
-                    .merge(Article.produit_courant(produit.id).articlesLoues)
-                    .where("finloc < ?", "01/01/2022" ) 
-                    .sum(:quantite)%> <br>
-
-              <%# Commande.find(session[:commandeId]).debutloc %>
-
-              initial: <%= dispo =  initial.to_i %> <br>
-              vendu: <%= ventes  %> <br>
-              loué pendant co courante : 
-
-             <% valDate = "14/11/2022".to_date %>
-             <%#= Commande.a_date(valDate).joins(:articles).merge(Article.produit_courant(produit.id)).sum(:quantite) %> <br>
-             <%= Commande.in_date(valDate).joins(:articles).merge(Article.produit_courant(produit.id)).sum(:quantite) %> <br>
-
-              
             </td>
 
-            
-              <%#= Commande.find(session[:commandeId]).debutloc %> 
-             <%# nb loc du produit courant dont les dates de locs se superposent avec la commande courante%>
-
-
-             <%#= link_to '', toggle_selectProduit_article_path(produit), class:"fa-solid fa-cart-plus btn btn-secondary btn-sm" %> 
             <td class="text-center"> 
               <% if dispo > 0 %>
                 <%= link_to '', new_article_path(commandeId: session[:commandeId], produitId: produit), 
