@@ -59,6 +59,10 @@ Rails.application.routes.draw do
   
   # partie publique
    root 'accueil#index' 
+
+   get 'tempo', to: 'accueil#tempo'
+   get 'tempo2', to: 'accueil#tempo2'
+
    get 'contact', to: 'accueil#contact'
    get 'boutique', to: 'accueil#boutique'
    get 'robes_soirees', to: 'accueil#soirees'

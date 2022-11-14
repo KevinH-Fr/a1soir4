@@ -19,21 +19,17 @@
   date fin > courant : <%= Commande.a_venir.joins(:articles).merge(Article.produit_courant(@produitId)).sum(:quantite) %> <br>
 
   
-  loc a au 01/01/2023 : 
+  loc au 01/01/2023 : 
   <% valDate = "01/01/2023".to_date %>
   <%= Commande.a_date(valDate).joins(:articles).merge(Article.produit_courant(@produitId)).sum(:quantite) %> <br>
 
-  loc a au 01/01/2022 : 
-  <%#= Commande.a_date("11/05/2022").joins(:articles).merge(Article.produit_courant(@produitId)).sum(:quantite) %> 
+  loc au 01/01/2022 : 
   <% valDate = "01/01/2022".to_date %>
   <%= Commande.a_date(valDate).joins(:articles).merge(Article.produit_courant(@produitId)).sum(:quantite) %> <br>
 
-  loc a au 10/11/2022 : 
-  <%#= Commande.a_date("11/05/2022").joins(:articles).merge(Article.produit_courant(@produitId)).sum(:quantite) %> 
+  loc au 10/11/2022 : 
   <% valDate = "10/11/2022".to_date %>
   <%= Commande.a_date(valDate).joins(:articles).merge(Article.produit_courant(@produitId)).sum(:quantite) %> <br>
-
-
 
 
 </div>

@@ -37,21 +37,28 @@
              
               <%#= Article.produit_courant(produit.id).articlesLoues.sum(:quantite) %> <br>
 
-              loués 2023 : <%= Commande.a_venir.joins(:articles)
+              <%#= Commande.a_venir.joins(:articles)
                     .merge(Article.produit_courant(produit.id).articlesLoues)
                     .where("finloc < ?", "01/01/2023" ) 
                     .sum(:quantite)%> <br>
 
 
 
-              loues 2022 : <%= louesPeriodeLocCourante = Commande.a_venir.joins(:articles)
+              <%#= louesPeriodeLocCourante = Commande.a_venir.joins(:articles)
                     .merge(Article.produit_courant(produit.id).articlesLoues)
                     .where("finloc < ?", "01/01/2022" ) 
                     .sum(:quantite)%> <br>
 
               <%# Commande.find(session[:commandeId]).debutloc %>
 
-              dispo <%= dispo = initial.to_i - ventes.to_i - louesAvenir.to_i %> 
+              initial: <%= dispo =  initial.to_i %> <br>
+              vendu: <%= ventes  %> <br>
+              loué pendant co courante : 
+
+             <% valDate = "14/11/2022".to_date %>
+             <%#= Commande.a_date(valDate).joins(:articles).merge(Article.produit_courant(produit.id)).sum(:quantite) %> <br>
+             <%= Commande.in_date(valDate).joins(:articles).merge(Article.produit_courant(produit.id)).sum(:quantite) %> <br>
+
               
             </td>
 

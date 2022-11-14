@@ -42,6 +42,12 @@ class AccueilController < ApplicationController
       end
     end
 
+    def tempo
+    end
+
+    def tempo2
+    end
+
     def boutique
       if Texte.last.present?
         @texteContact = Texte.last.contact
