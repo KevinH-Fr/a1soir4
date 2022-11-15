@@ -12,7 +12,7 @@
         <% @commandes.limit(5).each do | commande | %>
           <tr> 
             <td> 
-              <%= link_to commande.nom, commande_path(commande), class:"text-dark fs-6", style:"text-decoration: none;" %> 
+              <%= link_to commande.texte_record, commande_path(commande), class:"text-dark fs-6", style:"text-decoration: none;" %> 
             </td>
           </tr> 
         <% end %>

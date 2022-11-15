@@ -127,6 +127,6 @@ class SousarticlesController < ApplicationController
     end
 
     def sousarticle_params
-      params.fetch(:sousarticle, {}).permit(:article_id, :nature, :description, :prix_sousarticle, :caution, :taille)
+      params.fetch(:sousarticle, {}).permit(:article_id, :nature, :description, :prix_sousarticle, :caution_sousarticle, :caution, :taille)
     end
 end

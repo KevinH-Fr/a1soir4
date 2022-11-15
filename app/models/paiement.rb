@@ -4,6 +4,12 @@ class Paiement < ApplicationRecord
   enum typePaiements: ["Prix", "Caution"]
 
   scope :commande_courante, ->  (commande_courante) { where("commande_id = ?", commande_courante)}
+  
+  scope :prix_only, -> { where("typepaiement = ?", "Prix")}
+  scope :caution_only, -> { where("typepaiement = ?", "Caution")}
+
+  scope :sum_paiements, -> {sum('montant')}
+
   scope :sum_paiements, -> {sum('montant')}
   scope :compte_paiements, -> {count('montant')}
 

@@ -2,11 +2,12 @@
 
 
 <div class="list-records-item">
-
-    <div class="entete-show sticky-top" style="top: 5px;">
+  <div class="sticky-top" style="top: 5px;">
+    <div class="entete-show">
       <strong>Commande</strong> 
     </div>
       <%= render @commande %> 
+  </div>
 
     <div class="entete-show">
       <strong>Client</strong> 
@@ -24,7 +25,7 @@
       <strong>Paiements</strong> 
     </div>
 
-    <div>
+    <div class="">
       <%= render @paiements %>
       <%= render "nouveauPaiement" %>
     </div>    

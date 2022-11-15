@@ -12,7 +12,7 @@ html {
   /*  background-color: rgb(255, 251, 251); */
   background-image: url('svg/waves.svg');
   margin-left: 5px;
-  margin-top: 1px;
+ /* margin-top: 1px;*/
 }
 
 /*.body-main{
@@ -160,20 +160,19 @@ h1, h2, p, div, li, ul, a {
     background-color: rgb(204, 46, 102);
 }
 
-
 /* dashboard */
 
 .navbar{
-    padding: .2em; 
+    padding: .2em;
+    margin-right: .5em;
     border-radius: .2em;
     box-shadow: 2px 3px 4px rgba(165, 163, 163, 0.8);
-     /* margin: .5em; */
-    height: calc(100vh - 10px); 
+   /* margin: 5px; */
+    height: calc(100vh - 1em); 
     background-color:rgb(59, 58, 58);
-   
-  }
+}
 
-  .container-index-items{
+.container-index-items{
     padding: .2em;
     border-radius: .2em;
     box-shadow: 2px 3px 4px rgba(165, 163, 163, 0.8);
@@ -212,10 +211,10 @@ h1, h2, p, div, li, ul, a {
     padding: .0em;
     border-radius: .2em;
     box-shadow: 2px 3px 4px rgba(165, 163, 163, 0.8);
-  /*  margin-top: 0.5em; */
+  /*  margin-top: 0.5em; 
     margin-right: 0.5em;
     margin-left: 0.4em;
-    margin-bottom: .5em;
+    margin-bottom: .5em;*/
     
   }
 
@@ -274,19 +273,17 @@ h1, h2, p, div, li, ul, a {
     box-shadow: 2px 3px 4px rgba(165, 163, 163, 0.8);
   }
 
-  .bloc-record{
+.bloc-record{
     background-color: rgb(233, 228, 229);
-    padding: .5em;
+    padding: 1em;
     border-radius: .2em;
     box-shadow: 2px 3px 4px rgba(165, 163, 163, 0.8);
-    margin-top: 0.5em;
-    margin-right: 0.5em;
-    margin-bottom: 1em;
+    margin-bottom: .5em;
     font-size: .8em;
-    min-height: 6vh;  
+   /* min-height: 6vh;  */
   }
 
-  .bloc-details-record{
+.bloc-details-record{
     background-color: rgb(233, 228, 229);
     padding: .5em;
     border-radius: .2em;
@@ -395,20 +392,11 @@ h1, h2, p, div, li, ul, a {
 
 .footer {
   background-color: rgb(59, 58, 58);
- 
   position: fixed;
   bottom: 0;
- 
-  margin: .4em;
- /* width: 100vw;
-   
-  padding: 1em;
-  
-
-  margin-top: auto;
-  flex-shrink: 0;
-  height: 30px;
- */
+  margin-bottom: 10px;
+  border-radius: .2em;
+  box-shadow: 2px 3px 4px rgba(165, 163, 163, 0.8);
 }
 
 .entete-show {
@@ -419,56 +407,8 @@ h1, h2, p, div, li, ul, a {
 } 
 
 .list-records-item{
- /* height: 73vh;
-  overflow: auto; */
   padding: 0em;
   margin: 0em;
-  /*margin-left: 0.4em;
-  margin-right: 0.4em;*/
-}
-
-.list-records-item-produits{
-  height: 72vh;
-  overflow: auto;
-  padding: 0em;
-  margin: 0em;
-  margin-left: 0.4em;
-}
-
-.list-records-item-full-height{
-  overflow: auto;
-  padding: .5em;
-  margin: 0em;
-}
-
-.list-long-blocs-commande{
- /* height: 73vh;*/
-  overflow: auto;
-  margin-left: 0.4em;
-  margin-right: 0.4em;
-}
-
-.list-stock{
- /* height: 85vh;*/
-  margin-left: 0.4em;
-  overflow: auto;
-}
-
-.list-long-95{
-/*  height: 95vh;*/
-  overflow: auto;
-}
-
-.list-long-blocs-article{
- /* height: 40vh;*/
-  overflow: auto;
-  /*margin-left: 0.4em;*/
-}
-
-.list-long-blocs-sousarticle{
- /* height: 28vh;*/
-  overflow: auto;
-  margin-left: 0.4em;
 }
 
 ::-webkit-scrollbar {
@@ -486,7 +426,7 @@ h1, h2, p, div, li, ul, a {
   color:#fff;
   text-align: center;
   font-size: small;
-  margin: 0px;
+  margin: .5em;
   padding: .1em;
   border-radius: .2em;
   box-shadow: 1px 1px 1px rgba(165, 163, 163, 0.8);
