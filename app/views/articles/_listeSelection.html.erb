@@ -19,7 +19,7 @@
       <tbody class="fs-6">
         <% @produits.each do | produit | %>
           <tr>
-            <td class="text-center"> <%= produit.id %> </td>
+            <td class="text-center"> <%= produitId = produit.id %> </td>
             <td> 
               <%= image_tag(produit.default_image, style: "width: 50px; display: block", 
                 class: "img-fluid rounded") %>
@@ -27,25 +27,7 @@
             <td> <%= produit.nom %> </td>
             
             <td> 
-
-              <% initial = Produit.find(produit.id).quantite %> 
-              <% ventes = Article.produit_courant(produit.id).articlesVendus.compte_articles %> 
-           
-              <%# louesTermines = Commande.termine.joins(:articles).merge(Article.produit_courant(produit.id).articlesLoues).sum(:quantite) %> 
-              <% louesAvenir = Commande.a_venir.joins(:articles).
-                  merge(Article.produit_courant(produit.id).articlesLoues).
-                  sum(:quantite) %>             
-
-              <% initial.to_i %> 
-              <% ventes  %> 
-              <% commandeId = params[:commandeId] %>
-              <% if commandeId.present? %>
-              <%# nb loc du produit courant dont les dates de locs se superposent avec la commande courante%>
-                <% valDate = Commande.find(commandeId).debutloc.to_date %>
-                <% louesPeriode = Commande.a_date(valDate).joins(:articles).merge(Article.produit_courant(produit.id)).sum(:quantite) %> <br>
-              <% end %>
-               <%= dispo = initial - ventes - louesPeriode %>
-
+               <%= dispo = calcul_dispo(produit.id) %>
             </td>
 
             <td class="text-center"> 

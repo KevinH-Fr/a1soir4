@@ -7,12 +7,6 @@ export default class extends Controller {
     console.log("hello hide modal controller")
   }
 
-  submitEnd(e) {
-    if (e.detail.success) {
-      this.hideModal()
-    }
-    console.log(e.detail.success)
-  }
 
   hideModal(){
     this.element.remove()
