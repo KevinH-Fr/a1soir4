@@ -19,9 +19,11 @@ class Paiement < ApplicationRecord
     created_at.strftime("%d/%m/%y")
   end 
 
-  def texte_record
-    datetime = created_at.to_date
-     "#{typepaiement}" " d'un montant de " "#{montant}" " € reçu le " "#{created_at.strftime("%d/%m/%y")}"
-  end 
+  #def texte_record
+  #  datetime = created_at.to_date
+  #   "#{typepaiement}" " reçu le " "#{created_at.strftime("%d/%m/%y")}"
+  #end 
 
 end
+
+
