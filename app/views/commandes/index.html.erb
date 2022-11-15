@@ -1,15 +1,12 @@
 
-<div class="bloc-entete-model">
+<div class="bloc-entete-model sticky-top" style="top: 5px; bottom: 5px;">
   <div class="card card-header entete-index">
     <div class="row m-0 p-0">
       <div class="col ms-1">
         <strong>Commandes</strong> 
       </div>
       <div class="col">
-        <span id="commande_counter" class="position-absolute top-0 start-100 
-            translate-middle badge rounded-pill bg-warning text-dark">
-          <%= Commande.count %>
-        </span>
+        <span class="badge rounded-pill counter-model-dashboard"><%= Commande.count %></span>
       </div>
     </div>
   </div> 
@@ -21,12 +18,9 @@
 </div>
 
  <div class="">
-    <%= link_to "Nouveau", new_commande_path, data:{turbo_frame: "modal"}, 
-      class:"btn btn-sm btn-warning" %>
 
   <%= turbo_frame_tag :modal %>
   
-
 </div>
   
 <div class="list-records-item">

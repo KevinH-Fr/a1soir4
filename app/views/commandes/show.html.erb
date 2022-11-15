@@ -1,8 +1,9 @@
 
-<div class="container-fluid m-0 p-0 mt-2 container-dashboard">
-  <div class="list-long-blocs-commande">
 
-    <div class="entete-show">
+
+<div class="list-records-item">
+
+    <div class="entete-show sticky-top" style="top: 5px;">
       <strong>Commande</strong> 
     </div>
       <%= render @commande %> 
@@ -23,15 +24,14 @@
       <strong>Paiements</strong> 
     </div>
 
+    <div>
       <%= render @paiements %>
       <%= render "nouveauPaiement" %>
- 
-
-    <div class="entete-show my-1">
-      <strong>Synthèse</strong> 
-    </div>
-      <%= render "syntheseCommande" %> 
-
-  </div>
+    </div>    
 
 </div>
+
+    <div class="d-flex align-items-center justify-content-center container footer">
+      <%= render "syntheseCommande" %> 
+    </div>
+

@@ -1,5 +1,5 @@
 
-  <div class="bloc-record">
+
       <% duPrix = Article.commande_courante(@commande).sum_articles + 
                 Article.joins(:sousarticles).commande_courante(@commande).sum_sousarticles %> 
 
@@ -24,4 +24,3 @@
         <%= link_to "Lien", "", class:"btn btn-success btn-sm" %>
         <%= link_to "Lien", "", class:"btn btn-danger btn-sm" %>
       </div>   
-</div>

@@ -5,15 +5,14 @@
 
 html {
     height: 100%; 
-  
+
 }
 
  body {
   /*  background-color: rgb(255, 251, 251); */
   background-image: url('svg/waves.svg');
   margin-left: 5px;
-  margin-right: 0em;
-  margin-top: 5px;
+  margin-top: 1px;
 }
 
 /*.body-main{
@@ -198,7 +197,6 @@ h1, h2, p, div, li, ul, a {
     border-radius: .2em;
     box-shadow: 2px 3px 4px rgba(165, 163, 163, 0.8);
     box-shadow: 2px 3px 4px rgba(165, 163, 163, 0.8);
-
     margin-top: 0.3em;
     margin-bottom: 0.3em;
     margin-right: 0.4em;
@@ -274,7 +272,6 @@ h1, h2, p, div, li, ul, a {
     font-size: .8em;
     border-radius: .2em;
     box-shadow: 2px 3px 4px rgba(165, 163, 163, 0.8);
-
   }
 
   .bloc-record{
@@ -396,6 +393,24 @@ h1, h2, p, div, li, ul, a {
   margin: .4em;
 } 
 
+.footer {
+  background-color: rgb(59, 58, 58);
+ 
+  position: fixed;
+  bottom: 0;
+ 
+  margin: .4em;
+ /* width: 100vw;
+   
+  padding: 1em;
+  
+
+  margin-top: auto;
+  flex-shrink: 0;
+  height: 30px;
+ */
+}
+
 .entete-show {
   background-color: rgb(59, 58, 58);
   border-radius: .2em;
@@ -408,7 +423,8 @@ h1, h2, p, div, li, ul, a {
   overflow: auto; */
   padding: 0em;
   margin: 0em;
-  margin-left: 0.4em;
+  /*margin-left: 0.4em;
+  margin-right: 0.4em;*/
 }
 
 .list-records-item-produits{
@@ -426,29 +442,31 @@ h1, h2, p, div, li, ul, a {
 }
 
 .list-long-blocs-commande{
-  height: 73vh;
+ /* height: 73vh;*/
   overflow: auto;
+  margin-left: 0.4em;
+  margin-right: 0.4em;
 }
 
 .list-stock{
-  height: 85vh;
+ /* height: 85vh;*/
   margin-left: 0.4em;
   overflow: auto;
 }
 
 .list-long-95{
-  height: 95vh;
+/*  height: 95vh;*/
   overflow: auto;
 }
 
 .list-long-blocs-article{
-  height: 40vh;
+ /* height: 40vh;*/
   overflow: auto;
   /*margin-left: 0.4em;*/
 }
 
 .list-long-blocs-sousarticle{
-  height: 28vh;
+ /* height: 28vh;*/
   overflow: auto;
   margin-left: 0.4em;
 }

@@ -86,16 +86,11 @@
         <%= form.text_area :commentaires, class:"form-control field-with-format-large" %>
       </div>
      
-        <div class="float-end mt-2 mb-4">
-          
-          
-          <%= link_to "Fermer", "", data:{turbo_frame: "modal"}, 
+      <div class="float-end mt-2 mb-4">
+        <%= link_to "Fermer", "", data:{turbo_frame: "modal"}, 
             class:"btn btn-sm btn-secondary" %>
-          
-          <%= form.submit "Valider", class: "btn btn-primary btn-sm" %>
-
-
-        </div><br><br>
+        <%= form.submit "Valider", class: "btn btn-primary btn-sm" %>
+      </div><br><br>
 
   </div>
 
