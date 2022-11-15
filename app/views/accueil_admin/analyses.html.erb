@@ -1,0 +1,43 @@
+<div class="bloc-entete-model sticky-top" style="top: 5px; bottom: 0px;">
+  <div class="card card-header entete-index">
+    <strong>Analyses</strong> 
+  </div> 
+</div>
+    
+<div class="bloc-record">
+  <div class="card-body text-dark">
+    <strong>Commandes</strong> 
+    total: <%= Commande.count %>
+    retiré: <%= Commande.retire.count %>
+    non-retiré: <%= Commande.non_retire.count %>
+    rendu: <%= Commande.rendu.count %>
+
+    <%= render "chartpie" %>
+
+  </div>
+</div>
+
+<div class="bloc-record">
+  <div class="card-body text-dark">
+    <strong>Articles</strong> 
+    total: <%= Article.compte_articles %>
+    location: <%= Article.articlesLoues.compte_articles %>
+    vente: <%= Article.articlesVendus.compte_articles %>
+  </div>
+</div>
+
+<div class="bloc-record">
+  <div class="card-body text-dark">
+    <strong>CA</strong> 
+    total: <%= Article.sum_articles + Sousarticle.sum_sousarticles %>
+    location: <%= Article.articlesLoues.sum_articles + Sousarticle.sum_sousarticles %>
+    <%# en l'etat les sous articles passent que à la vente dans le calcul%>
+    vente: <%= Article.articlesVendus.sum_articles  %>
+  </div>
+</div>
+
+<footer class="fixed-bottom text-end m-2">
+  <div class="badge bg-dark">
+   footer
+  </div>
+</footer>
