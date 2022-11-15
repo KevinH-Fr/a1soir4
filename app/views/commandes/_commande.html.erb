@@ -4,21 +4,24 @@
   <div class="bloc-record">
 
     <div class="row">
-      <div class="col-8">
+      <div class="col-10">
         <div class="text-dark text-start mx-1 p-0">
-           <%= commande.texte_record  %>  
+           <%= commande.texte_record  %> 
+
            <span class="badge text-bg-secondary mx-3"> <%= commande.auto_name %> </span> 
-           statut: <%= commande.statutarticles  %>
+           <span class="badge text-bg-secondary mx-3"> <%= commande.statutarticles %> </span> 
+           <span class="badge text-bg-secondary mx-3"> <%= commande.info_evenement %> </span>      
+       
         </div>
       </div>
-      <div class="col-4 m-0 p-0">
+      <div class="col-2 m-0 p-0">
         <div class="position-relative">
           <div class="position-absolute top-0 end-0">
             <table>
               <tr>
                 <td>
                   <%= link_to '', commande_path(commande), 
-                        class:"fa-regular fa-folder-open btn btn-sm btn-primary mb-2" %> 
+                        class:"fa-regular fa-folder-open btn btn-sm btn-success mb-2" %> 
                 </td>
                 <td>   
                   <%= button_to "", edit_commande_path(commande), 

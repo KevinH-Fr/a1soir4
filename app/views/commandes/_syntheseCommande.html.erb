@@ -1,5 +1,5 @@
 
-<div class="container">
+<div id="synthese" class="container">
 
   <% duPrix = Article.commande_courante(@commande).sum_articles + 
               Article.joins(:sousarticles).commande_courante(@commande).sum_sousarticles %> 
@@ -13,25 +13,43 @@
         <% soldeCaution = duCaution - recuCaution %>
         
         <% if soldePrix > 0 %>
-          <span class="format-synthese bg-danger">
-            restant prix: <%= soldePrix %> 
+          <span class="format-synthese bg-danger ">
+           <i class="fa-solid fa-euro-sign mx-2"></i> <%= number_to_currency(soldePrix, locale: :fr)  %> 
           </span>
         <% else %>
           <span class="format-synthese bg-success">
-            <%= "Tout est bon !" %>
+            <i class="fa-solid fa-euro-sign mx-2"></i> OK
           </span>
         <% end %>
 
         <% if soldeCaution > 0 %>
-          <span class="format-synthese bg-danger">
-            restant caution: <%= soldeCaution %> 
+          <span class="format-synthese bg-danger ">
+           <i class="fa-solid fa-money-check mx-2"></i> <%= number_to_currency(soldeCaution, locale: :fr)  %> 
           </span>
         <% else %>
           <span class="format-synthese bg-success">
-            <%= "Tout est bon !" %>
+            <i class="fa-solid fa-money-check mx-2"></i> OK
           </span>
         <% end %>
 
-  <%= link_to "PDF", commande_path(@commande, format: :pdf), class:"btn btn-warning btn-sm p-1 mx-2" %>
+        <% statutCommande = Commande.find(@commande.id).statutarticles %>
+        <% if statutCommande == "non-retiré" %>
+          <span class="format-synthese bg-danger ">
+           <i class="fa-solid fa-shirt mx-2"></i> <%= statutCommande  %> 
+          </span>
+        <% end %>
+        <% if statutCommande == "retiré" %>
+          <span class="format-synthese bg-warning">
+            <i class="fa-solid fa-shirt mx-2"></i>  <%= statutCommande  %> 
+          </span>
+        <% end %>
+        <% if statutCommande == "rendu" %>
+          <span class="format-synthese bg-success">
+            <i class="fa-solid fa-shirt mx-2"></i>  <%= statutCommande  %> 
+          </span>
+        <% end %>
+
+
+  <%= link_to "PDF", commande_path(@commande, format: :pdf), class:"btn btn-light btn-sm m-0 p-0 mx-2 text-end" %>
     
 </div>   

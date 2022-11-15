@@ -24,6 +24,9 @@ class Commande < ApplicationRecord
 
     
 
+    def info_evenement
+      "#{typeevenement} | #{dateevenement}"
+    end
 
     def full_name
       "n°#{id} | #{nom}"
