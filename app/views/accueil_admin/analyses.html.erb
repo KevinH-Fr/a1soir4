@@ -7,26 +7,43 @@
 <div class="bloc-record">
   <div class="card-body text-dark">
     <strong>Commandes</strong> 
-    total: <%= Commande.count %>
-    retiré: <%= Commande.retire.count %>
-    non-retiré: <%= Commande.non_retire.count %>
-    rendu: <%= Commande.rendu.count %>
-
-    <%#= render "charts/chartPieCommandes" %>
-    <%= render "charts/chartsCommandes" %>
-
-
+    <div class="container-fluid">
+      <div class="row m-0 p-0">
+        <div class="col-md-4 col-sm-12">
+              <%= render "charts/chartPieCommandes" %>
+        </div>
+        <div class="col-md-4 col-sm-12">
+              <%= render "charts/chartBarCommandes" %>
+        </div>
+        <div class="col-md-4 col-sm-12">
+              <%= render "charts/chartLineCommandes" %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+
 
 <div class="bloc-record">
   <div class="card-body text-dark">
     <strong>Articles</strong> 
-    total: <%= Article.compte_articles %>
-    location: <%= Article.articlesLoues.compte_articles %>
-    vente: <%= Article.articlesVendus.compte_articles %>
+    <div class="container-fluid">
+      <div class="row m-0 p-0">
+        <div class="col-md-4 col-sm-12">
+              <%= render "charts/chartPieArticles" %>
+        </div>
+        <div class="col-md-4 col-sm-12">
+              <%= render "charts/chartBarArticles" %>
+        </div>
+        <div class="col-md-4 col-sm-12">
+              <%= render "charts/chartLineArticles" %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+
+
 
 <div class="bloc-record">
   <div class="card-body text-dark">

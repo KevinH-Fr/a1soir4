@@ -1,0 +1,77 @@
+
+  <div class="chartBox">
+    <canvas id="myChartPieArticles"></canvas>
+  </div>
+
+<% @nbTotalArticles = Article.compte_articles %>
+<% @nbLoc =  Article.articlesLoues.compte_articles %>
+<% @nbVente = Article.articlesVendus.compte_articles %>
+
+<% @data = [@nbLoc, @nbVente] %>
+
+<script>
+  var couleur1 = 'rgb(174, 189, 202)';
+  var couleur2 = 'rgb(120, 149, 178)';
+
+  var nbTotalArticles = <%= @nbTotalArticles %>;
+
+  const centerTextDoghnutArticles = {
+    id: 'centerTextDoghnutArticles',
+    afterDatasetsDraw(chart, args, pluginOptions){
+      const { ctx } = chart;
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.font = "bold 12px sans-serif";
+      const text = "total " + nbTotalArticles ;
+      const textWidth = ctx.measureText(text).width;
+      const x = chart.getDatasetMeta(0).data[0].x;
+      const y = chart.getDatasetMeta(0).data[0].y;
+      ctx.fillText(text, x, y);
+    }
+  }
+
+   const dataPieArticles = {
+      labels: ['location', 'vente'],
+      datasets: [{
+        data: <%= @data.to_json.html_safe %>,
+        fill: true,
+        backgroundColor: [ couleur1, couleur2 ],
+        borderWidth: 1
+      }]
+    };
+
+    const configPieArticles = {
+      type: 'doughnut',
+          data: {
+            labels: ['location', 'vente'],
+            datasets: [{
+              data: <%= @data.to_json.html_safe %>,       
+              backgroundColor: [ couleur1, couleur2 ],
+              hoverOffset: 40,
+              borderWidth: 1,
+              cutout: '50%'
+            }]
+          },
+          options: {
+            animation: {
+              animateRotate: true,
+              duration: 5000
+            },
+            plugins: {
+              legend: {
+                display: true,
+                position: 'top',
+              },
+            },
+
+          },
+          plugins: [centerTextDoghnutArticles]
+        };
+
+  const myChartPieArticles = new Chart(
+    document.getElementById('myChartPieArticles'),
+    configPieArticles
+  );
+
+</script>
+

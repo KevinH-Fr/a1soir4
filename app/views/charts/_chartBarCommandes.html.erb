@@ -1,0 +1,86 @@
+
+  <div class="chartBox">
+    <canvas id="myChartBar2"></canvas>
+  </div>
+
+
+  <% @nbTotal =  Commande.count %>
+  <% @nbRetire = Commande.retire.count %>
+  <% @nbNonRetire = Commande.non_retire.count %>
+  <% @nbRendu = Commande.rendu.count %>
+
+  <% @data = [@nbRetire, @nbNonRetire, @nbRendu] %>
+  <% @dataLine = [@nbRetire, @nbNonRetire, @nbRendu] %>
+
+<script>
+   
+  var couleur1 = 'rgb(233, 119, 119)';
+  var couleur2 = 'rgb(255, 159, 159)';
+  var couleur3 = 'rgb(252, 221, 176)';
+
+  var data1 = <%= @dataLine %>;
+  var data2 = <%= @dataLine %>;
+
+  var nbTotal = <%= @nbTotal %>;
+
+
+
+
+// CHART BAR
+    const dataBar2 = {
+      labels: ['Retiré', 'Non-retiré', 'Rendu'],
+      datasets: [{
+      
+        data: <%= @data.to_json.html_safe %>,
+        fill: true,
+        backgroundColor: [ couleur1, couleur2, couleur3 ],
+        borderWidth: 1
+      }]
+    };
+
+    let delayed;
+
+    const configBar2 = {
+      type: 'bar',
+      data: dataBar2,
+      options: {
+
+        plugins: {
+            legend: {
+                display: false
+            },
+        },
+        aspectRatio: 1,
+
+         animation: {
+                onComplete: () => {
+                    delayed = true;
+                },
+                delay: (context) => {
+                    let delay = 0;
+                    if (context.type === 'data' && context.mode === 'default' && !delayed) {
+                    delay = context.dataIndex * 2000  + context.datasetIndex * 10;
+                    }
+                    return delay;
+                },
+            },
+
+
+
+            borderColor:'rgb(0, 0, 0)',
+            pointBorderWidth: 1,
+            pointHoverBorderWidth: 20,
+            lineTension: 0.4,
+
+          }
+      };
+
+        // render init block
+    const myChartBar2 = new Chart(
+      document.getElementById('myChartBar2'),
+      configBar2
+    );
+  
+
+
+</script>

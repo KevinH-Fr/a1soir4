@@ -1,7 +1,7 @@
 
-<div class="chart-container" style="position: relative; height:100%; width:50%">
+  <div class="chartBox">
     <canvas id="myChartPie"></canvas>
-</div>
+  </div>
 
 <% @nbTotal =  Commande.count %>
 <% @nbRetire = Commande.retire.count %>
@@ -11,9 +11,9 @@
 <% @data = [@nbRetire, @nbNonRetire, @nbRendu] %>
 
 <script>
-  var couleur1 = 'rgb(224, 20, 76)';
-  var couleur2 = 'rgb(239, 154, 83)';
-  var couleur3 = 'rgb(84, 180, 53)';
+  var couleur1 = 'rgb(233, 119, 119)';
+  var couleur2 = 'rgb(255, 159, 159)';
+  var couleur3 = 'rgb(252, 221, 176)';
 
   var nbTotal = <%= @nbTotal %>;
 
@@ -53,7 +53,7 @@
       plugins: {
         legend: {
           display: true,
-          position: 'right',
+          position: 'top',
         },
       },
 

@@ -29,6 +29,16 @@ h1, h2, p, div, li, ul, a {
     color: rgb(255, 255, 255);
 }
 
+
+.chartBox {
+  max-width: 400px;
+  padding: .4em;
+  margin: .4em;
+  border-radius: 20px;
+  border: solid 2px rgba(50, 50, 50, 1);
+  background: white;
+}
+
 .label-with-format{
   background-color: rgb(83, 83, 83, 0.8);
   color: rgb(255, 255, 255);

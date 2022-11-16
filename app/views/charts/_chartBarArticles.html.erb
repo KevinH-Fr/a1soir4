@@ -1,0 +1,74 @@
+
+  <div class="chartBox">
+    <canvas id="myChartBarArticles"></canvas>
+  </div>
+
+<% @nbTotalArticles = Article.compte_articles %>
+<% @nbLoc =  Article.articlesLoues.compte_articles %>
+<% @nbVente = Article.articlesVendus.compte_articles %>
+
+<% @data = [@nbLoc, @nbVente] %>
+
+<script>
+   
+  var couleur1 = 'rgb(174, 189, 202)';
+  var couleur2 = 'rgb(120, 149, 178)';
+
+
+
+// CHART BAR
+    const dataBarArticles = {
+      labels: ['location', 'vente'],
+      datasets: [{
+      
+        data: <%= @data.to_json.html_safe %>,
+        fill: true,
+        backgroundColor: [ couleur1, couleur2 ],
+        borderWidth: 1
+      }]
+    };
+
+    let delayedBarArticles;
+
+    const configBarArticles = {
+      type: 'bar',
+      data: dataBarArticles,
+      options: {
+
+        plugins: {
+            legend: {
+                display: false
+            },
+        },
+        aspectRatio: 1,
+
+         animation: {
+                onComplete: () => {
+                    delayed = true;
+                },
+                delay: (context) => {
+                    let delay = 0;
+                    if (context.type === 'data' && context.mode === 'default' && !delayedBarArticles) {
+                    delay = context.dataIndex * 2000  + context.datasetIndex * 10;
+                    }
+                    return delay;
+                },
+            },
+
+            borderColor:'rgb(0, 0, 0)',
+            pointBorderWidth: 1,
+            pointHoverBorderWidth: 20,
+            lineTension: 0.4,
+
+          }
+      };
+
+        // render init block
+    const myChartBarArticles = new Chart(
+      document.getElementById('myChartBarArticles'),
+      configBarArticles
+    );
+  
+
+
+</script>
