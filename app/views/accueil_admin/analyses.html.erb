@@ -1,21 +1,21 @@
 <div class="bloc-entete-model sticky-top" style="top: 5px; bottom: 0px;">
-  <div class="card card-header entete-index">
+  <div class="card card-header entete-index text-center">
     <strong>Analyses</strong> 
   </div> 
 </div>
     
 <div class="bloc-record">
   <div class="card-body text-dark">
-    <strong>Commandes</strong> 
+    <h5 class="">Commandes</h5> 
     <div class="container-fluid">
-      <div class="row m-0 p-0">
-        <div class="col-md-4 col-sm-12">
+      <div class="row">
+        <div class="col-md-4 m-0 p-0">
               <%= render "charts/chartPieCommandes" %>
         </div>
-        <div class="col-md-4 col-sm-12">
+        <div class="col-md-4 m-0 p-0">
               <%= render "charts/chartBarCommandes" %>
         </div>
-        <div class="col-md-4 col-sm-12">
+        <div class="col-md-4 m-0 p-0">
               <%= render "charts/chartLineCommandes" %>
         </div>
       </div>
@@ -23,19 +23,18 @@
   </div>
 </div>
 
-
 <div class="bloc-record">
   <div class="card-body text-dark">
-    <strong>Articles</strong> 
+    <h5>Articles</h5> 
     <div class="container-fluid">
-      <div class="row m-0 p-0">
-        <div class="col-md-4 col-sm-12">
-              <%= render "charts/chartPieArticles" %>
+      <div class="row">
+        <div class="col-md-4 m-0 p-0">
+          <%= render "charts/chartPieArticles" %>
         </div>
-        <div class="col-md-4 col-sm-12">
+        <div class="col-md-4 m-0 p-0">
               <%= render "charts/chartBarArticles" %>
         </div>
-        <div class="col-md-4 col-sm-12">
+        <div class="col-md-4 m-0 p-0">
               <%= render "charts/chartLineArticles" %>
         </div>
       </div>
@@ -43,20 +42,18 @@
   </div>
 </div>
 
-
-
 <div class="bloc-record">
   <div class="card-body text-dark">
-    <strong>CA</strong> 
+    <h5>CA</h5> 
     <div class="container-fluid">
-      <div class="row m-0 p-0">
-        <div class="col-md-4 col-sm-12">
+      <div class="row">
+        <div class="col-md-4 p-0 m-0">
               <%= render "charts/chartPieCa" %>
         </div>
-        <div class="col-md-4 col-sm-12">
+        <div class="col-md-4 p-0 m-0">
               <%= render "charts/chartBarCa" %>
         </div>
-        <div class="col-md-4 col-sm-12">
+        <div class="col-md-4 p-0 m-0">
               <%= render "charts/chartLineCa" %>
         </div>
       </div>
@@ -65,8 +62,25 @@
   </div>
 </div>
 
+
+<div class="bloc-record">
+  <div class="card-body text-dark">
+    <h5>Test dates sur x </h5> 
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-4 p-0 m-0">
+           <%= render "charts/chartTest" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <footer class="fixed-bottom text-end m-2">
   <div class="badge bg-dark">
    footer
   </div>
 </footer>
+
+

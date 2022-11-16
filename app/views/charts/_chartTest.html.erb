@@ -1,0 +1,36 @@
+
+  <div class="chartBox mx-auto">
+    <canvas id="myChartTest"></canvas>
+  </div>
+
+<strong class="text-dark">
+<%# obtenir toutes les dates des commandes %>
+  dates : <%= @datesCommandes = Commande.find(5).created_at %>
+</strong>
+
+<script>
+   
+// CHART BAR
+    const dataTest = {
+      labels: ['test1', 'test2'],
+      datasets: [{
+        data: [65, 80],
+        fill: true,
+        backgroundColor: [
+        'rgba(255, 99, 132, 0.2)',
+        'rgba(255, 159, 64, 0.2)'],
+        borderWidth: 1
+      }]
+    };
+
+    const configTest = {
+      type: 'line',
+      data: dataTest,
+      };
+
+    // render init block
+    const myChartTest = new Chart(
+      document.getElementById('myChartTest'),
+      configTest
+    );
+</script>

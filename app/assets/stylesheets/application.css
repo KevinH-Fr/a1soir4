@@ -31,12 +31,18 @@ h1, h2, p, div, li, ul, a {
 
 
 .chartBox {
- /* max-width: 400px;*/
-  padding: .4em;
-  margin: .4em;
+  max-width: 240px;
+  max-height: 240px;
+  padding: .2em;
+  margin: .2em;
   border-radius: 20px;
   border: solid 2px rgba(50, 50, 50, 1);
   background: white;
+}
+
+.vertical-header{
+  writing-mode: tb-rl;
+  transform: rotate(-180deg);
 }
 
 .label-with-format{
@@ -54,7 +60,6 @@ h1, h2, p, div, li, ul, a {
   background-color: rgb(83, 83, 83, 0.8);
   color: rgb(255, 255, 255);
   height: 4vh;
-
 }
 
 .label-with-format-large{
