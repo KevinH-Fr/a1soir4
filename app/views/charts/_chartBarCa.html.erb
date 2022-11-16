@@ -1,0 +1,73 @@
+
+  <div class="chartBox">
+    <canvas id="myChartBarCa"></canvas>
+  </div>
+
+  <% @totalCa = Article.sum_articles + Sousarticle.sum_sousarticles %>
+  <% @totalLoc =  Article.articlesLoues.sum_articles + Sousarticle.sum_sousarticles %>
+  <%# en l'etat les sous articles passent que à la vente dans le calcul%>
+  <% @totalVente = Article.articlesVendus.sum_articles %>
+
+  <% @data = [@totalLoc, @totalVente] %>
+
+<script>
+   
+  var couleur1 = 'rgb(116, 159, 130)';
+  var couleur2 = 'rgb(66, 95, 87)';
+
+// CHART BAR
+    const dataBarCa = {
+      labels: ['location', 'vente'],
+      datasets: [{
+      
+        data: <%= @data.to_json.html_safe %>,
+        fill: true,
+        backgroundColor: [ couleur1, couleur2 ],
+        borderWidth: 1
+      }]
+    };
+
+    let delayedBarCa;
+
+    const configBarCa = {
+      type: 'bar',
+      data: dataBarCa,
+      options: {
+
+        plugins: {
+            legend: {
+                display: false
+            },
+        },
+        aspectRatio: 1,
+
+         animation: {
+                onComplete: () => {
+                    delayed = true;
+                },
+                delay: (context) => {
+                    let delay = 0;
+                    if (context.type === 'data' && context.mode === 'default' && !delayedBarCa) {
+                    delay = context.dataIndex * 2000  + context.datasetIndex * 10;
+                    }
+                    return delay;
+                },
+            },
+
+            borderColor:'rgb(0, 0, 0)',
+            pointBorderWidth: 1,
+            pointHoverBorderWidth: 20,
+            lineTension: 0.4,
+
+          }
+      };
+
+        // render init block
+    const myChartBarCa = new Chart(
+      document.getElementById('myChartBarCa'),
+      configBarCa
+    );
+  
+
+
+</script>

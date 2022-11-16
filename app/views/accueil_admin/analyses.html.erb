@@ -48,10 +48,20 @@
 <div class="bloc-record">
   <div class="card-body text-dark">
     <strong>CA</strong> 
-    total: <%= Article.sum_articles + Sousarticle.sum_sousarticles %>
-    location: <%= Article.articlesLoues.sum_articles + Sousarticle.sum_sousarticles %>
-    <%# en l'etat les sous articles passent que à la vente dans le calcul%>
-    vente: <%= Article.articlesVendus.sum_articles  %>
+    <div class="container-fluid">
+      <div class="row m-0 p-0">
+        <div class="col-md-4 col-sm-12">
+              <%= render "charts/chartPieCa" %>
+        </div>
+        <div class="col-md-4 col-sm-12">
+              <%= render "charts/chartBarCa" %>
+        </div>
+        <div class="col-md-4 col-sm-12">
+              <%= render "charts/chartLineCa" %>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
 

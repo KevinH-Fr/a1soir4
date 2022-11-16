@@ -31,7 +31,7 @@ h1, h2, p, div, li, ul, a {
 
 
 .chartBox {
-  max-width: 400px;
+ /* max-width: 400px;*/
   padding: .4em;
   margin: .4em;
   border-radius: 20px;
