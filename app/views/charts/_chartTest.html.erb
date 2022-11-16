@@ -4,29 +4,39 @@
   </div>
 
 <strong class="text-dark">
-<%# obtenir toutes les dates des commandes %>
-  dates : <%= @datesCommandes = Commande.find(5).created_at %>
+<% @data = Commande.group('DATE(created_at)').count('created_at') %>
 </strong>
 
 <script>
    
 // CHART BAR
     const dataTest = {
-      labels: ['test1', 'test2'],
+     
       datasets: [{
-        data: [65, 80],
+        data: <%= @data.to_json.html_safe %>,
         fill: true,
         backgroundColor: [
         'rgba(255, 99, 132, 0.2)',
         'rgba(255, 159, 64, 0.2)'],
-        borderWidth: 1
+        borderWidth: 1,
       }]
     };
 
     const configTest = {
       type: 'line',
       data: dataTest,
-      };
+        options: {
+            plugins: {
+                legend: {
+                    display: false
+                },
+            },
+            borderColor:'rgb(0, 0, 0)',
+            pointBorderWidth: 1,
+            pointHoverBorderWidth: 20,
+            lineTension: 0.4,
+        },
+    };
 
     // render init block
     const myChartTest = new Chart(
