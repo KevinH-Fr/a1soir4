@@ -1,18 +1,31 @@
 
-<div class="bloc-entete-model">
-  <div class="card card-header entete-index">
-      <strong>Editer article</strong> 
-  </div>
-
   <% @commandeId = params[:commandeId] %>
   <% @produitId = params[:produitId] %>
   <% @articleId = params[:articleId] %>
 
-  <%= render "infosCommande" %>
+  <% @clientId = Commande.find(@commandeId).client_id if @commandeId.present? %>
 
-   <%#= render @commande %>
-
+<div class="bloc-entete-model">
+  <div class="card card-header entete-index m-0 p-1">
+    <div class="container text-center p-0 m-0">
+      <div class="row align-items-center m-0 p-0">
+        <div class="col text-start m-0 p-0">
+          Editer article
+        </div>
+        <div class="col m-0 p-0">
+          <span class="badge text-bg-secondary"> <%= Commande.find(@commandeId).texte_record if @commandeId.present? %> </span> 
+        </div>
+        <div class="col m-0 p-0">
+          <span class="badge text-bg-secondary"> <%= Client.find(@clientId).full_name if @clientId.present? %> </span> 
+        </div>
+        <div class="col m-0 p-0">
+          <span class="badge text-bg-secondary"> <%= Commande.find(@commandeId).info_evenement if @commandeId.present? %> </span> 
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
 
 <div class="list-long-blocs-article">
 
@@ -44,4 +57,3 @@
     </div>
   </div> 
 
-</div>

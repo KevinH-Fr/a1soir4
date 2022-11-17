@@ -9,6 +9,6 @@ class Client < ApplicationRecord
     scope :client_courant, ->  (client_courant) { where("id = ?", client_courant)}
  
     def full_name
-        "#{nom} #{mail} "
+        "#{nom} #{tel} "
     end
 end
