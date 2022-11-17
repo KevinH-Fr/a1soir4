@@ -3,34 +3,20 @@
     <canvas id="myChartLine"></canvas>
   </div>
 
-
-  <% @nbTotal =  Commande.count %>
-  <% @nbRetire = Commande.retire.count %>
-  <% @nbNonRetire = Commande.non_retire.count %>
-  <% @nbRendu = Commande.rendu.count %>
-
-  <% @data = [@nbRetire, @nbNonRetire, @nbRendu] %>
-  <% @dataLine = [@nbRetire, @nbNonRetire, @nbRendu] %>
+<% @data = Commande.group('DATE(created_at)').count('created_at') %>
 
 <script>
    
   var couleur1 = 'rgb(233, 119, 119)';
   var couleur2 = 'rgb(255, 159, 159)';
-  var couleur3 = 'rgb(252, 221, 176)';
-
-  var data1 = <%= @dataLine %>;
-  var data2 = <%= @dataLine %>;
-
-  var nbTotal = <%= @nbTotal %>;
 
 // CHART BAR
     const dataLine = {
-      labels: ['Retiré', 'Non-retiré', 'Rendu'],
+     
       datasets: [{
-      
         data: <%= @data.to_json.html_safe %>,
         fill: true,
-        backgroundColor: [couleur2, couleur1,  couleur3 ],
+        backgroundColor: [couleur2, couleur1 ],
         borderWidth: 1
       }]
     };

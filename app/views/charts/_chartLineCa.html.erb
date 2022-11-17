@@ -3,13 +3,7 @@
     <canvas id="myChartLineCa"></canvas>
   </div>
 
-
-  <% @totalCa = Article.sum_articles + Sousarticle.sum_sousarticles %>
-  <% @totalLoc =  Article.articlesLoues.sum_articles + Sousarticle.sum_sousarticles %>
-  <%# en l'etat les sous articles passent que à la vente dans le calcul%>
-  <% @totalVente = Article.articlesVendus.sum_articles %>
-
-  <% @data = [@totalLoc, @totalVente] %>
+  <% @data = Article.group('DATE(created_at)').sum('total') %>
 
 <script>
 
@@ -18,9 +12,7 @@
 
 // CHART BAR
     const dataLineCa = {
-      labels: ['location', 'vente'],
       datasets: [{
-      
         data: <%= @data.to_json.html_safe %>,
         fill: true,
         backgroundColor: [couleur2, couleur1 ],

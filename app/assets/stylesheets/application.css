@@ -31,8 +31,8 @@ h1, h2, p, div, li, ul, a {
 
 
 .chartBox {
-  max-width: 240px;
-  max-height: 240px;
+  max-width: 230px;
+  max-height: 230px;
   padding: .2em;
   margin: .2em;
   border-radius: 20px;
