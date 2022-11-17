@@ -1,10 +1,10 @@
 
   <div class="row g-0">
-    <div class="col-md-8 p-2">
+    <div class="col-md-4 p-2">
       <%= image_tag(Produit.find(@produitId).default_image, 
             style:"width: 100px;", class:"img-fluid rounded-start bg-white") %> 
     </div>
-    <div class="col-md-4">
+    <div class="col-md-8">
       <div class="card-body text-dark">
         <h5 class="card-title">
           <%= Produit.find(@produitId).nom %> 

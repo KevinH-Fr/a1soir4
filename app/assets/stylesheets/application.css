@@ -73,6 +73,14 @@ h1, h2, p, div, li, ul, a {
   padding-left: .2em;
 }
 
+.input-sized{
+  max-width: 80px;
+}
+
+.label-sized{
+  width: 80px;
+}
+
 .field-with-format{
   padding: .1em;
   padding-right: 1em;

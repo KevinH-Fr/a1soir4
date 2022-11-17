@@ -1,28 +1,42 @@
+
+<% @commandeId = session[:commandeId] %>
+<% @clientId = Commande.find(@commandeId).client_id if @commandeId.present? %>
+
 <div class="bloc-entete-model">
-  <div class="card card-header entete-index">
-    <strong>Nouvel article</strong>
+  <div class="card card-header entete-index m-0 p-1">
+    <div class="container text-center">
+      <div class="row align-items-center">
+        <div class="col text-start">
+          Nouvel article
+        </div>
+        <div class="col">
+          <span class="badge text-bg-secondary mx-3"> <%= Commande.find(@commandeId).texte_record if @commandeId.present? %> </span> 
+        </div>
+        <div class="col">
+          <span class="badge text-bg-secondary mx-3"> <%= Client.find(@clientId).full_name if @clientId.present? %> </span> 
+        </div>
+        <div class="col">
+          <span class="badge text-bg-secondary mx-3"> <%= Commande.find(@commandeId).info_evenement if @commandeId.present? %> </span> 
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="card m-1">
-    <%= render "infosCommande" %>
-  </div>
-
 </div>
-    <div class="card m-1">
-      <%= render "search" %>
-    </div>
 
-    <div class="card m-1">
-      <%= render "choixCategorie" %>
-    </div>
+<div class="card">
+  <%= render "search" %>
+</div>
 
-      <%# liste des produits pour selection %>
-      <% unless @produitId.present? %> 
-        <%= render "listeSelection" %>
-      <% end %>
+<div class="card my-1">
+  <%= render "choixCategorie" %>
+</div>
 
-      <%= render "form", article: @article %>
+<div>
+  <%# liste des produits pour selection %>
+  <% unless @produitId.present? %> 
+    <%= render "listeSelection" %>
+  <% end %>
 
-      <% @commandeId = session[:commandeId] %>
+  <%= render "form", article: @article %>
 
 </div>
