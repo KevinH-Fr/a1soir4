@@ -1,33 +1,30 @@
-<div class="bloc-entete-model">
+
+<div class="bloc-entete-model sticky-top" style="top: 5px; bottom: 0px;">
   <div class="card card-header entete-index">
     <div class="row m-0 p-0">
       <div class="col ms-1">
         <strong>Produits</strong> 
       </div>
       <div class="col">
-        <span id="produit_counter" class="position-absolute top-0 start-100 
-            translate-middle badge rounded-pill bg-warning text-dark">
-          <%= Produit.count %>
-        </span>
+        <span class="badge rounded-pill counter-model-dashboard"><%= Produit.count %></span>
       </div>
     </div>
   </div> 
-
-  <div class="m-0 p-0 text-dark">
-    <%= render "search" %>  
+  <div class="header-model-body mb-1">
+    <%= render "search" %>
     <%= render "choixCategorie" %> 
   </div>
-
 </div>
 
-<div class="list-records-item-produits">
-    <%= turbo_frame_tag :modal %>
+<div class="">
+  <%= turbo_frame_tag :modal %>
+</div>
 
-      <div id="produits">
-          <%= render @produits %>
-      </div>
+<div class="list-records-item mt-2">
+  <div id="produits">
+    <%= render @produits %>
+  </div>
 </div> 
-
 
 <footer class="fixed-bottom text-end m-2">
   <div class="badge bg-dark">

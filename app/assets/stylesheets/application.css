@@ -5,7 +5,6 @@
 
 html {
     height: 100%; 
-
 }
 
  body {
@@ -29,6 +28,10 @@ h1, h2, p, div, li, ul, a {
     color: rgb(255, 255, 255);
 }
 
+
+::-webkit-scrollbar {
+  width: 0px;
+}
 
 .chartBox {
   max-width: 230px;
@@ -100,8 +103,6 @@ h1, h2, p, div, li, ul, a {
   height: 8vh;
   font-size: small;
 }
-
-
 
 .btn-creer{
     background-color: green;
@@ -189,11 +190,11 @@ h1, h2, p, div, li, ul, a {
 
 .navbar{
     padding: .2em;
-    margin-right: .5em;
+   /* margin-right: .5em;*/
     border-radius: .2em;
     box-shadow: 2px 3px 4px rgba(165, 163, 163, 0.8);
    /* margin: 5px; */
-    height: calc(100vh - 1em); 
+    height: 100vh;
     background-color:rgb(59, 58, 58);
 }
 
@@ -243,8 +244,12 @@ h1, h2, p, div, li, ul, a {
     padding: .0em;
     border-radius: .2em;
     box-shadow: 2px 3px 4px rgba(165, 163, 163, 0.8);
+    text-align: center;
+
+    
+
   /*  margin-top: 0.5em; 
-    margin-right: 0.5em;
+   
     margin-left: 0.4em;
     margin-bottom: .5em;*/
 }
@@ -292,6 +297,14 @@ h1, h2, p, div, li, ul, a {
     font-size: 10px;
     background-color: rgb(255, 248, 248);
   }
+
+.header-model-body {
+    background-color: rgb(233, 228, 229);
+    padding: .5em;
+    border-radius: .2em;
+    box-shadow: 2px 3px 4px rgba(165, 163, 163, 0.8);
+    font-size: .8em;
+}
 
 .bloc-table {
   line-height: 4%;
@@ -451,9 +464,7 @@ h1, h2, p, div, li, ul, a {
   margin: 0em;
 }
 
-::-webkit-scrollbar {
-  width: 0px;
-}
+
 
 .th-list-articles{
   font-size: small;

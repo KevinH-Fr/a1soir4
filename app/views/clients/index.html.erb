@@ -10,26 +10,24 @@
       </div>
     </div>
   </div> 
-  
-  <div class="mb-1">
+  <div class="header-model-body mb-1">
     <%= render "search" %>
   </div>
 </div>
     
- <div class="">
+<div class="">
   <%= turbo_frame_tag :modal %>
 </div>
 
-  
-<div class="list-records-item">
+<div class="list-records-item mt-2">
   <div id="clients">
     <%= render @clients %>
   </div>
 </div>
 
-<footer class="fixed-bottom text-end m-2">
-  <div class="badge bg-dark">
-    <%== pagy_nav(@pagy) %>
-  </div>
-</footer>
+<div class="footer-index sticky-bottom m-0 p-1">
 
+    <%= link_to "", clients_path, class:"fa-solid fa-rotate-left btn btn-sm btn-secondary" %> 
+
+</div>
+ 

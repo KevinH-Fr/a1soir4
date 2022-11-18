@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <script src="https://kit.fontawesome.com/ab64641e90.js" crossorigin="anonymous"></script>
 
-
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -21,24 +21,22 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
 
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-    
-
     <%= favicon_link_tag asset_path('logo3.png'), :rel => 'icon', :type =>  'image/png' %>
   </head>
 
-  <body class="body-main m-1 p-1">
+  <body class="body-main mx-0 px-0">
     
     <div class="row p-0 m-0">
       <div class="col-2 p-0 m-0">
-       
+
+       <nav class="navbar sticky-top m-0">
         <%= render partial: "shared/navbarDashboard" %>
         <%#= render partial: "shared/navbarDashboardModel" %>
+       </nav>
 
       </div>
-      <div class="col-10 p-0 m-0">
-       <main> 
+      <div class="col-10 p-0 mx-0">
+       <main class="mx-1 px-1"> 
         <div id="flash" style="position:absolute; z-index: 2; right: 10px;">
           <%= render partial: "layouts/flash" %>
         </div>
