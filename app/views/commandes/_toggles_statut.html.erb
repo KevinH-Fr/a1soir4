@@ -1,0 +1,23 @@
+          <% if @commande.statutarticles == "non-retiré" %>
+            <%= link_to '', toggle_statut_non_retire_commande_path(@commande), 
+                  class:"fa-solid fa-shirt btn btn-sm btn-danger mb-2" %>
+          <% else %>
+            <%= link_to '', toggle_statut_non_retire_commande_path(@commande), 
+                  class:"fa-solid fa-shirt btn btn-sm btn-outline-danger mb-2" %>
+          <% end %>
+
+          <% if @commande.statutarticles == "retiré" %>
+            <%= link_to '', toggle_statut_retire_commande_path(@commande), 
+                  class:"fa-solid fa-shirt btn btn-sm btn-warning mb-2" %>
+          <% else %>
+            <%= link_to '', toggle_statut_retire_commande_path(@commande), 
+                  class:"fa-solid fa-shirt btn btn-sm btn-outline-warning mb-2" %>
+          <% end %>
+
+          <% if @commande.statutarticles == "rendu" %>
+            <%= link_to '', toggle_statut_rendu_commande_path(@commande), 
+                  class:"fa-solid fa-shirt btn btn-sm btn-success mb-2" %>
+          <% else %>
+            <%= link_to '', toggle_statut_rendu_commande_path(@commande), 
+                  class:"fa-solid fa-shirt btn btn-sm btn-outline-success mb-2" %>
+          <% end %>

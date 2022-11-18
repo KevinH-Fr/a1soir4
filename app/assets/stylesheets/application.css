@@ -101,6 +101,8 @@ h1, h2, p, div, li, ul, a {
   font-size: small;
 }
 
+
+
 .btn-creer{
     background-color: green;
     color: rgb(255, 255, 255);
@@ -228,6 +230,13 @@ h1, h2, p, div, li, ul, a {
     min-height: 28vh;
     overflow: hidden;
 }
+
+.crop { 
+  overflow:hidden; 
+  white-space:nowrap; 
+  text-overflow:ellipsis; 
+  width:100px; 
+}​
 
 .bloc-entete-model{
     background-color: rgb(233, 228, 229);
@@ -364,12 +373,13 @@ h1, h2, p, div, li, ul, a {
 }
 
 .text-navbar { 
-    font-size: .8rem;
+    font-size: 1rem;
     font-style: bold;
     padding: 0em;
     margin: 0em;
     text-align: center;
     color:rgb(204, 46, 102);
+    text-decoration: none;
 }
  
 .iconcolor {
@@ -403,6 +413,14 @@ h1, h2, p, div, li, ul, a {
   padding: 0em;
   margin: 0em;
 } 
+
+.badge-record-main {
+  font-size: medium;
+}
+
+.badge-record-second {
+  font-size: small;
+}
 
 .footer-index {
   background-color: rgb(59, 58, 58);

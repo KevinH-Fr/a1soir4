@@ -13,7 +13,7 @@
         <% @produits.limit(5).each do | produit | %>
           <tr> 
             <td> 
-              <%= link_to produit.nom, produit_path(produit), class:"text-dark fs-6", style:"text-decoration: none;" %> 
+              <%= link_to produit.nom, produit_path(produit), class:"text-dark fs-6 crop", style:"text-decoration: none;" %> 
             </td>
           </tr> 
         <% end %>

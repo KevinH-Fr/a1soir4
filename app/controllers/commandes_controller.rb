@@ -129,6 +129,33 @@ class CommandesController < ApplicationController
   end
 
 
+
+  def toggle_statut_retire
+    commandeId = params[:id]
+    commande = Commande.find(commandeId)
+    commande.update(statutarticles: "retiré" )
+    redirect_to commande_path(commandeId)
+  end
+
+  def toggle_statut_non_retire
+    commandeId = params[:id]
+    commande = Commande.find(commandeId)
+    commande.update(statutarticles: "non-retiré" )
+    redirect_to commande_path(commandeId)
+  end
+
+  def toggle_statut_rendu
+    commandeId = params[:id]
+    commande = Commande.find(commandeId)
+    commande.update(statutarticles: "rendu" )
+    redirect_to commande_path(commandeId)
+  end
+
+
+
+
+
+
   private
     def set_commande
       @commande = Commande.find(params[:id])

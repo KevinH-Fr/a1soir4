@@ -4,8 +4,20 @@
 <div class="list-records-item">
   <div class="sticky-top" style="top: 5px;">
     <div class="entete-show">
-      <strong>Commande</strong> 
+
+      <div class="row">
+        <div class="col">
+          <strong>Commande</strong>
+        </div>
+        <div class="col text-end">
+
+          <%= render "toggles_statut" %>
+
+        </div>
+      </div>
     </div>
+
+
       <%= render @commande %> 
   </div>
 
@@ -27,7 +39,7 @@
 
     <div class="">
       <%= render @paiements %>
-      <%= render "nouveauPaiement" %>
+      <%= render "nouveauPaiement" %> <br><br>
     </div>    
 
 </div>
