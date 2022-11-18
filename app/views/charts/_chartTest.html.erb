@@ -1,46 +1,28 @@
+<div>
+  <canvas id="myChart"></canvas>
+</div>
 
-  <div class="chartBox mx-auto">
-    <canvas id="myChartTest"></canvas>
-  </div>
-
-<strong class="text-dark">
-<% @data = Commande.group('DATE(created_at)').count('created_at') %>
-</strong>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script>
-   
-// CHART BAR
-    const dataTest = {
-     
+  const ctx = document.getElementById('myChart');
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
       datasets: [{
-        data: <%= @data.to_json.html_safe %>,
-        fill: true,
-        backgroundColor: [
-        'rgba(255, 99, 132, 0.2)',
-        'rgba(255, 159, 64, 0.2)'],
-        borderWidth: 1,
+        label: '# of Votes',
+        data: [12, 19, 3, 5, 2, 3],
+        borderWidth: 1
       }]
-    };
-
-    const configTest = {
-      type: 'line',
-      data: dataTest,
-        options: {
-            plugins: {
-                legend: {
-                    display: false
-                },
-            },
-            borderColor:'rgb(0, 0, 0)',
-            pointBorderWidth: 1,
-            pointHoverBorderWidth: 20,
-            lineTension: 0.4,
-        },
-    };
-
-    // render init block
-    const myChartTest = new Chart(
-      document.getElementById('myChartTest'),
-      configTest
-    );
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
 </script>

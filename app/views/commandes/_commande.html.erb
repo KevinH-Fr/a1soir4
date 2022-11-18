@@ -19,15 +19,12 @@
 
       <div class="col-3 m-0 p-1 text-end">
 
-                  <%= link_to '', commande_path(commande), 
-                        class:"fa-regular fa-folder-open btn btn-sm btn-success mb-2" %> 
-  
-                  <%= button_to "", edit_commande_path(commande), 
-                      class:"fa-regular fa-pen-to-square btn btn-sm btn-secondary mb-2", method: :post %> 
-  
-                  <%= button_to '', commande_path(commande), 
-                      class:"fa-solid fa-trash-can btn btn-danger btn-sm", method: :delete %> 
-
+        <%= link_to '', commande_path(commande), 
+            class:"fa-regular fa-folder-open btn btn-sm btn-success mb-2" %> 
+        <%= button_to "", edit_commande_path(commande), 
+            class:"fa-regular fa-pen-to-square btn btn-sm btn-secondary mb-2", method: :post %> 
+        <%= button_to '', commande_path(commande), 
+            class:"fa-solid fa-trash-can btn btn-danger btn-sm", method: :delete %> 
       </div>
     </div>
   </div>

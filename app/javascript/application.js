@@ -4,6 +4,9 @@ import "controllers"
 //import "@hotwired/turbo-rails"
 import { Turbo } from "@hotwired/turbo-rails"
 
+import Chart from 'chart.js/auto';
+global.Chart = Chart;
+
 Turbo.session.drive = true
 
 require("@rails/activestorage").start()
