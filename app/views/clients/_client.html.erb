@@ -4,8 +4,19 @@
     <div class="card-body p-0">
       <div class="row">
         <div class="col-10 text-dark">  
-          <%= client.nom %> 
-          <%= client.mail %>
+          <%= client.full_name %>
+          
+          <span class="">
+            <i class="fa fa-square-phone"></i>
+            <%= client.tel %>
+          </span>
+
+          <span class="">
+            <i class="fa fa-at"></i>
+            <%= client.mail %>
+          </span>      
+
+
         </div>
         <div class="col-2 text-dark">
           <div class="position-relative">

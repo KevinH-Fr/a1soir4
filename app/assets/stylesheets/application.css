@@ -247,7 +247,6 @@ h1, h2, p, div, li, ul, a {
     text-align: center;
 
     
-
   /*  margin-top: 0.5em; 
    
     margin-left: 0.4em;
@@ -428,11 +427,11 @@ h1, h2, p, div, li, ul, a {
 } 
 
 .badge-record-main {
-  font-size: medium;
+  font-size: small;
 }
 
 .badge-record-second {
-  font-size: small;
+  font-size: x-small;
 }
 
 .footer-index {
