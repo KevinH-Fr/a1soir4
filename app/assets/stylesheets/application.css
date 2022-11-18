@@ -323,7 +323,8 @@ h1, h2, p, div, li, ul, a {
   box-shadow: 2px 3px 4px rgba(165, 163, 163, 0.8);
   margin-bottom: .5em;
   font-size: .8em;
-   /* min-height: 6vh;  */
+/*  max-width: 400px;*/
+
 }
 
 .bloc-details-record{
@@ -426,12 +427,29 @@ h1, h2, p, div, li, ul, a {
   margin: 0em;
 } 
 
+.btn-action{
+  font-size: medium;
+  padding: .2em;
+  margin: .1em;
+}
+
 .badge-record-main {
   font-size: small;
 }
 
 .badge-record-second {
   font-size: x-small;
+}
+
+.badge-infos {
+  background-color: rgb(80, 80, 80);
+  color:#fff;
+  border-radius: .2em;
+  box-shadow: 2px 3px 4px rgba(165, 163, 163, 0.8);
+  padding: .3em;
+  padding-left: 1em;
+  margin: .4em;
+  font-size: small;
 }
 
 .footer-index {
@@ -463,8 +481,6 @@ h1, h2, p, div, li, ul, a {
   margin: 0em;
 }
 
-
-
 .th-list-articles{
   font-size: small;
   text-align: center;
@@ -480,7 +496,6 @@ h1, h2, p, div, li, ul, a {
   padding: .1em;
   border-radius: .2em;
   box-shadow: 1px 1px 1px rgba(165, 163, 163, 0.8);
-  
 }
 
 .img-min-size{

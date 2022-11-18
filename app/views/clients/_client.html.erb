@@ -1,68 +1,60 @@
 <div id="<%= dom_id client %>">
 
   <div class="bloc-record">
-    <div class="card-body p-0">
-      <div class="row">
-        <div class="col-10 text-dark">  
-          <%= client.full_name %>
-          
-          <span class="">
-            <i class="fa fa-square-phone"></i>
-            <%= client.tel %>
-          </span>
-
-          <span class="">
-            <i class="fa fa-at"></i>
-            <%= client.mail %>
-          </span>      
-
-
-        </div>
-        <div class="col-2 text-dark">
-          <div class="position-relative">
-            <div class="position-absolute end-0">
-              <table>
-                <tr>
-                  <td>   
-                    <%= link_to "", client_path(client), class:"fa-regular fa-folder-open btn btn-sm btn-success" %> 
-                  </td>
-                  <td>   
-                    <%= button_to "", edit_client_path(client), class:"fa-regular fa-pen-to-square btn btn-sm btn-secondary", method: :post %> 
-                  </td>
-                  <td>
-                    <%= button_to '', client_path(client), class:"fa-solid fa-trash-can btn btn-danger btn-sm", method: :delete %> 
-                  </td>
-                </tr>
-              </table>
+    <div data-controller="dropdown", class="">
+      <div class="card-body p-0">
+        <div class="row">
+          <div class="col-10 text-dark">  
+            <div class="badge-infos bg-primary text-center fw-bold">
+              <%= client.full_name %>
             </div>
+            <% if client.mail.present? %>
+              <div class="badge-infos">
+                <i class="fa fa-square-phone"></i>
+                <%= client.tel %>
+              </div>
+            <% end %>
+            <% if client.mail.present? %>
+              <div class="badge-infos">
+                <i class="fa fa-at"></i>
+                <%= client.mail %>
+              </div>  
+            <% end %>    
           </div>
-        </div>
-      </div>
 
-      <div data-controller="dropdown", class="mx-3">
-        <div role="button" data-action="click->dropdown#openDropdown" data-dropdown-target="openButton", class="fa-solid fa-eye btn btn-primary btn-sm">
+        <div class="col-2 text-center">
+          <div role="button" data-action="click->dropdown#openDropdown" 
+              data-dropdown-target="openButton", class="fa-solid fa-eye btn btn-outline-primary btn-action">
+          </div>
+          <div role="button" data-action="click->dropdown#closeDropdown" 
+            data-dropdown-target="closeButton", class="fa-solid fa-eye-slash btn btn-outline-primary btn-action">
+          </div>
+          <br>
+  
+          <%= link_to "", client_path(client), class:"fa-regular fa-folder-open btn btn-success btn-action" %> 
+          <%= button_to "", edit_client_path(client), class:"fa-regular fa-pen-to-square btn btn-secondary btn-action", method: :post %> 
+          <%= button_to '', client_path(client), class:"fa-solid fa-trash-can btn btn-danger btn-action", method: :delete %> 
         </div>
-        <div role="button" data-action="click->dropdown#closeDropdown" data-dropdown-target="closeButton", class="fa-solid fa-eye-slash btn btn-primary btn-sm">
-        </div>
-        <div data-dropdown-target="dropdownContent">
-          <p class="text-dark m-0">
-            <%= client.commentaires %>
-          </p>  
+      
 
-        <% if Commande.client_courant(client).present? %>
+      <div data-dropdown-target="dropdownContent">
+          <% if Commande.client_courant(client).present? %>
             <div class="card border border-dark text-dark"> 
-                <table class="table table-striped table-light table-hover", style="line-height: 0.5">
-                  <% Commande.client_courant(client).each do |c| %>
-                    <tr>
-                      <td> <%= link_to c.texte_record, commande_path(c), class:"text-dark" %> </td>
-                    </tr>
-                  <% end %>
-                </table>
-              
+              <table class="table table-striped table-light table-hover", style="line-height: 0.5">
+                <% Commande.client_courant(client).each do |c| %>
+                  <tr>
+                    <td> <%= link_to c.texte_record, commande_path(c), class:"text-dark" %> </td>
+                  </tr>
+                <% end %>
+              </table>    
             </div>
           <% end %>
+
         </div>
       </div>
+
+      </div>
+
     </div>
   </div>
 
