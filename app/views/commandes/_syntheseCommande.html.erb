@@ -5,26 +5,18 @@
 
 <div class="col-10">
 
-  <% duPrix = Article.commande_courante(@commande).sum_articles + 
-              Article.joins(:sousarticles).commande_courante(@commande).sum_sousarticles %> 
-    
-    <% duCaution = Article.commande_courante(@commande).sum_caution  %> 
+<% soldePrix = solde_prix(@commande) %>
+<% soldeCaution = solde_caution(@commande) %>
 
-        <% recuPrix = Paiement.commande_courante(@commande).prix_only.sum_paiements %> 
-        <% recuCaution = Paiement.commande_courante(@commande).caution_only.sum_paiements %> 
-
-        <% soldePrix = duPrix - recuPrix %>
-        <% soldeCaution = duCaution - recuCaution %>
-        
-        <% if soldePrix > 0 %>
-          <span class="format-synthese bg-danger ">
-           <i class="fa-solid fa-euro-sign mx-2"></i> <%= number_to_currency(soldePrix, locale: :fr)  %> 
-          </span>
-        <% else %>
-          <span class="format-synthese bg-success">
-            <i class="fa-solid fa-euro-sign mx-2"></i> OK
-          </span>
-        <% end %>
+  <% if soldePrix > 0 %>
+    <span class="format-synthese bg-danger ">
+      <i class="fa-solid fa-euro-sign mx-2"></i> <%= number_to_currency(soldePrix, locale: :fr)  %> 
+    </span>
+  <% else %>
+    <span class="format-synthese bg-success">
+      <i class="fa-solid fa-euro-sign mx-2"></i> OK
+    </span>
+  <% end %>
 
         <% if soldeCaution > 0 %>
           <span class="format-synthese bg-danger ">
