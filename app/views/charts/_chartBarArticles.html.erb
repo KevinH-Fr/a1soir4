@@ -17,7 +17,7 @@
 
 
 // CHART BAR
-    const dataBarArticles = {
+    var dataBarArticles = {
       labels: ['location', 'vente'],
       datasets: [{
       
@@ -28,9 +28,9 @@
       }]
     };
 
-    let delayedBarArticles;
+    var delayedBarArticles;
 
-    const configBarArticles = {
+    var configBarArticles = {
       type: 'bar',
       data: dataBarArticles,
       options: {
@@ -65,7 +65,7 @@
 
 
     // render init block
-    const myChartBarArticles = new Chart(
+    var myChartBarArticles = new Chart(
       document.getElementById('myChartBarArticles'),
       configBarArticles
     );

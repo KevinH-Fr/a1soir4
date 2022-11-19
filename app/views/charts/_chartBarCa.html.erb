@@ -16,7 +16,7 @@
   var couleur2 = 'rgb(66, 95, 87)';
 
 // CHART BAR
-    const dataBarCa = {
+    var dataBarCa = {
       labels: ['location', 'vente'],
       datasets: [{
       
@@ -27,9 +27,9 @@
       }]
     };
 
-    let delayedBarCa;
+    var delayedBarCa;
 
-    const configBarCa = {
+    var configBarCa = {
       type: 'bar',
       data: dataBarCa,
       options: {
@@ -63,11 +63,10 @@
       };
 
         // render init block
-    const myChartBarCa = new Chart(
+    var myChartBarCa = new Chart(
       document.getElementById('myChartBarCa'),
       configBarCa
     );
-  
 
 
 </script>

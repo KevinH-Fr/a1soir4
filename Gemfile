@@ -31,7 +31,9 @@ gem "barby", "~> 0.6.8"
 
 gem 'grover'
 
-gem 'chart-js-rails'
+#gem 'chart-js-rails'
+
+gem 'chartjs-ror', '~> 2.2'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]

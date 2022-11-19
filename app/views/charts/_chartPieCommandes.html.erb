@@ -17,7 +17,7 @@
 
   var nbTotal = <%= @nbTotal %>;
 
-  const centerTextDoghnut = {
+  var centerTextDoghnut = {
     id: 'centerTextDoghnut',
     afterDatasetsDraw(chart, args, pluginOptions){
       const { ctx } = chart;
@@ -32,8 +32,8 @@
     }
   }
 
-  const ctx = document.getElementById('myChartPie').getContext('2d');
-  const myChart = new Chart(ctx, {
+  var ctx = document.getElementById('myChartPie').getContext('2d');
+  var myChart = new Chart(ctx, {
     type: 'doughnut',
     data: {
       labels: ['Retiré', 'Non-retiré', 'Rendu'],
@@ -62,10 +62,5 @@
   });
 </script>
 
-<script>
-  const myChart = new Chart(
-    document.getElementById('myChartPie'),
-    config
-  );
-</script>
+
 

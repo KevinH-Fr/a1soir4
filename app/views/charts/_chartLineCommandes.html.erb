@@ -11,7 +11,7 @@
   var couleur2 = 'rgb(255, 159, 159)';
 
 // CHART BAR
-    const dataLineCommande = {
+    var dataLineCommande = {
      
       datasets: [{
         data: <%= @data.to_json.html_safe %>,
@@ -21,9 +21,9 @@
       }]
     };
 
-    let delayedLine;
+    var delayedLine;
 
-    const configLine = {
+    var configLine = {
       type: 'line',
       data: dataLineCommande,
       options: {
@@ -57,7 +57,7 @@
       };
 
         // render init block
-    const myChartLine = new Chart(
+    var myChartLine = new Chart(
       document.getElementById('myChartLine'),
       configLine
     );

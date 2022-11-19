@@ -3,7 +3,6 @@
     <canvas id="myChartBar2"></canvas>
   </div>
 
-
   <% @nbTotal =  Commande.count %>
   <% @nbRetire = Commande.retire.count %>
   <% @nbNonRetire = Commande.non_retire.count %>
@@ -23,11 +22,8 @@
 
   var nbTotal = <%= @nbTotal %>;
 
-
-
-
 // CHART BAR
-    const dataBar2 = {
+    var dataBar2 = {
       labels: ['Retiré', 'Non-retiré', 'Rendu'],
       datasets: [{
       
@@ -38,9 +34,9 @@
       }]
     };
 
-    let delayed;
+    var delayed;
 
-    const configBar2 = {
+    var configBar2 = {
       type: 'bar',
       data: dataBar2,
       options: {
@@ -65,8 +61,6 @@
                 },
             },
 
-
-
             borderColor:'rgb(0, 0, 0)',
             pointBorderWidth: 1,
             pointHoverBorderWidth: 20,
@@ -76,7 +70,7 @@
       };
 
         // render init block
-    const myChartBar2 = new Chart(
+    var myChartBar2 = new Chart(
       document.getElementById('myChartBar2'),
       configBar2
     );

@@ -11,7 +11,7 @@
   var couleur2 = 'rgb(66, 95, 87)';
 
 // CHART BAR
-    const dataLineCa = {
+    var dataLineCa = {
       datasets: [{
         data: <%= @data.to_json.html_safe %>,
         fill: true,
@@ -20,9 +20,9 @@
       }]
     };
 
-    let delayedLineCa;
+    var delayedLineCa;
 
-    const configLineCa = {
+    var configLineCa = {
       type: 'line',
       data: dataLineCa,
       options: {
@@ -56,11 +56,9 @@
       };
 
         // render init block
-    const myChartLineCa = new Chart(
+    var myChartLineCa = new Chart(
       document.getElementById('myChartLineCa'),
       configLineCa
     );
   
-
-
 </script>

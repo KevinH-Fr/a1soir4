@@ -15,7 +15,7 @@
 
   var nbTotalArticles = <%= @nbTotalArticles %>;
 
-  const centerTextDoghnutArticles = {
+  var centerTextDoghnutArticles = {
     id: 'centerTextDoghnutArticles',
     afterDatasetsDraw(chart, args, pluginOptions){
       const { ctx } = chart;
@@ -30,7 +30,7 @@
     }
   }
 
-   const dataPieArticles = {
+   var dataPieArticles = {
       labels: ['location', 'vente'],
       datasets: [{
         data: <%= @data.to_json.html_safe %>,
@@ -40,7 +40,7 @@
       }]
     };
 
-    const configPieArticles = {
+    var configPieArticles = {
       type: 'doughnut',
           data: {
             labels: ['location', 'vente'],
@@ -68,7 +68,7 @@
           plugins: [centerTextDoghnutArticles]
         };
 
-  const myChartPieArticles = new Chart(
+  var myChartPieArticles = new Chart(
     document.getElementById('myChartPieArticles'),
     configPieArticles
   );
