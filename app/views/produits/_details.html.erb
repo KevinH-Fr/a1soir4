@@ -1,6 +1,6 @@
 <div id="<%= dom_id @produit %>">
 
-  <div class="card mb-0 bloc-details-record">
+  <div class="bloc-record">
     <div class="row g-0">
       <div class="col-4">
         <%#= image_tag(produit.image1, class:"img-fluid rounded-start image-produit-sized") if produit.image1.present? %> 
@@ -22,7 +22,7 @@
     </div>
     
     <div class="row g-0 my-2">
-            <div class="col-6 m-0 p-0">
+        <div class="col-6 m-0 p-0">
           <%= image_tag(@produit.qr_code, class:"rounded-startimage-qr-cb-large-sized") if @produit.qr_code.attached? %>
         </div>
         <div class="col-6 m-0 p-0">
@@ -32,6 +32,7 @@
 
     <div class="row g-0 my-2">
 
+    <div class="col-10 m-0 p-0 text-dark">
       <strong>Diffusion</strong>
  
           <% if @produit.vitrine == true %>
@@ -46,17 +47,23 @@
             <i class="fa-solid fa-cart-shopping iconcolor-false"></i>
           <% end %>
 
+        </div>
+
+        <div class="col-2 m-0 p-0">
+           <div class="row g-0"> 
+              <div class="text-end">    
+                  <%= button_to '', edit_produit_path(@produit), 
+                      class:"fa-regular fa-pen-to-square btn btn-sm btn-secondary mb-1 p-1", 
+                      method: :post %> 
+                  <%= button_to '', produit_path(@produit), 
+                      class:"fa-solid fa-trash-can btn btn-danger btn-sm p-1", method: :delete %> 
+              </div>
+          </div>
+        </div>
+
     </div>
 
-    <div class="row g-0"> 
-        <div class="text-end">    
-            <%= button_to '', edit_produit_path(@produit), 
-                class:"fa-regular fa-pen-to-square btn btn-sm btn-secondary mb-1 p-1", 
-                method: :post %> 
-            <%= button_to '', produit_path(@produit), 
-                class:"fa-solid fa-trash-can btn btn-danger btn-sm p-1", method: :delete %> 
-        </div>
-    </div>
+
 
 
 

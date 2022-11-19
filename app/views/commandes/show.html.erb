@@ -1,23 +1,19 @@
 
-<div class="list-records-item">
-  <div class="sticky-top" style="top: 0px;">
-    <div class="entete-show">
-
-      <div class="row">
-        <div class="col">
-          <strong>Commande</strong>
-        </div>
-        <div class="col text-end">
-
-          <%= render "toggles_statut" %>
-
-        </div>
+<div class="bloc-entete-model sticky-top" style="top: 0px; bottom: 0px;">
+  <div class="card card-header entete-index">
+    <div class="row m-0 p-0">
+      <div class="col-6 text-start">
+        <strong> Commande </strong>
+      </div>
+      <div class="col-6 text-end">
+        <%= render "toggles_statut" %>
       </div>
     </div>
-
-
-      <%= render @commande %> 
   </div>
+  <div class="">
+    <%= render @commande %> 
+  </div>
+</div>
 
     <div class="entete-show">
       <strong>Client</strong> 
@@ -40,9 +36,11 @@
       <%= render "nouveauPaiement" %> <br><br>
     </div>    
 
+
+
+<div class="footer-index sticky-bottom m-0 p-1">
+  <%= render "syntheseCommande" %> 
 </div>
 
-    <div class="d-flex align-items-center justify-content-center container footer">
-      <%= render "syntheseCommande" %> 
-    </div>
+
 

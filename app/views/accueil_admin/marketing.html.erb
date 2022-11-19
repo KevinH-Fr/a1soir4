@@ -1,8 +1,26 @@
-<h2>  marketing </h2>
 
-<%= link_to 'Définir les labels', labels_path, class:'btn btn-primary' %>
+<div class="bloc-entete-model sticky-top" style="top: 0px; bottom: 0px;">
+    <div class="card card-header entete-index">
+        <div class="row m-0 p-0">
+            <div class="col ms-1">
+                <strong>Marketing</strong> 
+            </div>
+        </div>
+    </div>
+    <div class="bloc-record">
+        <%= link_to 'Définir les labels', labels_path, class:'btn btn-primary' %>
+        <%= link_to 'Définir les textes', textes_path, class:'btn btn-primary' %>
+        <%#= render "charts/chartTest" %>
+    </div>
+</div>
 
-<%= link_to 'Définir les textes', textes_path, class:'btn btn-primary' %>
+<div class="footer bg-dark text-center">
 
+        <div class="row m-0 p-0">
+            <div class="col ms-1">
+                Footer 
+            </div>
+        </div>
 
- <%= render "charts/chartTest" %>
+</div>
+

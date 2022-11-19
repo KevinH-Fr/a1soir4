@@ -7,14 +7,27 @@ html {
     height: 100%; 
 }
 
- body {
+body {
   /*  background-color: rgb(255, 251, 251); */
   background-image: url('svg/waves.svg');
   margin-left: 5px;
+ /* margin-bottom: 60px; /* Margin bottom by footer height */
  /* margin-top: 1px;*/
+
 }
 
-/*.body-main{
+main{
+  min-height: 100%;
+}
+
+.body-main{
+  min-height: 100%;
+}
+
+.container-main{
+  min-height: 100%;
+}
+  /*
   -ms-overflow-style: none; 
   scrollbar-width: none;  
   overflow-y: scroll; 
@@ -394,7 +407,7 @@ h1, h2, p, div, li, ul, a {
     color:rgb(204, 46, 102);
     text-decoration: none;
 }
- 
+
 .iconcolor {
     color:rgb(204, 46, 102);
     padding: 0em;
@@ -433,6 +446,11 @@ h1, h2, p, div, li, ul, a {
   margin: .1em;
 }
 
+.placeholder-recherche{
+  color:red;
+  background-color: red;
+}
+
 .badge-record-main {
   font-size: small;
 }
@@ -460,13 +478,21 @@ h1, h2, p, div, li, ul, a {
   margin: .4em;
 } 
 
-.footer {
-  background-color: rgb(59, 58, 58);
-  position: fixed;
+.footer-index-test {
+  position: absolute;
   bottom: 0;
-  margin-bottom: 10px;
+  /* width: 100%;
+  height: 60px; /* Set the fixed height of the footer here */
+  line-height: 60px; /* Vertically center the text there */
+} 
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width:80%;
+  background-color: rgb(59, 58, 58);
   border-radius: .2em;
-  box-shadow: 2px 3px 4px rgba(165, 163, 163, 0.8);
+  padding: .2em;
 }
 
 .entete-show {

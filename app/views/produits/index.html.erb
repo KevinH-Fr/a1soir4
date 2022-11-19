@@ -20,14 +20,28 @@
   <%= turbo_frame_tag :modal %>
 </div>
 
-<div class="list-records-item mt-2">
+<div class="mt-2">
   <div id="produits">
     <%= render @produits %>
   </div>
 </div> 
 
-<footer class="fixed-bottom text-end m-2">
-  <div class="badge bg-dark">
-    <%== pagy_nav(@pagy) %>
+
+<div class="footer-index sticky-bottom m-0 p-1">
+  <div class="container text-center">
+    <div class="row justify-content-evenly">
+      <div class="col-4 text-start">
+          <%= link_to "", produits_path, class:"fa-solid fa-rotate-left btn btn-sm btn-secondary" %> 
+        </div>
+        <div class="col-4 text-center">
+          <div class="badge bg-dark">
+            <%== pagy_nav(@pagy) %>
+          </div>
+        </div>
+        <div class="col-4 text-end">
+          <%= link_to "", produits_path, class:"fa-solid fa-file-export btn btn-sm btn-primary" %> 
+        </div>
+      </div>
   </div>
-</footer>
+</div>
+

@@ -19,8 +19,27 @@
                 <i class="fa fa-at"></i>
                 <%= client.mail %>
               </div>  
-            <% end %>    
+            <% end %>   
+
+            <div data-dropdown-target="dropdownContent">
+              <% if Commande.client_courant(client).present? %>
+                <div class="card card-header bg-dark mt-4 m-1 p-1">
+                  Commande(s) liée(s)
+                </div>
+                <div class="card border border-dark text-dark"> 
+                  <table class="table table-striped table-light table-hover", style="line-height: 0.5">
+                    <% Commande.client_courant(client).each do |c| %>
+                      <tr>
+                        <td> <%= link_to c.texte_record, commande_path(c), class:"text-dark" %> </td>
+                      </tr>
+                    <% end %>
+                  </table>    
+                </div>
+              <% end %>
+            </div>
+
           </div>
+
 
         <div class="col-2 text-center">
           <div role="button" data-action="click->dropdown#openDropdown" 
@@ -37,20 +56,7 @@
         </div>
       
 
-      <div data-dropdown-target="dropdownContent">
-          <% if Commande.client_courant(client).present? %>
-            <div class="card border border-dark text-dark"> 
-              <table class="table table-striped table-light table-hover", style="line-height: 0.5">
-                <% Commande.client_courant(client).each do |c| %>
-                  <tr>
-                    <td> <%= link_to c.texte_record, commande_path(c), class:"text-dark" %> </td>
-                  </tr>
-                <% end %>
-              </table>    
-            </div>
-          <% end %>
 
-        </div>
       </div>
 
       </div>

@@ -1,0 +1,83 @@
+
+  <div class="chartBox mx-auto">
+    <canvas id="myChartPieProduit"></canvas>
+  </div>
+
+  <% @produitId = params[:id]%>
+  <% initial = Produit.find(@produitId).quantite %> <br> 
+  <% @locations = Article.produit_courant(@produitId).articlesLoues.compte_articles %> <br>
+ 
+  <% louesTermines = Commande.termine.joins(:articles).merge(Article.produit_courant(@produitId).articlesLoues).sum(:quantite) %> <br>
+  <% louesAvenir = Commande.a_venir.joins(:articles).merge(Article.produit_courant(@produitId).articlesLoues).sum(:quantite) %> <br>
+ 
+ <% @ventes = Article.produit_courant(@produitId).articlesVendus.compte_articles %> <br>
+ <% @restant = initial - @locations - @ventes %> <br>
+
+  <% @data = [@locations, @ventes] %>
+
+<script>
+  var couleur1 = 'rgb(116, 159, 130)';
+  var couleur2 = 'rgb(66, 95, 87)';
+
+  var restant = <%= @restant %>;
+
+  var centerTextDoghnutProduit = {
+    id: 'centerTextDoghnutProduit',
+    afterDatasetsDraw(chart, args, pluginOptions){
+      const { ctx } = chart;
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.font = "bold 12px sans-serif";
+      const text = "dispo " + restant ;
+      const textWidth = ctx.measureText(text).width;
+      const x = chart.getDatasetMeta(0).data[0].x;
+      const y = chart.getDatasetMeta(0).data[0].y;
+      ctx.fillText(text, x, y);
+    }
+  }
+
+   var dataPieProduit = {
+      labels: ['location', 'vente'],
+      datasets: [{
+        data: <%= @data.to_json.html_safe %>,
+        fill: true,
+        backgroundColor: [ couleur1, couleur2 ],
+        borderWidth: 1
+      }]
+    };
+
+    var configPieProduit = {
+      type: 'doughnut',
+          data: {
+            labels: ['location', 'vente'],
+            datasets: [{
+              data: <%= @data.to_json.html_safe %>,       
+              backgroundColor: [ couleur1, couleur2 ],
+              hoverOffset: 40,
+              borderWidth: 1,
+              cutout: '50%'
+            }]
+          },
+          options: {
+            animation: {
+              animateRotate: true,
+              duration: 5000
+            },
+            plugins: {
+              legend: {
+                display: true,
+                position: 'top',
+              },
+            },
+
+          },
+          plugins: [centerTextDoghnutProduit]
+        };
+
+  var myChartPieProduit = new Chart(
+    document.getElementById('myChartPieProduit'),
+    configPieProduit
+  );
+
+</script>
+
