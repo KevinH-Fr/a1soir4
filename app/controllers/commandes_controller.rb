@@ -14,6 +14,17 @@ class CommandesController < ApplicationController
     @pagy, @commandes = pagy(Commande.ransack(params[:q]).result(distinct: true))
   end
 
+  respond_to do |format|
+    format.html
+    format.pdf do
+      render pdf: "Commandes: #{@commandes.count}", # filename
+     
+      formats: [:html],
+      disposition: :inline,
+      layout: 'pdf'
+    end
+  end
+
   # @pagy, @commandes = pagy(Commande.ransack(params[:q]).result(distinct: true))
   #  respond_to do |format|
   #    format.html
@@ -35,20 +46,9 @@ class CommandesController < ApplicationController
     @commandeId = params[:id]
     session[:commandeId] = @commandeId
 
-
-
     respond_to do |format|
       format.html
-      format.png do
-        png = Grover.new(url_for()).to_png
-        customFilename = "docname"".png"
-        send_data(png, disposition: 'inline', filename: customFilename, type: 'application/png', format: 'A4')
-      end
-      format.pdf do
-        pdf = Grover.new(url_for()).to_pdf
-        customFilename = "docname"".pdf"
-        send_data(pdf, disposition: 'inline', filename: customFilename, type: 'application/pdf', format: 'A4')
-      end
+
     end
 
   end

@@ -9,10 +9,7 @@ class Paiement < ApplicationRecord
   scope :caution_only, -> { where("typepaiement = ?", "Caution")}
 
   scope :sum_paiements, -> {sum('montant')}
-
-  scope :sum_paiements, -> {sum('montant')}
   scope :compte_paiements, -> {count('montant')}
-
 
   def format_date
     datetime = created_at.to_date

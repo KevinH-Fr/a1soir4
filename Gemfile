@@ -29,9 +29,12 @@ gem "barby", "~> 0.6.8"
 #gem "wkhtmltopdf-binary", group: :development
 #gem "wkhtmltopdf-heroku", group: :production
 
-gem 'grover'
-
+#gem 'grover'
 #gem 'chart-js-rails'
+
+gem 'wicked_pdf'
+gem "wkhtmltopdf-binary", group: :development
+gem "wkhtmltopdf-heroku", group: :production
 
 gem 'chartjs-ror', '~> 2.2'
 
