@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_15_174939) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_19_185136) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -84,6 +84,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_15_174939) do
     t.decimal "caution"
     t.index ["commande_id"], name: "index_articles_on_commande_id"
     t.index ["produit_id"], name: "index_articles_on_produit_id"
+  end
+
+  create_table "avoirrembs", force: :cascade do |t|
+    t.string "typeavoirremb"
+    t.decimal "montant"
+    t.string "natureavoirremb"
+    t.integer "commande_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["commande_id"], name: "index_avoirrembs_on_commande_id"
   end
 
   create_table "clients", force: :cascade do |t|
@@ -224,6 +234,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_15_174939) do
   add_foreign_key "articleoptions", "articles"
   add_foreign_key "articles", "commandes"
   add_foreign_key "articles", "produits"
+  add_foreign_key "avoirrembs", "commandes"
   add_foreign_key "commandes", "clients"
   add_foreign_key "paiements", "commandes"
   add_foreign_key "sousarticles", "articles"

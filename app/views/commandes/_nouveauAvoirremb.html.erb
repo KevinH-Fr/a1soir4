@@ -1,0 +1,20 @@
+<div data-controller="nouveau", class="my-0">
+  <div class="position-relative">
+    <div class="position-absolute top-0 end-0">
+      <div role="button" data-action="click->nouveau#openNouveau" data-nouveau-target="openNouveau", 
+          class="btn btn-sm btn-primary", style="inline;">
+            Nouveau avoir remboursement
+      </div>
+      <div role="button" data-action="click->nouveau#closeNouveau" data-nouveau-target="closeNouveau", 
+          class="btn btn-sm btn-danger m-0", style="inline;">
+            Fermer nouveau
+      </div>
+    </div>
+  </div> <br>
+  <div id="new_paiement">
+    <div data-nouveau-target="nouveauContent">
+      <br>
+      <%= render partial: "avoirrembs/form", locals: {avoirremb: Avoirremb.new} %>
+    </div>
+  </div>
+</div>

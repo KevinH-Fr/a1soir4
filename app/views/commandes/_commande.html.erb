@@ -6,14 +6,12 @@
     <div class="row">
       <div class="col-9">
         <div class="text-dark text-start mx-1 p-0">
-          <span class="badge badge-record-main text-bg-primary mx-1"> <%= commande.texte_record %> </span> 
+          <span class="badge badge-record-main text-bg-primary mx-1"> <%= link_to commande.texte_record, commande_path(commande.id) %> </span> 
           <hr>  
-       
-           <span class="badge badge-record-second text-bg-secondary m-1"> <%= commande.auto_name %> </span> 
-           <% if commande.info_evenement.present? %>
-             <span class="badge badge-record-second text-bg-secondary m-1"> <%= commande.info_evenement %> </span>      
-           <% end %>
-
+          <span class="badge badge-record-second text-bg-secondary m-1"> <%= commande.auto_name %> </span> 
+          <% if commande.info_evenement.present? %>
+            <span class="badge badge-record-second text-bg-secondary m-1"> <%= commande.info_evenement %> </span>      
+          <% end %>
         </div>
       </div>
 

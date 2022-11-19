@@ -10,7 +10,6 @@ class PaiementsController < ApplicationController
 
   def new
     @paiement = Paiement.new paiement_params
-
     @commandeId = params[:commandeId]
     session[:commandeId] = params[:commandeId]
   end
@@ -42,8 +41,6 @@ class PaiementsController < ApplicationController
   end
 
   def update
-
-
     respond_to do |format|
       if @paiement.update(paiement_params)
 
@@ -74,7 +71,7 @@ class PaiementsController < ApplicationController
   end
 
   private
-     def set_paiement
+    def set_paiement
       @paiement = Paiement.find(params[:id])
     end
 

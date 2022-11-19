@@ -1,0 +1,36 @@
+<%= form_with(model: avoirremb) do |form| %>
+  <% if avoirremb.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(avoirremb.errors.count, "error") %> prohibited this avoirremb from being saved:</h2>
+      <ul>
+        <% avoirremb.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="card-body bloc-record">
+    <div class="input-group mb-0">
+      <%#= form.label :commande_id, class:"input-group-text bg-secondary text-light", style:"width: 100px;"%>
+      <%= form.hidden_field :commande_id, value: session[:commandeId], class:"form-control" %> 
+    </div>
+    <div class="input-group mb-0">
+        <%= form.label :type, class:"input-group-text label-with-format" %>
+        <%= form.select(:typeavoirremb, Avoirremb.typeAvoirrembs.keys, {include_blank: true}, 
+          class:"form-control field-with-format") %> 
+    </div>
+    <div class="input-group mb-1">
+        <%= form.label :montant, class:"input-group-text label-with-format" %>
+        <%= form.text_field :montant, class:"form-control field-with-format" %>
+      </div>
+    <div class="input-group mb-0">
+        <%= form.label :nature, class:"input-group-text label-with-format" %>
+        <%= form.select(:natureavoirremb, Avoirremb.natureAvoirrembs.keys, {include_blank: true}, 
+          class:"form-control field-with-format") %> 
+    </div>
+    <div class="text-end">
+        <%= form.submit "Créer", class: 'btn btn-sm btn-success' %> 
+    </div>
+  </div>
+<% end %>

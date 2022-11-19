@@ -11,6 +11,12 @@ Rails.application.routes.draw do
       post :edit
     end
   end
+
+  resources :avoirrembs do
+    member do 
+      post :edit
+    end
+  end
   
   resources :articles do
     member do
@@ -28,10 +34,9 @@ Rails.application.routes.draw do
   end 
 
   resources :clients do
-   # collection do
-   #   post :index
-   # end
-    
+  # collection do
+  #   post :index
+  # end  
     member do
       post :edit
     end

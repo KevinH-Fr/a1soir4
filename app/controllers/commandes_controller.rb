@@ -3,21 +3,18 @@ class CommandesController < ApplicationController
 
   def index
 
-   # @commandes = Commande.all
+  # @commandes = Commande.all
   # @pagy, @commandes = pagy(Commande.order(created_at: :desc), items: 2)
 
   @pagy, @commandes = pagy(Commande.order(created_at: :desc), items: 2)
 
-  
-   @q = Commande.ransack(params[:q])
-   if @q.present?  
+  @q = Commande.ransack(params[:q])
+  if @q.present?  
     # @commandes = @q.result(distinct: true)
     @pagy, @commandes = pagy(Commande.ransack(params[:q]).result(distinct: true))
- 
   end
 
   # @pagy, @commandes = pagy(Commande.ransack(params[:q]).result(distinct: true))
-
   #  respond_to do |format|
   #    format.html
   #    format.pdf do
@@ -30,6 +27,7 @@ class CommandesController < ApplicationController
   def show
     @articles = Article.commande_courante(@commande)
     @paiements = Paiement.commande_courante(@commande)
+    @avoirrembs = Avoirremb.commande_courante(@commande)
     @sousarticles = Sousarticle.all
 
     @client = Client.client_courant(@commande.client_id)
