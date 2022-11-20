@@ -18,7 +18,7 @@ class CommandesController < ApplicationController
     format.html
     format.pdf do
       render pdf: "Commandes: #{@commandes.count}", # filename
-     
+      template: "hello/print_pdf",
       formats: [:html],
       disposition: :inline,
       layout: 'pdf'
