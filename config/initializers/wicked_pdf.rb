@@ -1,12 +1,17 @@
 
+if Rails.env.production?
 # fonctionne en prod : 
-WickedPdf.config ||= {}
-WickedPdf.config.merge!({
-  layout: "pdf.html.erb",
-}) 
 
-# focntionne en dev :
+  WickedPdf.config ||= {}
+  WickedPdf.config.merge!({
+    layout: "pdf.html.erb",
+  }) 
+else
 
-#WickedPdf.config = {
-#    :exe_path => 'C:\wkhtmltopdf\bin\wkhtmltopdf.exe'
-#}
+  # focntionne en dev :
+
+  WickedPdf.config = {
+      :exe_path => 'C:\wkhtmltopdf\bin\wkhtmltopdf.exe'
+  }
+
+end 
