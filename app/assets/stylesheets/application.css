@@ -41,6 +41,11 @@ h1, h2, p, div, li, ul, a {
     color: rgb(255, 255, 255);
 }
 
+.container-principal{
+  /*min-height: 100vh;*/
+  background: white;
+}
+
 
 ::-webkit-scrollbar {
   width: 0px;
@@ -243,6 +248,12 @@ h1, h2, p, div, li, ul, a {
     height: calc(33.2vh - .6em);
     min-height: 28vh;
     overflow: hidden;
+}
+
+.bloc-large{
+  height: calc(23.2vh - .6em);
+  min-height: 18vh;
+  overflow: hidden;
 }
 
 .crop { 
