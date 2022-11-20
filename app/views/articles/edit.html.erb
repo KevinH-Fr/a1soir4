@@ -37,23 +37,10 @@
     </div>
  </div>
  
- 
   <%= render "sousarticles/sousarticlesLiesBis" %>
 
-  <div class="card card-footer footer-index">
-    <div class="row m-1 mb-2 p-0">   
-      <div class="col-9">
-        item1
-        item2
-        item3
-      </div>
-      <div class="col-3 m-0 p-0">
-        <div class="position-relative">
-          <div class="position-absolute end-0">
-            <%= link_to "Valider", commande_path(@commandeId), class:"btn btn-sm btn-success p- m-0" %> 
-          </div>
-        </div>
+    <div class="fixed-bottom footer-index text-center bg-dark">
+      <div class="text-end">
+        <%= link_to "Valider", commande_path(@commandeId), class:"btn btn-sm btn-success" %> 
       </div>
     </div>
-  </div> 
-

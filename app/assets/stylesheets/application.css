@@ -227,12 +227,6 @@ h1, h2, p, div, li, ul, a {
    /* overflow: hidden; */
   }
 
-.container-centered{
-  display: flex;              /* establish flex container */
-  flex-direction: column;     /* stack flex items vertically */
-  justify-content: center;    /* center items vertically, in this case */
-  height: 96vh;
-}
 
 .bloc-dashboard{
     background-color: rgb(233, 228, 229);
@@ -251,8 +245,8 @@ h1, h2, p, div, li, ul, a {
 }
 
 .bloc-large{
-  height: calc(23.2vh - .6em);
-  min-height: 18vh;
+  height: calc(18.2vh - .6em);
+  min-height: 14vh;
   overflow: hidden;
 }
 
@@ -486,26 +480,8 @@ h1, h2, p, div, li, ul, a {
   background-color: rgb(59, 58, 58);
   border-radius: .2em;
   box-shadow: 2px 3px 4px rgba(165, 163, 163, 0.8);
-  padding: 0em;
-  margin: .4em;
+  padding: .5em;
 } 
-
-.footer-index-test {
-  position: absolute;
-  bottom: 0;
-  /* width: 100%;
-  height: 60px; /* Set the fixed height of the footer here */
-  line-height: 60px; /* Vertically center the text there */
-} 
-
-.footer {
-  position: absolute;
-  bottom: 0;
-  width:80%;
-  background-color: rgb(59, 58, 58);
-  border-radius: .2em;
-  padding: .2em;
-}
 
 .entete-show {
   background-color: rgb(59, 58, 58);

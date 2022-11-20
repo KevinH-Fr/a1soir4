@@ -19,14 +19,13 @@
   <%= turbo_frame_tag :modal %>
 </div>
 
-<div class="mt-2">
+<div class="my-2">
   <div id="clients">
     <%= render @clients %>
-  </div>
+  </div> <br> <br>
 </div>
 
-<div class="footer-index sticky-bottom m-0 p-1">
-  <div class="container text-center">
+<div class="fixed-bottom footer-index text-center bg-dark">
     <div class="row justify-content-evenly">
       <div class="col-4 text-start">
         <%= link_to "", clients_path, class:"fa-solid fa-rotate-left btn btn-sm btn-secondary" %> 
@@ -40,5 +39,4 @@
         <%= link_to "", clients_path, class:"fa-solid fa-file-export btn btn-sm btn-primary" %> 
       </div>
     </div>
-  </div>
 </div>

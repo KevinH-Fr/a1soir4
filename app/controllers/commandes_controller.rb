@@ -3,35 +3,27 @@ class CommandesController < ApplicationController
 
   def index
 
-  # @commandes = Commande.all
-  # @pagy, @commandes = pagy(Commande.order(created_at: :desc), items: 2)
+    # @commandes = Commande.all
+    # @pagy, @commandes = pagy(Commande.order(created_at: :desc), items: 2)
 
-  @pagy, @commandes = pagy(Commande.order(created_at: :desc), items: 2)
+    @pagy, @commandes = pagy(Commande.order(created_at: :desc), items: 2)
 
-  @q = Commande.ransack(params[:q])
-  if @q.present?  
-    # @commandes = @q.result(distinct: true)
-    @pagy, @commandes = pagy(Commande.ransack(params[:q]).result(distinct: true))
-  end
-
-  respond_to do |format|
-    format.html
-    format.pdf do
-      render pdf: "Commandes: #{@commandes.count}", # filename
-     # template: "hello/print_pdf",
-      formats: [:html],
-      disposition: :inline,
-      layout: 'pdf'
+    @q = Commande.ransack(params[:q])
+    if @q.present?  
+      # @commandes = @q.result(distinct: true)
+      @pagy, @commandes = pagy(Commande.ransack(params[:q]).result(distinct: true))
     end
-  end
 
-  # @pagy, @commandes = pagy(Commande.ransack(params[:q]).result(distinct: true))
-  #  respond_to do |format|
-  #    format.html
-  #    format.pdf do
-  #      render pdf: "commandes: #{@commandes.count}", template: "commandes/index", formats: [:html]
-  #    end
-  #  end
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "Commandes: #{@commandes.count}", # filename
+      # template: "hello/print_pdf",
+        formats: [:html],
+        disposition: :inline,
+        layout: 'pdf'
+      end
+    end
 
   end
 
@@ -48,7 +40,13 @@ class CommandesController < ApplicationController
 
     respond_to do |format|
       format.html
-
+      format.pdf do
+        render pdf: "Commande: #{@commandeId}", # filename
+        template: "commandes/bonCommande",
+        formats: [:html],
+        disposition: :inline,
+        layout: 'pdf'
+      end
     end
 
   end

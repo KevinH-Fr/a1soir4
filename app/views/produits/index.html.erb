@@ -1,5 +1,5 @@
 
-<div class="bloc-entete-model sticky-top" style="top: 0px; bottom: 0px;">
+<div class="bloc-entete-model">
   <div class="card card-header entete-index">
     <div class="row m-0 p-0">
       <div class="col ms-1">
@@ -27,21 +27,20 @@
 </div> 
 
 
-<div class="footer-index sticky-bottom m-0 p-1">
-  <div class="container text-center">
+
+<div class="fixed-bottom footer-index text-center bg-dark">
     <div class="row justify-content-evenly">
       <div class="col-4 text-start">
-          <%= link_to "", produits_path, class:"fa-solid fa-rotate-left btn btn-sm btn-secondary" %> 
-        </div>
-        <div class="col-4 text-center">
-          <div class="badge bg-dark">
-            <%== pagy_nav(@pagy) %>
-          </div>
-        </div>
-        <div class="col-4 text-end">
-          <%= link_to "", produits_path, class:"fa-solid fa-file-export btn btn-sm btn-primary" %> 
+        <%= link_to "", produits_path, class:"fa-solid fa-rotate-left btn btn-sm btn-secondary" %> 
+      </div>
+      <div class="col-4 text-center">
+        <div class="badge bg-dark">
+          <%== pagy_nav(@pagy) %>
         </div>
       </div>
-  </div>
+      <div class="col-4 text-end">
+        <%= link_to "", produits_path, class:"fa-solid fa-file-export btn btn-sm btn-primary" %> 
+      </div>
+    </div>
 </div>
 
