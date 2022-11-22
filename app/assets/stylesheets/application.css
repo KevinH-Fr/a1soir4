@@ -477,7 +477,6 @@ h1, h2, p, div, li, ul, a {
 }
 
 .footer-index {
-  background-color: rgb(59, 58, 58);
   border-radius: .2em;
   box-shadow: 2px 3px 4px rgba(165, 163, 163, 0.8);
   padding: .5em;

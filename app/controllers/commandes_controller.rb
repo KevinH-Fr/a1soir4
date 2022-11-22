@@ -41,14 +41,25 @@ class CommandesController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        render pdf: "Commande: #{@commandeId}", # filename
-        template: "commandes/bonCommande",
-        formats: [:html],
-        disposition: :inline,
-        layout: 'pdf'
+        render pdf: "Commande: ", # filename
+          :margin => {
+            :top => 5,
+            :bottom => 20
+          },
+          
+          :template => "commandes/bonCommande",
+            footer:  { 
+              html: { 
+                template:'shared/doc_footer',  
+                formats: [:html],      
+                layout:  'pdf',  
+              },
+            },
+          
+            formats: [:html],
+            layout: 'pdf'
       end
     end
-
   end
 
   def new 

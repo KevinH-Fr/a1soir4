@@ -43,6 +43,7 @@ Rails.application.routes.draw do
   end
 
   resources :commandes do
+
     member do
       get :toggle_commande_client
       get :toggle_statut_retire
@@ -64,6 +65,7 @@ Rails.application.routes.draw do
   resources :annonces
 
   resources :labels
+
   
   # partie publique
    root 'accueil#index' 

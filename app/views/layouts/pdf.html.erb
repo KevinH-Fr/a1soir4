@@ -7,13 +7,24 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%#= wicked_pdf_stylesheet_link_tag "pdf" %>
+    <%= wicked_pdf_stylesheet_link_tag "bootstrap" %>
+    <%= wicked_pdf_javascript_include_tag "number_pages" %>
 
   </head>
   <body>
     <div id="header">
-      <!--= wicked_pdf_image_tag 'thumbnail.png', height: "30", width: "auto"-->
     </div>
     <%= yield %>
   </body>
+
+    <br><br><br><br><br><br><br>
+<hr><hr><hr><hr><hr><hr><hr>
+<br><br><br><br><br><br><br>
+
+
+  <footer style="bottom: 0;"> 
+
+
+    test footer 
+  </footer>
 </html>

@@ -11,7 +11,10 @@ else
   # focntionne en dev :
 
   WickedPdf.config = {
-      :exe_path => 'C:\wkhtmltopdf\bin\wkhtmltopdf.exe'
+      :exe_path => 'C:\wkhtmltopdf\bin\wkhtmltopdf.exe',
+      enable_local_file_access: true,
+      layout: "pdf.html.erb",
+      
   }
 
 end 
