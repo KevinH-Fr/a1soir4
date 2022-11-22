@@ -239,14 +239,14 @@ h1, h2, p, div, li, ul, a {
     margin-right: 0.4em;
     margin-left: 0.4em;
     /*max-width: 50%;*/
-    height: calc(33.2vh - .6em);
-    min-height: 28vh;
+    height: calc(28.2vh - .6em);
+    min-height: 23vh;
     overflow: hidden;
 }
 
 .bloc-large{
-  height: calc(18.2vh - .6em);
-  min-height: 14vh;
+  height: calc(20.2vh - .6em);
+  min-height: 13vh;
   overflow: hidden;
 }
 

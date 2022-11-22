@@ -1,54 +1,56 @@
 
-<div id="synthese" class="container">
-
 <div class="row">
+  <div class="col-10 text-center">
+    <% soldePrix = solde_prix(@commande) %>
+    <% soldeCaution = solde_caution(@commande) %>
 
-<div class="col-10">
+    <% if soldePrix > 0 %>
+      <span class="format-synthese bg-danger">
+        <i class="fa-solid fa-euro-sign mx-2"></i> 
+        <span class="me-1"><%= number_to_currency(soldePrix, locale: :fr)  %> </span> 
+      </span>
+    <% else %>
+      <span class="format-synthese bg-success">
+        <i class="fa-solid fa-euro-sign mx-2"></i> 
+        <span class="me-1">OK</span>
+      </span>
+    <% end %>
 
-<% soldePrix = solde_prix(@commande) %>
-<% soldeCaution = solde_caution(@commande) %>
+    <% if soldeCaution > 0 %>
+      <span class="format-synthese bg-danger">
+        <i class="fa-solid fa-money-check mx-2"></i>
+         <span class="me-1"><%= number_to_currency(soldeCaution, locale: :fr)  %> </span> 
+      </span>
+    <% else %>
+      <span class="format-synthese bg-success">
+        <i class="fa-solid fa-money-check mx-2"></i>
+        <span class="me-1">OK</span>
+      </span>
+    <% end %>
 
-  <% if soldePrix > 0 %>
-    <span class="format-synthese bg-danger ">
-      <i class="fa-solid fa-euro-sign mx-2"></i> <%= number_to_currency(soldePrix, locale: :fr)  %> 
-    </span>
-  <% else %>
-    <span class="format-synthese bg-success">
-      <i class="fa-solid fa-euro-sign mx-2"></i> OK
-    </span>
-  <% end %>
+    <% statutCommande = Commande.find(@commande.id).statutarticles %>
+    <% if statutCommande == "non-retiré" %>
+      <span class="format-synthese bg-danger ">
+        <i class="fa-solid fa-shirt mx-2"></i>
+        <span class="me-1"> <%= statutCommande  %> </span> 
+      </span>
+    <% end %>
+    <% if statutCommande == "retiré" %>
+      <span class="format-synthese bg-warning">
+        <i class="fa-solid fa-shirt mx-2"></i>
+        <span class="me-1"> <%= statutCommande  %> </span> 
+      </span>
+    <% end %>
+    <% if statutCommande == "rendu" %>
+      <span class="format-synthese bg-success">
+        <i class="fa-solid fa-shirt mx-2"></i>
+        <span class="me-1"> <%= statutCommande  %> </span> 
+      </span>
+    <% end %>
+  </div>
 
-        <% if soldeCaution > 0 %>
-          <span class="format-synthese bg-danger ">
-            <i class="fa-solid fa-money-check mx-2"></i> <%= number_to_currency(soldeCaution, locale: :fr)  %> 
-          </span>
-        <% else %>
-          <span class="format-synthese bg-success">
-            <i class="fa-solid fa-money-check mx-2"></i> OK
-          </span>
-        <% end %>
-
-        <% statutCommande = Commande.find(@commande.id).statutarticles %>
-        <% if statutCommande == "non-retiré" %>
-          <span class="format-synthese bg-danger ">
-            <i class="fa-solid fa-shirt mx-2"></i> <%= statutCommande  %> 
-          </span>
-        <% end %>
-        <% if statutCommande == "retiré" %>
-          <span class="format-synthese bg-warning">
-            <i class="fa-solid fa-shirt mx-2"></i>  <%= statutCommande  %> 
-          </span>
-        <% end %>
-        <% if statutCommande == "rendu" %>
-          <span class="format-synthese bg-success">
-            <i class="fa-solid fa-shirt mx-2"></i>  <%= statutCommande  %> 
-          </span>
-        <% end %>
-</div>
-
-        <div class="col-2">
-          <%= link_to "", commande_path(format: :pdf), class:"fa-solid fa-file-export btn btn-sm btn-primary" %> 
-        </div>
-</div>   
+  <div class="col-2 text-end">
+    <%= link_to "", commande_path(format: :pdf), class:"fa-solid fa-file-export btn btn-sm btn-primary" %> 
+  </div>
 
 </div>

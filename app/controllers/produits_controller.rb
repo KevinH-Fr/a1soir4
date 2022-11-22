@@ -7,21 +7,45 @@ class ProduitsController < ApplicationController
     couleurVal = params[:couleurVal]
     tailleVal = params[:tailleVal]
 
-    if categorieVal.present?
-      @pagy, @produits =  pagy(Produit.categorie_selected(categorieVal).order(created_at: :desc), items: 5)
+    # si pas de filtres
+    unless categorieVal.present? || couleurVal.present? ||tailleVal.present?
+      @pagy, @produits = pagy(Produit.order(created_at: :desc), items: 5)
     else
-      if couleurVal.present?
-        @pagy, @produits =  pagy(Produit.couleur_selected(couleurVal).order(created_at: :desc), items: 5)
-      else
-        if tailleVal.present?
-          @pagy, @produits =  pagy(Produit.taille_selected(tailleVal).order(created_at: :desc), items: 5)
-        else
-          @pagy, @produits = pagy(Produit.order(created_at: :desc), items: 5)
-        end
+      if categorieVal.present? || couleurVal.present? || tailleVal.present?
+        @pagy, @produits =  pagy(Produit.categorie_selected(categorieVal)
+                                        .couleur_selected(couleurVal)
+                                        .taille_selected(tailleVal)
+                                        .order(created_at: :desc), items: 5)
       end
+
+      if categorieVal.present? && couleurVal.nil?
+        @pagy, @produits =  pagy(Produit.categorie_selected(categorieVal)
+        .order(created_at: :desc), items: 5)
+      end
+
+      if couleurVal.present? && categorieVal.nil?
+        @pagy, @produits =  pagy(Produit.couleur_selected(couleurVal)
+        .order(created_at: :desc), items: 5)
+      end
+
+      if tailleVal.present? && categorieVal.nil? && couleurVal.nil?
+        @pagy, @produits =  pagy(Produit.taille_selected(tailleVal)
+        .order(created_at: :desc), items: 5)
+      end
+
+      if tailleVal.present? && categorieVal.present? && couleurVal.nil?
+        @pagy, @produits =  pagy(Produit.taille_selected(tailleVal)
+                .categorie_selected(categorieVal)
+                .order(created_at: :desc), items: 5)
+      end
+
+      if tailleVal.present? && categorieVal.nil? && couleurVal.present?
+        @pagy, @produits =  pagy(Produit.taille_selected(couleurVal)
+                .couleur_selected(couleurVal)
+                .order(created_at: :desc), items: 5)
+      end
+
     end
-    
-    #@produits = Produit.all 
 
     @categories = Produit.distinct.pluck(:categorie)
     @couleurs = Produit.distinct.pluck(:couleur)

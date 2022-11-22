@@ -62,6 +62,18 @@ class Produit < ApplicationRecord
         end 
     end
 
+
+  #  def self.search(search)
+  #      if search
+  #          produits = Produit.all
+  #          produits = produits.where(categorie: search[:":categorie"][","])#
+
+ #           return produits
+ #       else
+ #           Produit.all
+ #       end
+ #   end
+
 end
 
 

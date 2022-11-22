@@ -5,34 +5,37 @@
   <div class="row align-items-center m-1 p-0">
     <div class="col m-0 p-0">
       <select class="form-select small-text" onchange="window.location=this.value">
-        <option>catégorie</option>
+      <option selected="selected"> <%= @categorie.nil? ? "Catégorie" : @categorie %> </option>
         <% @categories.each do |c| %> 
-          <option class="form-select small-text" value="
-            <%= url_for(categorieVal: c, couleurVal: @couleur) %>"><%= c %>
+          <option class="form-select small-text"  
+              value="<%= url_for(categorieVal: c, couleurVal: @couleur, tailleVal: @taille) %>"><%= c %>
           </option>
         <% end %>
       </select>
     </div>
-    <% @categorie = params[:categorieVal]%>
+
     <div class="col m-0 p-0">
       <select class="form-select small-text" onchange="window.location=this.value">
-        <option>couleur</option>
+      <option selected="selected"> <%= @couleur.nil? ? "Couleur" : @couleur %> </option>
         <% @couleurs.each do |c| %> 
           <option class="form-select small-text" value="
-            <%= url_for(categorieVal: @categorie, couleurVal: c) %>"> <%= c %>
+            <%= url_for(couleurVal: c, categorieVal: @categorie, tailleVal: @taille) %>"> <%= c %>
           </option>
         <% end %>
       </select>
     </div>
-    <% @categorie = params[:categorieVal]%>
+
     <div class="col m-0 p-0">
       <select class="form-select small-text" onchange="window.location=this.value">
-        <option>taille</option>
-        <% @tailles.each do |t| %> 
-          <option class="form-select small-text" value="<%= url_for(tailleVal: t) %>"><%= t %></option>
+      <option selected="selected"> <%= @taille.nil? ? "Taille" : @taille %> </option>
+        <% @tailles.each do |c| %> 
+          <option class="form-select small-text" value="
+            <%= url_for(tailleVal: c, categorieVal: @categorie, couleurVal: @couleur) %>"> <%= c %>
+          </option>
         <% end %>
       </select>
     </div>
+
     <div class="col m-0 p-0 text-end">
       <%= link_to "Nouveau", new_produit_path, data:{turbo_frame: "modal"}, 
       class:" btn btn-sm btn-warning" %>
