@@ -41,7 +41,7 @@ class CommandesController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        render pdf: "Commande: ", # filename
+        render pdf: "bonCommande_ #{@commandeId}", # filename
           :margin => {
             :top => 5,
             :bottom => 20

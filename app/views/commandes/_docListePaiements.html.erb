@@ -1,0 +1,35 @@
+
+<h5> Paiements </h5>
+
+ <table class="table table-bordered">
+      <thead class="table">
+        <tr>
+          <th style="text-align: center;">#</th>
+          <th>Type</th>
+          <th>Date</th>
+          <th>Montant</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <% @paiements.each_with_index do | paiement, i | %>
+          <tr>
+            <td> <%= i + 1 %> </td>
+            <td> <%= paiement.typepaiement %> </td>
+            <td> <%= paiement.created_at %> </td>
+            <td> <%= paiement.montant %> </td>
+          </tr> 
+        <% end %>
+      </tbody>
+
+      <tfoot class="table-dark fs-bold">
+        <tr>
+          <td colspan=3>  totaux  </td>
+          <td class="text-center"> 
+            <%= Paiement.commande_courante(@commande).sum_paiements %> 
+          </td>
+        </tr>
+        
+      </tfoot>
+    </table>
+

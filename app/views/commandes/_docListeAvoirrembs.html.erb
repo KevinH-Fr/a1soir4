@@ -1,0 +1,35 @@
+
+<h5> Avoirs remboursements </h5>
+
+ <table class="table table-bordered">
+      <thead class="table">
+        <tr>
+          <th style="text-align: center;">#</th>
+          <th>Type</th>
+          <th>Date</th>
+          <th>Montant</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <% @avoirrembs.each_with_index do | avoirremb, i | %>
+          <tr>
+            <td> <%= i + 1 %> </td>
+            <td> <%= avoirremb.typeavoirremb %> </td>
+            <td> <%= avoirremb.created_at %> </td>
+            <td> <%= avoirremb.montant %> </td>
+          </tr> 
+        <% end %>
+      </tbody>
+
+      <tfoot class="table-dark fs-bold">
+        <tr>
+          <td colspan=3>  totaux  </td>
+          <td class="text-center"> 
+            <%= Avoirremb.commande_courante(@commande).sum_avoirrembs %> 
+          </td>
+        </tr>
+        
+      </tfoot>
+    </table>
+
