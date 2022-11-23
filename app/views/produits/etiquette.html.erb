@@ -1,41 +1,71 @@
 
-<div class="bloc-record">
+
+  <table>
+    <tr>
+      <th colspan="3">
+        <%= @produit.nom %>
+      </th>
+    </tr>
+    <tr>
+      <td class="col-image" rowspan="4">
+        <%= image_tag(@produit.default_image, class:"img-fluid rounded-start image-produit-sized-large") %> 
+      </td>
+      <td class="description" colspan="2"><%= @produit.description %> </td>
+    </tr>
+    <tr>
+      <td class="datas" colspan="2">
+        <span>catégorie: <%= @produit.categorie %></span>
+        <span>taille: <%= @produit.taille %></span>
+        <span>couleur: <%= @produit.couleur %></span>
+        <span>quantité: <%= @produit.quantite %></span>
+        <span>prix: <%= @produit.prix %></span>
+      
+      </td>
+    </tr>
+    <tr>
+      <td class="col-petite-image">
+        <%= image_tag(@produit.qr_code, class:"rounded-start image-qr-cb-large-sized") if @produit.qr_code.attached? %>
+      </td>
+      <td class="col-petite-image">
+        <%= image_tag(@produit.barcode, class:"rounded-start image-qr-cb-large-sized") if @produit.barcode.attached? %>
+      </td>
+    </tr>
+  </table>
 
 
+<style>
+  table {
+    width: 400px;
+    border: 1px solid;
+    border-color: grey;
+  }
+  th {
+    text-align: center;
+     height: 50px;
+     background-color: grey;
+  }
 
+  td {
+      border: 1px solid;
+      border-color: grey;
+  }
 
-<div class="card mb-3" style="max-width: 540px;">
-  <div class="row g-0">
-    <div class="col-md-4">
-     <%= image_tag(@produit.default_image, class:"img-fluid rounded-start image-produit-sized-large") %> 
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title text-dark"><%= @produit.nom %></h5>
-        <p class="card-text text-dark"><%= @produit.description %></p>
+  .col-image {
+    width: 200px;
+    height: 300px;
+  }
 
-        <span class="badge bg-primary"><%= @produit.categorie %></span>
-        <span class="badge bg-primary"><%= @produit.taille %></span>
-        <span class="badge bg-primary"><%= @produit.couleur %></span>
-        <span class="badge bg-primary"><%= @produit.quantite %></span>
-        <span class="badge bg-primary"><%= @produit.prix %></span>
+  .description {
+    height: 100px;
+  }
 
-        <div class="row g-0 my-1">
-            <div class="col-6 m-0 p-0">
-            <%= image_tag(@produit.qr_code, class:"rounded-startimage-qr-cb-large-sized") if @produit.qr_code.attached? %>
-            </div>
-            <div class="col-6 m-0 p-0">
-            <%= image_tag(@produit.barcode, class:"rounded-start image-qr-cb-large-sized") if @produit.barcode.attached? %>
-            </div>
-        </div>
+  .datas {
+    height: 100px;
+  }
 
-      </div>
-    </div>
-  </div>
-</div>
+  .col-petite-image {
+    width: 100px;
+    height: 100px;
+  }
 
-
-<br><br>
-
-
-</div>
+</style>
