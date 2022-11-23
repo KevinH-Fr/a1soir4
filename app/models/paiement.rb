@@ -2,6 +2,7 @@ class Paiement < ApplicationRecord
   belongs_to :commande, :optional => true
 
   enum typePaiements: ["Prix", "Caution"]
+  enum moyenPaiements: ["CB", "Espèces", "Virement", "Chèque"]
 
   scope :commande_courante, ->  (commande_courante) { where("commande_id = ?", commande_courante)}
   
