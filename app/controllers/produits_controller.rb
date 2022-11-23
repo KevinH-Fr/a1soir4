@@ -2,7 +2,7 @@ class ProduitsController < ApplicationController
   before_action :set_produit, only: %i[ show edit update destroy ]
 
   def index
-   
+
     categorieVal = params[:categorieVal]
     couleurVal = params[:couleurVal]
     tailleVal = params[:tailleVal]
@@ -60,6 +60,33 @@ class ProduitsController < ApplicationController
   end
 
   def show
+
+    @produitId = params[:id]
+    session[:produitId] = @produitId
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "etiquette #{@produitId}", # filename
+          :margin => {
+            :top => 5,
+            :bottom => 5
+          },
+          
+          :template => "produits/etiquette",
+            footer:  { 
+              html: { 
+                template:'shared/doc_footer',  
+                formats: [:html],      
+                layout:  'pdf',  
+              },
+            },
+          
+            formats: [:html],
+            layout: 'pdf'
+      end
+    end
+
   end
 
   def new

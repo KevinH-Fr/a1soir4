@@ -1,0 +1,41 @@
+
+<div class="bloc-record">
+
+
+
+
+<div class="card mb-3" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+     <%= image_tag(@produit.default_image, class:"img-fluid rounded-start image-produit-sized-large") %> 
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title text-dark"><%= @produit.nom %></h5>
+        <p class="card-text text-dark"><%= @produit.description %></p>
+
+        <span class="badge bg-primary"><%= @produit.categorie %></span>
+        <span class="badge bg-primary"><%= @produit.taille %></span>
+        <span class="badge bg-primary"><%= @produit.couleur %></span>
+        <span class="badge bg-primary"><%= @produit.quantite %></span>
+        <span class="badge bg-primary"><%= @produit.prix %></span>
+
+        <div class="row g-0 my-1">
+            <div class="col-6 m-0 p-0">
+            <%= image_tag(@produit.qr_code, class:"rounded-startimage-qr-cb-large-sized") if @produit.qr_code.attached? %>
+            </div>
+            <div class="col-6 m-0 p-0">
+            <%= image_tag(@produit.barcode, class:"rounded-start image-qr-cb-large-sized") if @produit.barcode.attached? %>
+            </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<br><br>
+
+
+</div>
