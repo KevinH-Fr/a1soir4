@@ -26,11 +26,8 @@ gem "chunky_png", "~> 1.4"
 
 gem "barby", "~> 0.6.8"
 
-#gem "wkhtmltopdf-binary", group: :development
-#gem "wkhtmltopdf-heroku", group: :production
+gem "letter_opener", group: :development
 
-#gem 'grover'
-#gem 'chart-js-rails'
 
 gem 'wicked_pdf'
 gem "wkhtmltopdf-binary", group: :development
