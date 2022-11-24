@@ -6,4 +6,5 @@ class CommandeMailerPreview < ActionMailer::Preview
     CommandeMailer.with(user: User.first, commande: Commande.first).commande_created
   end
 
+
 end

@@ -163,10 +163,16 @@ class CommandesController < ApplicationController
 
 
   def send_commande_mail
-    commandeId = params[:id]
-    commande = Commande.find(commandeId)
+   # commandeId = params[:id]
+   # commande = Commande.find(commandeId)
+   #   CommandeMailer.with(user: current_user, commande: @commande)
+   #       .commande_created.deliver_later
 
-    CommandeMailer.with(user: current_user, commande: @commande).commande_created.deliver_later
+   commande = params[:id]
+   CommandeMailer.commande_created(commande).deliver_now
+    flash[:notice] = "Email has been sent."
+    redirect_to commande_path(commande)
+
 
   end 
 

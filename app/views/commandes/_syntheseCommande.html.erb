@@ -53,9 +53,15 @@
     <%= link_to "", commande_path(format: :pdf), class:"fa-solid fa-file-export btn btn-sm btn-primary" %> 
     <%#= link_to '', toggle_mail_commande_path(@commande),class:"fa-solid fa-at btn btn-sm btn-warning" %>
 
-    <%= link_to "Send Commande by email", 
+      <%#= link_to '', toggle_mail_commande_path(@commande),class:"fa-solid fa-at btn btn-sm btn-warning" %>
+      
+    <%= link_to '', send_commande_mail_commande_path(@commande.id),class:"fa-solid fa-at btn btn-sm btn-warning" %>
+  
+
+    <%#= link_to "mail", class:"fa-solid fa-at btn btn-sm btn-warning",
         :controller => "commandes",
-        :action => "send_commande_mail", :id => @commande.id %>
+        :action => "send_commande_mail", :id => @commande.id,
+          %>
 
   </div>
 

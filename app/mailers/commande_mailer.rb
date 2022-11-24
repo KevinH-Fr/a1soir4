@@ -1,12 +1,12 @@
 class CommandeMailer < ApplicationMailer
 
-  default from: "from@example.com"
-  layout "mailer"
+ # default from: "from@example.com"
+ # layout "mailer"
 
-  def commande_created
-    @user = params[:user]
+  def commande_created(commande)
+   # @user = params[:user]
 
-    @commande = params[:commande]
+    @commande = commande
 
   #  @client = @commande.client_id
   #  @clientMail = Client.find(@client).mail
@@ -31,17 +31,6 @@ class CommandeMailer < ApplicationMailer
       #, bcc
     )
 
-  end
-
-
-  def commande_send(commande, client)
-
-    default from: "from@example.com"
-    layout "mailer"
-    
-    @commande = commande
-    @client = client
-    mail(to: "testmail", subject: "Your subject")
   end
 
 end
