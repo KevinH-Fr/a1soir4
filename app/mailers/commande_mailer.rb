@@ -1,8 +1,10 @@
-class PostMailer < ApplicationMailer
+class CommandeMailer < ApplicationMailer
 
-  def post_created
+  def commande_created
     @user = params[:user]
-    @post = params[:post]
+
+    @commande = params[:commande]
+
     @greeting = "Hi"
 
     attachments['logo1.png'] = File.read('app/assets/images/logo1.png')
@@ -11,7 +13,7 @@ class PostMailer < ApplicationMailer
     mail(
 
       to: User.first.email,
-      subject: "new post created"
+      subject: "bonCommande"
       #, cc: User.all.pluck(:email)
       #, bcc
     )
