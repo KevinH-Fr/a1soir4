@@ -22,12 +22,12 @@
 
           <div class="input-group mb-1 me-1">
             <%= form.label :type, class:"input-group-text label-with-format" %>
-            <%= form.select :typepropart, @typepropart, include_blank: true,
-                class:"form-select " %>
+            <%= form.select(:typepropart, Client.typeproparts.keys, 
+                class:"form-control field-with-format") %> 
 
             <%= form.label :intitule, class:"input-group-text label-with-format" %>
-            <%= form.select :intitule, @intitule, include_blank: true,
-                class:"form-select " %>
+            <%= form.select(:intitule, Client.intitules.keys, 
+                class:"form-control field-with-format") %> 
           </div>
 
 

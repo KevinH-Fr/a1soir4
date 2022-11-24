@@ -15,4 +15,8 @@ class Client < ApplicationRecord
     def text_record
         "#{intitule} #{nom} #{tel} #{mail} "
     end
+
+    def intitule_nom
+        "#{intitule} #{nom}"
+    end
 end
