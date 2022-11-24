@@ -87,7 +87,7 @@ class CommandesController < ApplicationController
     respond_to do |format|
       if @commande.save
 
-        CommandeMailer.with(user: current_user, commande: @commande).commande_created.deliver_later
+       # CommandeMailer.with(user: current_user, commande: @commande).commande_created.deliver_later
 
         format.html { redirect_to commande_url(@commande), notice: "Commande was successfully created." }
         format.json { render :show, status: :created, location: @commande }
@@ -168,9 +168,10 @@ class CommandesController < ApplicationController
    #   CommandeMailer.with(user: current_user, commande: @commande)
    #       .commande_created.deliver_later
 
-   commande = params[:id]
+   commande = Commande.find(params[:id])
+
    CommandeMailer.commande_created(commande).deliver_now
-    flash[:notice] = "Email has been sent."
+    flash[:notice] = "le mail a bien été envoyé"
     redirect_to commande_path(commande)
 
 

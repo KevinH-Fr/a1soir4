@@ -2,12 +2,10 @@
 <p>
   <%#= @greeting %>
 
-  Bonjour <%#= @intituleClient  %>,<br><br>
+  Bonjour <%= @intituleClient  %>,<br><br>
    <%= @texteBase %>
+   <%= @commande.texte_record %>
 </p>
-
-
-<%#= @commande.texte_record %>
 
 <%= image_tag attachments['logo1.png'].url %>
 <br>  
