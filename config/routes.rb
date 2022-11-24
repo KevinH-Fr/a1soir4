@@ -49,6 +49,9 @@ Rails.application.routes.draw do
       get :toggle_statut_retire
       get :toggle_statut_non_retire
       get :toggle_statut_rendu
+
+      get :send_commande_mail, to: 'commandes#send_commande_mail', as: :send_commande_mail
+
       post :edit
     end
   end

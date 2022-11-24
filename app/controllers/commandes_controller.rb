@@ -162,6 +162,13 @@ class CommandesController < ApplicationController
   end
 
 
+  def send_commande_mail
+    commandeId = params[:id]
+    commande = Commande.find(commandeId)
+
+    CommandeMailer.with(user: current_user, commande: @commande).commande_created.deliver_later
+
+  end 
 
 
 
