@@ -1,4 +1,7 @@
 
+<%# reparametrer les articles avec le param local commande passé depuis commande mailer %>
+<% @articles = Article.commande_courante(@commande) %>
+
 <h5> Articles </h5>
 
  <table class="table table-bordered">

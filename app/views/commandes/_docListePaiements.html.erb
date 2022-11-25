@@ -1,3 +1,5 @@
+<%# reparametrer les articles avec le param local commande passé depuis commande mailer %>
+<% @paiements = Paiement.commande_courante(@commande) %>
 
 <h5> Paiements </h5>
 

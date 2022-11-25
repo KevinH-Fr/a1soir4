@@ -28,6 +28,7 @@ class CommandesController < ApplicationController
   end
 
   def show
+    
     @articles = Article.commande_courante(@commande)
     @paiements = Paiement.commande_courante(@commande)
     @avoirrembs = Avoirremb.commande_courante(@commande)

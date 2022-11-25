@@ -3,17 +3,14 @@ class CommandeMailer < ApplicationMailer
  # default from: "from@example.com"
  # layout "mailer"
 
-  def commande_created(commande)
+ helper CommandeHelper #rendre disponible l'helper commande pour calculs synthese
 
-   # @commande = Commande.find(params[:id])
-   # @user = params[:user]
+  def commande_created(commande)
 
     @commande = commande
 
     @client = @commande.client_id
     @clientMail = Client.find(@client).mail
-
-    @greeting = "Hi"
 
     @intituleClient = Client.find(@client).intitule_nom
 
@@ -24,15 +21,19 @@ class CommandeMailer < ApplicationMailer
 
     attachments['logo1.png'] = File.read('app/assets/images/logo1.png')
 
-    attachments["commande.pdf"] = WickedPdf.new.pdf_from_string(
-      render_to_string(template: 'commandes/doctest', layout: 'pdf', formats: [:html])
+   # attachments["commande.pdf"] = WickedPdf.new.pdf_from_string(
+   #   render_to_string(template: 'commandes/doctest', layout: 'pdf', formats: [:html]))
+
+    attachments["commande"] = WickedPdf.new.pdf_from_string(
+      render_to_string(template: 'commandes/bonCommande', locals: {commande: @commande}, layout: 'pdf', formats: [:html])
     )
+
 
     mail(
 
       to:  @clientMail,
-      subject: "Commande " ##{@commande.full_name}
-      #, cc: User.all.pluck(:email)
+      subject: "Commande ", ##{@commande.full_name}
+      cc: "kevin.hoffman.france@gmail.com"
       #, bcc
     )
 
