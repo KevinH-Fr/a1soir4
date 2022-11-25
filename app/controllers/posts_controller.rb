@@ -12,17 +12,22 @@ class PostsController < ApplicationController
   end
   
   def show
+  #  PostMailer.new_post.deliver_later
+
     respond_to do |format|
       format.html
       format.pdf do
-     #  render pdf: "Post", template: "posts/show", formats: [:html]
-     pdf = Grover.new(url_for()).to_pdf
-     customFilename = "Parieurs_"".pdf"
-
-       send_data(pdf, disposition: 'inline', filename: customFilename, 
-                      type: 'application/pdf', format: 'A4')
+        respond_to do |format|
+          format.html
+          format.pdf do
+            render pdf: [@post.id, @post.name].join('-'),
+                    template: "posts/show",
+                    formats: [:html],
+                    disposition: :inline,
+                    layout: 'pdf'
+          end
+        end
       end
-
     end
   end
 
@@ -40,7 +45,8 @@ class PostsController < ApplicationController
     respond_to do |format|
       if @post.save
 
-        PostMailer.with(user: current_user, post: @post).post_created.deliver_later
+      #  PostMailer.with(user: current_user, post: @post).post_created.deliver_later
+        PostMailer.new_post.deliver_later
 
         format.html { redirect_to post_url(@post), notice: "Post was successfully created." }
         format.json { render :show, status: :created, location: @post }

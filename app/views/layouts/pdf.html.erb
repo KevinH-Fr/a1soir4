@@ -4,8 +4,11 @@
     <title>A1soir admin</title>
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'">
+
     <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+    <%#= csp_meta_tag %>
 
   <%= wicked_pdf_stylesheet_link_tag "application" %>
   <%#= wicked_pdf_stylesheet_link_tag "bootstrap" %>

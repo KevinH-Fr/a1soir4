@@ -24,6 +24,9 @@ class CommandeMailer < ApplicationMailer
 
     attachments['logo1.png'] = File.read('app/assets/images/logo1.png')
 
+    attachments["commande.pdf"] = WickedPdf.new.pdf_from_string(
+      render_to_string(template: 'commandes/doctest', layout: 'pdf', formats: [:html])
+    )
 
     mail(
 
