@@ -24,7 +24,7 @@ class CommandeMailer < ApplicationMailer
    # attachments["commande.pdf"] = WickedPdf.new.pdf_from_string(
    #   render_to_string(template: 'commandes/doctest', layout: 'pdf', formats: [:html]))
 
-    attachments["commande"] = WickedPdf.new.pdf_from_string(
+    attachments["commande.pdf"] = WickedPdf.new.pdf_from_string(
       render_to_string(template: 'commandes/bonCommande', locals: {commande: @commande}, layout: 'pdf', formats: [:html])
     )
 
@@ -32,7 +32,7 @@ class CommandeMailer < ApplicationMailer
     mail(
 
       to:  @clientMail,
-      subject: "Commande ", ##{@commande.full_name}
+      subject: "Commande #{@commande.full_name}", 
       cc: "kevin.hoffman.france@gmail.com"
       #, bcc
     )

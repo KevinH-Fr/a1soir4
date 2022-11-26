@@ -340,7 +340,7 @@ h1, h2, p, div, li, ul, a {
   padding: 1em;
   border-radius: .2em;
   box-shadow: 2px 3px 4px rgba(165, 163, 163, 0.8);
-  margin-bottom: .5em;
+  margin-bottom: 1em;
   font-size: .8em;
 /*  max-width: 400px;*/
 
@@ -372,6 +372,12 @@ h1, h2, p, div, li, ul, a {
     max-height: 14vh; 
 }
 
+.text-record-main {
+  font-size: large;
+  font-style: bold;
+  color: black;
+}
+
 .image-produit-sized{
   min-height: 6vh; 
   max-height: 10vh; 
@@ -393,8 +399,7 @@ h1, h2, p, div, li, ul, a {
 }
 
 .fit-image{
-    background-color:  rgb(83, 83, 83);
-    max-width: 15%;
+    max-width: 200px;
 }
 
 .navbar-item { 
@@ -466,7 +471,7 @@ h1, h2, p, div, li, ul, a {
 }
 
 .badge-infos {
-  background-color: rgb(80, 80, 80);
+  background-color: rgb(99, 99, 99);
   color:#fff;
   border-radius: .2em;
   box-shadow: 2px 3px 4px rgba(165, 163, 163, 0.8);

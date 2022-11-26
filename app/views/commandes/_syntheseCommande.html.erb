@@ -1,29 +1,29 @@
 
-<div class="row">
-  <div class="col-9 text-center">
+<div class="row m-0 p-0">
+  <div class="col-9 text-start">
     <% soldePrix = solde_prix(@commande) %>
     <% soldeCaution = solde_caution(@commande) %>
 
     <% if soldePrix > 0 %>
       <span class="format-synthese bg-danger">
-        <i class="fa-solid fa-euro-sign mx-2"></i> 
+        <i class="fa-solid fa-euro-sign mx-1"></i> 
         <span class="me-1"><%= number_to_currency(soldePrix, locale: :fr)  %> </span> 
       </span>
     <% else %>
       <span class="format-synthese bg-success">
-        <i class="fa-solid fa-euro-sign mx-2"></i> 
+        <i class="fa-solid fa-euro-sign mx-1"></i> 
         <span class="me-1">OK</span>
       </span>
     <% end %>
 
     <% if soldeCaution > 0 %>
       <span class="format-synthese bg-danger">
-        <i class="fa-solid fa-money-check mx-2"></i>
+        <i class="fa-solid fa-money-check mx-1"></i>
          <span class="me-1"><%= number_to_currency(soldeCaution, locale: :fr)  %> </span> 
       </span>
     <% else %>
       <span class="format-synthese bg-success">
-        <i class="fa-solid fa-money-check mx-2"></i>
+        <i class="fa-solid fa-money-check mx-1"></i>
         <span class="me-1">OK</span>
       </span>
     <% end %>
@@ -31,25 +31,25 @@
     <% statutCommande = Commande.find(@commande.id).statutarticles %>
     <% if statutCommande == "non-retiré" %>
       <span class="format-synthese bg-danger ">
-        <i class="fa-solid fa-shirt mx-2"></i>
+        <i class="fa-solid fa-shirt mx-1"></i>
         <span class="me-1"> <%= statutCommande  %> </span> 
       </span>
     <% end %>
     <% if statutCommande == "retiré" %>
       <span class="format-synthese bg-warning">
-        <i class="fa-solid fa-shirt mx-2"></i>
+        <i class="fa-solid fa-shirt mx-1"></i>
         <span class="me-1"> <%= statutCommande  %> </span> 
       </span>
     <% end %>
     <% if statutCommande == "rendu" %>
       <span class="format-synthese bg-success">
-        <i class="fa-solid fa-shirt mx-2"></i>
+        <i class="fa-solid fa-shirt mx-1"></i>
         <span class="me-1"> <%= statutCommande  %> </span> 
       </span>
     <% end %>
   </div>
 
-  <div class="col-3 text-end">
+  <div class="col-3 text-end m-0 p-0">
     <%= link_to "", commande_path(format: :pdf), class:"fa-solid fa-file-export btn btn-sm btn-primary" %> 
     <%= link_to '', send_commande_mail_commande_path(@commande.id),class:"fa-solid fa-at btn btn-sm btn-warning" %>
   
