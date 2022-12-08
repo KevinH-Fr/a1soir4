@@ -24,4 +24,10 @@ module CommandeHelper
         soldeCaution = du_caution(commande) - recu_caution(commande)
     end
 
+
+    # test helper pour editer pdf
+    def edition_pdf(commande)
+
+    end 
+
 end 

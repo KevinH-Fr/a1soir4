@@ -31,8 +31,6 @@ class Produit < ApplicationRecord
     scope :taille_selected, ->  (tailleVal) { where("taille = ?", tailleVal)}
 
 
-
-
     def full_name
         "n°#{id} | #{nom} "
     end
@@ -63,16 +61,15 @@ class Produit < ApplicationRecord
     end
 
 
-  #  def self.search(search)
-  #      if search
-  #          produits = Produit.all
-  #          produits = produits.where(categorie: search[:":categorie"][","])#
-
- #           return produits
- #       else
- #           Produit.all
- #       end
- #   end
+#  def self.search(search)
+#      if search
+#          produits = Produit.all
+#          produits = produits.where(categorie: search[:":categorie"][","])#
+#           return produits
+#       else
+#           Produit.all
+#       end
+#   end
 
 end
 

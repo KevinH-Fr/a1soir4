@@ -19,7 +19,7 @@
     <% if soldeCaution > 0 %>
       <span class="format-synthese bg-danger">
         <i class="fa-solid fa-money-check mx-1"></i>
-         <span class="me-1"><%= number_to_currency(soldeCaution, locale: :fr)  %> </span> 
+        <span class="me-1"><%= number_to_currency(soldeCaution, locale: :fr)  %> </span> 
       </span>
     <% else %>
       <span class="format-synthese bg-success">
@@ -50,6 +50,15 @@
   </div>
 
   <div class="col-3 text-end m-0 p-0">
+
+    <%# ouvrir page editions docs, recup param commande 
+    permet le choix de type d'édition
+    %>
+
+  
+    <%= link_to 'editions', toggle_edition_commande_path(@commande) %>
+
+
     <%= link_to "", commande_path(format: :pdf), class:"fa-solid fa-file-export btn btn-sm btn-primary" %> 
     <%= link_to '', send_commande_mail_commande_path(@commande.id),class:"fa-solid fa-at btn btn-sm btn-warning" %>
   

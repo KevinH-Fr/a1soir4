@@ -8,7 +8,6 @@ class GenerateQr < ApplicationService
     include Rails.application.routes.url_helpers
 
     require "rqrcode"
-
     
     def call
         qr_url = url_for(controller:'produits',

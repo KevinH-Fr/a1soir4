@@ -7,7 +7,7 @@ class Client < ApplicationRecord
     enum intitules: ["Madame", "Monsieur", "Société", "Entreprise"]
 
     scope :client_courant, ->  (client_courant) { where("id = ?", client_courant)}
- 
+
     def full_name
         "#{nom} "
     end

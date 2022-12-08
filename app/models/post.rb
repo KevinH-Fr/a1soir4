@@ -9,7 +9,4 @@ class Post < ApplicationRecord
         passcode_protected: 'passcode_protected'
     }
 
-
-
-
 end

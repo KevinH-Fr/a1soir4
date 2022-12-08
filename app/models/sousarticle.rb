@@ -1,6 +1,5 @@
 class Sousarticle < ApplicationRecord
   belongs_to :article
-
   validates :nature, presence: true
 
   enum natures: ["retouches", "ceinture", "chaussures", 
@@ -11,7 +10,6 @@ class Sousarticle < ApplicationRecord
   scope :article_courant, ->  (article_courant) { where("article_id = ?", article_courant)}
   scope :sum_sousarticles, -> {sum('prix_sousarticle')}
   scope :sum_caution_sousarticles, -> {sum('caution_sousarticle')}
-
   scope :compte_sousarticles, -> {count('nature')}
 
   def texte_record

@@ -5,24 +5,21 @@ class Commande < ApplicationRecord
     has_many :paiements, :dependent => :delete_all 
 
     enum statutarticleses: ["non-retiré", "retiré", "rendu"]
+    enum typedocs: ["bon de commande", "facture", "facture simple"]
+    enum typeeditions: ["pdf", "impression", "mail"]
 
     scope :client_courant, -> (client_courant) { where("client_id = ?", client_courant)}
-
     scope :non_retire, -> { where("statutarticles = ?", "non-retiré")}
     scope :retire, -> { where("statutarticles = ?", "retiré")}
     scope :rendu, -> { where("statutarticles = ?", "rendu")}
 
-     # disponibilité des produits :
-   # scope :periode_loc, -> {where("finloc <= ?", Date.current, 30.days.from_now)}
+    # disponibilité des produits :
+    # scope :periode_loc, -> {where("finloc <= ?", Date.current, 30.days.from_now)}
 
     scope :a_venir, -> { where('finloc >= ?', Date.current) }
     scope :termine, -> { where('finloc <= ?', Date.current) }
-
-
     scope :a_date, -> (a_date) { where('finloc >= ?', a_date) }
     scope :in_date, -> (in_date) { where('finloc <= ?', in_date) }
-
-    
 
     def info_evenement
       "#{typeevenement} #{dateevenement}"
@@ -58,5 +55,4 @@ class Commande < ApplicationRecord
       end
     end
 
- 
 end

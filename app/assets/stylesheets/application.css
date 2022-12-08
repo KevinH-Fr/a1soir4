@@ -37,7 +37,7 @@ main{
   display: none; 
 } */
 
-h1, h2, p, div, li, ul, a {
+h1, h2, div, li, ul, a {
     color: rgb(255, 255, 255);
 }
 
@@ -342,6 +342,7 @@ h1, h2, p, div, li, ul, a {
   box-shadow: 2px 3px 4px rgba(165, 163, 163, 0.8);
   margin-bottom: 1em;
   font-size: .8em;
+
 /*  max-width: 400px;*/
 
 }
