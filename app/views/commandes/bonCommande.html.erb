@@ -6,6 +6,16 @@
 
 <%= render "shared/enteteDoc" %>
 
+<h5 style="font-size: 50px;"> 
+
+ 
+ <% if @typedoc %>
+  <%= @typedoc %>
+<% else %>
+  <%= typedoc = params[:typedoc] %> 
+ <% end %>
+</h5>
+
 <%= render "commandes/docInfosCommande" %>
 <%= render "commandes/docListeArticles" %>
 <%= render "commandes/docListePaiements" %>

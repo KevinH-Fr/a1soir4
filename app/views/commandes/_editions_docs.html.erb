@@ -1,36 +1,11 @@
+<%# pas utilisé %>
+
 <div class="entete-show">
         <strong>Editions</strong> 
 </div>
 
 <div class="bloc-record text-dark">
         <% commandeId = params[:id]%>
-
-                Choix document |
-                <%= link_to "commande", toggle_edition_commande_path(commandeId, typedoc: "commande"), 
-                        class:"btn btn-sm btn-secondary" %>
-                <%= link_to "facture", toggle_edition_commande_path(commandeId, typedoc: "facture"), 
-                        class:"btn btn-sm btn-secondary" %> <br>
-                
-                <% typedoc = params[:typedoc] %>
-
-                <% if typedoc.present? %>
-
-                        Choix édition |
-                        <%= link_to "pdf", toggle_edition_commande_path(commandeId, typedoc: typedoc, typeedition: "pdf"), 
-                                class:"btn btn-sm btn-primary" %>
-                        <%= link_to "print", toggle_edition_commande_path(commandeId, typedoc: typedoc, typeedition: "print"), 
-                                class:"btn btn-sm btn-primary" %>
-                        <%= link_to "mail", toggle_edition_commande_path(commandeId, typedoc: typedoc, typeedition: "mail"), 
-                                class:"btn btn-sm btn-primary" %>
-                        <% typeedition = params[:typeedition] %>
-
-                <% end %>
-
-                <hr>
-                selection active : <br>
-                doc: <%= typedoc %> <br>
-                edit: <%= typeedition %>
-                <hr>
 
                 <p>
                         <% commandeId = params[:id]%>
@@ -41,15 +16,39 @@
                         Objet :  <%= "Commande #{@commande.full_name}" %> <br> 
                 </p>
 
-                <%#= link_to 'Editer', toggle_edition_commande_path(@commande, doc: testParamDoc), class:"btn btn-dark" %>
+                <div class="btn-group">
+                        <button type="button" class="btn btn-primary btn-sm dropdown-toggle" 
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Commande
+                        </button>
+                        <% typedoc = "commande" %>
+                        <% session[:typedoc] = typedoc %>
 
-                <%# test helper commande %>
-                <%= edition_pdf(@commande) %>
+                        <ul class="dropdown-menu">
+                                <li>
+                                        <%= link_to 'pdf', generate_pdf_commande_path(typedoc: "commande"),  class:"dropdown-item" %>
+                                </li>
+                                <li>
+                                        <%= link_to 'mail', send_commande_mail_commande_path(typedoc: "commande", typeedition: "pdf"),  class:"dropdown-item" %>
+                                </li>
+                        </ul>
+                </div>
 
-                <%= link_to 'test Editer pdf', generate_pdf_commande_path(),
-                        class:"btn btn-dark" %>
+                <div class="btn-group">
+                        <button type="button" class="btn btn-success btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                Facture
+                        </button>
+                        <% typedoc = "facture" %>
+                        <% session[:typedoc] = typedoc %>
 
-                <%= link_to 'Editer', toggle_editer_commande_path(@commande, typedoc: typedoc, typeedition: typeedition),
-                        class:"btn btn-dark" %>
-
+                        <ul class="dropdown-menu">
+                                <li>
+                                        <%= link_to 'pdf', generate_pdf_commande_path(typedoc: typedoc),  class:"dropdown-item" %>
+                                </li>
+                                <li>
+                                        <%= link_to 'mail', send_commande_mail_commande_path(typedoc: typedoc),  class:"dropdown-item" %>
+                                </li>
+                        </ul>
+                </div>
+        
 </div>

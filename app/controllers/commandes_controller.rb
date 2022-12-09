@@ -156,65 +156,21 @@ class CommandesController < ApplicationController
     redirect_to commande_path(commandeId)
   end
 
-  def toggle_edition 
-    commandeId = params[:id]
-    typedoc = params[:typedoc]
-    typeedition = params[:typeedition]
-    redirect_to commande_path(commandeId, 
-                              typedoc: typedoc, typeedition: typeedition),
-                              notice: "édition commande : " "#{typedoc}"
-  end
 
-  def toggle_editer
-    commandeId = params[:id]
-    typedoc = params[:typedoc]
-    typeedition = params[:typeedition]
-
-    # reprendre et pouvoir renvoyer vers action controller generate pdf ou helper
-    # à tester :  render_to_string(template: 'commandes/bonCommande', locals: {commande: @commande}, layout: 'pdf', formats: [:html])
-    
-    if typeedition == "pdf"
-      render pdf: "bonCommande_"
-
-      redirect_to commande_path(commandeId, 
-        typedoc: typedoc, typeedition: typeedition),
-        notice: "édition du pdf"
-    end 
-
-    if typeedition == "mail"
-      send_commande_mail(commandeId)
-      redirect_to commande_path(commandeId, 
-        typedoc: typedoc, typeedition: typeedition),
-        notice: "édition du mail"
-
-    end 
-
-  end
-
-  def send_commande_mail
-    # commandeId = params[:id]
-    # commande = Commande.find(commandeId)
-    #   CommandeMailer.with(user: current_user, commande: @commande)
-    #       .commande_created.deliver_later
+  def send_commande_mail()
 
     commande = Commande.find(params[:id])
+    typedoc = params[:typedoc]
 
-    CommandeMailer.commande_created(commande).deliver_now
+    CommandeMailer.commande_created(commande, session[:typedoc]).deliver_now
       flash[:notice] = "le mail a bien été envoyé"
       redirect_to commande_path(commande)
 
   end 
 
-
-  def generate_pdf
-
+  def generate_pdf()
     @commande = Commande.find(params[:id])
-
-   # pdf = WickedPdf.new.pdf_from_string(
-   #   render_to_string('commandes/bonCommande', layout: 'pdf')
-   # )
-
-
+    typedoc = params[:typedoc]
 
     respond_to do |format|
       format.html
@@ -224,10 +180,6 @@ class CommandesController < ApplicationController
                 layout: 'pdf', formats: [:html], locals: {commande: @commande}
       end
     end
-
-  #  render pdf, filename: 'mon_pdf', type: 'application/pdf'
-
-
 
   end
   

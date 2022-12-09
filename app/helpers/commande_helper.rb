@@ -28,6 +28,26 @@ module CommandeHelper
     # test helper pour editer pdf
     def edition_pdf(commande)
 
+        typedoc = params[:typedoc]
+        typeedition = params[:typeedition]
+    
+        # reprendre et pouvoir renvoyer vers action controller generate pdf ou helper
+        # à tester :  render_to_string(template: 'commandes/bonCommande', locals: {commande: @commande}, layout: 'pdf', formats: [:html])
+        
+       # if typeedition == "pdf"
+    
+        #end 
+    
+        #if typeedition == "mail"
+    
+        commande = Commande.find(params[:id])
+
+        CommandeMailer.commande_created(commande).deliver_now
+          flash[:notice] = "le mail a bien été envoyé"
+        #  redirect_to commande_path(commande)
+    
+        #end 
+
     end 
 
 end 

@@ -18,12 +18,7 @@
     <div class="entete-show">
       <strong>Client</strong> 
     </div>
-      <%= render @client %> 
-
-    <div class="">
-      <%= render "editions_docs" %>
-      <br><br>
-    </div>   
+      <%= render @client %>  
 
     <div class="entete-show">
       <strong>Articles</strong> 
@@ -37,7 +32,7 @@
 
     <div class="">
       <%= render @paiements %>
-      <%= render "nouveauPaiement" %> <br><br>
+      <%= render "nouveauPaiement" %> <br>
     </div>    
 
     <div class="entete-show">
@@ -48,6 +43,9 @@
       <%= render @avoirrembs %>
       <%= render "nouveauAvoirremb" %> <br><br>
     </div>    
+
+      <%#= render "editions_docs" %>
+
 
 <div class="fixed-bottom footer-index bg-dark">
   <%= render "syntheseCommande" %> 
