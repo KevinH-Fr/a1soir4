@@ -1,0 +1,18 @@
+ <% if user_signed_in? %>
+  <% if current_user.admin? %>
+
+    <h1>Editer user</h1>
+
+    <%= render "form", resultat: @user %>
+    <br> 
+
+    <div>
+      <%= link_to "", @user, class:"fa-solid fa-eye btn btn-primary" %> |
+      <%= link_to "", users_path, class:"fa-solid fa-arrow-rotate-left btn btn-secondary"  %>
+    </div>
+    
+
+    <% else %>
+     <%= render "shared/demandeconnexion" %>
+  <% end %>
+<% end %>

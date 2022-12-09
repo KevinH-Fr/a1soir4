@@ -1,0 +1,22 @@
+<div id="<%= dom_id profile %>">
+  <div class="bloc-record">
+    <div class="row">
+      <div class="col-9 text-dark">
+        <div class="text-start mx-1 p-0">
+          <div class="badge-infos">
+            <%= link_to profile.full_name, profile_path(profile.id), class: "link-record" %>
+          </div> 
+        </div>
+      </div>
+      <div class="col-3 m-0 p-1 text-end">
+        <%= link_to '', profile_path(profile), 
+            class:"fa-regular fa-folder-open btn btn-sm btn-success mb-2" %> 
+        <%= button_to "", edit_profile_path(profile), 
+            class:"fa-regular fa-pen-to-square btn btn-sm btn-secondary mb-2", method: :post %> 
+        <%= button_to '', profile_path(profile), 
+            class:"fa-solid fa-trash-can btn btn-danger btn-sm", method: :delete %> 
+      </div>
+    </div>
+  </div>
+
+</div>

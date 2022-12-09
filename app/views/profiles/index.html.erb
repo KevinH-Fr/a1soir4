@@ -1,0 +1,33 @@
+<% if user_signed_in? %>
+  <% if current_user.admin? %>
+
+    <div class="bloc-entete-model">
+      <div class="card card-header entete-index">
+        <div class="row m-0 p-0">
+          <div class="col ms-1">
+            <strong>Profiles</strong> 
+          </div>
+          <div class="col">
+            <span class="badge rounded-pill counter-model-dashboard"><%= Profile.count %></span>
+          </div>
+        </div>
+      </div> 
+      
+      <div class="bloc-record p-0 mb-1">
+        <%#= render "search" %>
+      </div>
+
+    </div>
+
+    <div class="">
+      <%= turbo_frame_tag :modal %>
+    </div>
+      
+    <div class="list-records-item">
+      <div id="profiles">
+        <%= render @profiles %>
+      </div>
+    </div> 
+
+  <% end %>
+<% end %>

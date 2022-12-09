@@ -1,0 +1,91 @@
+
+<% if user_signed_in? %>
+  <% if current_user.admin? %>
+
+    <% @users = User.all.where(role: 0).order(:id) %>
+    <% @admins = User.all.where(role: 2).order(:id) %>
+
+    <br/>
+
+    <h5> Liste des admins </h5>
+    <strong> Nombre: <%= @admins.count %> </strong>
+
+    <div class="table-responsive">
+      <table  class="table table-striped table-bordered table-hover">  
+        <thead class="table-dark">
+          <tr>
+            <th> # </th>
+            <th>email </th>
+            <th>dernière connexion</th>
+            <th>changer rôle</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @admins.each do |user| %>
+            <tr>
+              <td> <%= user.id %>  </td>
+              <td> <%= user.email %> </td>
+              <td> 
+
+                <% depuisDerCo = user.current_sign_in_at %>
+                <% if depuisDerCo.present? %>
+                  <%= time_ago_in_words(depuisDerCo) %>
+                <% end %>
+              </td>
+                      
+                <td> <%= link_to "User", toggle_status_user_path(user), class:"btn btn-secondary", 
+                      :onclick => "return confirm('Etes-vous certain de vouloir passer cet Admin en User ?')" %> 
+                </td>
+                
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+    <hr/> <br/>
+
+    <h5> Liste des utilisateurs </h5>
+    <strong> Nombre: <%= @users.count %> </strong>
+
+    <div class="table-responsive">
+      <table  class="table table-striped table-bordered table-hover">  
+        <thead class="table-dark">
+          <tr>
+            <th> # </th>
+            <th> email </th>
+            <th>dernière connexion</th>
+            <th> changer role </th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @users.each do |user| %>
+            <tr>
+              <td> <%= user.id %>    </td>
+              <td> <%= user.email %> </td>
+              <td> 
+                <% depuisDerCo = user.current_sign_in_at %>
+                <% if depuisDerCo.present? %>
+                  <%= time_ago_in_words(depuisDerCo) %>
+                <% end %>
+              </td>    
+              <td> <%= link_to "Admin", toggle_status_user_path(user), class:"btn btn-secondary", 
+                      :onclick => "return confirm('Etes-vous certain de vouloir passer cet utilisateur en Admin ?')" %> 
+              </td>
+
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+  <% else %>
+
+    <br/>
+    <strong>Vous n'avez pas les droits...</strong> 
+    <br> <br>
+
+  <% end %>
+
+<% end %>

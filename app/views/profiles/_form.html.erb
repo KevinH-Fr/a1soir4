@@ -1,0 +1,30 @@
+<%= form_with(model: profile) do |form| %>
+  <% if profile.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
+
+      <ul>
+        <% profile.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="card-body bloc-record">
+    <div class="input-group mb-1">
+      <%= form.label :prenom, class:"input-group-text label-with-format" %>
+      <%= form.text_field :prenom, class:"form-control field-with-format" %>
+    </div>
+    <div class="input-group mb-1">
+      <%= form.label :nom, class:"input-group-text label-with-format" %>
+      <%= form.text_field :nom, class:"form-control field-with-format" %>
+    </div>
+    
+    <div class="float-end mt-2 mb-4">
+      <%= link_to "Fermer", "", data:{turbo_frame: "modal"}, 
+          class:"btn btn-sm btn-secondary" %>
+      <%= form.submit "Valider", class: "btn btn-primary btn-sm" %>
+    </div><br><br>
+  </div>
+<% end %>

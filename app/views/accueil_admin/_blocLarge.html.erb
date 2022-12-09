@@ -1,12 +1,12 @@
 <div class="card bloc-dashboard bloc-large">
   <div class="header-bloc-dashboard"> 
-
-        <i class="fa iconcolor fa-gear mx-2"></i>LARGE 
-         <span class="badge rounded-pill counter-model-dashboard"><%= Produit.count %></span>
-
+    <i class="fa iconcolor fa-gear mx-2"></i>FONCTIONS SUPPLEMENTAIRES 
   </div>
-  <div class="card-body body-bloc-dashboard"> 
-  content settings
+  <div class="card-body body-bloc-dashboard p-2"> 
+
+    <%= link_to "Comptes", users_path, class:"btn btn-primary btn-sm" %>
+    <%= link_to "Profiles", profiles_path, class:"btn btn-success btn-sm" %>
+
   </div>
 
 </div>

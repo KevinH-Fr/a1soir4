@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   resources :modelsousarticles
   resources :articleoptions
   resources :textes
@@ -42,6 +43,14 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :profiles do
+    member do
+      post :edit
+    end
+  end 
+
+
+
   resources :commandes do
 
     member do
@@ -69,6 +78,14 @@ Rails.application.routes.draw do
   end
 
   devise_for :users
+
+    # route pour link to action user admin
+    resources :users do
+      member do
+        get :toggle_status
+      end
+    end
+
 
   resources :posts
   resources :annonces

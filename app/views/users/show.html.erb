@@ -1,0 +1,17 @@
+
+<% if user_signed_in? %>
+  
+  <p style="color: green"><%= notice %></p>
+  <%= render @user %>
+
+<div>
+  <%= link_to "Retour Accueil", root_path, class:"btn btn-sm btn-secondary", style:"margin: 2px" %>
+  <%#= button_to "Supprimer le compte", @user, method: :delete, :onclick => "return confirm('Sûr ?')", class:"btn btn-sm btn-danger", style:"margin: 2px"%>
+</div>     
+
+
+  <% if current_user.admin? %>
+   <%#= link_to "Editer", edit_user_path(@user), class:"btn btn-sm btn-warning", style:"margin: 2px" %> 
+  <% end %>
+
+<% end %>
