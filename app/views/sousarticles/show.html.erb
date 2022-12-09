@@ -1,3 +1,4 @@
+<% if user_signed_in? %>
 
 <%= render @sousarticle %>
 
@@ -7,3 +8,5 @@
 
   <%= button_to "Destroy this sousarticle", @sousarticle, method: :delete %>
 </div>
+
+<% end %>

@@ -6,23 +6,29 @@
     <div class="row">
       <div class="col-9 text-dark">
         <div class="text-start mx-1 p-0">
-           <div class="badge-infos">
+          <div class="badge-infos">
             <%= link_to commande.texte_record, commande_path(commande.id), class: "link-record" %>
           </div> 
-          <hr>  
+          <hr class="text-dark m-2">  
           <span class="badge badge-infos-second"> <%= commande.auto_name %> </span> 
           <% if commande.info_evenement.present? %>
             <span class="badge badge-infos-second"> <%= commande.info_evenement %> </span>      
           <% end %>
+
+
+          <% if commande.profile_id.present? %>
+            <span class="badge badge-infos-second"> <%= Profile.find(commande.profile_id).full_name %> </span>      
+          <% end %>
+
         </div>
       </div>
 
       <div class="col-3 m-0 p-1 text-end">
 
         <%= link_to '', commande_path(commande), 
-            class:"fa-regular fa-folder-open btn btn-sm btn-success mb-2" %> 
+            class:"fa-regular fa-folder-open btn btn-sm btn-success mb-1" %> 
         <%= button_to "", edit_commande_path(commande), 
-            class:"fa-regular fa-pen-to-square btn btn-sm btn-secondary mb-2", method: :post %> 
+            class:"fa-regular fa-pen-to-square btn btn-sm btn-secondary mb-1", method: :post %> 
         <%= button_to '', commande_path(commande), 
             class:"fa-solid fa-trash-can btn btn-danger btn-sm", method: :delete %> 
       </div>

@@ -8,5 +8,14 @@
       <%= link_to "Se connecter", new_user_session_path, class:"btn btn-success p-2 m-2" %> 
       <%= link_to "Créer un compte", new_user_registration_path, class:"btn btn-primary p-2 m-2" %>
     <% end %>
+
+    <% if user_signed_in? %>
+      <% if current_user.user? %>
+       <span class="text-dark fs-6"> Reconnectez-vous en tant qu'administrateur pour accéder aux informations</span> <br>
+        <%= button_to "", destroy_user_session_path, method: :delete, 
+                    class:"btn btn-sm btn-danger fa-solid fa-right-from-bracket" %>
+      <% end %>
+    <% end %>
+
   </div>
 </div>

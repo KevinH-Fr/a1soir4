@@ -1,72 +1,79 @@
+<% if user_signed_in? %>
+  <% if current_user.admin? %>
 
-<div class="bloc-entete-model">
-  <div class="card card-header entete-index text-center">
-    <strong>Analyses</strong> 
-  </div> 
-</div>
-    
-<div class="bloc-record p-0 px-1">
-  <div class="card-body text-dark">
-    <h5 class="m-0 p-0">Commandes</h5> 
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-4 m-0 p-0">
-              <%= render "charts/chartPieCommandes" %>
-        </div>
-        <div class="col-md-4 m-0 p-0">
-              <%= render "charts/chartBarCommandes" %>
-        </div>
-        <div class="col-md-4 m-0 p-0">
-              <%= render "charts/chartLineCommandes" %>
-        </div>
-      </div>
+    <div class="bloc-entete-model">
+      <div class="card card-header entete-index text-center">
+        <strong>Analyses</strong> 
+      </div> 
     </div>
-  </div>
-</div>
-
-<div class="bloc-record p-0 px-1">
-  <div class="card-body text-dark">
-    <h5 class="m-0 p-0">Articles</h5> 
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-4 m-0 p-0">
-          <%= render "charts/chartPieArticles" %>
-        </div>
-        <div class="col-md-4 m-0 p-0">
-              <%= render "charts/chartBarArticles" %>
-        </div>
-        <div class="col-md-4 m-0 p-0">
-              <%= render "charts/chartLineArticles" %>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="bloc-record p-0 px-1">
-  <div class="card-body text-dark">
-    <h5 class="m-0 p-0">CA</h5> 
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-4 p-0 m-0">
-              <%= render "charts/chartPieCa" %>
-        </div>
-        <div class="col-md-4 p-0 m-0">
-              <%= render "charts/chartBarCa" %>
-        </div>
-        <div class="col-md-4 p-0 m-0">
-              <%= render "charts/chartLineCa" %>
+        
+    <div class="bloc-record p-0 px-1">
+      <div class="card-body text-dark">
+        <h5 class="m-0 p-0">Commandes</h5> 
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-4 m-0 p-0">
+                  <%= render "charts/chartPieCommandes" %>
+            </div>
+            <div class="col-md-4 m-0 p-0">
+                  <%= render "charts/chartBarCommandes" %>
+            </div>
+            <div class="col-md-4 m-0 p-0">
+                  <%= render "charts/chartLineCommandes" %>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
-  </div>
-</div>
+    <div class="bloc-record p-0 px-1">
+      <div class="card-body text-dark">
+        <h5 class="m-0 p-0">Articles</h5> 
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-4 m-0 p-0">
+              <%= render "charts/chartPieArticles" %>
+            </div>
+            <div class="col-md-4 m-0 p-0">
+                  <%= render "charts/chartBarArticles" %>
+            </div>
+            <div class="col-md-4 m-0 p-0">
+                  <%= render "charts/chartLineArticles" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-<br><br>
+    <div class="bloc-record p-0 px-1">
+      <div class="card-body text-dark">
+        <h5 class="m-0 p-0">CA</h5> 
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-4 p-0 m-0">
+                  <%= render "charts/chartPieCa" %>
+            </div>
+            <div class="col-md-4 p-0 m-0">
+                  <%= render "charts/chartBarCa" %>
+            </div>
+            <div class="col-md-4 p-0 m-0">
+                  <%= render "charts/chartLineCa" %>
+            </div>
+          </div>
+        </div>
 
-<div class="fixed-bottom footer-index text-center bg-dark">
-    footer
-</div>
+      </div>
+    </div>
 
+    <br><br>
+
+    <div class="fixed-bottom footer-index text-center bg-dark">
+        footer
+    </div>
+
+  <% else %>
+    <%= render "demandeConnexion" %>
+
+  <% end %>
+<% end %>
 

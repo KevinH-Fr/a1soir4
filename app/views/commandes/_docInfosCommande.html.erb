@@ -1,17 +1,19 @@
 
 <% clientId = Commande.find(@commande.id).client_id %>
-  
-<div style="color: black;">
 
+<div style="color: black;">
     <strong>Commande</strong> 
-        <%= Commande.find(@commande.id).texte_record %> 
-        <%= Commande.find(@commande.id).info_evenement %> 
-        <br> <br>
+    <%= Commande.find(@commande.id).texte_record %> <br>
+
+    <strong>Evénement </strong> 
+    <%= Commande.find(@commande.id).info_evenement %> <br>
+
+    <strong>Servi par </strong> 
+    <%= Profile.find(@commande.profile_id).full_name %> <br>
+    <br>
 
     <strong>Client</strong> 
         <%= Client.find(clientId).text_record %> 
         <br> <br>
 
-  </div>   
-
-  
+</div>   

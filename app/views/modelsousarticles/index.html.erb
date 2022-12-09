@@ -1,7 +1,9 @@
-<p style="color: green"><%= notice %></p>
+<% if user_signed_in? %>
 
-<h1>Modèles sous-articles</h1>
+    <h1>Modèles sous-articles</h1>
 
-<%= render "liste" %>
+    <%= render "liste" %>
 
-<%= link_to "Nouveau", new_modelsousarticle_path, class:"btn btn-success" %>
+    <%= link_to "Nouveau", new_modelsousarticle_path, class:"btn btn-success" %>
+
+<% end %>

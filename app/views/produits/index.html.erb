@@ -1,49 +1,52 @@
+<% if user_signed_in? %>
 
-<div class="bloc-entete-model">
-  <div class="card card-header entete-index">
-    <div class="row m-0 p-0">
-      <div class="col ms-1">
-        <strong>Produits</strong> 
-      </div>
-      <div class="col">
-        <span class="badge rounded-pill counter-model-dashboard"><%= Produit.count %></span>
-      </div>
-    </div>
-  </div> 
-  <div class="header-model-body mb-1">
-    <%= render "search" %>
-    <%= render "choixCategorie" %> 
-
-        <%#= render "choixCategorieBis" %> 
-
-  </div>
-</div>
-
-<div class="">
-  <%= turbo_frame_tag :modal %>
-</div>
-
-<div class="mt-2">
-  <div id="produits">
-    <%= render @produits %>
-  </div>
-</div> 
-
-
-
-<div class="fixed-bottom footer-index text-center bg-dark">
-    <div class="row justify-content-evenly">
-      <div class="col-4 text-start">
-        <%= link_to "", produits_path, class:"fa-solid fa-rotate-left btn btn-sm btn-secondary" %> 
-      </div>
-      <div class="col-4 text-center">
-        <div class="badge bg-dark">
-          <%== pagy_nav(@pagy) %>
+  <div class="bloc-entete-model">
+    <div class="card card-header entete-index">
+      <div class="row m-0 p-0">
+        <div class="col ms-1">
+          <strong>Produits</strong> 
+        </div>
+        <div class="col">
+          <span class="badge rounded-pill counter-model-dashboard"><%= Produit.count %></span>
         </div>
       </div>
-      <div class="col-4 text-end">
-        <%= link_to "", produits_path, class:"fa-solid fa-file-export btn btn-sm btn-primary" %> 
-      </div>
-    </div>
-</div>
+    </div> 
+    <div class="header-model-body mb-1">
+      <%= render "search" %>
+      <%= render "choixCategorie" %> 
 
+          <%#= render "choixCategorieBis" %> 
+
+    </div>
+  </div>
+
+  <div class="">
+    <%= turbo_frame_tag :modal %>
+  </div>
+
+  <div class="mt-2">
+    <div id="produits">
+      <%= render @produits %>
+    </div>
+  </div> 
+
+
+
+  <div class="fixed-bottom footer-index text-center bg-dark">
+      <div class="row justify-content-evenly">
+        <div class="col-4 text-start">
+          <%= link_to "", produits_path, class:"fa-solid fa-rotate-left btn btn-sm btn-secondary" %> 
+        </div>
+        <div class="col-4 text-center">
+          <div class="badge bg-dark">
+            <%== pagy_nav(@pagy) %>
+          </div>
+        </div>
+        <div class="col-4 text-end">
+          <%= link_to "", produits_path, class:"fa-solid fa-file-export btn btn-sm btn-primary" %> 
+        </div>
+      </div>
+  </div>
+
+
+<% end %>

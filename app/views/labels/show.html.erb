@@ -1,4 +1,4 @@
-<p style="color: green"><%= notice %></p>
+<% if user_signed_in? %>
 
 <%= render @label %>
 
@@ -8,3 +8,5 @@
 
   <%= button_to "Destroy this label", @label, method: :delete %>
 </div>
+
+<% end %>

@@ -1,10 +1,12 @@
-<p style="color: green"><%= notice %></p>
+<% if user_signed_in? %>
 
-<%= render @paiement %>
+  <%= render @paiement %>
 
-<div>
-  <%= link_to "Edit this paiement", edit_paiement_path(@paiement) %> |
-  <%= link_to "Back to paiements", paiements_path %>
+  <div>
+    <%= link_to "Edit this paiement", edit_paiement_path(@paiement) %> |
+    <%= link_to "Back to paiements", paiements_path %>
 
-  <%= button_to "Destroy this paiement", @paiement, method: :delete %>
-</div>
+    <%= button_to "Destroy this paiement", @paiement, method: :delete %>
+  </div>
+
+<% end %>

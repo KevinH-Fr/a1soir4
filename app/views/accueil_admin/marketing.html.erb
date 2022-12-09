@@ -1,20 +1,26 @@
+<% if user_signed_in? %>
+    <% if current_user.admin? %>
 
-
-    <div class="bloc-entete-model sticky-top">
-        <div class="card card-header entete-index">
-            <div class="row m-0 p-0">
-                <div class="col ms-1">
-                    <strong>Marketing</strong> 
+        <div class="bloc-entete-model sticky-top">
+            <div class="card card-header entete-index">
+                <div class="row m-0 p-0">
+                    <div class="col ms-1">
+                        <strong>Marketing</strong> 
+                    </div>
                 </div>
             </div>
+            <div class="bloc-record text-center">
+                <%= link_to 'Définir les labels', labels_path, class:'btn btn-primary' %>
+                <%= link_to 'Définir les textes', textes_path, class:'btn btn-primary' %>
+                <%#= render "charts/chartTest" %>
+            </div>
         </div>
-        <div class="bloc-record text-center">
-            <%= link_to 'Définir les labels', labels_path, class:'btn btn-primary' %>
-            <%= link_to 'Définir les textes', textes_path, class:'btn btn-primary' %>
-            <%#= render "charts/chartTest" %>
-        </div>
-    </div>
 
-    <div class="fixed-bottom footer-index text-center bg-dark">
-        footer
-    </div>
+        <div class="fixed-bottom footer-index text-center bg-dark">
+            footer
+        </div>
+    <% else %>
+        <%= render "demandeConnexion" %>
+
+    <% end %>
+<% end %>

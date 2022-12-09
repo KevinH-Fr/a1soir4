@@ -1,4 +1,4 @@
-<p style="color: green"><%= notice %></p>
+<% if user_signed_in? %>
 
 <h1>Paiements</h1>
 
@@ -12,3 +12,5 @@
 </div>
 
 <%= link_to "New paiement", new_paiement_path %>
+
+<% end %>

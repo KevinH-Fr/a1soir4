@@ -481,7 +481,18 @@ h1, h2, div, li, ul, a {
 .link-record {
   color:rgb(65, 65, 66);
   font-weight: bold;
+  text-align: center;
+  vertical-align: middle;
 }
+
+.link-record-large {
+  color:rgb(65, 65, 66);
+  font-weight: bold;
+  text-align: center;
+  vertical-align: middle;
+  font-size: large;
+}
+
 
 
 .badge-infos-second {

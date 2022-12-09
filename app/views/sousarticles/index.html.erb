@@ -1,14 +1,16 @@
-<p style="color: green"><%= notice %></p>
+<% if user_signed_in? %>
 
-<h1>Sous articles</h1>
+  <h1>Sous articles</h1>
 
-<div id="sousarticles">
-  <% @sousarticles.each do |sousarticle| %>
-    <%= render sousarticle %>
-    <p>
-      <%#= link_to "Show this sousarticle", sousarticle %>
-    </p>
-  <% end %>
-</div>
+  <div id="sousarticles">
+    <% @sousarticles.each do |sousarticle| %>
+      <%= render sousarticle %>
+      <p>
+        <%#= link_to "Show this sousarticle", sousarticle %>
+      </p>
+    <% end %>
+  </div>
 
-<%= link_to "New sousarticle", new_sousarticle_path %>
+  <%= link_to "New sousarticle", new_sousarticle_path %>
+
+<% end %>

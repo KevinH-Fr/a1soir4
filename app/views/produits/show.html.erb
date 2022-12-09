@@ -1,17 +1,22 @@
-<div class="bloc-entete-model">
-  <div class="card card-header entete-index">
-    <strong>Produit</strong> 
+
+<% if user_signed_in? %>
+
+  <div class="bloc-entete-model">
+    <div class="card card-header entete-index">
+      <strong>Produit</strong> 
+    </div>
   </div>
-</div>
 
 
-  <%= render "details" %>
-  <%= render "stock" %>
+    <%= render "details" %>
+    <%= render "stock" %>
 
-  <%#= render "produits/etiquette" %>
+    <%#= render "produits/etiquette" %>
 
-<div class="fixed-bottom footer-index bg-dark">
-  <div class="col text-end">
-    <%= link_to "", produit_path(format: :pdf), class:"fa-solid fa-file-export btn btn-sm btn-primary" %> 
+  <div class="fixed-bottom footer-index bg-dark">
+    <div class="col text-end">
+      <%= link_to "", produit_path(format: :pdf), class:"fa-solid fa-file-export btn btn-sm btn-primary" %> 
+    </div>
   </div>
-</div>
+
+<% end %>

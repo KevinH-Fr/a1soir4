@@ -1,17 +1,10 @@
 
   <% if user_signed_in? %>
 
-       <%= render "dashboard" %>
-
-  Hello 
-  <strong> 
-    <%= current_user.email %> 
-    <%= current_user.role %>
-</strong> 
+    <%= render "dashboard" %>
 
     <%#= render "fonctionsRapides" %>
   <% else %>
-  
 
       <%= render partial: "demandeConnexion" %>
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_09_161545) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_09_172906) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -126,7 +126,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_09_161545) do
     t.date "dateevenement"
     t.string "statutarticles"
     t.string "typeevenement"
+    t.integer "profile_id"
     t.index ["client_id"], name: "index_commandes_on_client_id"
+    t.index ["profile_id"], name: "index_commandes_on_profile_id"
   end
 
   create_table "friends", force: :cascade do |t|
@@ -250,6 +252,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_09_161545) do
   add_foreign_key "articles", "produits"
   add_foreign_key "avoirrembs", "commandes"
   add_foreign_key "commandes", "clients"
+  add_foreign_key "commandes", "profiles"
   add_foreign_key "paiements", "commandes"
   add_foreign_key "sousarticles", "articles"
 end
