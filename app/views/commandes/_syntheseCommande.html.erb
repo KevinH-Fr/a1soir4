@@ -1,6 +1,6 @@
 
 <div class="row m-0 p-0">
-  <div class="col-9 text-start">
+  <div class="col-8 text-start">
     <% soldePrix = solde_prix(@commande) %>
     <% soldeCaution = solde_caution(@commande) %>
 
@@ -27,7 +27,8 @@
         <span class="me-1">OK</span>
       </span>
     <% end %>
-
+    <br>
+    
     <% statutCommande = Commande.find(@commande.id).statutarticles %>
     <% if statutCommande == "non-retiré" %>
       <span class="format-synthese bg-danger ">
@@ -49,7 +50,7 @@
     <% end %>
   </div>
 
-  <div class="col-3 text-end m-0 p-0">
+  <div class="col-4 text-end m-0 p-0">
 
     <%# ouvrir page editions docs, recup param commande 
     permet le choix de type d'édition

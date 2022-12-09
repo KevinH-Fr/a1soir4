@@ -4,13 +4,15 @@
   <div class="bloc-record">
 
     <div class="row">
-      <div class="col-9">
-        <div class="text-dark text-start mx-1 p-0">
-          <span class="badge badge-record-main text-bg-primary mx-1"> <%= link_to commande.texte_record, commande_path(commande.id) %> </span> 
+      <div class="col-9 text-dark">
+        <div class="text-start mx-1 p-0">
+           <div class="badge-infos">
+            <%= link_to commande.texte_record, commande_path(commande.id), class: "link-record" %>
+          </div> 
           <hr>  
-          <span class="badge badge-record-second text-bg-secondary m-1"> <%= commande.auto_name %> </span> 
+          <span class="badge badge-infos-second"> <%= commande.auto_name %> </span> 
           <% if commande.info_evenement.present? %>
-            <span class="badge badge-record-second text-bg-secondary m-1"> <%= commande.info_evenement %> </span>      
+            <span class="badge badge-infos-second"> <%= commande.info_evenement %> </span>      
           <% end %>
         </div>
       </div>
@@ -26,4 +28,5 @@
       </div>
     </div>
   </div>
+
 </div>

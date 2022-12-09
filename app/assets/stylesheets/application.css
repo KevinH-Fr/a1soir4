@@ -209,7 +209,9 @@ h1, h2, div, li, ul, a {
 .navbar{
     padding: .2em;
    /* margin-right: .5em;*/
-    border-radius: .2em;
+    border-bottom-left-radius: .2em;
+    border-bottom-right-radius: .2em;
+
     box-shadow: 2px 3px 4px rgba(165, 163, 163, 0.8);
    /* margin: 5px; */
    /* height: 100vh; */
@@ -264,12 +266,6 @@ h1, h2, div, li, ul, a {
     border-radius: .2em;
     box-shadow: 2px 3px 4px rgba(165, 163, 163, 0.8);
     text-align: center;
-
-    
-  /*  margin-top: 0.5em; 
-   
-    margin-left: 0.4em;
-    margin-bottom: .5em;*/
 }
 
   .header-bloc-dashboard{
@@ -454,7 +450,7 @@ h1, h2, div, li, ul, a {
 
 .btn-action{
   font-size: medium;
-  padding: .2em;
+  padding: .4em;
   margin: .2em;
 }
 
@@ -472,18 +468,37 @@ h1, h2, div, li, ul, a {
 }
 
 .badge-infos {
-  background-color: rgb(99, 99, 99);
-  color:#fff;
+  background-color: rgb(172, 170, 170);
+  color:rgb(65, 65, 66);
   border-radius: .2em;
   box-shadow: 2px 3px 4px rgba(165, 163, 163, 0.8);
   padding: .3em;
-  padding-left: 1em;
+ /* padding-left: 1em; */
   margin: .4em;
   font-size: small;
 }
 
-.footer-index {
+.link-record {
+  color:rgb(65, 65, 66);
+  font-weight: bold;
+}
+
+
+.badge-infos-second {
+  background-color: rgb(184, 182, 182);
+  color:rgb(81, 80, 80);
   border-radius: .2em;
+  box-shadow: 2px 3px 4px rgba(165, 163, 163, 0.8);
+  padding: .3em;
+ /* padding-left: 1em; */
+  margin: .4em;
+  font-size: x-small;
+}
+
+.footer-index {
+  border-top-left-radius: .2em;
+  border-top-right-radius: .2em;
+
   box-shadow: 2px 3px 4px rgba(165, 163, 163, 0.8);
   padding: .5em;
 } 
@@ -493,6 +508,7 @@ h1, h2, div, li, ul, a {
   border-radius: .2em;
   padding: .2em;
   margin: 0em;
+  text-align: center;
 } 
 
 .list-records-item{

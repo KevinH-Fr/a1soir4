@@ -2,15 +2,15 @@
 
   <div class="bloc-record">
     <div class="row">
-        <div class="col-10">
-          <div class="text-dark text-start mx-1 p-0">
+        <div class="col-9">
+          <div class="badge-infos">
             <%= paiement.typepaiement %>  
             <%= number_to_currency(paiement.montant, locale: :fr) %> 
             <%= paiement.moyenpaiement %>   
             <%= paiement.created_at.strftime("%d/%m/%y") %>
           </div>
         </div>
-        <div class="col-2 m-0 p-0">
+        <div class="col-3 m-0 p-0">
           <div class="position-relative">
             <div class="position-absolute top-0 end-0">
               <table>
@@ -30,4 +30,5 @@
         </div>
       </div>
     </div>
+  </div>
 </div>
