@@ -1,12 +1,13 @@
 
-  <%= search_form_for(@q, url: commandes_path, method: :get, class:'d-flex') do |f| %>
-    <%= f.search_field :nom_or_id_cont, placeholder: "recherche...", 
+
+<%= form_tag commandes_path, :method => "get", class:'d-flex' do %>
+  <%= text_field_tag :search, params[:search], placeholder: "recherche...", 
       class: "form-control border-secondary form-control-sm mx-2 my-1" %>
-    <%= f.submit "Go!", class:"btn btn-sm btn-outline-primary m-1" %>
-    <%= link_to "Effacer", commandes_path(), 
+  <%= submit_tag("Go!", class:"btn btn-sm btn-outline-primary m-1") %>
+  
+  <%= link_to "Effacer", commandes_path(), 
        class:"btn btn-sm btn-outline-danger m-1" %> 
-
-     <%= link_to "Nouveau", new_commande_path, data:{turbo_frame: "modal"}, 
+  
+  <%= link_to "Nouveau", new_commande_path, data:{turbo_frame: "modal"}, 
       class:"btn btn-sm btn-warning m-1 p-1" %>
-
-  <% end %>
+<% end %>

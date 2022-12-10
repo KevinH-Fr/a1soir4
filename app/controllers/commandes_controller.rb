@@ -5,13 +5,15 @@ class CommandesController < ApplicationController
 
     # @commandes = Commande.all
     # @pagy, @commandes = pagy(Commande.order(created_at: :desc), items: 2)
-    @pagy, @commandes = pagy(Commande.order(created_at: :desc), items: 2)
+   # @pagy, @commandes = pagy(Commande.order(created_at: :desc), items: 5)
 
-    @q = Commande.ransack(params[:q])
-    if @q.present?  
+   # @q = Commande.ransack(params[:q])
+   # if @q.present?  
       # @commandes = @q.result(distinct: true)
-      @pagy, @commandes = pagy(Commande.ransack(params[:q]).result(distinct: true))
-    end
+     # @pagy, @commandes = pagy(Commande.ransack(params[:q]).result(distinct: true))
+   # end
+
+    @commandes = Commande.search(params[:search])
 
     respond_to do |format|
       format.html
@@ -191,6 +193,6 @@ class CommandesController < ApplicationController
 
     def commande_params
       params.require(:commande).permit(:nom, :montant, :client_id, :debutloc, :finloc, 
-        :dateevenement, :typeevenement, :statutarticles, :profile_id)
+        :dateevenement, :typeevenement, :statutarticles, :profile_id, :search)
     end
 end

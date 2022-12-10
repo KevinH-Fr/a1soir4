@@ -9,15 +9,19 @@
           <div class="badge-infos">
             <%= link_to commande.texte_record, commande_path(commande.id), class: "link-record" %>
           </div> 
-          <hr class="text-dark m-2">  
-          <span class="badge badge-infos-second"> <%= commande.auto_name %> </span> 
-          <% if commande.info_evenement.present? %>
-            <span class="badge badge-infos-second"> <%= commande.info_evenement %> </span>      
+          <hr class="text-dark m-2"> 
+
+          <% if commande.client_id.present? %>
+            <span class="badge badge-infos-second bg-primary text-light"> <%= Client.find(commande.client_id).full_name %> </span>      
           <% end %>
 
+          <span class="badge badge-infos-second"> <%= commande.auto_name %> </span> 
+          <% if commande.info_evenement.present? %>
+            <span class="badge badge-infos-second bg-warning text-light"> <%= commande.info_evenement %> </span>      
+          <% end %>
 
           <% if commande.profile_id.present? %>
-            <span class="badge badge-infos-second"> <%= Profile.find(commande.profile_id).full_name %> </span>      
+            <span class="badge badge-infos-second bg-dark text-light"> <%= Profile.find(commande.profile_id).full_name %> </span>      
           <% end %>
 
         </div>

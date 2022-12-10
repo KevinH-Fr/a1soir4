@@ -1,5 +1,6 @@
 class Profile < ApplicationRecord
 
+    has_many :commandes
     has_one_attached :image1
 
     def full_name

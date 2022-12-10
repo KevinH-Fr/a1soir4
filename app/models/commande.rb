@@ -1,5 +1,6 @@
 class Commande < ApplicationRecord
     belongs_to :client
+    belongs_to :profile
 
     has_many :articles, :dependent => :delete_all 
     has_many :paiements, :dependent => :delete_all 
@@ -52,6 +53,25 @@ class Commande < ApplicationRecord
         else
           "location & vente"
         end
+      end
+    end
+
+
+    def self.search(search)
+      if search
+        #commande_id = Commande.find_by(id: search)
+        #if commande_id
+         Commande.joins(:client, :profile).select('clients.nom, commandes.id, 
+          commandes.created_at, commandes.client_id, commandes.typeevenement,
+          commandes.dateevenement, commandes.profile_id')
+          .where(['clients.nom LIKE ? OR commandes.id LIKE ? OR
+                  commandes.typeevenement LIKE ? OR profiles.prenom LIKE ?', 
+                  "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%" ])
+       # else
+       #   @commandes = Commande.all
+       # end
+      else
+        @commandes = Commande.all
       end
     end
 
