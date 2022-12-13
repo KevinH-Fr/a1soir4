@@ -30,6 +30,10 @@ class Commande < ApplicationRecord
       "n°#{id} | #{nom}"
     end
 
+    def auto_short_name # a ecrire dans la bdd col nom
+      "C_#{id}" 
+    end
+
     def auto_name
       "C_#{id}_#{client_id}_#{created_at.strftime("%d%m%y")}" 
     end
@@ -40,7 +44,7 @@ class Commande < ApplicationRecord
     end 
 
     def texte_record
-      "n°#{id}  #{type_locvente}  #{nom} #{created_at.strftime("%d/%m/%y")}" 
+      "n°#{id}  #{type_locvente} #{created_at.strftime("%d/%m/%y")}" 
     end
 
     def type_locvente
@@ -56,6 +60,7 @@ class Commande < ApplicationRecord
       end
     end
 
+    # n'est plus utilisé : 
 
     def self.search(search)
       if search
@@ -74,5 +79,7 @@ class Commande < ApplicationRecord
         @commandes = Commande.all
       end
     end
+
+
 
 end

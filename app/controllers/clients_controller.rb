@@ -24,7 +24,7 @@ class ClientsController < ApplicationController
  
   search_params = params.permit(:format, :page, q:[:nom_or_prenom_or_mail_cont])
   @q = Client.ransack(search_params[:q])
-  clients = @q.result(distinct: true).order(created_at: :asc)
+  clients = @q.result(distinct: true).order(created_at: :desc)
   @pagy, @clients = pagy_countless(clients, items: 2)
 
 

@@ -13,18 +13,15 @@ class CommandesController < ApplicationController
      # @pagy, @commandes = pagy(Commande.ransack(params[:q]).result(distinct: true))
    # end
 
-    @commandes = Commande.search(params[:search])
 
-    respond_to do |format|
-      format.html
-      format.pdf do
-        render pdf: "Commandes: #{@commandes.count}", # filename
-      # template: "hello/print_pdf",
-        formats: [:html],
-        disposition: :inline,
-        layout: 'pdf'
-      end
-    end
+   # @commandes = Commande.search(params[:search])
+
+
+   search_params = params.permit(:format, :page, 
+    q:[:nom_or_typeevenement_or_client_prenom_or_client_nom_or_profile_prenom_cont])
+   @q = Commande.joins(:client, :profile).ransack(search_params[:q])
+   commandes = @q.result(distinct: true).order(created_at: :desc)
+   @pagy, @commandes = pagy_countless(commandes, items: 2)
 
   end
 
@@ -193,6 +190,6 @@ class CommandesController < ApplicationController
 
     def commande_params
       params.require(:commande).permit(:nom, :montant, :client_id, :debutloc, :finloc, 
-        :dateevenement, :typeevenement, :statutarticles, :profile_id, :search)
+        :dateevenement, :typeevenement, :statutarticles, :profile_id)
     end
 end

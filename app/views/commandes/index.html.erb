@@ -21,12 +21,18 @@
   <div class="">
     <%= turbo_frame_tag :modal %>
   </div>
-    
-  <div class="list-records-item">
-    <div id="commandes">
-      <%= render @commandes %>
-    </div>
-  </div> <br>
+  
+  <%= turbo_frame_tag :results, data: {turbo_action: 'advance'} do %>
+    <div class="list-records-item">
+      <div id="commandes">
+
+      </div>
+    </div> <br>
+
+  <%= turbo_frame_tag :pagination, loading: :lazy, 
+                      src: commandes_path(format: :turbo_stream,
+                      q: params[:q]&.to_unsafe_h) %>
+<% end %>
 
   <div class="fixed-bottom footer-index text-center bg-dark">
       <div class="row justify-content-evenly">

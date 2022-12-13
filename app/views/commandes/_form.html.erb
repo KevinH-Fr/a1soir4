@@ -14,6 +14,11 @@
   <div class="card-body bloc-record">
 
       <div class="input-group mb-1">
+        <%= form.label :nom, class:"input-group-text label-with-format" %>
+        <%= form.text_field :nom, value: commande.auto_short_name, class: 'form-control field-with-format' %>
+      </div>
+
+      <div class="input-group mb-1">
         <%= form.label :profile_id, class:"input-group-text label-with-format" %>
         <%= form.select :profile_id, Profile.all.collect { |p| [ p.full_name, p.id ]}, 
             {class: 'form-control', include_blank: true } %>
