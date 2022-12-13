@@ -19,7 +19,7 @@ class CommandesController < ApplicationController
 
    search_params = params.permit(:format, :page, 
     q:[:nom_or_typeevenement_or_client_prenom_or_client_nom_or_profile_prenom_cont])
-   @q = Commande.joins(:client, :profile).ransack(search_params[:q])
+   @q = Commande.includes(:client, :profile).ransack(search_params[:q])
    commandes = @q.result(distinct: true).order(created_at: :desc)
    @pagy, @commandes = pagy_countless(commandes, items: 2)
 

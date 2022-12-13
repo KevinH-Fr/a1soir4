@@ -34,9 +34,29 @@ class ProfilesController < ApplicationController
 
     respond_to do |format|
       if @profile.save
+
+        flash.now[:notice] = "le profile #{@profile.nom} a été ajouté à #{Time.zone.now}"
+
+        format.turbo_stream do
+           render turbo_stream: [
+             turbo_stream.prepend("profiles", partial: "profiles/profile",
+             locals: {profile: @profile }), 
+             turbo_stream.update("profile_counter", Profile.count),
+             turbo_stream.update("flash", partial: "layouts/flash"),
+           ]
+        end
+
         format.html { redirect_to profile_url(@profile), notice: "Profile was successfully created." }
         format.json { render :show, status: :created, location: @profile }
       else
+
+        format.turbo_stream do
+          render turbo_stream: [
+            turbo_stream.update('new_profile', partial: "profiles/form", 
+              locals: {profile: @profile  }),
+          ]
+        end
+
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @profile.errors, status: :unprocessable_entity }
       end

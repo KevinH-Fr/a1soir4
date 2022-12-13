@@ -13,11 +13,10 @@
         </div>
       </div> 
       
-      <div class="bloc-record p-0 mb-1">
-        <%#= render "search" %>
-      </div>
-
     </div>
+
+    <%= link_to "Nouveau", new_profile_path, data:{turbo_frame: "modal"}, 
+                class:"btn btn-sm btn-warning m-1 p-1" %>
 
     <div class="">
       <%= turbo_frame_tag :modal %>
