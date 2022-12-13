@@ -3,18 +3,32 @@ class ClientsController < ApplicationController
 
   def index
   #  @clients = Client.all
-    @pagy, @clients = pagy(Client.order(created_at: :desc), items: 5)
+ 
+ # @pagy, @clients = pagy(Client.order(created_at: :desc), items: 5)
 
-    @q = Client.ransack(params[:q])
-    if @q.present?  
-      @clients = @q.result(distinct: true)
-    end
+#    @q = Client.ransack(params[:q])
+#    if @q.present?  
+#      @clients = @q.result(distinct: true)
+#    end
+
 
    #@pagy, @clients = pagy(Client.order(created_at: :desc), items: 10)
   #  respond_to do |format|
   #    format.html
   #    format.turbo_stream 
   #  end 
+
+ # new 12 12
+
+ #@clients = Client.all.order(created_at: :asc)
+ 
+  search_params = params.permit(:format, :page, q:[:nom_or_prenom_or_mail_cont])
+  @q = Client.ransack(search_params[:q])
+  clients = @q.result(distinct: true).order(created_at: :asc)
+  @pagy, @clients = pagy_countless(clients, items: 2)
+
+
+
   end
 
   def show

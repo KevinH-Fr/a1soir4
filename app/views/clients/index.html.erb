@@ -11,20 +11,45 @@
         </div>
       </div>
     </div> 
+
+
+
     <div class="header-model-body mb-1">
       <%= render "search" %>
     </div>
+
+
+    <%= search_form_for @q, data: {turbo_frame: :results} do |f| %>
+      <%= f.label :nom_or_prenom_or_mail_cont %>
+      <%= f.search_field :nom_or_prenom_or_mail_cont, 
+                          oninput: 'this.form.requestSubmit()',
+                          autofocus: true, 
+                          autocomplete: 'off' %>
+      <%#= f.submit %>
+    <% end %>
+
+
   </div>
       
   <div class="">
     <%= turbo_frame_tag :modal %>
   </div>
 
-  <div class="my-2">
-    <div id="clients">
-      <%= render @clients %>
-    </div> <br> <br>
-  </div>
+<%= turbo_frame_tag :results, data: {turbo_action: 'advance'} do %>
+    <div class="my-2">
+      <div id="clients">
+
+      </div> <br> <br>
+    </div>
+
+     <%= turbo_frame_tag :pagination, loading: :lazy, 
+                      src: clients_path(format: :turbo_stream,
+                      q: params[:q]&.to_unsafe_h) %>
+
+<% end %>
+
+
+
 
   <div class="fixed-bottom footer-index text-center bg-dark">
       <div class="row justify-content-evenly">
@@ -33,7 +58,7 @@
         </div>
         <div class="col-4 text-center">
           <div class="badge bg-dark">
-            <%== pagy_nav(@pagy) %>
+            <%#== pagy_nav(@pagy) %>
           </div>
         </div>
         <div class="col-4 text-end">

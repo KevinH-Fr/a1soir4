@@ -20,6 +20,7 @@ gem "ransack", "~> 3.2"
 gem 'cloudinary'
 
 gem "devise", "~> 4.8"
+
 gem "rqrcode", "~> 2.1"
 
 gem "chunky_png", "~> 1.4"

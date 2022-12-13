@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+    include Pagy::Backend
+
     def after_sign_in_path_for(resource)
         accueil_admin_path() # rediriger apres login
     end
@@ -9,7 +11,5 @@ class ApplicationController < ActionController::Base
         @q = Produit.ransack(params[:q]) 
         @produits = @q.result(distinct: true)
     end
-
-    include Pagy::Backend
 
 end

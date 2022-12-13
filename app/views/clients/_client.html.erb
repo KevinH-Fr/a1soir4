@@ -6,7 +6,7 @@
         <div class="row">
           <div class="col-10 text-dark">  
             <div class="text-record-main fw-bold ms-2">
-              <%= client.full_name %>
+              <%= highlight(client.full_name, params.dig(:q, :nom_or_prenom_or_mail_cont)) %>
             </div>
             <% if client.mail.present? %>
               <div class="badge-infos">
@@ -17,7 +17,7 @@
             <% if client.mail.present? %>
               <div class="badge-infos">
                 <i class="fa fa-at"></i>
-                <%= client.mail %>
+                <%= highlight(client.mail, params.dig(:q, :nom_or_prenom_or_mail_cont)) %>
               </div>  
             <% end %>   
 
