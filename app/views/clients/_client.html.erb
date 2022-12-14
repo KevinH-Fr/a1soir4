@@ -19,7 +19,13 @@
                 <i class="fa fa-at"></i>
                 <%= highlight(client.mail, params.dig(:q, :nom_or_prenom_or_mail_cont)) %>
               </div>  
-            <% end %>   
+            <% end %>  
+            <% if client.ville.present? %>
+              <div class="badge-infos">
+                <i class="fa fa-location-dot"></i>
+                <%= highlight(client.ville, params.dig(:q, :nom_or_prenom_or_mail_cont)) %>
+              </div>  
+            <% end %>  
 
             <div data-dropdown-target="dropdownContent">
               <% if Commande.client_courant(client).present? %>
@@ -50,9 +56,12 @@
           </div>
           <br>
   
-          <%= link_to "", client_path(client), class:"fa-regular fa-folder-open btn btn-success btn-action" %> 
-          <%= button_to "", edit_client_path(client), class:"fa-regular fa-pen-to-square btn btn-secondary btn-action", method: :post %> 
-          <%= button_to '', client_path(client), class:"fa-solid fa-trash-can btn btn-danger btn-action", method: :delete %> 
+          <%= link_to "", client_path(client), 
+                class:"fa-regular fa-folder-open btn btn-success btn-action" %> 
+          <%= button_to "", edit_client_path(client), 
+                class:"fa-regular fa-pen-to-square btn btn-secondary btn-action", method: :post %> 
+          <%= button_to '', client_path(client), 
+                class:"fa-solid fa-trash-can btn btn-danger btn-action", method: :delete %> 
         </div>
       
 

@@ -1,16 +1,31 @@
 
+h5{
+  background-color: rgb(138, 18, 74);
+  color: white;
+  text-align: center;
+  font-size: large;
+  font-weight: bold;
+  line-height: 30px;
+}
+
 div{
   color: black;
+  font-size: large;
 }
 
 th{
-  background-color: black;
+  background-color: rgb(194, 23, 103);
   color: white;
+  text-align: center;
+  font-size: large;
+  font-weight: bold;
 }
 
 tfoot{
-  background-color: black;
+  background-color: rgb(147, 18, 78);
   color: white;
+  font-size: large;
+  font-weight: bold;
 }
 
 

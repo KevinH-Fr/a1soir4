@@ -1,22 +1,15 @@
  
-<div class="list-long-blocs-sousarticle">
+<div class="bloc-record">
 
   <div id="sousarticles">
     <%= render @sousarticles %>
   </div>
 
-  <table> 
-    <tr>
-      <td>
-          <%= link_to "Auto", toggle_sousarticleauto_sousarticle_path(
+  <div>
+    <%= link_to "Auto", toggle_sousarticleauto_sousarticle_path(
          produitId: @produitId, commandeId: @commandeId, articleId: @articleId), 
-         class:"btn btn-sm btn-primary me-1" %>
-      </td>
-      <td>
-          <%= render "sousarticles/nouveauSousarticle" %>
-
-      </td>
-    </tr>
-  </table>
+         class:"btn btn-sm btn-primary me-1 mb-2" %> 
+    <%= render "sousarticles/nouveauSousarticle" %>
+  </div>
 
 </div>

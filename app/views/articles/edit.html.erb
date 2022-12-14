@@ -12,35 +12,37 @@
         <div class="col text-start m-0 p-0">
           Editer article
         </div>
-        <div class="col m-0 p-0">
-          <span class="badge text-bg-secondary"> <%= Commande.find(@commandeId).texte_record if @commandeId.present? %> </span> 
-        </div>
-        <div class="col m-0 p-0">
-          <span class="badge text-bg-secondary"> <%= Client.find(@clientId).full_name if @clientId.present? %> </span> 
-        </div>
-        <div class="col m-0 p-0">
-          <span class="badge text-bg-secondary"> <%= Commande.find(@commandeId).info_evenement if @commandeId.present? %> </span> 
-        </div>
+          <div class="col m-0 p-0">
+            <span class="badge text-bg-secondary"> <%= Commande.find(@commandeId).texte_record if @commandeId.present? %> </span> 
+          </div>
+          <div class="col m-0 p-0">
+            <span class="badge text-bg-secondary"> <%= Client.find(@clientId).full_name if @clientId.present? %> </span> 
+          </div>
+          <div class="col m-0 p-0">
+            <% evenement = Commande.find(@commandeId).info_evenement %>
+            <% if evenement.present? %>
+              <span class="badge text-bg-secondary"> <%= evenement %> </span> 
+            <% end %>
+          </div>
       </div>
     </div>
   </div>
 </div>
 
 
-<div class="list-long-blocs-article">
-
+<div class="bloc-record">
   <%= render "form", article: @article %>
-
-<div class="bloc-entete-model">
+  <div class="bloc-entete-model">
     <div class="card card-header entete-index">
       <strong>Sous-articles</strong> 
     </div>
- </div>
+  </div>
  
   <%= render "sousarticles/sousarticlesLiesBis" %>
-
-    <div class="fixed-bottom footer-index text-center bg-dark">
-      <div class="text-end">
-        <%= link_to "Valider", commande_path(@commandeId), class:"btn btn-sm btn-success" %> 
-      </div>
+    <br><br>
+  <div class="fixed-bottom footer-index text-center bg-dark">
+    <div class="text-end">
+      <%= link_to "Valider", commande_path(@commandeId), class:"btn btn-sm btn-success" %> 
     </div>
+  </div>
+</div>

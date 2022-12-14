@@ -99,7 +99,7 @@ h1, h2, div, li, ul, a {
 }
 
 .label-sized{
-  width: 80px;
+  width: 120px;
 }
 
 .field-with-format{
@@ -366,7 +366,7 @@ h1, h2, div, li, ul, a {
   border-radius: .2em;
   box-shadow: 2px 3px 4px rgba(165, 163, 163, 0.8);
   margin-bottom: 1em;
-  font-size: .8em;
+  font-size: medium;
 
 /*  max-width: 400px;*/
 
@@ -399,7 +399,7 @@ h1, h2, div, li, ul, a {
 }
 
 .text-record-main {
-  font-size: large;
+  font-size: medium;
   font-style: bold;
   color: black;
 }

@@ -2,28 +2,17 @@
 
   <div class="bloc-record">
     <div class="row p-0 m-0">
-      <div class="col-9 p-0 m-0 text-dark">  
+      <div class="col-9 p-0 m-0 text-record-main">  
         <%= sousarticle.texte_record %>
       </div>
 
       <div class="col-3 p-0 m-0 text-end">
+        <%= button_to "", edit_sousarticle_path(sousarticle, articleId: sousarticle.article_id), 
+            class:"fa-regular fa-pen-to-square btn btn-sm btn-secondary", method: :post %> 
 
-      <table>
-        <tr>
-          <td>
-             <%= button_to "", edit_sousarticle_path(sousarticle, articleId: sousarticle.article_id), 
-              class:"fa-regular fa-pen-to-square btn btn-sm btn-secondary", method: :post %> 
-          </td>
-          <td>
-             <%= button_to '', sousarticle_path(sousarticle), 
-             class:"fa-solid fa-trash-can btn btn-danger btn-sm", method: :delete %> 
-          </td>
-        </tr>
-      </table>
-      
-      
-     
-           </div>
+        <%= button_to '', sousarticle_path(sousarticle), 
+            class:"fa-solid fa-trash-can btn btn-danger btn-sm", method: :delete %> 
+      </div>
     </div>
   </div>
 

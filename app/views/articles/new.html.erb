@@ -32,12 +32,14 @@
   <%= render "choixCategorie" %>
 </div>
 
-<div>
+<div class="bloc-record">
   <%# liste des produits pour selection %>
   <% unless @produitId.present? %> 
     <%= render "listeSelection" %>
   <% end %>
 
   <%= render "form", article: @article %>
+
+</div>
 
 </div>
