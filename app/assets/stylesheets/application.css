@@ -247,8 +247,8 @@ h1, h2, div, li, ul, a {
 }
 
 .bloc-large{
-  height: calc(20.2vh - .6em);
-  min-height: 13vh;
+  height: calc(22.2vh - .6em);
+  min-height: 15vh;
   overflow: hidden;
 }
 
@@ -281,7 +281,7 @@ h1, h2, div, li, ul, a {
   .body-bloc-dashboard{
     padding: .0em;
     margin: .0em;
-    font-size: 0.4em;
+    font-size: small;
     height: 50%;
     max-height: 100%;
     overflow: hidden;
@@ -322,7 +322,17 @@ h1, h2, div, li, ul, a {
 
 .bloc-table {
   line-height: 4%;
-  font-size: 2.8vw;
+  font-size: small;
+}
+
+.format-titre-dashboard{
+  font-size: x-small;
+  text-align: center;
+  vertical-align: middle;
+  margin: .0em;
+  padding: .0em;
+  font-weight: bold;
+
 }
 
 .table-articles{
@@ -419,7 +429,7 @@ h1, h2, div, li, ul, a {
 .iconcolor {
     color:rgb(208, 77, 123);
     padding: 0em;
-    font-size: 100%;
+    font-size: large;
 }
 
 .iconcolor-true {
@@ -493,7 +503,6 @@ h1, h2, div, li, ul, a {
   font-size: large;
 }
 
-
 .badge-infos-second {
   background-color: rgb(184, 182, 182);
   color:rgb(81, 80, 80);
@@ -551,10 +560,21 @@ h1, h2, div, li, ul, a {
 }
 
 .counter-model-dashboard{
-  position: absolute;
-  right: .0em;
+ /* position: absolute;
+  right: .0em; */
   background-color: rgb(232, 192, 10);
   color:black;
+  font-size: x-small;
+  padding: .4em;
+  margin: .2em;
+}
+
+.add-dashboard{
+  background-color: rgb(49, 74, 220);
+  color:rgb(255, 255, 255);
+  font-size: small;
+  margin: .2em;
+  padding: .1em;
 }
 
 .small-text{

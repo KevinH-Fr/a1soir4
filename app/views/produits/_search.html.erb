@@ -1,6 +1,11 @@
-  <%= search_form_for(@q, url: produits_path, method: :get, class:'d-flex') do |f| %>
-    <%= f.search_field :nom_or_description_cont, placeholder: "recherche...", 
-      class: "form-control border-secondary form-control-sm mx-2 my-1" %>
-    <%= f.submit "Go!", class:"btn btn-sm btn-outline-primary m-1" %>
-    <%= link_to "Effacer", produits_path, class:"btn btn-sm btn-outline-danger m-1" %> 
-  <% end %>
+<%= search_form_for @q, class:'d-flex', data: {turbo_frame: :results} do |f| %>
+    <%#= f.label :nom_or_prenom_or_mail_cont %>
+    <%= f.search_field :nom_or_categorie_or_couleur_cont, 
+                        oninput: 'this.form.requestSubmit()',
+                        autofocus: true, 
+                        autocomplete: 'off',
+                        class: "form-control border-secondary form-control-sm mx-2 my-1" %>
+    <%#= f.submit %>
+    <%= link_to "Nouveau", new_produit_path, data:{turbo_frame: "modal"}, 
+                class:"btn btn-sm btn-warning m-1 p-1" %>
+<% end %>

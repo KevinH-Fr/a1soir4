@@ -1,19 +1,27 @@
 <div class="card bloc-dashboard">
   <div class="header-bloc-dashboard"> 
+    <div class="row align-items-center m-0 p-0">
+      <div class="col-2 m-0 p-0">
+        <i class="fa iconcolor fa-user  ms-1"></i>
+      </div>
+      <div class="col-6 format-titre-dashboard">
+        <%= link_to "CLIENTS", clients_path, class:"format-titre-dashboard" %> 
+      </div>
 
-        <i class="fa iconcolor fa-user mx-2"></i>
-        <%= link_to "CLIENTS", clients_path %>
-        <span class="badge rounded-pill counter-model-dashboard"><%= Client.count %></span>
-
+      <div class="col-4 text-end m-0 p-0">
+        <div class="badge rounded-pill counter-model-dashboard"><%= Client.count %></div>
+        <%= link_to "", new_client_path(), class:"fa fa-add add-dashboard btn btn-sm" %>
+      </div>
+    </div>
   </div>
+  
   <div class="card-body body-bloc-dashboard"> 
     <table class="table bloc-table table-primary table-striped table-hover">
       <tbody class="table-light">
         <% @clients.limit(5).each do | client | %>
           <tr> 
             <td> 
-              <%= link_to client.nom, client_path(client), class:"text-dark fs-6 crop", 
-                style:"text-decoration: none;" %> 
+              <%= link_to client.nom, client_path(client), class:"text-dark crop", style:"text-decoration: none;" %> 
             </td>
           </tr> 
         <% end %>
@@ -21,13 +29,4 @@
     </table>
   </div>
 
-  <div class="card-footer footer-bloc-dashboard">
-    <%= search_form_for(@q, url: clients_path, method: :get, class:'d-flex') do |f| %>
-      <%= f.search_field :nom_or_mail_cont, placeholder: "recherche...", 
-         class: "form-control form-control-sm search-dashboard" %>
-      <%= f.submit "Go!", class:"btn btn-sm btn-success m-0 p-0 mx-1" %>
-    <%= link_to "", new_client_path, class:"fa fa-add btn btn-sm btn-primary m-0 p-1 mx-0" %> 
-
-    <% end %>
-  </div>
 </div>

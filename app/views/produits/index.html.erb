@@ -13,7 +13,7 @@
     </div> 
     <div class="header-model-body mb-1">
       <%= render "search" %>
-      <%= render "choixCategorie" %> 
+      <%#= render "choixCategorie" %> 
 
           <%#= render "choixCategorieBis" %> 
 
@@ -24,12 +24,16 @@
     <%= turbo_frame_tag :modal %>
   </div>
 
-  <div class="mt-2">
-    <div id="produits">
-      <%= render @produits %>
-    </div>
-  </div> 
+  <%= turbo_frame_tag :results, data: {turbo_action: 'advance'} do %>
+    <div class="mt-2">
+      <div id="produits">
+      </div>
+    </div> 
 
+    <%= turbo_frame_tag :pagination, loading: :lazy, 
+                        src: produits_path(format: :turbo_stream,
+                        q: params[:q]&.to_unsafe_h) %>
+  <% end %>
 
 
   <div class="fixed-bottom footer-index text-center bg-dark">
@@ -39,7 +43,7 @@
         </div>
         <div class="col-4 text-center">
           <div class="badge bg-dark">
-            <%== pagy_nav(@pagy) %>
+            <%#== pagy_nav(@pagy) %>
           </div>
         </div>
         <div class="col-4 text-end">
