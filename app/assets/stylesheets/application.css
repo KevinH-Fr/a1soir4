@@ -247,9 +247,26 @@ h1, h2, div, li, ul, a {
 }
 
 .bloc-large{
-  height: calc(22.2vh - .6em);
-  min-height: 15vh;
+  height: calc(25.2vh - .6em);
+  min-height: 20vh;
   overflow: hidden;
+}
+
+.btns-bloc-dashboard{
+  font-size: medium;
+  vertical-align: middle;
+  margin: .2em;
+  padding: .2em;
+  padding-left: .5em;
+}
+
+.btns-texte-bloc-dashboard{
+  font-size: small;
+  font-weight: bold;
+  vertical-align: top;
+  margin: .5em;
+
+
 }
 
 .crop { 
@@ -272,11 +289,12 @@ h1, h2, div, li, ul, a {
 
   .header-bloc-dashboard{
     background-color:rgb(59, 58, 58);
-    padding: .1em;
+    padding: .5em;
     border-radius: .2em;
     box-shadow: 2px 3px 4px rgba(165, 163, 163, 0.8);
-    margin-bottom: .0em;
+   /* margin-bottom: .0em;*/
     font-size: 0.8em;
+    vertical-align: middle;
    /* height: 15%; */
   }
 
@@ -303,15 +321,6 @@ h1, h2, div, li, ul, a {
   .col-dashboard{
     margin: .0em;
     padding: .0em;
-  }
-
-  .search-dashboard{
-    margin: .1em;
-    padding-left: .5em;
-    padding: .0em;
-    line-height: 2%;
-    font-size: 10px;
-    background-color: rgb(255, 248, 248);
   }
 
 .header-model-body {
@@ -480,10 +489,6 @@ h1, h2, div, li, ul, a {
   margin: .2em;
 }
 
-.placeholder-recherche{
-  color:red;
-  background-color: red;
-}
 
 .badge-record-main {
   font-size: small;
