@@ -7,21 +7,35 @@
       <div class="col-9 text-dark">
         <div class="text-start mx-1 p-0">
           <div class="badge-infos">
-            <%= link_to commande.texte_record, commande_path(commande.id), class: "link-record" %>
+            <%= link_to highlight(commande.texte_record, 
+                  params.dig(:q, :nom_or_typeevenement_or_client_prenom_or_client_nom_or_profile_prenom_cont)), 
+                  commande_path(commande.id), class: "link-record" %>
           </div> 
           <hr class="text-dark m-2"> 
 
           <% if commande.client_id.present? %>
-            <span class="badge badge-infos-second bg-primary text-light"> <%= Client.find(commande.client_id).full_name %> </span>      
+            <span class="badge badge-infos-second bg-primary text-light"> 
+              <%= highlight(Client.find(commande.client_id).full_name, 
+                  params.dig(:q, :nom_or_typeevenement_or_client_prenom_or_client_nom_or_profile_prenom_cont)) %> 
+            </span>      
           <% end %>
 
-          <span class="badge badge-infos-second"> <%= commande.auto_name %> </span> 
+          <span class="badge badge-infos-second"> 
+            <%= highlight(commande.auto_name, 
+                  params.dig(:q, :nom_or_typeevenement_or_client_prenom_or_client_nom_or_profile_prenom_cont)) %> 
+          </span> 
           <% if commande.info_evenement.present? %>
-            <span class="badge badge-infos-second bg-warning text-light"> <%= commande.info_evenement %> </span>      
+            <span class="badge badge-infos-second bg-warning text-light"> 
+              <%= highlight(commande.info_evenement, 
+                  params.dig(:q, :nom_or_typeevenement_or_client_prenom_or_client_nom_or_profile_prenom_cont)) %> 
+            </span>      
           <% end %>
 
           <% if commande.profile_id.present? %>
-            <span class="badge badge-infos-second bg-dark text-light"> <%= Profile.find(commande.profile_id).full_name %> </span>      
+            <span class="badge badge-infos-second bg-dark text-light"> 
+              <%= highlight(Profile.find(commande.profile_id).full_name, 
+                  params.dig(:q, :nom_or_typeevenement_or_client_prenom_or_client_nom_or_profile_prenom_cont)) %> 
+            </span>      
           <% end %>
 
         </div>

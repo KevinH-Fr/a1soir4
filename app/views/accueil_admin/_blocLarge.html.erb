@@ -1,16 +1,37 @@
 <div class="card bloc-dashboard bloc-large">
   <div class="header-bloc-dashboard"> 
-    <i class="fa iconcolor fa-gear mx-2"></i>FONCTIONS SUPPLEMENTAIRES 
+    <div class="row align-items-center m-0 p-0">
+      <div class="col-2 m-0 p-0">
+        <i class="fa iconcolor fa-gear ms-1"></i>
+      </div>
+      <div class="col-8 format-titre-dashboard">
+        <span> FONCTIONS SUPPLEMENTAIRES </span>
+      </div>
+      <div class="col-2 m-0 p-0">
+      </div>
+    </div>
   </div>
   <div class="card-body body-bloc-dashboard p-1 m-1 text-center "> 
 
-    <%= link_to "Comptes", users_path, class:"btn btn-primary btn-sm m-2" %>
-    <%= link_to "Profiles", profiles_path, class:"btn btn-success btn-sm m-2" %>
+    <%= link_to " - Comptes", users_path, 
+          class:"fa-solid fa-user-circle btn btn-primary btn-sm m-2" %>
+    <%= link_to " - Profiles", profiles_path, 
+          class:"fa fa-user-gear btn btn-success btn-sm m-2" %>
+    <br>
   
-    <%= link_to "Marketing", marketing_path, class:"btn btn-warning btn-sm m-2" %>
-    <%= link_to "Analyses", analyses_path, class:"btn btn-dark btn-sm m-2"%>
+    <%= link_to " - Marketing", marketing_path, 
+          class:"fa fa-bullhorn btn btn-warning btn-sm m-2" %>
+    <%= link_to " - Analyses", analyses_path, 
+          class:"fa fa-chart-line btn btn-secondary btn-sm m-2"%>
+    <%= link_to " - Stocks", stock_path, 
+          class:"fa fa-box-open btn btn-dark btn-sm m-2"%>
 
-    <%= link_to "Site Public", root_path, class:"btn btn-dark btn-sm m-2"%>
+    <br>  
+
+    <%= link_to " - Site Public", root_path, 
+          class:"fa-solid fa-globe btn btn-secondary btn-sm m-2"%>
+    <%= link_to " - Site Marchand", root_path, 
+          class:"fa-solid fa-cart-shopping btn btn-dark btn-sm m-2"%>
 
   </div>
 

@@ -3,8 +3,8 @@
     <div class="card mb-0 bloc-produit">
       <div class="row g-0">
         <div class="col-2">
-         <%#= image_tag(produit.image1, class:"img-fluid rounded-start image-produit-sized") if produit.image1.present? %> 
-         <%= image_tag(produit.default_image, class:"img-fluid rounded-start image-produit-sized")  %> 
+          <%#= image_tag(produit.image1, class:"img-fluid rounded-start image-produit-sized") if produit.image1.present? %> 
+          <%= image_tag(produit.default_image, class:"img-fluid rounded-start image-produit-sized")  %> 
         </div>
 
         <div class="col-1 m-0 p-0">
@@ -23,13 +23,22 @@
 
         <div class="col-6 m-0 p-0">
           <div class="card-body m-0 p-0">
-            <h6 class="card-title text-black m-0 p-0"><%= produit.nom %></h6>
+            <h6 class="card-title text-black m-0 p-0"><%= highlight(produit.nom, 
+              params.dig(:q, :nom_or_categorie_or_couleur_cont)) %></h6>
             <p class="card-text text-dark p-0 m-0"><%= produit.description %></p>
 
-            <span class="card-text"><small class="text-muted"><%= produit.categorie %></small></span>
-            <span class="card-text"><small class="text-muted"><%= produit.taille %></small></span>
-            <span class="card-text"><small class="text-muted"><%= produit.couleur %></small></span>
-            <span class="card-text"><small class="text-muted"><%= produit.prix %></small></span>
+            <span class="card-text"><small class="text-muted">
+              <%= highlight(produit.categorie, params.dig(:q, :nom_or_categorie_or_couleur_cont)) %></small>
+            </span>
+            <span class="card-text"><small class="text-muted">
+              <%= highlight(produit.taille, params.dig(:q, :nom_or_categorie_or_couleur_cont)) %></small>
+            </span>
+            <span class="card-text"><small class="text-muted">
+              <%= highlight(produit.couleur, params.dig(:q, :nom_or_categorie_or_couleur_cont)) %></small>
+            </span>
+            <span class="card-text"><small class="text-muted">
+              <%= highlight(produit.prix, params.dig(:q, :nom_or_categorie_or_couleur_cont)) %></small>
+            </span>
 
           </div>
         </div>
