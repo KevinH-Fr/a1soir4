@@ -238,8 +238,8 @@ h1, h2, div, li, ul, a {
     box-shadow: 2px 3px 4px rgba(165, 163, 163, 0.8);
    /* margin-top: 0.3em; */
     margin-bottom: 0.4em;
-    margin-right: 0.4em;
-    margin-left: 0.4em;
+    margin-right: 0.2em;
+    margin-left: 0.2em;
     /*max-width: 50%;*/
     height: calc(28.2vh - .6em);
     min-height: 23vh;
@@ -256,7 +256,9 @@ h1, h2, div, li, ul, a {
   overflow:hidden; 
   white-space:nowrap; 
   text-overflow:ellipsis; 
-  width:100px; 
+  width:fit-content; 
+  margin: 0em;
+  padding: 0em;
 }​
 
 .bloc-entete-model{
@@ -279,12 +281,12 @@ h1, h2, div, li, ul, a {
   }
 
   .body-bloc-dashboard{
-    padding: .0em;
-    margin: .0em;
     font-size: small;
     height: 50%;
     max-height: 100%;
     overflow: hidden;
+    margin: 0em;
+    padding: 0em;
   }
 
   .footer-bloc-dashboard{
@@ -323,10 +325,18 @@ h1, h2, div, li, ul, a {
 .bloc-table {
   line-height: 4%;
   font-size: small;
+  margin: .4em;
+  padding: .4em;
+}
+
+.table-dashboard{
+  line-height: 2vh;
+  margin: .1em;
+  padding: .1em;
 }
 
 .format-titre-dashboard{
-  font-size: x-small;
+  font-size: small;
   text-align: center;
   vertical-align: middle;
   margin: .0em;
@@ -444,6 +454,12 @@ h1, h2, div, li, ul, a {
   font-size: 100%;
 }
 
+.iconcolor-neutre {
+  color:rgb(42, 95, 199);
+  padding: 0em;
+  font-size: 100%;
+}
+
 .iconcolor:hover{
     color: white;
 }
@@ -557,6 +573,14 @@ h1, h2, div, li, ul, a {
   max-width: 80px;
   border-radius: .2em;
   box-shadow: 2px 3px 4px rgba(165, 163, 163, 0.8);
+}
+
+
+.counter-model{
+  position: absolute;
+  right: .0em; 
+  background-color: rgb(232, 192, 10);
+  color:black;
 }
 
 .counter-model-dashboard{

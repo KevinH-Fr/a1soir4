@@ -2,7 +2,7 @@
   <div class="header-bloc-dashboard"> 
     <div class="row align-items-center m-0 p-0">
       <div class="col-2 m-0 p-0">
-        <i class="fa iconcolor fa-shirt  ms-1"></i>
+        <i class="fa iconcolor fa-shirt ms-1"></i>
       </div>
       <div class="col-6 format-titre-dashboard">
         <%= link_to "PRODUITS", produits_path, class:"format-titre-dashboard" %> 
@@ -16,9 +16,9 @@
   </div>
 
   <div class="card-body body-bloc-dashboard"> 
-    <table class="table bloc-table table-primary table-striped table-hover">
-      <tbody class="table-light">
-        <% @produits.limit(5).each do | produit | %>
+    <table class="table bloc-table table-primary table-striped table-hover m-0 p-0">
+      <tbody class="table-light table-dashboard">
+        <% @produits.limit(6).each do | produit | %>
           <tr> 
             <td> 
               <%= link_to produit.nom, produit_path(produit), class:"text-dark crop", style:"text-decoration: none;" %> 
