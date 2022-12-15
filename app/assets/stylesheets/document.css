@@ -1,8 +1,26 @@
 
+.a1soir-colored {
+  color: rgb(204, 46, 102);
+}
+
+.cadre {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: rgb(249, 237, 237);
+  color: rgb(0, 0, 0);
+}
+
+h4{
+  color: rgb(230, 106, 127);
+  text-align: left;
+  font-size: xx-large;
+  font-weight: bold;
+}
+
 h5{
-  background-color: rgb(138, 18, 74);
+  background-color: rgb(227, 148, 161);
   color: white;
   text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: large;
   font-weight: bold;
   line-height: 30px;
@@ -11,10 +29,12 @@ h5{
 div{
   color: black;
   font-size: large;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 th{
-  background-color: rgb(194, 23, 103);
+  font-family: Arial, Helvetica, sans-serif;
+  background-color:  rgb(227, 148, 161);
   color: white;
   text-align: center;
   font-size: large;
@@ -22,7 +42,7 @@ th{
 }
 
 tfoot{
-  background-color: rgb(147, 18, 78);
+  background-color:  rgb(227, 148, 161);
   color: white;
   font-size: large;
   font-weight: bold;

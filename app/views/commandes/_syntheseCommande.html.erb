@@ -27,7 +27,6 @@
         <span class="me-1">OK</span>
       </span>
     <% end %>
-    <br>
     
     <% statutCommande = Commande.find(@commande.id).statutarticles %>
     <% if statutCommande == "non-retiré" %>
@@ -52,56 +51,44 @@
 
   <div class="col-4 text-end m-0 p-0">
 
-    <%# ouvrir page editions docs, recup param commande 
-    permet le choix de type d'édition
-    %>
-
-  
-    <%#= link_to 'editions', toggle_edition_commande_path(@commande) %>
-
-
     <%#= link_to "", commande_path(format: :pdf), class:"fa-solid fa-file-export btn btn-sm btn-primary" %> 
     <%#= link_to '', send_commande_mail_commande_path(@commande.id),class:"fa-solid fa-at btn btn-sm btn-warning" %>
   
+    <div class="btn-group">
+      <button type="button" class="btn btn-primary btn-sm dropdown-toggle" 
+              data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="fa-solid fa-file-invoice"></i>
+      </button>
+      <% typedoc = "commande" %>
+      <% session[:typedoc] = typedoc %>
+      <ul class="dropdown-menu">
+        <li>
+          <%= link_to 'pdf commande', generate_pdf_commande_path(typedoc: "commande"),
+                class:"dropdown-item" %>
+        </li>
+        <li>
+          <%= link_to 'mail commande', send_commande_mail_commande_path(typedoc: "commande", typeedition: "pdf"), 
+                class:"dropdown-item" %>
+        </li>
+      </ul>
+    </div>
 
+    <div class="btn-group">
+      <button type="button" class="btn btn-success btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fa-solid fa-receipt"></i>
+      </button>
+      <% typedoc = "facture" %>
+      <% session[:typedoc] = typedoc %>
 
-                  <div class="btn-group">
-                        <button type="button" class="btn btn-primary btn-sm dropdown-toggle" 
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fa-solid fa-file-invoice"></i>
-                        </button>
-                        <% typedoc = "commande" %>
-                        <% session[:typedoc] = typedoc %>
-
-                        <ul class="dropdown-menu">
-                                <li>
-                                        <%= link_to 'pdf commande', generate_pdf_commande_path(typedoc: "commande"),  class:"dropdown-item" %>
-                                </li>
-                                <li>
-                                        <%= link_to 'mail commande', send_commande_mail_commande_path(typedoc: "commande", typeedition: "pdf"),  class:"dropdown-item" %>
-                                </li>
-                        </ul>
-                </div>
-
-                <div class="btn-group">
-                        <button type="button" class="btn btn-success btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fa-solid fa-receipt"></i>
-                        </button>
-                        <% typedoc = "facture" %>
-                        <% session[:typedoc] = typedoc %>
-
-                        <ul class="dropdown-menu">
-                                <li>
-                                        <%= link_to 'pdf facture', generate_pdf_commande_path(typedoc: typedoc),  class:"dropdown-item" %>
-                                </li>
-                                <li>
-                                        <%= link_to 'mail facture', send_commande_mail_commande_path(typedoc: typedoc),  class:"dropdown-item" %>
-                                </li>
-                        </ul>
-                </div>
-
-
-
+      <ul class="dropdown-menu">
+        <li>
+          <%= link_to 'pdf facture', generate_pdf_commande_path(typedoc: typedoc),  class:"dropdown-item" %>
+        </li>
+        <li>
+          <%= link_to 'mail facture', send_commande_mail_commande_path(typedoc: typedoc),  class:"dropdown-item" %>
+        </li>
+      </ul>
+    </div>
   </div>
 
 </div>

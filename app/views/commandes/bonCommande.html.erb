@@ -5,18 +5,16 @@
   <%= wicked_pdf_stylesheet_link_tag "application" %>
 
 <%= render "shared/enteteDoc" %>
-
-<h4 style="font-size: 50px;"> 
-
- 
- <% if @typedoc %>
-  <%= @typedoc %>
-<% else %>
+<br>
+<h4> 
   <%= typedoc = params[:typedoc] %> 
- <% end %>
+  <%= Commande.find(@commande.id).texte_record %> <br>
 </h4>
 
 <%= render "commandes/docInfosCommande" %>
+
+<%= render "commandes/docInfosClient" %>
+
 <%= render "commandes/docListeArticles" %>
 <%= render "commandes/docListePaiements" %>
 <%= render "commandes/docListeAvoirrembs" %>
