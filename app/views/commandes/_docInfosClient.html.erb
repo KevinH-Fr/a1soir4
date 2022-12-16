@@ -3,10 +3,30 @@
 
 <div class="cadre">
 
-    <strong>Client</strong> 
-    <%= Client.find(clientId).full_name %> <br> <br>
-    <%= Client.find(clientId).mail %> |
-    <%= Client.find(clientId).tel %> 
+    <table class="table">
+
+    <tbody>
+        <tr>
+        <td> 
+            <strong>Client</strong> 
+            <%= Client.find(clientId).full_name %> <br>
+        </td>
+        <td>
+           <strong> <%= Client.find(clientId).full_name %> </strong>
+        </td>
+        </tr>
+        <tr>
+        <td>
+            <%= Client.find(clientId).mail %> |
+            <%= Client.find(clientId).tel %> 
+        </td>
+        <td>
+            <%= Client.find(clientId).adresse %> <br>
+            <%= Client.find(clientId).ville %>   <%= Client.find(clientId).cp %> 
+        </td>
+        </tr>
+    </tbody>
+    </table>
 
 </div>  
  

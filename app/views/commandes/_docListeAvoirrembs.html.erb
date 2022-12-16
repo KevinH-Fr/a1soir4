@@ -16,18 +16,18 @@
 
         <% @avoirrembs.each_with_index do | avoirremb, i | %>
           <tr>
-            <td> <%= i + 1 %> </td>
-            <td> <%= avoirremb.typeavoirremb %> </td>
-            <td> <%= avoirremb.created_at %> </td>
-            <td> <%= avoirremb.montant %> </td>
+            <td class="text-center"> <%= i + 1 %> </td>
+            <td class="text-center"> <%= avoirremb.typeavoirremb %> </td>
+            <td class="text-center"> <%= avoirremb.created_at.strftime("%d/%m/%y")  %> </td>
+            <td class="text-end"> <%= avoirremb.montant %> </td>
           </tr> 
         <% end %>
       </tbody>
 
-      <tfoot class="table-dark fs-bold">
+      <tfoot>
         <tr>
-          <td colspan=3>  totaux  </td>
-          <td class="text-center"> 
+          <td colspan=3 class="footer text-center">  totaux  </td>
+          <td class="footer text-end"> 
             <%= Avoirremb.commande_courante(@commande).sum_avoirrembs %> 
           </td>
         </tr>

@@ -16,18 +16,18 @@
 
         <% @paiements.each_with_index do | paiement, i | %>
           <tr>
-            <td> <%= i + 1 %> </td>
-            <td> <%= paiement.typepaiement %> </td>
-            <td> <%= paiement.created_at %> </td>
-            <td> <%= paiement.montant %> </td>
+            <td class="text-center"> <%= i + 1 %> </td>
+            <td class="text-center"> <%= paiement.typepaiement %> </td>
+            <td class="text-center"> <%= paiement.created_at.strftime("%d/%m/%y") %> </td>
+            <td class="text-end"> <%= paiement.montant %> </td>
           </tr> 
         <% end %>
       </tbody>
 
-      <tfoot class="table-dark fs-bold">
+      <tfoot>
         <tr>
-          <td colspan=3>  totaux  </td>
-          <td class="text-center"> 
+          <td colspan=3 class="footer text-center">  totaux  </td>
+          <td class="footer text-end"> 
             <%= Paiement.commande_courante(@commande).sum_paiements %> 
           </td>
         </tr>

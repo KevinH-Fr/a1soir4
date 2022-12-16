@@ -9,6 +9,16 @@
   color: rgb(0, 0, 0);
 }
 
+.bloc-adresse-client {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: rgb(249, 237, 237);
+  color: rgb(0, 0, 0);
+  position: relative; 
+  left: 280px;
+
+}
+
+
 h4{
   color: rgb(230, 106, 127);
   text-align: left;
@@ -17,7 +27,7 @@ h4{
 }
 
 h5{
-  background-color: rgb(227, 148, 161);
+  background-color: rgb(230, 106, 127);
   color: white;
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
@@ -32,6 +42,11 @@ div{
   font-family: Arial, Helvetica, sans-serif;
 }
 
+table{
+  background-color: rgb(249, 237, 237);
+  border-color: white;
+}
+
 th{
   font-family: Arial, Helvetica, sans-serif;
   background-color:  rgb(227, 148, 161);
@@ -41,7 +56,15 @@ th{
   font-weight: bold;
 }
 
-tfoot{
+td{
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(0, 0, 0);
+  font-size: medium;
+  vertical-align: middle;
+
+}
+
+.footer{
   background-color:  rgb(227, 148, 161);
   color: white;
   font-size: large;

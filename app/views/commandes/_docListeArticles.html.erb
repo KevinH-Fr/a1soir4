@@ -17,8 +17,8 @@
       <tbody>
         <tr>
           <% @articles.each_with_index do | article, i | %>
-            <td> <%= i + 1 %> </td>
-            <td> 
+            <td class="text-center"> <%= i + 1 %> </td>
+            <td class="text-center"> 
               <%= image_tag(Produit.find(article.produit_id).default_image, style: "width: 50px; display: block", 
                class: "img-fluid rounded") %> 
             </td>
@@ -42,16 +42,16 @@
         <% end %>
       </tbody>
 
-      <tfoot class="table-dark fs-bold">
+      <tfoot>
         <tr>
-          <td colspan=3>  
+          <td colspan=3 class="text-center footer">  
             totaux
           </td>
-          <td class="text-center">
+          <td class="text-center footer">
             <%= Article.commande_courante(@commande).compte_articles %>
           </td>
-          <td></td>
-          <td class="text-end">
+          <td class="footer"></td>
+          <td class="text-end footer">
             <%= Article.commande_courante(@commande).sum_articles + 
                 Article.joins(:sousarticles).commande_courante(@commande).sum_sousarticles %>
           </td>
