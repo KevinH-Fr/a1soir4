@@ -1,9 +1,10 @@
 
 .a1soir-colored {
-  color: rgb(204, 46, 102);
+  color: rgb(143, 31, 70);
 }
 
 .cadre {
+  padding: 20px;
   font-family: Arial, Helvetica, sans-serif;
   background-color: rgb(249, 237, 237);
   color: rgb(0, 0, 0);
@@ -14,19 +15,23 @@
   background-color: rgb(249, 237, 237);
   color: rgb(0, 0, 0);
   position: relative; 
-  left: 280px;
-
+  left: 700px;
 }
 
+.doc-important{
+  color: rgb(171, 38, 84);
+  font-size: large;
+  font-weight: bold;
+}
 
-h4{
-  color: rgb(230, 106, 127);
+.h4-doc{
+  color: rgb(171, 38, 84);
   text-align: left;
   font-size: xx-large;
   font-weight: bold;
 }
 
-h5{
+.h5-doc{
   background-color: rgb(230, 106, 127);
   color: white;
   text-align: center;
@@ -36,18 +41,26 @@ h5{
   line-height: 30px;
 }
 
-div{
-  color: black;
-  font-size: large;
+
+.h6-doc{
+  color: rgb(143, 31, 70);
   font-family: Arial, Helvetica, sans-serif;
+  font-size: large;
+  font-weight: bold;
 }
 
-table{
+.table-doc{
   background-color: rgb(249, 237, 237);
   border-color: white;
 }
 
-th{
+.table-invisible{
+  background-color: rgb(249, 237, 237);
+  border-color:  rgb(249, 237, 237);
+
+}
+
+.th-doc, .tfoot-doc{
   font-family: Arial, Helvetica, sans-serif;
   background-color:  rgb(227, 148, 161);
   color: white;
@@ -56,18 +69,15 @@ th{
   font-weight: bold;
 }
 
-td{
+.td-doc{
   font-family: Arial, Helvetica, sans-serif;
   color: rgb(0, 0, 0);
   font-size: medium;
   vertical-align: middle;
+  padding: 20px;
+
 }
 
-.footer{
-  background-color:  rgb(227, 148, 161);
-  color: white;
-  font-size: large;
-  font-weight: bold;
-}
+
 
 

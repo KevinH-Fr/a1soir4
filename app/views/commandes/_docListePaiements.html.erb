@@ -1,37 +1,40 @@
 <%# reparametrer les articles avec le param local commande passé depuis commande mailer %>
 <% @paiements = Paiement.commande_courante(@commande) %>
 
-<h5> Paiements </h5>
+<% if @paiements.present? %>
 
- <table class="table table-bordered">
-      <thead class="table">
-        <tr>
-          <th style="text-align: center;">#</th>
-          <th>Type</th>
-          <th>Date</th>
-          <th>Montant</th>
-        </tr>
-      </thead>
-      <tbody>
+  <h5 class="h5-doc"> Paiements </h5>
 
-        <% @paiements.each_with_index do | paiement, i | %>
+  <table class="table table-doc">
+        <thead class="table">
           <tr>
-            <td class="text-center"> <%= i + 1 %> </td>
-            <td class="text-center"> <%= paiement.typepaiement %> </td>
-            <td class="text-center"> <%= paiement.created_at.strftime("%d/%m/%y") %> </td>
-            <td class="text-end"> <%= paiement.montant %> </td>
-          </tr> 
-        <% end %>
-      </tbody>
+            <th class="th-doc">#</th>
+            <th class="th-doc">Type</th>
+            <th class="th-doc">Date</th>
+            <th class="th-doc">Montant</th>
+          </tr>
+        </thead>
+        <tbody>
 
-      <tfoot>
-        <tr>
-          <td colspan=3 class="footer text-center">  totaux  </td>
-          <td class="footer text-end"> 
-            <%= Paiement.commande_courante(@commande).sum_paiements %> 
-          </td>
-        </tr>
-        
-      </tfoot>
-    </table>
+          <% @paiements.each_with_index do | paiement, i | %>
+            <tr>
+              <td class="td-doc text-center"> <%= i + 1 %> </td>
+              <td class="td-doc text-center"> <%= paiement.typepaiement %> </td>
+              <td class="td-doc text-center"> <%= paiement.created_at.strftime("%d/%m/%y") %> </td>
+              <td class="td-doc text-end">  <%= number_to_currency(paiement.montant , locale: :fr) %> </td>
+            </tr> 
+          <% end %>
+        </tbody>
+
+        <tfoot>
+          <tr>
+            <td colspan=3 class="tfoot-doc text-center">  totaux  </td>
+            <td class="tfoot-doc text-end"> 
+              <%= number_to_currency(Paiement.commande_courante(@commande).sum_paiements, locale: :fr) %> 
+            </td>
+          </tr>
+          
+        </tfoot>
+      </table>
+<% end %>
 

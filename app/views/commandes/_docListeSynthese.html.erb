@@ -1,8 +1,8 @@
 
 <hr>    
-<h5> Synthèse </h5>
+<h5 class="h5-doc"> Synthèse </h5>
 
-<div style="color: black;">
-    soldePrix <%= solde_prix(@commande) %> <br> 
-    soldeCaution <%= solde_caution(@commande) %>
+<div class="cadre">
+    solde Prix <%= number_to_currency(solde_prix(@commande), locale: :fr) %> <br> 
+    solde Caution <%= number_to_currency(solde_caution(@commande), locale: :fr) %>
 </div>

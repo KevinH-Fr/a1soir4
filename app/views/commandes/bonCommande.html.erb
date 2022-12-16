@@ -4,18 +4,24 @@
 <meta charset="UTF-8">
   <%= wicked_pdf_stylesheet_link_tag "application" %>
 
-<%= render "shared/enteteDoc" %>
-<br>
-<h4> 
-  <%= typedoc = params[:typedoc] %> 
-  <%= Commande.find(@commande.id).texte_record %> <br>
-</h4>
+  <%= render "shared/enteteDoc" %>
+  <br>
 
-<%= render "commandes/docInfosCommande" %>
+  <h4 class="h4-doc"> 
+    <% if @typedoc %>
+      <%= @typedoc %>
+    <% else %>
+      <%= typedoc = params[:typedoc] %> 
+    <% end %>
+    <%= Commande.find(@commande.id).texte_record %> <br>
+  </h4>
+  <br>
 
-<%= render "commandes/docInfosClient" %>
+  <%= render "commandes/docInfosCommande" %>
 
-<%= render "commandes/docListeArticles" %>
-<%= render "commandes/docListePaiements" %>
-<%= render "commandes/docListeAvoirrembs" %>
-<%= render "commandes/docListeSynthese" %>
+  <%= render "commandes/docInfosClient" %>
+
+  <%= render "commandes/docListeArticles" %> <br>
+  <%= render "commandes/docListePaiements" %> <br>
+  <%= render "commandes/docListeAvoirrembs" %> <br>
+  <%= render "commandes/docListeSynthese" %> 

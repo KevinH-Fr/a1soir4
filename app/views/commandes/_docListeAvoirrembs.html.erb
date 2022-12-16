@@ -1,35 +1,37 @@
 <%# reparametrer les articles avec le param local commande passé depuis commande mailer %>
 <% @avoirrembs = Avoirremb.commande_courante(@commande) %>
 
-<h5> Avoirs remboursements </h5>
+<% if @avoirrembs.present? %>
+  <h5 class="h5-doc"> Avoirs remboursements </h5>
 
- <table class="table table-bordered">
-      <thead class="table">
-        <tr>
-          <th style="text-align: center;">#</th>
-          <th>Type</th>
-          <th>Date</th>
-          <th>Montant</th>
-        </tr>
-      </thead>
-      <tbody>
-
-        <% @avoirrembs.each_with_index do | avoirremb, i | %>
+  <table class="table table-bordered">
+        <thead class="table table-doc">
           <tr>
-            <td class="text-center"> <%= i + 1 %> </td>
-            <td class="text-center"> <%= avoirremb.typeavoirremb %> </td>
-            <td class="text-center"> <%= avoirremb.created_at.strftime("%d/%m/%y")  %> </td>
-            <td class="text-end"> <%= avoirremb.montant %> </td>
-          </tr> 
-        <% end %>
-      </tbody>
+            <th class="th-doc">#</th>
+            <th class="th-doc">Type</th>
+            <th class="th-doc">Date</th>
+            <th class="th-doc">Montant</th>
+          </tr>
+        </thead>
+        <tbody>
 
-      <tfoot>
-        <tr>
-          <td colspan=3 class="footer text-center">  totaux  </td>
-          <td class="footer text-end"> 
-            <%= Avoirremb.commande_courante(@commande).sum_avoirrembs %> 
-          </td>
-        </tr>
-      </tfoot>
-    </table>
+          <% @avoirrembs.each_with_index do | avoirremb, i | %>
+            <tr>
+              <td class="td-doc text-center"> <%= i + 1 %> </td>
+              <td class="td-doc text-center"> <%= avoirremb.typeavoirremb %> </td>
+              <td class="td-doc text-center"> <%= avoirremb.created_at.strftime("%d/%m/%y")  %> </td>
+              <td class="td-doc text-end"> <%= avoirremb.montant %> </td>
+            </tr> 
+          <% end %>
+        </tbody>
+
+        <tfoot>
+          <tr>
+            <td colspan=3 class="tfoot-doc text-center">  totaux  </td>
+            <td class="tfoot-doc text-end"> 
+              <%= Avoirremb.commande_courante(@commande).sum_avoirrembs %> 
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+<% end %>

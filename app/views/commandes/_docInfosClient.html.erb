@@ -2,32 +2,30 @@
 <% clientId = Commande.find(@commande.id).client_id %>
 
 <div class="cadre">
-
-    <table class="table">
-
+  <table class="table-invisible">
     <tbody>
-        <tr>
-        <td> 
-            <strong>Client</strong> 
-            <%= Client.find(clientId).full_name %> <br>
+      <tr>
+        <td class="td-doc"> 
+          <span>Client</span> 
+          <span class="doc-important"> <%= Client.find(clientId).full_name %> </span>
         </td>
-        <td>
+        <td class="bloc-adresse-client"> 
            <strong> <%= Client.find(clientId).full_name %> </strong>
         </td>
-        </tr>
-        <tr>
-        <td>
+      </tr>
+      <tr>
+        <td class="td-doc"> 
             <%= Client.find(clientId).mail %> |
             <%= Client.find(clientId).tel %> 
         </td>
-        <td>
+        <td class="bloc-adresse-client"> 
             <%= Client.find(clientId).adresse %> <br>
-            <%= Client.find(clientId).ville %>   <%= Client.find(clientId).cp %> 
+            <%= Client.find(clientId).ville %>   
+            <%= Client.find(clientId).cp %> 
         </td>
-        </tr>
+      </tr>
     </tbody>
-    </table>
-
+  </table>
 </div>  
  
-<br><br>
+<br>

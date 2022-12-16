@@ -1,13 +1,12 @@
 
-<div style="color: black;">
+<div class="cadre">
 
-    <%#= Commande.find(@commande.id).texte_record %> <br>
+    <span>Evénement</span> 
+    <span class="doc-important"> <%= Commande.find(@commande.id).info_evenement %> </span> <br>
+    <br>
 
-    <strong>Evénement </strong> 
-    <%= Commande.find(@commande.id).info_evenement %> <br>
-
-    <strong>Servi par </strong> 
-    <%= Profile.find(@commande.profile_id).full_name %> <br>
+    <span>Servi par </span> 
+    <span class="doc-important"> <%= Profile.find(@commande.profile_id).full_name %> </span> <br>
     <br>
 
 </div>   

@@ -58,7 +58,8 @@
             <% @sousarticles.each do |sousarticle| %>
               <tr>
                 <td></td>
-                <td colspan="2" class="fst-italic"> <%= sousarticle.nature %> </td>
+                <td></td>
+                <td colspan="1" class="fst-italic"> <%= sousarticle.nature %> </td>
                 <td></td>
                 <td></td>
                 <td class="text-end"> </td>
@@ -76,10 +77,10 @@
              class:"btn btn-sm btn-primary mt-0 mb-0" %>
              </td>
 
-            <td class="text-center" colspan=2> totaux </td>
-            <td class="text-center"> <%= Article.commande_courante(@commande).compte_articles %> </td>
+            <td class="text-center text-light" colspan=2> totaux </td>
+            <td class="text-center text-light"> <%= Article.commande_courante(@commande).compte_articles %> </td>
             <td></td>
-            <td class="text-end">
+            <td class="text-end text-light">
               <%= number_to_currency(
                     Article.commande_courante(@commande).sum_articles + 
                     Article.joins(:sousarticles).commande_courante(@commande).sum_sousarticles, locale: :fr)  %> 

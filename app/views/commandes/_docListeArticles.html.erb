@@ -2,41 +2,41 @@
 <%# reparametrer les articles avec le param local commande passé depuis commande mailer %>
 <% @articles = Article.commande_courante(@commande) %>
 
-<h5> Articles </h5>
+<h5 class="h5-doc"> Articles </h5>
 
- <table class="table table-bordered">
+ <table class="table table-doc">
       <thead class="table">
         <tr>
-          <th>#</th>
-          <th colspan="2">articles</th>
-          <th>quantité</th>
-          <th>prix</th>
-          <th>total</th>
+          <th class="th-doc">#</th>
+          <th colspan="2" class="th-doc">articles</th>
+          <th class="th-doc">quantité</th>
+          <th class="th-doc">prix</th>
+          <th class="th-doc">total</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <% @articles.each_with_index do | article, i | %>
-            <td class="text-center"> <%= i + 1 %> </td>
-            <td class="text-center"> 
-              <%= image_tag(Produit.find(article.produit_id).default_image, style: "width: 50px; display: block", 
+            <td class="td-doc text-center"> <%= i + 1 %> </td>
+            <td class="td-doc text-center" style="width: 70px;"> 
+              <%= image_tag(Produit.find(article.produit_id).default_image, style: "width: 60px; display: block", 
                class: "img-fluid rounded") %> 
             </td>
-            <td> <%= Produit.find(article.produit_id).nom %> </td>
-            <td class="text-center"> <%= article.quantite %> </td>
-            <td class="text-end"> <%= article.prix %> </td>
-            <td class="text-end"> <%= article.total %> </td>
+            <td class="td-doc"> <%= Produit.find(article.produit_id).nom %> </td>
+            <td class="td-doc text-center"> <%= article.quantite %> </td>
+            <td class="td-doc text-end"> <%= number_to_currency(article.prix, locale: :fr) %> </td>
+            <td class="td-doc text-end"> <%= number_to_currency(article.total, locale: :fr) %> </td>
           </tr> 
 
             <% @sousarticles = Sousarticle.where(article_id: article.id) %>
             <% @sousarticles.each do |sousarticle| %>
               <tr>
                 <td></td>
-                <td class="fst-italic"> <%= sousarticle.nature %> </td>
                 <td></td>
+                <td class="td-doc fst-italic"> <%= sousarticle.nature %> </td>
                 <td></td>
-                <td class="text-end"> </td>
-                <td class="text-end"> <%= sousarticle.prix_sousarticle %></td>
+                <td> </td>
+                <td class="td-doc text-end">  <%= number_to_currency(sousarticle.prix_sousarticle, locale: :fr) %> </td>
               </tr>
             <% end %>       
         <% end %>
@@ -44,20 +44,18 @@
 
       <tfoot>
         <tr>
-          <td colspan=3 class="text-center footer">  
+          <td colspan=3 class="text-center tfoot-doc">  
             totaux
           </td>
-          <td class="text-center footer">
+          <td class="text-center tfoot-doc">
             <%= Article.commande_courante(@commande).compte_articles %>
           </td>
-          <td class="footer"></td>
-          <td class="text-end footer">
-            <%= Article.commande_courante(@commande).sum_articles + 
-                Article.joins(:sousarticles).commande_courante(@commande).sum_sousarticles %>
+          <td class="tfoot-doc"></td>
+          <td class="text-end tfoot-doc">
+            <%= number_to_currency(Article.commande_courante(@commande).sum_articles + 
+                Article.joins(:sousarticles).commande_courante(@commande).sum_sousarticles, locale: :fr) %>
           </td>
-         
         </tr>
-        
       </tfoot>
     </table>
 
