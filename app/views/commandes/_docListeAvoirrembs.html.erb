@@ -4,10 +4,10 @@
 <% if @avoirrembs.present? %>
   <h5 class="h5-doc"> Avoirs remboursements </h5>
 
-  <table class="table table-bordered">
-        <thead class="table table-doc">
+  <table class="table table-doc table-bordered">
+        <thead class="table th-doc">
           <tr>
-            <th class="th-doc">#</th>
+            <th class="">#</th>
             <th class="th-doc">Type</th>
             <th class="th-doc">Date</th>
             <th class="th-doc">Montant</th>
@@ -20,7 +20,7 @@
               <td class="td-doc text-center"> <%= i + 1 %> </td>
               <td class="td-doc text-center"> <%= avoirremb.typeavoirremb %> </td>
               <td class="td-doc text-center"> <%= avoirremb.created_at.strftime("%d/%m/%y")  %> </td>
-              <td class="td-doc text-end"> <%= avoirremb.montant %> </td>
+              <td class="td-doc text-end"> <%= number_to_currency(avoirremb.montant, locale: :fr) %> </td>
             </tr> 
           <% end %>
         </tbody>
@@ -29,7 +29,7 @@
           <tr>
             <td colspan=3 class="tfoot-doc text-center">  totaux  </td>
             <td class="tfoot-doc text-end"> 
-              <%= Avoirremb.commande_courante(@commande).sum_avoirrembs %> 
+              <%= number_to_currency(Avoirremb.commande_courante(@commande).sum_avoirrembs, locale: :fr) %> 
             </td>
           </tr>
         </tfoot>

@@ -3,16 +3,6 @@ class CommandesController < ApplicationController
 
   def index
 
-    # @commandes = Commande.all
-    # @pagy, @commandes = pagy(Commande.order(created_at: :desc), items: 2)
-    # @pagy, @commandes = pagy(Commande.order(created_at: :desc), items: 5)
-    # @q = Commande.ransack(params[:q])
-    # if @q.present?  
-    # @commandes = @q.result(distinct: true)
-    # @pagy, @commandes = pagy(Commande.ransack(params[:q]).result(distinct: true))
-    # end
-    # @commandes = Commande.search(params[:search])
-
     search_params = params.permit(:format, :page, 
     q:[:nom_or_typeevenement_or_client_prenom_or_client_nom_or_profile_prenom_cont])
     @q = Commande.includes(:client, :profile).ransack(search_params[:q])

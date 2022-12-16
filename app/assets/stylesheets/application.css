@@ -8,12 +8,7 @@ html {
 }
 
 body {
-  /*  background-color: rgb(255, 251, 251); */
   background-image: url('svg/waves.svg');
- /* margin-left: 5px;
- /* margin-bottom: 60px; /* Margin bottom by footer height */
- /* margin-top: 1px;*/
-
 }
 
 main{
@@ -27,18 +22,9 @@ main{
 .container-main{
   min-height: 100%;
 }
-  /*
-  -ms-overflow-style: none; 
-  scrollbar-width: none;  
-  overflow-y: scroll; 
-}
-
-.body-main::-webkit-scrollbar {
-  display: none; 
-} */
 
 h1, h2, div, li, ul, a {
-    color: rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
 }
 
 .container-principal{
@@ -46,9 +32,8 @@ h1, h2, div, li, ul, a {
   background: white;
 }
 
-
 ::-webkit-scrollbar {
-  width: 0px;
+  width: 2px;
 }
 
 .chartBox {
@@ -172,7 +157,6 @@ h1, h2, div, li, ul, a {
 
 .test-icon::after{
    content: "\270f";
-   /* font-family: 'Glyphicons Halflings'; */
 }
 
 #notice{
@@ -265,8 +249,6 @@ h1, h2, div, li, ul, a {
   font-weight: bold;
   vertical-align: top;
   margin: .5em;
-
-
 }
 
 .crop { 
@@ -345,7 +327,7 @@ h1, h2, div, li, ul, a {
 }
 
 .format-titre-dashboard{
-  font-size: small;
+  font-size: .9em;
   text-align: center;
   vertical-align: middle;
   margin: .0em;
@@ -589,21 +571,20 @@ h1, h2, div, li, ul, a {
 }
 
 .counter-model-dashboard{
- /* position: absolute;
-  right: .0em; */
   background-color: rgb(232, 192, 10);
   color:black;
   font-size: x-small;
   padding: .4em;
-  margin: .2em;
+  margin: .0em;
 }
 
 .add-dashboard{
   background-color: rgb(49, 74, 220);
   color:rgb(255, 255, 255);
-  font-size: small;
-  margin: .2em;
-  padding: .1em;
+  font-size: x-small;
+  vertical-align: middle;
+  margin: .0em;
+  padding: .2em;
 }
 
 .small-text{
