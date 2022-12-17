@@ -24,26 +24,6 @@ class CommandesController < ApplicationController
     @commandeId = params[:id]
     session[:commandeId] = @commandeId
 
-    #respond_to do |format|
-    #  format.html
-    #  format.pdf do
-    #    render pdf: "bonCommande_ #{@commandeId}", # filename
-    #      :margin => {
-    #        :top => 5,
-    #        :bottom => 20
-    #      },
-    #      :template => "commandes/bonCommande",
-    #        footer:  { 
-    #          html: { 
-    #            template:'shared/doc_footer',  
-    #            formats: [:html],      
-    #            layout:  'pdf',  
-    #          },
-    #        },
-    #        formats: [:html],
-    #        layout: 'pdf'
-    #  end
-    #end
   end
 
   def new 
@@ -160,8 +140,27 @@ class CommandesController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        render pdf: "file_name", 
-                template: "commandes/bonCommande",  
+        render pdf: "#{typedoc}_" "#{@commande.id}", 
+                margin: {
+                  top: 20,
+                },
+                template: "commandes/bonCommande",
+                  header: { 
+                    html: { 
+                      template:'shared/doc_entete',  
+                      formats: [:html],      
+                      layout:  'pdf',  
+                    },
+                  },
+                  footer:  { 
+                    html: { 
+                      template:'shared/doc_footer',  
+                      formats: [:html],      
+                      layout:  'pdf',  
+                    },
+                    right: 'Page [page] sur [topage]',
+                  },  
+                  
                 layout: 'pdf', formats: [:html], locals: {commande: @commande}
       end
     end
