@@ -158,7 +158,7 @@ class CommandesController < ApplicationController
                       formats: [:html],      
                       layout:  'pdf',  
                     },
-                    right: 'Page [page] sur [topage]',
+                   # right: 'Page [page] sur [topage]',
                   },  
                   
                 layout: 'pdf', formats: [:html], locals: {commande: @commande}

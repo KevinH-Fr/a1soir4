@@ -7,7 +7,7 @@
   <% ventes = Article.produit_courant(@produitId).articlesVendus.compte_articles %> 
  
   stock initial : <%= initial = Produit.find(@produitId).quantite %> /
-  nb restant : <%= initial - locations - ventes %> <br>
+  nb restant : <%= initial.to_i - locations.to_i - ventes.to_i %> <br>
  
   nb locations : <%= locations %> 
   nb ventes : <%= ventes %> <br>
