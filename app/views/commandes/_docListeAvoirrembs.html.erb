@@ -2,7 +2,7 @@
 <% @avoirrembs = Avoirremb.commande_courante(@commande) %>
 
 <% if @avoirrembs.present? %>
-  <h5 class="h5-doc"> Avoirs remboursements </h5>
+  <h5 class="h5-doc"> AVOIRS REMBOURSEMENTS </h5>
 
   <table class="table table-doc table-bordered">
         <thead class="table th-doc">
@@ -27,7 +27,7 @@
 
         <tfoot>
           <tr>
-            <td colspan=3 class="tfoot-doc text-center">  totaux  </td>
+            <td colspan=3 class="tfoot-doc text-center">  TOTAUX  </td>
             <td class="tfoot-doc text-end"> 
               <%= number_to_currency(Avoirremb.commande_courante(@commande).sum_avoirrembs, locale: :fr) %> 
             </td>

@@ -10,12 +10,15 @@
   color: rgb(0, 0, 0);
 }
 
-.bloc-adresse-client {
+.bloc-adresse {
   font-family: Arial, Helvetica, sans-serif;
+  font-size: large;
   background-color: rgb(249, 237, 237);
   color: rgb(0, 0, 0);
-  position: relative; 
-  left: 700px;
+  position: absolute; 
+  top: 200px;
+  left: 880px;
+
 }
 
 .doc-important{
@@ -77,7 +80,6 @@
   padding: 20px;
 
 }
-
 
 
 

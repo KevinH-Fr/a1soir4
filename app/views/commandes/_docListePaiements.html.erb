@@ -3,7 +3,7 @@
 
 <% if @paiements.present? %>
 
-  <h5 class="h5-doc"> Paiements </h5>
+  <h5 class="h5-doc"> PAIEMENTS </h5>
 
   <table class="table table-doc">
         <thead class="table">
@@ -28,7 +28,7 @@
 
         <tfoot>
           <tr>
-            <td colspan=3 class="tfoot-doc text-center">  totaux  </td>
+            <td colspan=3 class="tfoot-doc text-center">  TOTAUX  </td>
             <td class="tfoot-doc text-end"> 
               <%= number_to_currency(Paiement.commande_courante(@commande).sum_paiements, locale: :fr) %> 
             </td>

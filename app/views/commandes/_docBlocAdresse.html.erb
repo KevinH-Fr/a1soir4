@@ -1,0 +1,9 @@
+<% clientId = Commande.find(@commande.id).client_id %>
+
+<div class="bloc-adresse">
+    <strong> <%= Client.find(clientId).full_name %>  </strong> <br> <br>   
+    <%= Client.find(clientId).adresse %> <br>
+    <%= Client.find(clientId).cp %> 
+    <%= Client.find(clientId).ville %>  
+
+ </div>

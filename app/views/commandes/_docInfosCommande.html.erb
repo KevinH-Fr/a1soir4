@@ -1,12 +1,26 @@
 
+<% clientId = Commande.find(@commande.id).client_id %>
+
 <div class="cadre">
 
+    <span>Client </span> 
+    <span class="doc-important"> <%= Client.find(clientId).full_name %> </span> <br><br>
+    courriel: <span class="doc-important"> <%= Client.find(clientId).mail %> </span> 
+    téléphone: <span class="doc-important"> <%= Client.find(clientId).tel %> </span> 
+    <br>
+
     <span>Evénement</span> 
-    <span class="doc-important"> <%= Commande.find(@commande.id).info_evenement %> </span> <br>
+    <span class="doc-important"> <%= @commande.info_evenement %> </span> <br>
     <br>
 
     <span>Servi par </span> 
     <span class="doc-important"> <%= Profile.find(@commande.profile_id).full_name %> </span> <br>
     <br>
+
+    <span>Statut commande </span> 
+    <span class="doc-important"> <%= @commande.statutarticles %> </span> <br>
+    <br>
+
+
 
 </div>   

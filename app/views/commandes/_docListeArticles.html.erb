@@ -2,7 +2,7 @@
 <%# reparametrer les articles avec le param local commande passé depuis commande mailer %>
 <% @articles = Article.commande_courante(@commande) %>
 
-<h5 class="h5-doc"> Articles </h5>
+<h5 class="h5-doc"> ARTICLES </h5>
 
  <table class="table table-doc">
       <thead class="table">
@@ -45,7 +45,7 @@
       <tfoot>
         <tr>
           <td colspan=3 class="text-center tfoot-doc">  
-            totaux
+            TOTAUX
           </td>
           <td class="text-center tfoot-doc">
             <%= Article.commande_courante(@commande).compte_articles %>

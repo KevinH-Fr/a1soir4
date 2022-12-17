@@ -7,17 +7,17 @@
           <%= image_tag(produit.default_image, class:"img-fluid rounded-start image-produit-sized")  %> 
         </div>
 
-        <div class="col-1 m-0 p-0">
+        <div class="col-1 my-3 p-0">
           <% if produit.vitrine == true %>
-            <i class="fa-solid fa-globe iconcolor-true"></i>
+            <i class="fa-solid fa-globe iconcolor-true my-1"></i>
           <% else %>
-            <i class="fa-solid fa-globe iconcolor-false"></i>
+            <i class="fa-solid fa-globe iconcolor-false my-1"></i>
           <% end %>
-          <br>
+          <br> 
           <% if produit.eshop == true %>
-            <i class="fa-solid fa-cart-shopping iconcolor-true"></i>
+            <i class="fa-solid fa-cart-shopping iconcolor-true mt-2 my-1"></i>
           <% else %>
-            <i class="fa-solid fa-cart-shopping iconcolor-false"></i>
+            <i class="fa-solid fa-cart-shopping iconcolor-false mt-2 my-1"></i>
           <% end %>
         </div>
 
@@ -37,7 +37,7 @@
               <%= highlight(produit.couleur, params.dig(:q, :nom_or_categorie_or_couleur_cont)) %></small>
             </span>
             <span class="card-text"><small class="text-muted">
-              <%= highlight(produit.prix, params.dig(:q, :nom_or_categorie_or_couleur_cont)) %></small>
+              <%= produit.prix %></small>
             </span>
 
           </div>

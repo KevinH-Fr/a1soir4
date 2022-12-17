@@ -56,7 +56,8 @@ class ProduitsController < ApplicationController
     #  @produits = @q.result(distinct: true)
     #end 
 
-    search_params = params.permit(:format, :page, q:[:nom_or_categorie_or_couleur_cont])
+    search_params = params.permit(:format, :page, 
+    q:[:nom_or_categorie_or_couleur_cont])
     @q = Produit.ransack(search_params[:q])
     produits = @q.result(distinct: true).order(created_at: :desc)
     @pagy, @produits = pagy_countless(produits, items: 2)
