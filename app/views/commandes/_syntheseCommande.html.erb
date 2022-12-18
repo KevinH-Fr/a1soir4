@@ -89,6 +89,23 @@
         </li>
       </ul>
     </div>
+
+    <div class="btn-group">
+      <button type="button" class="btn btn-warning btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fa-solid fa-receipt"></i>
+      </button>
+      <% typedoc = "facture_simple" %>
+      <% session[:typedoc] = typedoc %>
+
+      <ul class="dropdown-menu">
+        <li>
+          <%= link_to 'pdf facture simple', generate_pdf_commande_path(typedoc: typedoc),  class:"dropdown-item" %>
+        </li>
+        <li>
+          <%= link_to 'mail facture simple', send_commande_mail_commande_path(typedoc: typedoc),  class:"dropdown-item" %>
+        </li>
+      </ul>
+    </div>
   </div>
 
 </div>

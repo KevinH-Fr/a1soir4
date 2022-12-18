@@ -18,7 +18,7 @@
   <div class="card-body body-bloc-dashboard"> 
     <table class="table bloc-table table-primary table-striped table-hover  m-0 p-0">
       <tbody class="table-light table-dashboard">
-        <% @commandes.limit(6).each do | commande | %>
+        <% @commandes.limit(6).order(updated_at: :desc).each do | commande | %>
           <tr> 
             <td> 
               <%= link_to commande.texte_record, commande_path(commande), class:"text-dark crop", style:"text-decoration: none;" %> 

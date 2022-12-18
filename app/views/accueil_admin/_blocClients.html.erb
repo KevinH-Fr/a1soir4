@@ -18,7 +18,7 @@
   <div class="card-body body-bloc-dashboard"> 
     <table class="table bloc-table table-primary table-striped table-hover m-0 p-0">
       <tbody class="table-light table-dashboard">
-        <% @clients.limit(5).each do | client | %>
+        <% @clients.limit(5).order(updated_at: :desc).each do | client | %>
           <tr> 
             <td> 
               <%= link_to client.full_name, client_path(client), class:"text-dark crop", style:"text-decoration: none;" %> 

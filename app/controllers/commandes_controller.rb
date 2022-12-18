@@ -152,6 +152,12 @@ class CommandesController < ApplicationController
     @commande = Commande.find(params[:id])
     typedoc = params[:typedoc]
 
+    # si facture simple, ouvrir page pour rentrer texte par user
+
+    if typedoc == "facture_simple"
+    #  redirect_to commandes_path()
+    end 
+
     respond_to do |format|
       format.html
       format.pdf do
