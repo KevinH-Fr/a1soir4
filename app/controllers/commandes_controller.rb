@@ -196,6 +196,6 @@ class CommandesController < ApplicationController
 
     def commande_params
       params.require(:commande).permit(:nom, :montant, :client_id, :debutloc, :finloc, 
-        :dateevenement, :typeevenement, :statutarticles, :profile_id)
+        :dateevenement, :typeevenement, :statutarticles, :profile_id, :commentairesdoc, :textefasimpledoc)
     end
 end

@@ -43,9 +43,6 @@
       <div class="input-group mb-1">
         <%= form.label :typeevenement, class:"input-group-text label-with-format" %>
         <%= form.text_field :typeevenement, class: 'form-control field-with-format' %>
-      </div>
-
-      <div class="input-group mb-1">
         <%= form.label :evenement, class:"input-group-text label-with-format" %>
         <%= form.date_field :dateevenement, class: 'form-control field-with-format', include_blank: true %>
       </div>
@@ -55,6 +52,16 @@
         <%#= form.text_field :statutarticles, class:"form-control field-with-format" %>
         <%= form.select(:statutarticles, Commande.statutarticleses.keys, 
           class:"form-control field-with-format") %> 
+      </div>
+
+      <div class="input-group mb-1">
+        <%= form.label :commentairesdoc, class:"input-group-text label-with-format" %>
+        <%= form.text_field :commentairesdoc, class:"form-control field-with-format" %> 
+      </div>
+
+      <div class="input-group mb-1">
+        <%= form.label :textefasimpledoc, class:"input-group-text label-with-format" %>
+        <%= form.text_field :textefasimpledoc, class:"form-control field-with-format" %> 
       </div>
   
       <div class="float-end mt-2 mb-4">

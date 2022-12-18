@@ -2,9 +2,21 @@
 <%# reparametrer les articles avec le param local commande passé depuis commande mailer %>
 <% @articles = Article.commande_courante(@commande) %>
 
-<h5 class="h5-doc"> ARTICLES </h5>
+  <h4 class="h4-doc">
 
- <table class="table table-doc">
+    <% if @typedoc %>
+      <% typedoc = @typedoc %>
+    <% else %>
+      <% typedoc = params[:typedoc] %> 
+    <% end %>
+
+  </h4>
+
+<% unless typedoc == "facture_simple" %>
+
+  <h5 class="h5-doc"> ARTICLES </h5>
+
+    <table class="table table-doc">
       <thead class="table">
         <tr>
           <th class="th-doc">#</th>
@@ -59,3 +71,34 @@
       </tfoot>
     </table>
 
+<% else %> 
+
+  <div class="cadre">
+      <% totalHt = (Article.commande_courante(@commande).sum_articles + 
+                Article.joins(:sousarticles).commande_courante(@commande).sum_sousarticles) / 1.2 %>
+      <% totalTva = totalHt * 0.2 %>
+
+     <% totalTtc = Article.commande_courante(@commande).sum_articles + 
+                Article.joins(:sousarticles).commande_courante(@commande).sum_sousarticles %>
+
+      <span> <%= @commande.textefasimpledoc %>  </span> <br> <br>
+
+      <span>Total HT </span> 
+      <span class=""> 
+        <%= number_to_currency(totalHt, locale: :fr) %>
+      </span> <br>
+
+      <span>TVA </span> 
+      <span class=""> 
+        <%= number_to_currency(totalTva, locale: :fr) %>
+      </span> <br>
+     
+      <span>Total TTC </span> 
+      <span class="doc-important"> 
+         <%= number_to_currency(totalTtc, locale: :fr) %>
+      </span> <br>
+
+      <br>
+  </div>
+
+<% end %>
