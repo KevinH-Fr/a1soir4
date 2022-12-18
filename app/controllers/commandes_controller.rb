@@ -41,6 +41,7 @@ class CommandesController < ApplicationController
       format.turbo_stream do  
         render turbo_stream: turbo_stream.update(@commande, partial: "commandes/form", 
           locals: {commande: @commande})
+      
       end
     end
   end
@@ -50,6 +51,7 @@ class CommandesController < ApplicationController
 
     respond_to do |format|
       if @commande.save
+
         # CommandeMailer.with(user: current_user, commande: @commande).commande_created.deliver_later
         format.html { redirect_to commande_url(@commande), notice: "Commande was successfully created." }
         format.json { render :show, status: :created, location: @commande }
@@ -64,10 +66,19 @@ class CommandesController < ApplicationController
     respond_to do |format|
       if @commande.update(commande_params)
 
+       
+          
         format.turbo_stream do  
-          render turbo_stream: turbo_stream.update(@commande, partial: "commandes/commande",
+          render turbo_stream: 
+          turbo_stream.update(@commande, partial: "commandes/commande",
             locals: {commande: @commande})
+
+
+
+
         end
+
+
 
         format.html { redirect_to commande_url(@commande), notice: "commande was successfully updated." }
         format.json { render :show, status: :ok, location: @commande }
@@ -95,7 +106,7 @@ class CommandesController < ApplicationController
 
   def toggle_commande_client
     clientId = params[:id]
-    @commande = Commande.create(client_id: clientId, profile_id: 1) 
+    @commande = Commande.create(client_id: clientId, profile_id: Profile.first.id) 
     redirect_to commande_path(@commande),
        notice: "commande client auto #{clientId}" 
     
@@ -105,21 +116,24 @@ class CommandesController < ApplicationController
     commandeId = params[:id]
     commande = Commande.find(commandeId)
     commande.update(statutarticles: "retiré" )
-    redirect_to commande_path(commandeId)
+    redirect_to commande_path(commandeId),
+      notice: "commande retirée par client" 
   end
 
   def toggle_statut_non_retire
     commandeId = params[:id]
     commande = Commande.find(commandeId)
     commande.update(statutarticles: "non-retiré" )
-    redirect_to commande_path(commandeId)
+    redirect_to commande_path(commandeId),
+      notice: "commande non-retirée par client" 
   end
 
   def toggle_statut_rendu
     commandeId = params[:id]
     commande = Commande.find(commandeId)
     commande.update(statutarticles: "rendu" )
-    redirect_to commande_path(commandeId)
+    redirect_to commande_path(commandeId),
+      notice: "commande rendue par client" 
   end
 
 

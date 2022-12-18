@@ -1,13 +1,13 @@
 <div id="<%= dom_id produit %>">
 
-    <div class="card mb-0 bloc-produit">
-      <div class="row g-0">
+    <div class="bloc-record">
+      <div class="row">
         <div class="col-2">
           <%#= image_tag(produit.image1, class:"img-fluid rounded-start image-produit-sized") if produit.image1.present? %> 
           <%= image_tag(produit.default_image, class:"img-fluid rounded-start image-produit-sized")  %> 
         </div>
 
-        <div class="col-1 my-3 p-0">
+        <div class="col-2 text-center">
           <% if produit.vitrine == true %>
             <i class="fa-solid fa-globe iconcolor-true my-1"></i>
           <% else %>
@@ -21,7 +21,7 @@
           <% end %>
         </div>
 
-        <div class="col-6 m-0 p-0">
+        <div class="col-7 m-0 p-0">
           <div class="card-body m-0 p-0">
             <h6 class="card-title text-black m-0 p-0"><%= highlight(produit.nom, 
               params.dig(:q, :nom_or_categorie_or_couleur_cont)) %></h6>
@@ -43,15 +43,8 @@
 
           </div>
         </div>
-
-        <div class="col m-0 p-0">
-          <%#= image_tag(produit.qr_code, class:"rounded-start image-qr-cb-sized") if produit.qr_code.attached? %>
-        </div>
-        <div class="col m-0 p-0">
-          <%#= image_tag(produit.barcode, class:"rounded-start image-qr-cb-sized") if produit.barcode.attached? %>
-        </div>
         
-        <div class="col-1 text-end">
+        <div class="col-1 m-0 p-0 text-center">
             <%= link_to '', produit_path(produit), 
                 class:"fa-regular fa-folder-open btn btn-sm btn-primary mb-1 p-1" %> 
             <%= button_to '', edit_produit_path(produit), 

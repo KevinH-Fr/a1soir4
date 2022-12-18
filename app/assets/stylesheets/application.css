@@ -232,8 +232,8 @@ h1, h2, div, li, ul, a {
 }
 
 .bloc-large{
-  height: calc(25.2vh - .6em);
-  min-height: 20vh;
+  height: calc(27.2vh - .6em);
+  min-height: 24vh;
   overflow: hidden;
 }
 
@@ -348,7 +348,7 @@ h1, h2, div, li, ul, a {
   padding: 1em;
   border-radius: .2em;
   box-shadow: 2px 3px 4px rgba(165, 163, 163, 0.8);
-  margin-bottom: 1em;
+  margin-bottom: .5em;
   font-size: medium;
 
 /*  max-width: 400px;*/
@@ -368,18 +368,6 @@ h1, h2, div, li, ul, a {
     max-height: 70vh;
   }
 
-.bloc-produit{
-    background-color: rgb(233, 228, 229);
-    padding: .5em;
-    border-radius: .2em;
-    box-shadow: 2px 3px 4px rgba(165, 163, 163, 0.8);
-    margin-top: 0.5em;
-    margin-right: 0.5em;
-    margin-bottom: 1em;
-    font-size: .8em;
-    min-height: 14vh; 
-    max-height: 14vh; 
-}
 
 .text-record-main {
   font-size: medium;
