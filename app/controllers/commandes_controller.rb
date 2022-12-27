@@ -137,56 +137,79 @@ class CommandesController < ApplicationController
   end
 
 
+  def generate_pdf()
+   # @commande = Commande.find(params[:id])
+   # typedoc = params[:typedoc]
+
+  #  respond_to do |format|
+  #    format.html
+  #    format.pdf do
+  ##      render pdf: "#{typedoc}_" "#{@commande.id}", 
+  #              margin: {
+  #                top: 20,
+  ##              },
+  #              template: "commandes/bonCommande",
+  #                header: { 
+  #                  html: { 
+  #                    template:'shared/doc_entete',  
+  #                    formats: [:html],      
+  #                    layout:  'pdf',  
+  #                  },
+  #                },
+  #                footer:  { 
+  #                  html: { 
+  #                    template:'shared/doc_footer',  
+  #                    formats: [:html],      
+  #                    layout:  'pdf',  
+  #                  },
+  #                 # right: 'Page [page] sur [topage]',
+  #                },  
+  #                
+  #              layout: 'pdf', formats: [:html], locals: {commande: @commande}
+  #    end
+  #  end
+
+  end
+
+  def editer_pdf
+
+    @commande = Commande.find(params[:id])
+    typedoc = params[:typedoc]
+
+    pdf = WickedPdf.new.pdf_from_string(
+      render_to_string('commandes/bonCommande', layout: 'pdf'),
+        header: {
+          content: render_to_string(
+            'shared/doc_entete',
+            layout: 'pdf'
+          )
+        },
+        footer: {
+          content: render_to_string(
+            'shared/doc_footer',
+            layout: 'pdf'
+          )
+        }
+    )
+
+    # Envoi du PDF en tant que fichier à télécharger
+    send_data pdf,
+      filename: "#{typedoc}_" "#{@commande.id}",
+      type: 'application/pdf',
+      disposition: 'inline'
+
+  end 
+
   def send_commande_mail()
 
     commande = Commande.find(params[:id])
     typedoc = params[:typedoc]
 
-    CommandeMailer.commande_created(commande, session[:typedoc]).deliver_now
+    CommandeMailer.commande_created(commande, typedoc).deliver_now
       flash[:notice] = "le mail a bien été envoyé"
-      redirect_to commande_path(commande)
+      redirect_to commande_path(commande, typedoc: typedoc )
 
   end 
-
-  def generate_pdf()
-    @commande = Commande.find(params[:id])
-    typedoc = params[:typedoc]
-
-    # si facture simple, ouvrir page pour rentrer texte par user
-
-    if typedoc == "facture_simple"
-    #  redirect_to commandes_path()
-    end 
-
-    respond_to do |format|
-      format.html
-      format.pdf do
-        render pdf: "#{typedoc}_" "#{@commande.id}", 
-                margin: {
-                  top: 20,
-                },
-                template: "commandes/bonCommande",
-                  header: { 
-                    html: { 
-                      template:'shared/doc_entete',  
-                      formats: [:html],      
-                      layout:  'pdf',  
-                    },
-                  },
-                  footer:  { 
-                    html: { 
-                      template:'shared/doc_footer',  
-                      formats: [:html],      
-                      layout:  'pdf',  
-                    },
-                   # right: 'Page [page] sur [topage]',
-                  },  
-                  
-                layout: 'pdf', formats: [:html], locals: {commande: @commande}
-      end
-    end
-
-  end
   
 
   private

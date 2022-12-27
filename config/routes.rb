@@ -63,6 +63,7 @@ Rails.application.routes.draw do
       get :toggle_editer
 
       get :generate_pdf, format: 'pdf'
+      get :editer_pdf
 
       get :send_commande_mail, 
           to: 'commandes#send_commande_mail', 

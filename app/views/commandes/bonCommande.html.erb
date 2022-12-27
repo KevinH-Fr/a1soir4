@@ -1,26 +1,30 @@
 
 <!DOCTYPE html>
 
-<meta charset="UTF-8">
-  <%= wicked_pdf_stylesheet_link_tag "application" %>
+<html>
 
-  <%#= render "shared/enteteDoc" %>
+    <%#= render "shared/enteteDoc" %>
+    <br><br>
+    <h4 class="h4-doc"> 
+      <% if @typedoc %>
+        <%= @typedoc %>
+      <% else %>
+        <%= typedoc = params[:typedoc] %> 
+      <% end %>
+      <%= Commande.find(@commande.id).texte_record %> <br>
+    </h4>
+    <br>
 
-  <h4 class="h4-doc"> 
-    <% if @typedoc %>
-      <%= @typedoc %>
-    <% else %>
-      <%= typedoc = params[:typedoc] %> 
-    <% end %>
-    <%= Commande.find(@commande.id).texte_record %> <br>
-  </h4>
-  <br>
+    <%= render "commandes/docInfosCommande" %>
 
-  <%= render "commandes/docInfosCommande" %>
+    <%= render "commandes/docBlocAdresse" %>
 
-  <%= render "commandes/docBlocAdresse" %>
+    <%= render "commandes/docListeArticles" %> <br>
+    <%= render "commandes/docListePaiements" %> <br>
+    <%= render "commandes/docListeAvoirrembs" %> <br>
+    <%= render "commandes/docListeSynthese" %> 
 
-  <%= render "commandes/docListeArticles" %> <br>
-  <%= render "commandes/docListePaiements" %> <br>
-  <%= render "commandes/docListeAvoirrembs" %> <br>
-  <%= render "commandes/docListeSynthese" %> 
+
+
+
+  </html>

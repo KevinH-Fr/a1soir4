@@ -550,6 +550,14 @@ h1, h2, div, li, ul, a {
   box-shadow: 1px 1px 1px rgba(165, 163, 163, 0.8);
 }
 
+.small-icon{
+  color:#fff;
+  text-align: center;
+  font-size: x-small;
+  margin: .2em;
+  padding: .5em;
+}
+
 .img-min-size{
   min-width: 25px;
   max-width: 80px;

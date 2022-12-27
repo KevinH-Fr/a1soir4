@@ -20,9 +20,24 @@ class CommandeMailer < ApplicationMailer
     @dateEvent = @commande.dateevenement
     @texteBase = "Merci de trouver ci-attaché le document cité en objet pour votre #{@evenement} du #{@dateEvent}."
 
-    attachments['logo1.png'] = File.read('app/assets/images/logo1.png')
-    attachments["#{@nomDocument}.pdf"] = WickedPdf.new.pdf_from_string(
-      render_to_string(template: 'commandes/bonCommande', locals: {commande: @commande, typedoc: typedoc}, layout: 'pdf', formats: [:html])
+    #attachments['logo1.png'] = File.read('app/assets/images/logo1.png')
+
+    attachments["#{@nomDocument}.pdf"] = 
+
+     WickedPdf.new.pdf_from_string(
+      render_to_string('commandes/bonCommande', layout: 'pdf'),
+        header: {
+          content: render_to_string(
+            'shared/doc_entete',
+            layout: 'pdf'
+          )
+        },
+        footer: {
+          content: render_to_string(
+            'shared/doc_footer',
+            layout: 'pdf'
+          )
+        }
     )
 
 

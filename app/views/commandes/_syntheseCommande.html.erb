@@ -1,6 +1,6 @@
 
 <div class="row m-0 p-0">
-  <div class="col-8 text-start">
+  <div class="col-7 text-start m-0 p-0">
     <% soldePrix = solde_prix(@commande) %>
     <% soldeCaution = solde_caution(@commande) %>
 
@@ -49,13 +49,13 @@
     <% end %>
   </div>
 
-  <div class="col-4 text-end m-0 p-0">
+  <div class="col-5 text-end m-0 p-0">
 
     <%#= link_to "", commande_path(format: :pdf), class:"fa-solid fa-file-export btn btn-sm btn-primary" %> 
     <%#= link_to '', send_commande_mail_commande_path(@commande.id),class:"fa-solid fa-at btn btn-sm btn-warning" %>
   
     <div class="btn-group">
-      <button type="button" class="btn btn-primary btn-sm dropdown-toggle" 
+      <button type="button" class="small-icon btn btn-primary btn-sm dropdown-toggle" 
               data-bs-toggle="dropdown" aria-expanded="false">
         <i class="fa-solid fa-file-invoice"></i>
       </button>
@@ -63,18 +63,18 @@
       <% session[:typedoc] = typedoc %>
       <ul class="dropdown-menu">
         <li>
-          <%= link_to 'pdf commande', generate_pdf_commande_path(typedoc: "commande"),
+          <%= link_to 'pdf commande', editer_pdf_commande_path(typedoc: "commande"),
                 class:"dropdown-item" %>
         </li>
         <li>
-          <%= link_to 'mail commande', send_commande_mail_commande_path(typedoc: "commande", typeedition: "pdf"), 
+          <%= link_to 'mail commande', editer_pdf_commande_path(typedoc: "commande", typeedition: "pdf"), 
                 class:"dropdown-item" %>
         </li>
       </ul>
     </div>
 
     <div class="btn-group">
-      <button type="button" class="btn btn-success btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+      <button type="button" class="small-icon btn btn-success btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
               <i class="fa-solid fa-receipt"></i>
       </button>
       <% typedoc = "facture" %>
@@ -82,7 +82,7 @@
 
       <ul class="dropdown-menu">
         <li>
-          <%= link_to 'pdf facture', generate_pdf_commande_path(typedoc: typedoc),  class:"dropdown-item" %>
+          <%= link_to 'pdf facture', editer_pdf_commande_path(typedoc: typedoc),  class:"dropdown-item" %>
         </li>
         <li>
           <%= link_to 'mail facture', send_commande_mail_commande_path(typedoc: typedoc),  class:"dropdown-item" %>
@@ -91,7 +91,7 @@
     </div>
 
     <div class="btn-group">
-      <button type="button" class="btn btn-warning btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+      <button type="button" class="small-icon btn btn-warning btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
               <i class="fa-solid fa-receipt"></i>
       </button>
       <% typedoc = "facture_simple" %>
@@ -99,7 +99,7 @@
 
       <ul class="dropdown-menu">
         <li>
-          <%= link_to 'pdf facture simple', generate_pdf_commande_path(typedoc: typedoc),  class:"dropdown-item" %>
+          <%= link_to 'pdf facture simple', editer_pdf_commande_path(typedoc: typedoc),  class:"dropdown-item" %>
         </li>
         <li>
           <%= link_to 'mail facture simple', send_commande_mail_commande_path(typedoc: typedoc),  class:"dropdown-item" %>
