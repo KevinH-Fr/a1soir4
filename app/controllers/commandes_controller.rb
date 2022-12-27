@@ -136,41 +136,6 @@ class CommandesController < ApplicationController
       notice: "commande rendue par client" 
   end
 
-
-  def generate_pdf()
-   # @commande = Commande.find(params[:id])
-   # typedoc = params[:typedoc]
-
-  #  respond_to do |format|
-  #    format.html
-  #    format.pdf do
-  ##      render pdf: "#{typedoc}_" "#{@commande.id}", 
-  #              margin: {
-  #                top: 20,
-  ##              },
-  #              template: "commandes/bonCommande",
-  #                header: { 
-  #                  html: { 
-  #                    template:'shared/doc_entete',  
-  #                    formats: [:html],      
-  #                    layout:  'pdf',  
-  #                  },
-  #                },
-  #                footer:  { 
-  #                  html: { 
-  #                    template:'shared/doc_footer',  
-  #                    formats: [:html],      
-  #                    layout:  'pdf',  
-  #                  },
-  #                 # right: 'Page [page] sur [topage]',
-  #                },  
-  #                
-  #              layout: 'pdf', formats: [:html], locals: {commande: @commande}
-  #    end
-  #  end
-
-  end
-
   def editer_pdf
 
     @commande = Commande.find(params[:id])
