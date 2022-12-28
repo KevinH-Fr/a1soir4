@@ -1,10 +1,17 @@
 
-<p>
   Bonjour <%= @intituleClient  %>,<br><br>
   <%= @texteBase %>
   <%#= @commande.texte_record %>
 
-</p>
+  <br>
+  Pour laisser un commentaire : <br>
+  <%= link_to "google", "https://www.google.com" %>
 
-<%#= image_tag attachments['logo1.png'].url %>
-<br>  
+
+<%#= attachments['logo1.png'] %>
+<%#= attachments.inline['logo.png'] %>
+<%#= attachments.inline['logo_courant.png'] = File.read('public/logo_courant.png') %>
+<%#= attachments['logo_courant.png'] %>
+<%#= image_tag(attachments['logo1.png'].url) %>
+ <%#= image_tag asset_url('/logo_courant.png') %>
+
