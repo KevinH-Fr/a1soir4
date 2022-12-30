@@ -10,6 +10,7 @@ export default class extends Controller {
     console.log("hello from stiumuls nouveau_controller")
   }
 
+
   openNouveau() {
     this.nouveauContentTarget.hidden = false
     this.openNouveauTarget.hidden = true
@@ -33,7 +34,7 @@ export default class extends Controller {
 
   hidePartial() {
    this.element.remove()
-  // this.nouveauContentTarget.hidden = true 
+   this.nouveauContentTarget.hidden = true 
    this.openNouveauTarget.hidden = false
    this.closeNouveauTarget.hidden = true
   

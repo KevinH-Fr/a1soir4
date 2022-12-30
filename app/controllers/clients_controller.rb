@@ -59,24 +59,29 @@ class ClientsController < ApplicationController
 
     respond_to do |format|
       if @client.save
-        flash.now[:notice] = "le client #{@client.nom} a été ajouté à #{Time.zone.now}"
-        format.turbo_stream do
-          render turbo_stream: [
-            turbo_stream.prepend("clients", partial: "clients/client",
-            locals: {client: @client }), 
-            turbo_stream.update("client_counter", Client.count),
-            turbo_stream.update("flash", partial: "layouts/flash"),
+
+        
+       
+        flash.now[:notice] = "le client #{@client.nom} a bien été ajouté"
+
+       
+       format.turbo_stream do
+         render turbo_stream: [
+           turbo_stream.prepend("clients", partial: "clients/client",
+           locals: {client: @client }), 
+           turbo_stream.update("client_counter", Client.count),
+           turbo_stream.update("flash", partial: "layouts/flash"),     
           ]
         end
-      
 
+
+      
         format.html { redirect_to client_url(@client), notice: "Client was successfully created." }
         format.json { render :show, status: :created, location: @client }
  
       else
 
         flash.now[:notice] = "erreur - le client n'a pas été ajouté"
-
         format.turbo_stream do
           render turbo_stream: [
             turbo_stream.update("flash", partial: "layouts/flashErreur"),
