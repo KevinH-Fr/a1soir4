@@ -11,11 +11,12 @@
   <% end %>
 
   <div class="card-body bloc-record">
+      
       <div class="input-group mb-1">
-        <%= form.label :prenom, class:"input-group-text label-with-format" %>
+         <%= form.label :prenom, class:"input-group-text label-with-format" %>
         <%= form.text_field :prenom, class:"form-control field-with-format" %>
         <%= form.label :nom, class:"input-group-text label-with-format" %>
-        <%= form.text_field :nom, class:"form-control field-with-format" %>
+        <%= form.text_field :nom, required: true, class:"form-control field-with-format" %>
       </div>
 
       <%# faire le select %>
@@ -43,7 +44,7 @@
           <span class="input-group-addon label-with-icon input-group-text">
             <i class="fa fa-square-phone"></i>
           </span>
-          <%= form.text_field :tel, class:"form-control field-with-format" %>
+          <%= form.text_field :tel, required: true, class:"form-control field-with-format" %>
           <span class="input-group-addon label-with-icon input-group-text">
             <i class="fa fa-square-phone"></i>
           </span>
@@ -56,7 +57,7 @@
           <span class="input-group-addon label-with-icon input-group-text">
             <i class="fa fa-at"></i>
           </span>
-          <%= form.text_field :mail, class:"form-control field-with-format" %>
+          <%= form.text_field :mail, required: true, class:"form-control field-with-format" %>
           <span class="input-group-addon label-with-icon input-group-text">
             <i class="fa fa-at"></i>
           </span>
@@ -72,7 +73,7 @@
       <div class="input-group mb-1">
         <%= form.label :ville, class:"input-group-text label-with-format" %>
         <%= form.text_field :ville, class:"form-control field-with-format" %>
-        <%= form.label :CP, class:"input-group-text label-with-format" %>
+        <%= form.label 'Code Postal', class:"input-group-text label-with-format" %>
         <%= form.text_field :cp, class:"form-control field-with-format" %>
       </div>
 

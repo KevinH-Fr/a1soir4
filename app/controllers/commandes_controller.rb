@@ -65,20 +65,13 @@ class CommandesController < ApplicationController
   def update
     respond_to do |format|
       if @commande.update(commande_params)
-
-       
           
         format.turbo_stream do  
           render turbo_stream: 
           turbo_stream.update(@commande, partial: "commandes/commande",
             locals: {commande: @commande})
 
-
-
-
         end
-
-
 
         format.html { redirect_to commande_url(@commande), notice: "commande was successfully updated." }
         format.json { render :show, status: :ok, location: @commande }
