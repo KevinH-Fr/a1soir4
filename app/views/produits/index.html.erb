@@ -1,24 +1,22 @@
 <% if user_signed_in? %>
 
-  <div class="bloc-entete-model">
-    <div class="card card-header entete-index">
-      <div class="row m-0 p-0">
-        <div class="col ms-1">
-          <strong>Produits</strong> 
+  <div class="cadre-index mx-auto">
+    <div class="bloc-entete-model">
+      <div class="card card-header entete-index">
+        <div class="row m-0 p-0">
+          <div class="col-11 text-center">
+            <strong>PRODUITS</strong> 
+          </div>
+          <div class="col-1">
+            <span class="badge rounded-pill counter-model"><%= Produit.count %></span>
+          </div>
         </div>
-        <div class="col">
-          <span class="badge rounded-pill counter-model"><%= Produit.count %></span>
-        </div>
+      </div> 
+      <div class="header-model-body mb-1">
+        <%= render "search" %>
+        <%#= render "choixCategorie" %> 
       </div>
-    </div> 
-    <div class="header-model-body mb-1">
-      <%= render "search" %>
-      <%#= render "choixCategorie" %> 
-
-          <%#= render "choixCategorieBis" %> 
-
     </div>
-  </div>
 
   <div class="">
     <%= turbo_frame_tag :modal %>
@@ -37,6 +35,7 @@
 
   <br><br>
 
+</div>
 
   <div class="fixed-bottom footer-index text-center bg-dark">
       <div class="row justify-content-evenly">

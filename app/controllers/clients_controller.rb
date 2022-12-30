@@ -27,8 +27,6 @@ class ClientsController < ApplicationController
   clients = @q.result(distinct: true).order(created_at: :desc)
   @pagy, @clients = pagy_countless(clients, items: 2)
 
-
-
   end
 
   def show
@@ -60,11 +58,8 @@ class ClientsController < ApplicationController
     respond_to do |format|
       if @client.save
 
-        
-       
         flash.now[:notice] = "le client #{@client.nom} a bien été ajouté"
 
-       
        format.turbo_stream do
          render turbo_stream: [
            turbo_stream.prepend("clients", partial: "clients/client",
@@ -73,8 +68,6 @@ class ClientsController < ApplicationController
            turbo_stream.update("flash", partial: "layouts/flash"),     
           ]
         end
-
-
       
         format.html { redirect_to client_url(@client), notice: "Client was successfully created." }
         format.json { render :show, status: :created, location: @client }
@@ -121,7 +114,7 @@ class ClientsController < ApplicationController
   def destroy
     @client.destroy
 
-    flash.now[:notice] = "le client #{@client.nom} a été supprimé à #{Time.zone.now}"
+    flash.now[:notice] = "le client #{@client.nom} a été supprimé"
 
     respond_to do |format|
 

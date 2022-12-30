@@ -5,7 +5,7 @@ export default class extends Controller {
   static targets = ["dropdownContent", "openButton", "closeButton"]
 
   connect() {
-  //  this.dropdownContentTarget.hidden = true
+    this.dropdownContentTarget.hidden = true
     this.closeButtonTarget.hidden = true
     console.log("stiumuls controller test")
   }
@@ -14,7 +14,7 @@ export default class extends Controller {
     if (e.detail.success) {
       this.hideModal()
     }
-    console.log(e.detail.success)
+  //  console.log(e.detail.success)
   }
 
   hideModal(){
@@ -33,8 +33,5 @@ export default class extends Controller {
     this.openButtonTarget.hidden = false
     this.closeButtonTarget.hidden = true
   }
-
-
-
 
 }

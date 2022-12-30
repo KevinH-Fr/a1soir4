@@ -20,7 +20,7 @@
             </span>      
           <% end %>
 
-          <span class="badge badge-infos-second"> 
+          <span class="badge badge-infos-second bg-secondary text-light"> 
             <%= highlight(commande.auto_name, 
                   params.dig(:q, :nom_or_typeevenement_or_client_prenom_or_client_nom_or_profile_prenom_cont)) %> 
           </span> 
@@ -32,7 +32,7 @@
           <% end %>
 
           <% if commande.profile_id.present? %>
-            <span class="badge badge-infos-second bg-dark text-light"> 
+            <span class="badge badge-infos-second a1soir-colored text-light"> 
               <%= highlight(Profile.find(commande.profile_id).full_name, 
                   params.dig(:q, :nom_or_typeevenement_or_client_prenom_or_client_nom_or_profile_prenom_cont)) %> 
             </span>      
@@ -48,7 +48,8 @@
         <%= button_to "", edit_commande_path(commande), 
             class:"fa-regular fa-pen-to-square btn btn-sm btn-secondary mb-1", method: :post %> 
         <%= button_to '', commande_path(commande), 
-            class:"fa-solid fa-trash-can btn btn-danger btn-sm", method: :delete %> 
+            class:"fa-solid fa-trash-can btn btn-danger btn-sm", method: :delete,
+             :onclick => "return confirm('Sûr ?')" %> 
       </div>
     </div>
   </div>

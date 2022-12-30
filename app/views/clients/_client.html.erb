@@ -10,19 +10,19 @@
             </div>
             <% if client.mail.present? %>
               <div class="badge-infos">
-                <i class="fa fa-square-phone"></i>
+                <i class="fa fa-square-phone mx-2"></i>
                 <%= client.tel %>
               </div>
             <% end %>
             <% if client.mail.present? %>
               <div class="badge-infos">
-                <i class="fa fa-at"></i>
+                <i class="fa fa-at mx-2"></i>
                 <%= highlight(client.mail, params.dig(:q, :nom_or_prenom_or_mail_cont)) %>
               </div>  
             <% end %>  
             <% if client.ville.present? %>
               <div class="badge-infos">
-                <i class="fa fa-location-dot"></i>
+                <i class="fa fa-location-dot mx-2"></i>
                 <%= highlight(client.ville, params.dig(:q, :nom_or_prenom_or_mail_cont)) %>
               </div>  
             <% end %>  
@@ -61,7 +61,8 @@
           <%= button_to "", edit_client_path(client), 
                 class:"fa-regular fa-pen-to-square btn btn-secondary btn-action", method: :post %> 
           <%= button_to '', client_path(client), 
-                class:"fa-solid fa-trash-can btn btn-danger btn-action", method: :delete %> 
+                class:"fa-solid fa-trash-can btn btn-danger btn-action", method: :delete,
+                 :onclick => "return confirm('Etes-vous certain de vouloir supprimer le client ?')" %> 
         </div>
       
 

@@ -8,36 +8,31 @@
             <span class="navbar-toggler-icon"></span>
         </button>
     
-        
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 
-                    <a class="nav-link m-1 p-1">
-                        <%= link_to " Accueil", accueil_admin_path, class:"btn fa iconcolor-nav fa-house"%>
-                    </a>
-                    <a class="nav-link m-1 p-1 ">
-                        <%= link_to " Clients", clients_path, class:"btn fa iconcolor-nav fa-user"%>
-                    </a>
-                    <a class="nav-link m-1 p-1 ">
-                        <%= link_to " Produits", produits_path, class:"btn fa iconcolor-nav fa-shirt"%>
-                    </a>
-                    <a class="nav-link m-1 p-1 ">
-                        <%= link_to " Commandes", commandes_path, class:"btn fa iconcolor-nav fa-file-invoice"%>
-                    </a>
-                    <a class="nav-link m-1 p-1 ">
-                        <%= link_to " Calendrier", accueil_admin_path, class:"btn fa iconcolor-nav fa-calendar"%>
-                    </a>
-                    <a class="nav-link m-1 p-1 ">
-                        <%= link_to " Analyses", analyses_path, class:"btn fa iconcolor-nav fa-chart-line"%>
-                    </a>
-                    <a class="nav-link m-1 p-1 ">
-                        <%= link_to " Marketing", marketing_path, class:"btn fa iconcolor-nav fa-bullhorn"%>
-                    </a>
-
-                    <a class="nav-link m-1 p-1 ">
-                        <%= button_to "", destroy_user_session_path, method: :delete, 
-                        class:"btn btn-sm btn-danger fa-solid fa-right-from-bracket" %>
-                    </a>
-
+      
+            <a class="nav-link m-2 p-1 ms-4">
+                <%= link_to " Accueil", accueil_admin_path, class:"btn fa iconcolor-nav fa-house"%>
+            </a>
+            <a class="nav-link mx-4 p-1 ">
+                <%= link_to " Clients", clients_path, class:"btn fa iconcolor-nav fa-user"%>
+            </a>
+            <a class="nav-link mx-4 p-1 ">
+                <%= link_to " Produits", produits_path, class:"btn fa iconcolor-nav fa-shirt"%>
+            </a>
+            <a class="nav-link mx-4 p-1 ">
+                <%= link_to " Commandes", commandes_path, class:"btn fa iconcolor-nav fa-file-invoice"%>
+            </a>
+            <a class="nav-link mx-4 p-1 ">
+                <%= link_to " Calendrier", accueil_admin_path, class:"btn fa iconcolor-nav fa-calendar"%>
+            </a>
+            <a class="nav-link mx-4 p-1 ">
+                <%= link_to " Analyses", analyses_path, class:"btn fa iconcolor-nav fa-chart-line"%>
+            </a>
+            <a class="nav-link mx-4 p-1 ">
+                <%= link_to " Marketing", marketing_path, class:"btn fa iconcolor-nav fa-bullhorn"%>
+            </a>
+            
         </div>
     </div>
 </nav>

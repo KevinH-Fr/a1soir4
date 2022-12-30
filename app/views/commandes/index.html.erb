@@ -1,22 +1,22 @@
 <% if user_signed_in? %>
 
-  <div class="bloc-entete-model">
-    <div class="card card-header entete-index">
-      <div class="row m-0 p-0">
-        <div class="col ms-1">
-          <strong>Commandes</strong> 
+  <div class="cadre-index mx-auto">
+    <div class="bloc-entete-model">
+      <div class="card card-header entete-index">
+        <div class="row m-0 p-0">
+          <div class="col-11 text-center">
+            <strong>COMMANDES</strong> 
+          </div>
+          <div class="col">
+            <span class="badge rounded-pill counter-model"><%= Commande.count %></span>
+          </div>
         </div>
-        <div class="col">
-          <span class="badge rounded-pill counter-model"><%= Commande.count %></span>
-        </div>
+      </div> 
+      
+      <div class="bloc-record p-0 mb-1">
+        <%= render "search" %>
       </div>
-    </div> 
-    
-    <div class="bloc-record p-0 mb-1">
-      <%= render "search" %>
     </div>
-
-  </div>
 
   <div class="">
     <%= turbo_frame_tag :modal %>
@@ -29,10 +29,11 @@
       </div>
     </div> <br>
 
-  <%= turbo_frame_tag :pagination, loading: :lazy, 
-                      src: commandes_path(format: :turbo_stream,
-                      q: params[:q]&.to_unsafe_h) %>
-<% end %>
+    <%= turbo_frame_tag :pagination, loading: :lazy, 
+                        src: commandes_path(format: :turbo_stream,
+                        q: params[:q]&.to_unsafe_h) %>
+  <% end %>
+</div>
 
   <div class="fixed-bottom footer-index text-center bg-dark">
       <div class="row justify-content-evenly">

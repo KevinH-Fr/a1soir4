@@ -27,7 +27,7 @@
                 class:"form-control field-with-format") %> 
 
             <%= form.label :intitule, class:"input-group-text label-with-format" %>
-            <%= form.select(:intitule, Client.intitules.keys, 
+            <%= form.select(:intitule, Client.intitules.keys, include_blank: true,
                 class:"form-control field-with-format") %> 
           </div>
 
