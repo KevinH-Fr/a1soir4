@@ -19,8 +19,6 @@
         <%= form.text_field :nom, required: true, class:"form-control field-with-format" %>
       </div>
 
-      <%# faire le select %>
-
           <div class="input-group mb-1 me-1">
             <%= form.label :type, class:"input-group-text label-with-format" %>
             <%= form.select(:typepropart, Client.typeproparts.keys, 

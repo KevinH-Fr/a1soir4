@@ -1,13 +1,13 @@
 
 <div class="bloc-record text-dark">
 
-  <strong> partial stock </strong>
+  <strong> STOCK </strong> <br>
   <% @produitId = params[:id]%>
   <% locations = Article.produit_courant(@produitId).articlesLoues.compte_articles %> 
   <% ventes = Article.produit_courant(@produitId).articlesVendus.compte_articles %> 
  
-  stock initial : <%= initial = Produit.find(@produitId).quantite %> /
-  nb restant : <%= initial.to_i - locations.to_i - ventes.to_i %> <br>
+  initial : <%= initial = Produit.find(@produitId).quantite %> /
+  restant : <%= initial.to_i - locations.to_i - ventes.to_i %> <br>
  
   nb locations : <%= locations %> 
   nb ventes : <%= ventes %> <br>
@@ -15,34 +15,16 @@
   loc terminées: <%= louesTermines = Commande.termine.joins(:articles).merge(Article.produit_courant(@produitId).articlesLoues).sum(:quantite) %> /
   loc à venir: <%= louesAvenir = Commande.a_venir.joins(:articles).merge(Article.produit_courant(@produitId).articlesLoues).sum(:quantite) %> <br>
 
-
-
-  <%#= Commande.termine.joins(:articles).merge(Article.produit_courant(@produitId)).sum(:quantite) %> 
-  <%#= Commande.a_venir.joins(:articles).merge(Article.produit_courant(@produitId)).sum(:quantite) %> 
-  
-  <%# valDate = "01/01/2023".to_date %>
-  <%#= Commande.a_date(valDate).joins(:articles).merge(Article.produit_courant(@produitId)).sum(:quantite) %> 
-
-  <%# valDate = "01/01/2022".to_date %>
-  <%#= Commande.a_date(valDate).joins(:articles).merge(Article.produit_courant(@produitId)).sum(:quantite) %> 
-
-  <%# valDate = "10/11/2022".to_date %>
-  <%#= Commande.a_date(valDate).joins(:articles).merge(Article.produit_courant(@produitId)).sum(:quantite) %> 
-
-
 </div>
-
 
 <div class="bloc-record text-dark">
-
-    <div class="row g-0 my-2">
-        <div class="col-6 m-0 p-0">
-          <%= render "charts/chartPieProduit" %>
-        </div>
-        <div class="col-6 m-0 p-0">
-           <%= render "charts/chartPieProduitLoc" %>
-        </div>
+  <div class="row g-0 my-2">
+    <div class="col-6 m-0 p-0">
+      <%= render "charts/chartPieProduit" %>
     </div>
-
-
+    <div class="col-6 m-0 p-0">
+      <%= render "charts/chartPieProduitLoc" %>
+    </div>
+  </div>
 </div>
+

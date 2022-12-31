@@ -10,25 +10,9 @@
       <div class="col-8 text-center">
         <div class="card-body">
           <h5 class="card-title text-dark me-4">
-            <span class="text-center text-dark">
+            <span class="text-left text-dark fw-bold">
               <%= @produit.nom %>
             </span>
-            <span class="text-end">
-          
-            <% if @produit.vitrine == true %>
-              <i class="fa-solid fa-globe iconcolor-true"></i>
-            <% else %>
-              <i class="fa-solid fa-globe iconcolor-false"></i>
-            <% end %>
-    
-            <% if @produit.eshop == true %>
-              <i class="fa-solid fa-cart-shopping iconcolor-true"></i>
-            <% else %>
-              <i class="fa-solid fa-cart-shopping iconcolor-false"></i>
-            <% end %>
-
-              </span>
-
           </h5>
           
           <p class="card-text text-dark"><%= @produit.description %></p>
@@ -39,13 +23,35 @@
           <span class="badge bg-primary"><%= @produit.quantite %></span>
           <span class="badge bg-primary"><%= @produit.prix %></span>
 
-          <div class="row g-0 my-1">
+          <div class="row g-0 my-3">
             <div class="col-6 m-0 px-4">
               <%= image_tag(@produit.qr_code, class:"rounded-startimage-qr-cb-large-sized") if @produit.qr_code.attached? %>
             </div>
             <div class="col-6 m-0 px-4">
               <%= image_tag(@produit.barcode, class:"rounded-start image-qr-cb-large-sized") if @produit.barcode.attached? %>
             </div>
+          </div>
+
+          <div class="row g-0 text-start text-dark p-4">
+
+            <span class="ms-4 text-start">
+              <% if @produit.vitrine == true %>
+                <i class="fa-solid fa-globe iconcolor-true"></i>
+                <span> Diffusé sur site vitrine  </span> <br>
+              <% else %>
+                <i class="fa-solid fa-globe iconcolor-false"></i>
+                <span> Non-diffusé sur site vitrine  </span> <br>
+              <% end %>
+      
+              <% if @produit.eshop == true %>
+                <i class="fa-solid fa-cart-shopping iconcolor-true"></i>
+                <span> Diffusé sur site marchand  </span> <br>
+              <% else %>
+                <i class="fa-solid fa-cart-shopping iconcolor-false"></i>
+                <span> Non-diffusé sur site marchand  </span> <br>
+              <% end %>
+            </span>
+
           </div>
 
         </div>

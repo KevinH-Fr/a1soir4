@@ -5,8 +5,8 @@
 
   <% @produitId = params[:id]%>
 
-  <% @louesTermines = Commande.termine.joins(:articles).merge(Article.produit_courant(@produitId).articlesLoues).sum(:quantite) %> <br>
-  <% @louesAvenir = Commande.a_venir.joins(:articles).merge(Article.produit_courant(@produitId).articlesLoues).sum(:quantite) %> <br>
+  <% @louesTermines = Commande.termine.joins(:articles).merge(Article.produit_courant(@produitId).articlesLoues).sum(:quantite) %>
+  <% @louesAvenir = Commande.a_venir.joins(:articles).merge(Article.produit_courant(@produitId).articlesLoues).sum(:quantite) %> 
  
   <% @data = [@louesTermines, @louesAvenir] %>
 

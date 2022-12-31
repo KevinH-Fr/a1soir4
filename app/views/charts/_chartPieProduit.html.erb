@@ -4,14 +4,14 @@
   </div>
 
   <% @produitId = params[:id]%>
-  <% initial = Produit.find(@produitId).quantite %> <br> 
-  <% @locations = Article.produit_courant(@produitId).articlesLoues.compte_articles %> <br>
+  <% initial = Produit.find(@produitId).quantite %> 
+  <% @locations = Article.produit_courant(@produitId).articlesLoues.compte_articles %> 
  
-  <% louesTermines = Commande.termine.joins(:articles).merge(Article.produit_courant(@produitId).articlesLoues).sum(:quantite) %> <br>
-  <% louesAvenir = Commande.a_venir.joins(:articles).merge(Article.produit_courant(@produitId).articlesLoues).sum(:quantite) %> <br>
+  <% louesTermines = Commande.termine.joins(:articles).merge(Article.produit_courant(@produitId).articlesLoues).sum(:quantite) %> 
+  <% louesAvenir = Commande.a_venir.joins(:articles).merge(Article.produit_courant(@produitId).articlesLoues).sum(:quantite) %> 
  
- <% @ventes = Article.produit_courant(@produitId).articlesVendus.compte_articles %> <br>
- <% @restant = initial - @locations - @ventes %> <br>
+ <% @ventes = Article.produit_courant(@produitId).articlesVendus.compte_articles %> 
+ <% @restant = initial - @locations - @ventes %> 
 
   <% @data = [@locations, @ventes] %>
 

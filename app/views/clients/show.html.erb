@@ -1,5 +1,6 @@
 <% if user_signed_in? %>
 
+<div class="cadre-index mx-auto">
   <div class="bloc-entete-model">
     <div class="entete-show">
       <strong>Client</strong> 
@@ -7,11 +8,13 @@
   </div>
 
     <%= render @client %> 
+     <%#= render "details" %>
 
   <div class="text-end">
     <%= link_to "Nouvelle commande", toggle_commande_client_commande_path(clientId: @client), 
           class:"btn btn-sm btn-success mb-2" %>
   </div>
+
 
     <% if Commande.client_courant(@client).present? %>
       <div class="entete-show">
@@ -19,5 +22,5 @@
       </div>
       <%= render @commandes %>
     <% end %>
-
+</div>
 <% end %>

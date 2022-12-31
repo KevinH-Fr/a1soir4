@@ -1,0 +1,49 @@
+<div id="<%= dom_id @client %>">
+
+<div class="bloc-record">
+
+  <div class="mb-1">
+    <div class="row g-0">
+   
+      <div class="col-11 m-0 p-0">
+
+
+        <div class="card-body">
+          <h5 class="card-title text-dark me-4">
+            <span class="text-left text-dark fw-bold">
+              <%= @client.full_name %>
+            </span>
+          </h5>
+          
+          <p class="card-text text-dark"><%= @client.typepropart %></p>
+          
+          <span class="badge bg-primary"><%= @client.tel %></span>
+          <span class="badge bg-primary"><%= @client.tel2 %></span>
+          <span class="badge bg-primary"><%= @client.mail %></span>
+          <span class="badge bg-primary"><%= @client.mail2 %></span>
+          <hr>
+
+          <span class="badge bg-secondary"><%= @client.adresse %></span>
+          <span class="badge bg-secondary"><%= @client.cp %></span>
+          <span class="badge bg-secondary"><%= @client.ville %></span>
+          <span class="badge bg-secondary"><%= @client.pays %></span>
+          <hr>
+
+          <span class="badge bg-dark"><%= @client.commentaires %></span>
+
+        </div>
+      </div>
+
+        <div class="col-1 m-0 p-0 text-end">
+  
+          <%= button_to "", edit_client_path(@client), 
+                class:"fa-regular fa-pen-to-square btn btn-secondary btn-action", method: :post %> 
+          <%= button_to '', client_path(@client), 
+                class:"fa-solid fa-trash-can btn btn-danger btn-action", method: :delete,
+                 :onclick => "return confirm('Etes-vous certain de vouloir supprimer le client ?')" %> 
+        </div>
+    
+    </div>
+  </div>
+
+</div>
