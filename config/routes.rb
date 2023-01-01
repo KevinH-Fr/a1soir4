@@ -91,7 +91,11 @@ Rails.application.routes.draw do
   resources :posts
   resources :annonces
 
-  resources :labels
+  resources :labels do
+    member do
+      post :edit
+    end
+  end 
 
   
   # partie publique

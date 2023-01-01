@@ -1,20 +1,56 @@
-<p style="color: green"><%= notice %></p>
 
-<h1>Labels</h1>
+<% if user_signed_in? %>
+  <% if current_user.admin? %>
 
-<small>  
-  Vous pouvez ici définir les différents messages qui sont affichés sur le site public 
-</small>
+  <div class="cadre-index mx-auto">
+    <div class="bloc-entete-model">
+      <div class="card card-header entete-index">
+        <div class="row m-0 p-0">
+          <div class="col text-center">
+            <strong>LABELS</strong> 
+          </div>
+        </div>
+      </div> 
+    </div>
+    <div class="bloc-record text-center fw-bold">
+      <p>
+        Renseignez ici les labels qui s'affichent dans les différentes rubriques du site public
+      </p>
+    </div>
+        
+    <div class="">
+      <%= turbo_frame_tag :modal %>
+    </div>
+      
+    <div class="list-records-item">
+      <div id="labels">
+        <%= render @labels %>
+      </div>
+    </div> 
 
-<br><br>
-
-<div id="labels">
-  <% @labels.each do |label| %>
-    <%= render label %>
-    <p>
-      <%= link_to "Show this label", label %>
-    </p>
+  <% if @labels.count <= 0 %>
+    <%= link_to "Nouveau", new_label_path, data:{turbo_frame: "modal"}, 
+                class:"btn btn-sm btn-warning fw-bold m-1 p-1" %>
   <% end %>
-</div>
 
-<%= link_to "New label", new_label_path %>
+
+  </div>
+
+  <div class="fixed-bottom footer-index text-center bg-dark">
+      <div class="row justify-content-evenly">
+        <div class="col-4 text-start">
+          <%= link_to "", labels_path, class:"fa-solid fa-rotate-left btn btn-sm btn-secondary" %> 
+        </div>
+        <div class="col-4 text-center">
+          <div class="badge bg-dark">
+            <%#== pagy_nav(@pagy) %>
+          </div>
+        </div>
+        <div class="col-4 text-end">
+          <%= link_to "", labels_path, class:"fa-solid fa-file-export btn btn-sm btn-primary" %> 
+        </div>
+      </div>
+  </div>
+  <% end %>
+
+  <% end %>

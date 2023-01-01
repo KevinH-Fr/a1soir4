@@ -17,6 +17,13 @@ class LabelsController < ApplicationController
 
   # GET /labels/1/edit
   def edit
+    respond_to do |format|
+      format.html
+      format.turbo_stream do  
+        render turbo_stream: turbo_stream.update(@label, partial: "labels/form", 
+          locals: {label: @label})
+      end
+    end
   end
 
   # POST /labels or /labels.json
@@ -25,9 +32,29 @@ class LabelsController < ApplicationController
 
     respond_to do |format|
       if @label.save
-        format.html { redirect_to label_url(@label), notice: "Label was successfully created." }
+
+        flash.now[:notice] = "le label #{@label.id} a été ajouté"
+
+        format.turbo_stream do
+           render turbo_stream: [
+             turbo_stream.prepend("labels", partial: "labels/label",
+             locals: {label: @label }), 
+             turbo_stream.update("label_counter", Label.count),
+             turbo_stream.update("flash", partial: "layouts/flash"),
+           ]
+        end
+
+        format.html { redirect_to label_url(@label), notice: "label was successfully created." }
         format.json { render :show, status: :created, location: @label }
       else
+
+        format.turbo_stream do
+          render turbo_stream: [
+            turbo_stream.update('new_label', partial: "labels/form", 
+              locals: {label: @label  }),
+          ]
+        end
+
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @label.errors, status: :unprocessable_entity }
       end
@@ -38,7 +65,13 @@ class LabelsController < ApplicationController
   def update
     respond_to do |format|
       if @label.update(label_params)
-        format.html { redirect_to label_url(@label), notice: "Label was successfully updated." }
+
+        format.turbo_stream do  
+          render turbo_stream: turbo_stream.update(@label, partial: "labels/label", 
+            locals: {label: @label})
+        end
+
+        format.html { redirect_to labels_url, notice: "label was successfully updated." }
         format.json { render :show, status: :ok, location: @label }
       else
         format.html { render :edit, status: :unprocessable_entity }

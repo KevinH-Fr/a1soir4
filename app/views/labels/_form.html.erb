@@ -11,37 +11,39 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :principale, style: "display: block" %>
-    <%= form.text_area :principale %>
+
+  <div class="card-body bloc-record">
+    <div class="input-group mb-1">
+      <%= form.label :principale, class:"input-group-text label-with-format" %>
+      <%= form.text_area :principale, class:"form-control field-with-format" %>
+    </div>
+    <div class="input-group mb-1">
+      <%= form.label :soiree, class:"input-group-text label-with-format" %>
+      <%= form.text_area :soiree, class:"form-control field-with-format" %>
+    </div>
+    <div class="input-group mb-1">
+      <%= form.label :mariee, class:"input-group-text label-with-format" %>
+      <%= form.text_area :mariee, class:"form-control field-with-format" %>
+    </div>
+    <div class="input-group mb-1">
+      <%= form.label :homme, class:"input-group-text label-with-format" %>
+      <%= form.text_area :homme, class:"form-control field-with-format" %>
+    </div>
+    <div class="input-group mb-1">
+      <%= form.label :accessoire, class:"input-group-text label-with-format" %>
+      <%= form.text_area :accessoire, class:"form-control field-with-format" %>
+    </div>
+    <div class="input-group mb-1">
+      <%= form.label :deguisement, class:"input-group-text label-with-format" %>
+      <%= form.text_area :deguisement, class:"form-control field-with-format" %>
+    </div>  
+
+    
+    <div class="float-end mt-2 mb-4">
+      <%= link_to "Fermer", "", data:{turbo_frame: "modal"}, 
+          class:"btn btn-sm btn-secondary" %>
+      <%= form.submit "Valider", class: "btn btn-primary btn-sm" %>
+    </div><br><br>
   </div>
 
-  <div>
-    <%= form.label :soiree, style: "display: block" %>
-    <%= form.text_area :soiree %>
-  </div>
-
-  <div>
-    <%= form.label :mariee, style: "display: block" %>
-    <%= form.text_area :mariee %>
-  </div>
-
-  <div>
-    <%= form.label :homme, style: "display: block" %>
-    <%= form.text_area :homme %>
-  </div>
-
-  <div>
-    <%= form.label :accessoire, style: "display: block" %>
-    <%= form.text_area :accessoire %>
-  </div>
-
-  <div>
-    <%= form.label :deguisement, style: "display: block" %>
-    <%= form.text_area :deguisement %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
 <% end %>

@@ -1,4 +1,7 @@
+
+<div class="cadre-index mx-auto">
 <div class="card bloc-dashboard bloc-large">
+
   <div class="header-bloc-dashboard p-2"> 
      <div class="row align-items-center m-0 p-0">
        <div class="col m-0 p-0">
@@ -8,21 +11,21 @@
      </div>
   </div>
   
-  <div class="card-body body-bloc-dashboard p-1 m-1 text-center "> 
-    <%= link_to(users_path, class:"btn btn-primary btns-bloc-dashboard") do %>
-      <i class="fa fa-user-circle"></i>
-      <span class="btns-texte-bloc-dashboard"> 
-        Comptes 
-      </span>
-    <% end %>
-            
+<br>
+<div class="d-flex justify-content-around">
+  <%= link_to(users_path, class:"btn btn-primary btns-bloc-dashboard") do %>
+    <i class="fa fa-user-circle"></i>
+    <span class="btns-texte-bloc-dashboard"> 
+      Comptes 
+    </span>
+  <% end %>
+          
   <%= link_to(profiles_path, class:"btn btn-dark btns-bloc-dashboard") do %>
     <i class="fa fa-user-gear"></i>
     <span class="btns-texte-bloc-dashboard"> 
       Profiles 
     </span>
   <% end %>
-  <br>
 
   <%= link_to(marketing_path, class:"btn btn-warning btns-bloc-dashboard") do %>
     <i class="fa fa-bullhorn"></i>
@@ -31,32 +34,39 @@
     </span>
   <% end %>
 
+  </div>
+
+
+<div class="d-flex justify-content-around">
+
   <%= link_to(analyses_path, class:"btn btn-success btns-bloc-dashboard") do %>
-            <i class="fa fa-chart-line"></i>
-            <span class="btns-texte-bloc-dashboard"> 
-                  Analyses 
-            </span>
-      <% end %>
+    <i class="fa fa-chart-line"></i>
+    <span class="btns-texte-bloc-dashboard"> 
+      Analyses 
+    </span>
+  <% end %>
 
-      <%= link_to(stock_path, class:"btn btn-danger btns-bloc-dashboard") do %>
-            <i class="fa fa-box-open"></i>
-            <span class="btns-texte-bloc-dashboard"> 
-                  Stocks 
-            </span>
-      <% end %>
-      <br>
+  <%= link_to(stock_path, class:"btn btn-danger btns-bloc-dashboard") do %>
+    <i class="fa fa-box-open"></i>
+    <span class="btns-texte-bloc-dashboard"> 
+      Stocks 
+    </span>
+  <% end %>
+  
 
-      <%= link_to(root_path, class:"btn btn-secondary btns-bloc-dashboard") do %>
-            <i class="fa fa-globe"></i>
-            <span class="btns-texte-bloc-dashboard"> 
-                  Site Public 
-            </span>
-      <% end %>
+  <%= link_to(root_path, class:"btn btn-secondary btns-bloc-dashboard") do %>
+    <i class="fa fa-globe"></i>
+    <span class="btns-texte-bloc-dashboard"> 
+      Site Public 
+    </span>
+  <% end %>
 
-      <%= link_to(root_path, class:"btn btn-dark btns-bloc-dashboard") do %>
-            <i class="fa fa-cart-shopping"></i>
-            <span class="btns-texte-bloc-dashboard"> 
-                  Site Marchand 
-            </span>
-      <% end %>
+  <%= link_to(root_path, class:"btn btn-dark btns-bloc-dashboard") do %>
+    <i class="fa fa-cart-shopping"></i>
+    <span class="btns-texte-bloc-dashboard"> 
+      Site Marchand 
+    </span>
+  <% end %>
+</div>
+
 </div>
