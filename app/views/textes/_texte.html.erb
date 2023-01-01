@@ -1,28 +1,41 @@
 <div id="<%= dom_id texte %>">
-  <p>
-    <strong>Titre:</strong>
-    <%= texte.titre %>
-  </p>
+  <div class="bloc-record">
+    <div class="row align-items-center">
+      <div class="col-10 m-0 p-1 text-start">
 
-  <p>
-    <strong>Content:</strong>
-    <%= texte.content %>
-  </p>
+        <div class="cadre-interieur bg-secondary">
+          <strong>Titre:</strong>
+            <%= texte.titre %>
+        </div>
 
-  <p>
-    <strong>Contact:</strong>
-    <%= texte.contact %>
-  </p>
+        <div class="cadre-interieur bg-secondary">
+          <strong>Content:</strong>
+            <%= texte.content %>
+        </div>
+        <div class="cadre-interieur bg-secondary">
+          <strong>Contact:</strong>
+            <%= texte.contact %>
+        </div>
+        <div class="cadre-interieur bg-secondary">
+          <strong>Horaire:</strong>
+            <%= texte.horaire %>
+        </div>
+        <div class="cadre-interieur bg-secondary">
+          <strong>Boutique:</strong>
+            <%= texte.boutique %>
+        </div>
 
-    <p>
-    <strong>Horaire:</strong>
-    <%= texte.horaire %>
-  </p>
-
-    <p>
-    <strong>Boutique:</strong>
-    <%= texte.boutique %>
-  </p>
-
+      </div> 
+    
+      <div class="col-2 m-0 p-1 text-end">
+        <%#= link_to '', label_path(label), 
+            class:"fa-regular fa-folder-open btn btn-sm btn-success mb-1" %> 
+        <%= button_to "", edit_texte_path(texte), 
+            class:"fa-regular fa-pen-to-square btn btn-sm btn-secondary mb-1", method: :post %> 
+        <%= button_to '', texte_path(texte), 
+            class:"fa-solid fa-trash-can btn btn-danger btn-sm", method: :delete %> 
+      </div>
+    </div>
+  </div>
 
 </div>

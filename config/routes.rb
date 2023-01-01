@@ -3,7 +3,6 @@ Rails.application.routes.draw do
 
   resources :modelsousarticles
   resources :articleoptions
-  resources :textes
   resources :messages
   resources :friends
 
@@ -96,6 +95,13 @@ Rails.application.routes.draw do
       post :edit
     end
   end 
+
+  resources :textes do
+    member do
+      post :edit
+    end
+  end 
+
 
   
   # partie publique

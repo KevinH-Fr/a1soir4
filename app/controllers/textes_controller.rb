@@ -13,6 +13,13 @@ class TextesController < ApplicationController
   end
 
   def edit
+    respond_to do |format|
+      format.html
+      format.turbo_stream do  
+        render turbo_stream: turbo_stream.update(@texte, partial: "textes/form", 
+          locals: {texte: @texte})
+      end
+    end
   end
 
   def create
@@ -20,9 +27,29 @@ class TextesController < ApplicationController
 
     respond_to do |format|
       if @texte.save
-        format.html { redirect_to texte_url(@texte), notice: "Texte was successfully created." }
+
+        flash.now[:notice] = "le texte #{@texte.id} a été ajouté"
+
+        format.turbo_stream do
+           render turbo_stream: [
+             turbo_stream.prepend("textes", partial: "textes/texte",
+             locals: {texte: @texte }), 
+             turbo_stream.update("texte_counter", Texte.count),
+             turbo_stream.update("flash", partial: "layouts/flash"),
+           ]
+        end
+
+        format.html { redirect_to texte_url(@texte), notice: "texte was successfully created." }
         format.json { render :show, status: :created, location: @texte }
       else
+
+        format.turbo_stream do
+          render turbo_stream: [
+            turbo_stream.update('new_texte', partial: "textes/form", 
+              locals: {texte: @texte  }),
+          ]
+        end
+
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @texte.errors, status: :unprocessable_entity }
       end
@@ -32,7 +59,13 @@ class TextesController < ApplicationController
   def update
     respond_to do |format|
       if @texte.update(texte_params)
-        format.html { redirect_to texte_url(@texte), notice: "Texte was successfully updated." }
+
+        format.turbo_stream do  
+          render turbo_stream: turbo_stream.update(@texte, partial: "textes/texte", 
+            locals: {texte: @texte})
+        end
+
+        format.html { redirect_to textes_url, notice: "texte was successfully updated." }
         format.json { render :show, status: :ok, location: @texte }
       else
         format.html { render :edit, status: :unprocessable_entity }

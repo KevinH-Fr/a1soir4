@@ -12,29 +12,33 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.rich_text_area :content %>
+  <div class="bloc-record">
+    <%= form.label :content, class:"input-group-text bg-dark text-light fw-bold label-with-format mb-2" %>
+    <%= form.rich_text_area :content, class:"bg-secondary" %>
   </div>
 
-  <div class="field">
-    <%= form.label :contact %>
-    <%= form.rich_text_area :contact %>
+  <div class="bloc-record">
+    <%= form.label :contact, class:"input-group-text bg-dark text-light fw-bold  label-with-format mb-2" %>
+    <%= form.rich_text_area :contact, class:"bg-secondary" %>
   </div>
 
-  <div class="field">
-    <%= form.label :horaire %>
-    <%= form.rich_text_area :horaire %>
+  <div class="bloc-record">
+    <%= form.label :horaire, class:"input-group-text bg-dark text-light fw-bold  label-with-format mb-2" %>
+    <%= form.rich_text_area :horaire, class:"bg-secondary" %>
   </div>
 
-  <div class="field">
-    <%= form.label :boutique %>
-    <%= form.rich_text_area :boutique %>
+  <div class="bloc-record">
+    <%= form.label :boutique, class:"input-group-text bg-dark text-light fw-bold label-with-format mb-2" %>
+    <%= form.rich_text_area :boutique, class:"bg-secondary" %>
   </div>
 
-<br>
 
-  <div>
-    <%= form.submit "Créer", class: 'btn btn-success' %>
-  </div>
+    <div class="float-end mt-2 mb-4">
+      <%= link_to "Fermer", "", data:{turbo_frame: "modal"}, 
+          class:"btn btn-sm btn-secondary" %>
+      <%= form.submit "Valider", class: "btn btn-primary btn-sm" %>
+    </div>
+    
+    <hr><br><br><br>
+
 <% end %>
