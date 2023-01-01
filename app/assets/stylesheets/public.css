@@ -9,7 +9,10 @@ html {
 }
 
 
-
+.centered{
+    justify-content: center;
+    align-items: center;   
+}
 .container-fluid {
     justify-content: center;
     align-items: center;
@@ -20,18 +23,21 @@ h1, h2, p, div, li, ul, a {
     color: rgb(0, 0, 0);
 }
 
-.cadre-index{
+.cadre-main{
     /* display: flex; */
      margin-top: 10px;
      align-items: center;
      justify-content: center;
      max-width: 900px;
-     background-color: rgb(252, 248, 249);
+     /*background-color: rgb(252, 248, 249);*/
      color:black;
      margin: .5em;
      padding: .5em;
-     border-radius: .2em;
-     box-shadow: 2px 3px 4px rgba(165, 163, 163, 0.8);
+
+     border-radius: 20px;
+    background: #f0f0f0;
+    box-shadow:  21px 21px 42px #606060,
+             -21px -21px 42px #ffffff;
    }
 
 .btn-circle.btn-xl {
@@ -52,6 +58,23 @@ h1, h2, p, div, li, ul, a {
     text-align: center;
     margin: .2em;
     display:inline-block;
+    font-weight: bold;
+    font-size: medium;
+
+}
+
+.btn-categorie-large {
+    color:rgb(255, 255, 255);
+    background-color: rgb(204, 46, 102);
+    padding: .4em;
+    border-radius: .4em;
+    font-size: .8em;
+    text-align: center;
+    margin: .2em;
+    display:inline-block;
+    font-weight: bold;
+    font-size: large;
+
 }
 
 .a1soir-colored {
@@ -60,19 +83,19 @@ h1, h2, p, div, li, ul, a {
 }
 
 .link-accueil{
-    font-size: large;
+    font-size: medium;
     font-weight: bold;
     color: rgb(204, 46, 102);
 }
 
 .img-max {
 
-    max-width: 50px;
+    max-width: 3em;
   }
 
 .img-big {
    /* min-width: 20px;*/
-    max-width: 400px;
+    max-width: 22em;
   }
 
 .img-centered {

@@ -23,15 +23,22 @@
     <%= favicon_link_tag asset_path('logo3.png'), :rel => 'icon', :type =>  'image/png' %>
   </head>
 
+  
+
   <body class="body-main">
       <%= render "shared/navbarHaute" %>
       <%#= render partial: "shared/navbarDashboardModel" %>
-    <main class="m-0 p-1"> 
-      <div id="flash" style="position:absolute; z-index: 2; right: 10px;">
-        <%= render partial: "layouts/flash" %>
-      </div>
-      <%= yield %>
-    </main>
+
+    <div class="cadre-index mx-auto">
+      <main class="m-0 p-1"> 
+        <div id="flash" style="position:absolute; z-index: 2; right: 10px;">
+          <%= render partial: "layouts/flash" %>
+        </div>
+        <%= yield %>
+      </main>
+    </div>
   </body>
+
+ 
 
 </html>

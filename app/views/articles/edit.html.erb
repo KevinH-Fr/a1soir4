@@ -9,21 +9,19 @@
   <div class="card card-header entete-index m-0 p-1">
     <div class="container text-center p-0 m-0">
       <div class="row align-items-center m-0 p-0">
-        <div class="col text-start m-0 p-0">
-          Editer article
+        <div class="col text-start fw-bold m-0 p-0">
+          EDITER ARTICLE
         </div>
-          <div class="col m-0 p-0">
+        <div class="col text-end m-0 p-0">
             <span class="badge text-bg-secondary"> <%= Commande.find(@commandeId).texte_record if @commandeId.present? %> </span> 
-          </div>
-          <div class="col m-0 p-0">
+          
             <span class="badge text-bg-secondary"> <%= Client.find(@clientId).full_name if @clientId.present? %> </span> 
-          </div>
-          <div class="col m-0 p-0">
+          
             <% evenement = Commande.find(@commandeId).info_evenement %>
             <% if evenement.present? %>
               <span class="badge text-bg-secondary"> <%= evenement %> </span> 
             <% end %>
-          </div>
+         </div>
       </div>
     </div>
   </div>
@@ -40,9 +38,18 @@
  
   <%= render "sousarticles/sousarticlesLiesBis" %>
     <br><br>
+
+
   <div class="fixed-bottom footer-index text-center bg-dark">
-    <div class="text-end">
-      <%= link_to "Valider", commande_path(@commandeId), class:"btn btn-sm btn-success" %> 
-    </div>
+      <div class="row justify-content-evenly">
+        <div class="col-6 text-start">
+          <%= link_to "", commande_path(@commandeId), class:"fa-solid fa-rotate-left btn btn-sm btn-secondary" %> 
+        </div>
+
+        <div class="col-6 text-end">
+          <%= link_to "", commandes_path(format: :pdf), class:"fa-solid fa-file-export btn btn-sm btn-primary" %> 
+        </div>
+      </div>
   </div>
+
 </div>

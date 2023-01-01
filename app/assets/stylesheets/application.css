@@ -103,11 +103,15 @@ input:invalid {
 }
 
 .input-sized{
-  max-width: 80px;
+  max-width: 120px;
+  font-weight: bold;
 }
 
 .label-sized{
-  width: 120px;
+  width: 80px;
+  font-weight: bold;
+
+
 }
 
 .field-with-format{

@@ -1,5 +1,6 @@
 
-<div class="container-fluid text-center">
+<div class="grid text-center justify-content-xl-around">
+
 
       <%= link_to "Robes de Soirées", 'robes_soirees', class:"btn btn-sm btn-categorie" %>
 
@@ -10,7 +11,20 @@
        <%= link_to "Accessoires", 'accessoires', class:"btn btn-sm btn-categorie" %>
 
        <%= link_to "Costumes & Déguisements", 'costumes_deguisements', class:"btn btn-sm btn-categorie" %>
-    </div>
 
+</div>
+
+<hr>
+
+<div class="grid text-center justify-content-xl-around">
+  <div class="btn btn-sm btn-categorie-large">
+    <%= link_to image_tag("icons/contact_ico.png", class:"img-max"), "contact" %> 
+    <%= link_to "CONTACT", "contact", class:"text-light fw-bold" %>
+  </div>
+
+  <div class="btn btn-sm btn-categorie-large">
+    <%= link_to image_tag("icons/eshop.png", class:"img-max"), root_path %>
+    <%= link_to "SHOP", root_path, class:"text-light fw-bold" %>
+  </div>
 </div>
     

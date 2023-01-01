@@ -63,7 +63,6 @@ class ArticlesController < ApplicationController
 
   def edit
 
-
     @commandeId = params[:commandeId]
     @produitId = params[:produitId]
     @natures = Modelsousarticle.distinct.pluck(:nature)
@@ -76,7 +75,6 @@ class ArticlesController < ApplicationController
     @quantite = Article.find(@article.id).quantite
     @valPrix = Article.find(@article.id).prix
   
-   
 
     if @quantite.present? && @valPrix.present? 
       @valTotal =  @quantite * @valPrix 
@@ -113,7 +111,8 @@ class ArticlesController < ApplicationController
 
     respond_to do |format|
       if @article.update(article_params)
-        format.html { redirect_to edit_article_path(@article, commandeId: @commandeId, produitId: @produitId, articleId: @article), notice: "Article was successfully updated." }
+        format.html  { redirect_to commande_path(@commandeId),
+          notice: "L'article a bien été créé" }
         format.json { render :show, status: :ok, location: @article }
         @article.save
       else

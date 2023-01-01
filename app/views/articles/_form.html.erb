@@ -31,7 +31,7 @@
           <div class="col-6 p-0 m-0">
             <%= render "produitLie" %> <br>
           </div>
-          <div class="col-6 p-0 m-0 text-end"> 
+          <div class="col-6 p-0 m-0 text-center"> 
             <div data-controller="form-element">
               <%= form.button "Validate", formaction: new_article_path(commandeId: @commandeId, produitId: @produitId), 
                     formmethod: :get, data: { turbo_frame: :total_field, form_element_target: "submitbtn" } %>    
@@ -79,7 +79,7 @@
                                </div>
                             <% end %>
                             
-                          <div class="text-end text-bottom p-2 me-3">
+                          <div class="text-center text-bottom p-2 me-3">
                           
                               <%= link_to 'Annuler', new_article_path(commandeId: @commandeId), class:"btn btn-outline-danger btn-sm" %>
                               <%= form.submit "Créer", class: 'btn btn-sm btn-success' %>
@@ -91,6 +91,10 @@
                 </div>
               </div>
         </div> 
+
+
     </div>
 
   <% end %>
+
+
