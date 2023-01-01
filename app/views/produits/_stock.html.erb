@@ -1,5 +1,7 @@
 
-<div class="bloc-record text-dark">
+<div class="bloc-record">
+
+<div class="cadre-interieur">
 
   <strong> STOCK </strong> <br>
   <% @produitId = params[:id]%>
@@ -16,6 +18,7 @@
   loc à venir: <%= louesAvenir = Commande.a_venir.joins(:articles).merge(Article.produit_courant(@produitId).articlesLoues).sum(:quantite) %> <br>
 
 </div>
+</div>
 
 <div class="bloc-record text-dark">
   <div class="row g-0 my-2">
@@ -27,4 +30,3 @@
     </div>
   </div>
 </div>
-

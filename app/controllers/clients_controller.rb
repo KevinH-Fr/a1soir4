@@ -92,8 +92,9 @@ class ClientsController < ApplicationController
       if @client.update(client_params)
 
         format.turbo_stream do  
-          render turbo_stream: turbo_stream.update(@client, partial: "clients/client", 
-            locals: {client: @client})
+          render turbo_stream: 
+            turbo_stream.update(@client, partial: "clients/client", 
+              locals: {client: @client})
         end
 
         format.html { redirect_to client_url(@client), notice: "Client was successfully updated." }

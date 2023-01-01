@@ -1,20 +1,27 @@
-<div data-controller="nouveau", class="my-0">
-  <div class="position-relative">
-    <div class="position-absolute top-0 end-0">
-      <div role="button" data-action="click->nouveau#openNouveau" data-nouveau-target="openNouveau", 
-          class="btn btn-sm btn-primary", style="inline;">
-            Nouveau
-      </div>
-      <div role="button" data-action="click->nouveau#closeNouveau" data-nouveau-target="closeNouveau", 
-          class="btn btn-sm btn-danger m-0", style="inline;">
-            Fermer nouveau
-      </div>
+<div class="class entete-show p-2">
+
+  <div data-controller="nouveau", class="text-start my-0">
+
+    <div role="button" data-action="click->nouveau#openNouveau" data-nouveau-target="openNouveau", 
+        class="btn btn-sm btn-primary fw-bold", style="inline;">
+          Nouveau
     </div>
-  </div> <br>
-  <div id="new_paiement">
-    <div data-nouveau-target="nouveauContent">
-      <br>
-      <%= render partial: "avoirrembs/form", locals: {avoirremb: Avoirremb.new} %>
+    <div role="button" data-action="click->nouveau#closeNouveau" data-nouveau-target="closeNouveau", 
+        class="btn btn-sm btn-danger m-0", style="inline;">
+          Fermer nouveau
+    </div>
+
+    <span class="m-3 fs-6 fw-bold text-end"> 
+      total: <%= avoirremb_deduit(@commande) %>
+    </span>
+
+
+
+    <div id="new_paiement">
+      <div data-nouveau-target="nouveauContent">
+        <br>
+        <%= render partial: "avoirrembs/form", locals: {avoirremb: Avoirremb.new} %>
+      </div>
     </div>
   </div>
 </div>

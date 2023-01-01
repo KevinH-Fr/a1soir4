@@ -1,20 +1,31 @@
-<div data-controller="nouveau", class="my-0">
-  <div class="position-relative">
-    <div class="position-absolute top-0 end-0">
-      <div role="button" data-action="click->nouveau#openNouveau" data-nouveau-target="openNouveau", 
-           class="btn btn-sm btn-primary", style="inline;">
-            Nouveau
-      </div>
-      <div role="button" data-action="click->nouveau#closeNouveau" data-nouveau-target="closeNouveau", 
-           class="btn btn-sm btn-danger m-0", style="inline;">
-            Fermer nouveau
-      </div>
+<div class="class entete-show p-2">
+
+  <div data-controller="nouveau", class="text-start my-0">
+    <div role="button" data-action="click->nouveau#openNouveau" data-nouveau-target="openNouveau", 
+        class="btn btn-sm btn-primary fw-bold", style="inline;">
+          Nouveau
     </div>
-  </div> <br>
-  <div id="new_paiement">
-    <div data-nouveau-target="nouveauContent">
-      <br>
-      <%= render partial: "paiements/form", locals: {paiement: Paiement.new} %>
+    <div role="button" data-action="click->nouveau#closeNouveau" data-nouveau-target="closeNouveau", 
+        class="btn btn-sm btn-danger fw-bold m-0", style="inline;">
+          Fermer nouveau
+    </div>
+
+
+     <span class="m-3 fw-bold text-end"> 
+      total prix: <%= recu_prix(@commande) %>
+    </span>
+    <span class="m-3 fw-bold text-end"> 
+      total caution: <%= recu_caution(@commande) %>
+    </span> 
+
+
+    <div id="new_paiement">
+      <div data-nouveau-target="nouveauContent">
+       <br>
+        <%= render partial: "paiements/form", locals: {paiement: Paiement.new} %>
+      </div>
     </div>
   </div>
 </div>
+
+

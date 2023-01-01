@@ -3,11 +3,11 @@
 <div class="bloc-record">
 
   <div class="mb-1">
-    <div class="row g-0">
-      <div class="col-4">
+    <div class="row gx-2">
+      <div class="col-4 cadre-interieur">
         <%= image_tag(@produit.default_image, class:"img-fluid rounded-start image-produit-sized-large")  %> 
       </div>
-      <div class="col-8 text-center">
+      <div class="col-7 text-center cadre-interieur">
         <div class="card-body">
           <h5 class="card-title text-dark me-4">
             <span class="text-left text-dark fw-bold">
@@ -24,10 +24,10 @@
           <span class="badge bg-primary"><%= @produit.prix %></span>
 
           <div class="row g-0 my-3">
-            <div class="col-6 m-0 px-4">
-              <%= image_tag(@produit.qr_code, class:"rounded-startimage-qr-cb-large-sized") if @produit.qr_code.attached? %>
+            <div class="col-6 m-0 px-1">
+              <%= image_tag(@produit.qr_code, class:"rounded-start image-qr-cb-large-sized") if @produit.qr_code.attached? %>
             </div>
-            <div class="col-6 m-0 px-4">
+            <div class="col-6 m-0 px-1">
               <%= image_tag(@produit.barcode, class:"rounded-start image-qr-cb-large-sized") if @produit.barcode.attached? %>
             </div>
           </div>
@@ -57,6 +57,18 @@
         </div>
       </div>
     </div>
+    
+    <div class="container">
+      <span>  
+        <%= button_to '', edit_produit_path(@produit), 
+            class:"fa-regular fa-pen-to-square btn btn-sm btn-secondary", 
+            method: :post %> 
+      </span>
+
+    </div>
+
+
+
   </div>
 
 </div>

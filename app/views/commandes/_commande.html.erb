@@ -1,57 +1,60 @@
 
 <div id="<%= dom_id commande %>">
   <% clientId = Commande.find(commande.id).client_id %>
-  <div class="bloc-record">
+    <div class="cadre-index mx-auto">
+      <div class="bloc-record">
 
-    <div class="row">
-      <div class="col-9 text-dark">
-        <div class="text-start mx-1 p-0">
-          <div class="badge-infos">
-            <%= link_to highlight(commande.texte_record, 
-                  params.dig(:q, :nom_or_typeevenement_or_client_prenom_or_client_nom_or_profile_prenom_cont)), 
-                  commande_path(commande.id), class: "link-record" %>
-          </div> 
-          <hr class="text-dark m-2"> 
+      <div class="row">
+        <div class="col-9 text-dark">
+          <div class="text-start mx-1 p-0">
+            <div class="badge-infos">
+              <%= link_to highlight(commande.texte_record, 
+                    params.dig(:q, :nom_or_typeevenement_or_client_prenom_or_client_nom_or_profile_prenom_cont)), 
+                    commande_path(commande.id), class: "link-record" %>
+            </div> 
+            <hr class="text-dark m-2"> 
 
-          <% if commande.client_id.present? %>
-            <span class="badge badge-infos-second bg-primary text-light"> 
-              <%= highlight(Client.find(commande.client_id).full_name, 
-                  params.dig(:q, :nom_or_typeevenement_or_client_prenom_or_client_nom_or_profile_prenom_cont)) %> 
-            </span>      
-          <% end %>
+            <% if commande.client_id.present? %>
+              <span class="badge badge-infos-second bg-primary text-light"> 
+                <%= highlight(Client.find(commande.client_id).full_name, 
+                    params.dig(:q, :nom_or_typeevenement_or_client_prenom_or_client_nom_or_profile_prenom_cont)) %> 
+              </span>      
+            <% end %>
 
-          <span class="badge badge-infos-second bg-secondary text-light"> 
-            <%= highlight(commande.auto_name, 
-                  params.dig(:q, :nom_or_typeevenement_or_client_prenom_or_client_nom_or_profile_prenom_cont)) %> 
-          </span> 
-          <% if commande.info_evenement.present? %>
-            <span class="badge badge-infos-second bg-warning text-light"> 
-              <%= highlight(commande.info_evenement, 
-                  params.dig(:q, :nom_or_typeevenement_or_client_prenom_or_client_nom_or_profile_prenom_cont)) %> 
-            </span>      
-          <% end %>
+            <span class="badge badge-infos-second bg-secondary text-light"> 
+              <%= highlight(commande.auto_name, 
+                    params.dig(:q, :nom_or_typeevenement_or_client_prenom_or_client_nom_or_profile_prenom_cont)) %> 
+            </span> 
+            <% if commande.info_evenement.present? %>
+              <span class="badge badge-infos-second bg-warning text-light"> 
+                <%= highlight(commande.info_evenement, 
+                    params.dig(:q, :nom_or_typeevenement_or_client_prenom_or_client_nom_or_profile_prenom_cont)) %> 
+              </span>      
+            <% end %>
 
-          <% if commande.profile_id.present? %>
-            <span class="badge badge-infos-second a1soir-colored text-light"> 
-              <%= highlight(Profile.find(commande.profile_id).full_name, 
-                  params.dig(:q, :nom_or_typeevenement_or_client_prenom_or_client_nom_or_profile_prenom_cont)) %> 
-            </span>      
-          <% end %>
+            <% if commande.profile_id.present? %>
+              <span class="badge badge-infos-second a1soir-colored text-light"> 
+                <%= highlight(Profile.find(commande.profile_id).full_name, 
+                    params.dig(:q, :nom_or_typeevenement_or_client_prenom_or_client_nom_or_profile_prenom_cont)) %> 
+              </span>      
+            <% end %>
 
+          </div>
+        </div>
+
+        <div class="col-3 m-0 p-1 text-end">
+
+          <%= link_to '', commande_path(commande), 
+              class:"fa-regular fa-folder-open btn btn-sm btn-success mb-1" %> 
+          <%= button_to "", edit_commande_path(commande), 
+              class:"fa-regular fa-pen-to-square btn btn-sm btn-secondary mb-1", method: :post %> 
+          <%= button_to '', commande_path(commande), 
+              class:"fa-solid fa-trash-can btn btn-danger btn-sm", method: :delete,
+              :onclick => "return confirm('Sûr ?')" %> 
         </div>
       </div>
-
-      <div class="col-3 m-0 p-1 text-end">
-
-        <%= link_to '', commande_path(commande), 
-            class:"fa-regular fa-folder-open btn btn-sm btn-success mb-1" %> 
-        <%= button_to "", edit_commande_path(commande), 
-            class:"fa-regular fa-pen-to-square btn btn-sm btn-secondary mb-1", method: :post %> 
-        <%= button_to '', commande_path(commande), 
-            class:"fa-solid fa-trash-can btn btn-danger btn-sm", method: :delete,
-             :onclick => "return confirm('Sûr ?')" %> 
-      </div>
     </div>
+
   </div>
 
 </div>

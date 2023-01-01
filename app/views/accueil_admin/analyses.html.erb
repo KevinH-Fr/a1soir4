@@ -1,6 +1,8 @@
 <% if user_signed_in? %>
   <% if current_user.admin? %>
 
+    <div class="cadre-index-large mx-auto">
+
     <div class="bloc-entete-model">
       <div class="card card-header entete-index text-center">
         <strong>Analyses</strong> 
@@ -65,11 +67,15 @@
       </div>
     </div>
 
+    </div>
+
     <br><br>
 
     <div class="fixed-bottom footer-index text-center bg-dark">
         footer
     </div>
+
+
 
   <% else %>
     <%= render "demandeConnexion" %>

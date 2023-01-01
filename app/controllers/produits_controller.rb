@@ -105,9 +105,20 @@ class ProduitsController < ApplicationController
   def destroy
     @produit.destroy
 
+    flash.now[:notice] = "le produit #{@produit.nom} a été supprimé"
+
     respond_to do |format|
-      format.html { redirect_to produits_url, notice: "Produit was successfully destroyed." }
-      format.json { head :no_content }
+
+      format.turbo_stream do
+        render turbo_stream: [
+          turbo_stream.remove(@produit),
+          turbo_stream.update("produit_counter", Produit.count),
+          turbo_stream.update("flash", partial: "layouts/flash")
+        ]
+      end
+
+    #  format.html { redirect_to produits_url, notice: "Produit was successfully destroyed." }
+    #  format.json { head :no_content }
     end
   end
 
