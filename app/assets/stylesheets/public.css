@@ -8,6 +8,8 @@ html {
     height: 100%;
 }
 
+
+
 .container-fluid {
     justify-content: center;
     align-items: center;
@@ -18,6 +20,19 @@ h1, h2, p, div, li, ul, a {
     color: rgb(0, 0, 0);
 }
 
+.cadre-index{
+    /* display: flex; */
+     margin-top: 10px;
+     align-items: center;
+     justify-content: center;
+     max-width: 900px;
+     background-color: rgb(252, 248, 249);
+     color:black;
+     margin: .5em;
+     padding: .5em;
+     border-radius: .2em;
+     box-shadow: 2px 3px 4px rgba(165, 163, 163, 0.8);
+   }
 
 .btn-circle.btn-xl {
     width: 100px;
@@ -44,15 +59,20 @@ h1, h2, p, div, li, ul, a {
     background-color: rgb(204, 46, 102);
 }
 
+.link-accueil{
+    font-size: large;
+    font-weight: bold;
+    color: rgb(204, 46, 102);
+}
 
 .img-max {
 
-    max-width: 30px;
+    max-width: 50px;
   }
 
 .img-big {
    /* min-width: 20px;*/
-    max-width: 160px;
+    max-width: 400px;
   }
 
 .img-centered {
