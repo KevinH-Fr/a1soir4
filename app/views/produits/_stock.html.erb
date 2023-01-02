@@ -1,23 +1,22 @@
 
 <div class="bloc-record">
+  <div class="cadre-interieur">
 
-<div class="cadre-interieur">
+    <strong> STOCK </strong> <br>
+    <% @produitId = params[:id]%>
+    <% locations = Article.produit_courant(@produitId).articlesLoues.compte_articles %> 
+    <% ventes = Article.produit_courant(@produitId).articlesVendus.compte_articles %> 
+  
+    initial : <%= initial = Produit.find(@produitId).quantite %> /
+    restant : <%= initial.to_i - locations.to_i - ventes.to_i %> <br>
+  
+    nb locations : <%= locations %> 
+    nb ventes : <%= ventes %> <br>
+  
+    loc terminées: <%= louesTermines = Commande.termine.joins(:articles).merge(Article.produit_courant(@produitId).articlesLoues).sum(:quantite) %> /
+    loc à venir: <%= louesAvenir = Commande.a_venir.joins(:articles).merge(Article.produit_courant(@produitId).articlesLoues).sum(:quantite) %> <br>
 
-  <strong> STOCK </strong> <br>
-  <% @produitId = params[:id]%>
-  <% locations = Article.produit_courant(@produitId).articlesLoues.compte_articles %> 
-  <% ventes = Article.produit_courant(@produitId).articlesVendus.compte_articles %> 
- 
-  initial : <%= initial = Produit.find(@produitId).quantite %> /
-  restant : <%= initial.to_i - locations.to_i - ventes.to_i %> <br>
- 
-  nb locations : <%= locations %> 
-  nb ventes : <%= ventes %> <br>
- 
-  loc terminées: <%= louesTermines = Commande.termine.joins(:articles).merge(Article.produit_courant(@produitId).articlesLoues).sum(:quantite) %> /
-  loc à venir: <%= louesAvenir = Commande.a_venir.joins(:articles).merge(Article.produit_courant(@produitId).articlesLoues).sum(:quantite) %> <br>
-
-</div>
+  </div>
 </div>
 
 <div class="bloc-record text-dark">

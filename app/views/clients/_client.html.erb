@@ -7,7 +7,7 @@
         <div class="row">
           <div class="col-10 text-dark">  
             <div class="text-record-main fw-bold ms-2">
-              <%= highlight(client.full_name, params.dig(:q, :nom_or_prenom_or_mail_cont)) %>
+              <%= link_to highlight(client.full_name, params.dig(:q, :nom_or_prenom_or_mail_cont)), client_path(client), class:"text-dark" %>
             </div>
             <% if client.mail.present? %>
               <div class="badge-infos">
@@ -49,16 +49,19 @@
 
 
         <div class="col-2 m-0 p-1 text-end">
+
+  
+          <%= link_to "", client_path(client), 
+                class:"fa-regular fa-folder-open btn btn-success btn-action" %> 
+          <br>
+
           <div role="button" data-action="click->dropdown#openDropdown" 
               data-dropdown-target="openButton", class="fa-solid fa-eye btn btn-outline-primary btn-action">
           </div>
           <div role="button" data-action="click->dropdown#closeDropdown" 
             data-dropdown-target="closeButton", class="fa-solid fa-eye-slash btn btn-outline-primary btn-action">
           </div>
-          <br>
-  
-          <%= link_to "", client_path(client), 
-                class:"fa-regular fa-folder-open btn btn-success btn-action" %> 
+          
           <%= button_to "", edit_client_path(client), 
                 class:"fa-regular fa-pen-to-square btn btn-secondary btn-action", method: :post %> 
           <%= button_to '', client_path(client), 

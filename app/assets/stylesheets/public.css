@@ -64,8 +64,8 @@ h1, h2, p, div, li, ul, a {
 }
 
 .btn-categorie-large {
-    color:rgb(255, 255, 255);
-    background-color: rgb(204, 46, 102);
+    color:rgb(0, 0, 0);
+  /*  background-color: rgb(204, 46, 102);*/
     padding: .4em;
     border-radius: .4em;
     font-size: .8em;
@@ -95,7 +95,7 @@ h1, h2, p, div, li, ul, a {
 
 .img-big {
    /* min-width: 20px;*/
-    max-width: 22em;
+    max-width: 20em;
   }
 
 .img-centered {

@@ -1,7 +1,9 @@
-<h5>robes de mariees</h5>
+<h5>Robes de mariees</h5>
 
 <div>
-  <strong> <%= @label %> </strong>
+  <% if @label.present? %> <%# message label paramétré par user %>
+    <hr> <th>  <%= render "labelPrincipale" %></th>   
+  <% end %>
 </div>
 
 <%= render partial: "listeProduits" %>
