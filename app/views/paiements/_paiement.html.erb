@@ -1,34 +1,40 @@
 <div id="<%= dom_id paiement %>">
-
   <div class="bloc-record">
     <div class="row">
-        <div class="col-9">
-          <div class="badge-infos">
-            <%= paiement.typepaiement %>  
-            <%= number_to_currency(paiement.montant, locale: :fr) %> 
-            <%= paiement.moyenpaiement %>   
-            <%= paiement.created_at.strftime("%d/%m/%y") %>
-          </div>
+      
+      <div class="col-10">
+        <div class="badge-infos">
+          <% if paiement.typepaiement == "Prix" %>
+            <span class="text-dark fw-bold">
+              <%= paiement.typepaiement %>  
+            </span>
+          <% else %>
+            <span class="text-primary fw-bold">
+              <%= paiement.typepaiement %>  
+            </span>
+          <% end %>
+          
+          <%= number_to_currency(paiement.montant, locale: :fr) %> 
+          <%= paiement.moyenpaiement %>   
+          <%= paiement.created_at.strftime("%d/%m/%y") %>
         </div>
-        <div class="col-3 m-0 p-0">
-          <div class="position-relative">
-            <div class="position-absolute top-0 end-0">
-              <table>
-                <tr>
-                  <td>   
-                    <%= button_to "", edit_paiement_path(paiement), 
-                        class:"fa-regular fa-pen-to-square btn btn-sm btn-secondary mb-2", method: :post %> 
-                  </td>
-                  <td>
-                    <%= button_to '', paiement_path(paiement), 
-                        class:"fa-solid fa-trash-can btn btn-danger btn-sm mb-2 me-3", method: :delete %> 
-                  </td>
-                </tr>
-              </table>
-            </div>
+      </div>
+    
+      <div class="col-2 m-0 p-0">
+        <div class="position-relative">
+          <div class="position-absolute top-0 end-0">
+
+                  <%= button_to "", edit_paiement_path(paiement), 
+                      class:"fa-regular fa-pen-to-square btn btn-sm btn-secondary", method: :post %> 
+
+                  <%= button_to '', paiement_path(paiement), 
+                      class:"fa-solid fa-trash-can btn btn-danger btn-sm", method: :delete %> 
+
           </div>
         </div>
       </div>
+      
+
     </div>
   </div>
 </div>

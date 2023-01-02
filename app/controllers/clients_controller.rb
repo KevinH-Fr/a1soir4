@@ -42,6 +42,7 @@ class ClientsController < ApplicationController
   def edit
     @typepropart = Client.typeproparts
     @intitule = Client.intitules
+  
     
     respond_to do |format|
       format.html

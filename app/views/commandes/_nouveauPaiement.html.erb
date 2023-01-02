@@ -10,14 +10,14 @@
           Fermer nouveau
     </div>
 
-
-     <span class="m-3 fw-bold text-end"> 
-      total prix: <%= recu_prix(@commande) %>
+    <span class="mx-4 text-end">
+      <span class="m-3 format-totaux"> 
+        Prix: <%= number_to_currency(recu_prix(@commande), locale: :fr) %> 
+      </span>
+      <span class="m-3 format-totaux"> 
+        Caution: <%= number_to_currency(recu_caution(@commande), locale: :fr) %>
+      </span> 
     </span>
-    <span class="m-3 fw-bold text-end"> 
-      total caution: <%= recu_caution(@commande) %>
-    </span> 
-
 
     <div id="new_paiement">
       <div data-nouveau-target="nouveauContent">

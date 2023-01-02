@@ -2,30 +2,22 @@
 
   <div class="bloc-record">
     <div class="row">
-      <div class="col-9">
+      <div class="col-10">
         <div class="badge-infos">
-          <%= avoirremb.typeavoirremb %>
+          <span class="fw-bold"> <%= avoirremb.typeavoirremb %> </span>
           <%= number_to_currency(avoirremb.montant, locale: :fr)  %> 
           <%= avoirremb.created_at.strftime("%d/%m/%y") %>
         </div>
       </div>
-      <div class="col-3 m-0 p-0">
-        <div class="position-relative">
-          <div class="position-absolute top-0 end-0">
-            <table>
-              <tr>
-                <td>   
-                  <%= button_to "", edit_avoirremb_path(avoirremb), 
-                      class:"fa-regular fa-pen-to-square btn btn-sm btn-secondary mb-2", method: :post %> 
-                </td>
-                <td>
-                  <%= button_to '', avoirremb_path(avoirremb), 
-                      class:"fa-solid fa-trash-can btn btn-danger btn-sm mb-2 me-3", method: :delete %> 
-                </td>
-              </tr>
-            </table>
-          </div>
-        </div>
+      <div class="col-2 text-end m-0 p-0">
+
+        <%= button_to "", edit_avoirremb_path(avoirremb), 
+            class:"fa-regular fa-pen-to-square btn btn-sm btn-secondary", method: :post %> 
+
+        <%= button_to '', avoirremb_path(avoirremb), 
+            class:"fa-solid fa-trash-can btn btn-danger btn-sm", method: :delete %> 
+
+
       </div>
     </div>
   </div>

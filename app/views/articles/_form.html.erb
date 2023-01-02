@@ -28,10 +28,10 @@
     <div class="bloc-entete-model">
       <div class="card-body p-1">
         <div class="row p-0 m-0">
-          <div class="col-6 p-0 m-0">
+          <div class="col cadre-interieur">
             <%= render "produitLie" %> <br>
           </div>
-          <div class="col-6 p-0 m-0 text-center"> 
+          <div class="col cadre-interieur"> 
             <div data-controller="form-element">
               <%= form.button "Validate", formaction: new_article_path(commandeId: @commandeId, produitId: @produitId), 
                     formmethod: :get, data: { turbo_frame: :total_field, form_element_target: "submitbtn" } %>    

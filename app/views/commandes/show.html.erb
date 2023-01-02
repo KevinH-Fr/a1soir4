@@ -1,4 +1,4 @@
-<div class="cadre-index mx-auto">
+
 
 <div class="bloc-entete-model">
   <div class="card card-header entete-index">
@@ -19,34 +19,36 @@
     <div class="entete-show">
       <strong class="">Client</strong> 
     </div>
+    <div class="">
       <%= render @client %>  
+    </div>
 
     <div class="entete-show">
       <strong>Articles</strong> 
     </div>
 
-      <%= render "listeArticles" %>
+    <%= render "listeArticles" %>
 
     <div class="entete-show">
       <strong>Paiements</strong> 
     </div>
 
-    <div class="">
+    <div class="mt-1">
       <%= render @paiements %>
-      <%= render "nouveauPaiement" %> <br>
+      <%= render "nouveauPaiement" %> 
     </div>    
+    <br>
 
     <div class="entete-show">
-      <strong>Avoir Remboursements</strong> 
+      <strong>Avoirs / Remboursements</strong> 
     </div>
 
-    <div class="">
+    <div class="mt-1">
       <%= render @avoirrembs %>
-      <%= render "nouveauAvoirremb" %> <br><br> <br>
+      <%= render "nouveauAvoirremb" %> <br><br>
 
     </div>    
 
-</div>
 
 <div class="fixed-bottom footer-index bg-dark">
   <%= render "syntheseCommande" %> 

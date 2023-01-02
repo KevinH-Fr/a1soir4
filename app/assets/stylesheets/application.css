@@ -42,6 +42,11 @@ input:invalid {
   border: 2px solid red;
 }
 
+.format-totaux{
+  font-size: small;
+  font-weight: bold;
+}
+
 .cadre-interieur {
   background-color: rgb(252, 248, 249);
   color:black;
@@ -49,6 +54,8 @@ input:invalid {
   padding: .5em;
   border-radius: .2em;
   box-shadow: 2px 3px 4px rgba(165, 163, 163, 0.8);
+  vertical-align: middle;
+ 
 }
 
 .titre-record{
