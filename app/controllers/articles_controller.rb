@@ -67,8 +67,6 @@ class ArticlesController < ApplicationController
     @produitId = params[:produitId]
     @natures = Modelsousarticle.distinct.pluck(:nature)
     @typelocvente = ["location", "vente"]
-    
-    @articleId = 5
 
     @sousarticles = Sousarticle.article_courant(@article)
 
