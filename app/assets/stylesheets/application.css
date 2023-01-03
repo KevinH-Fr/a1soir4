@@ -1,7 +1,8 @@
 /*
  *= require_tree .
  *= require_self
- */
+ *= require simple_calendar
+*/
 
 html {
     height: 100%; 
@@ -28,7 +29,7 @@ main{
   min-height: 100%;
 }
 
-h1, h2, div, li, ul, a {
+h1, h2, li, ul, a {
   color: rgb(255, 255, 255);
 }
 
@@ -589,4 +590,80 @@ input:invalid {
 
 .small-text{
   font-size: small;
+}
+
+
+/* CALENDAR 
+  le require css de base de calendar prend le dessus
+  donc les codes ci dessous sur day wday etc pas actif
+
+*/
+
+.simple-calendar {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: 1px solid white;
+  font-size: medium;
+  font-family: Arial, sans-serif;
+  color:rgb(59, 58, 58);
+  background-color: white;
+}
+
+.day {
+  width: 14.28;
+  padding: 5px;
+  border: 1px solid white;
+  text-align: center;
+}
+  
+.wday-0 {
+  color: red;
+}
+.wday-1 {
+  color: black;
+}
+.wday-2 {
+  color: black;
+}
+.wday-3 {  
+  color: black;
+}
+.wday-4 {  
+  color: black;
+}
+.wday-5 {  
+  color: black;
+}
+.wday-6 {  
+  color: red;
+}
+
+.today {
+  background-color: rgb(98, 131, 230);
+}
+.past {
+  color: #fff;
+}
+.future {
+  color: black;
+}
+
+.start-date { 
+  background-color: #fff;
+}
+
+.prev-month {
+  color: #fff;
+}
+.next-month { 
+  color: #fff;
+}
+
+.current-month {
+  color: black;
+}
+
+.has-events {
+  background-color: rgb(37, 187, 20);
 }

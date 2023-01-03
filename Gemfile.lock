@@ -105,6 +105,7 @@ GEM
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     erubi (1.11.0)
+    ffi (1.15.5-x64-mingw-ucrt)
     globalid (1.0.0)
       activesupport (>= 5.0)
     http-accept (1.7.0)
@@ -210,6 +211,8 @@ GEM
       rqrcode_core (~> 1.0)
     rqrcode_core (1.2.0)
     rubyzip (2.3.2)
+    sassc (2.4.0)
+      ffi (~> 1.9)
     selenium-webdriver (4.5.0)
       childprocess (>= 0.5, < 5.0)
       rexml (~> 3.2, >= 3.2.5)
@@ -284,6 +287,7 @@ DEPENDENCIES
   rails (~> 7.0.4)
   ransack (~> 3.2)
   rqrcode (~> 2.1)
+  sassc (~> 2.2)
   selenium-webdriver
   simple_calendar (~> 2.4)
   sprockets-rails
