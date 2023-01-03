@@ -27,8 +27,9 @@ gem "chunky_png", "~> 1.4"
 
 gem "barby", "~> 0.6.8"
 
-gem "letter_opener", group: :development
+gem "simple_calendar", "~> 2.4"
 
+gem "letter_opener", group: :development
 
 gem 'wicked_pdf'
 gem "wkhtmltopdf-binary", group: :development
