@@ -13,13 +13,19 @@
 
 <%= link_to "New meeting", new_meeting_path %>
 
+<hr>  
 
-<%= month_calendar(events: @meetings) do |date, meetings| %>
-  <%= date %>
+<div class="bloc-record text-dark text-center"> 
 
-  <% meetings.each do |meeting| %>
-    <div>
-      <%= link_to meeting.name, meeting_path(meeting.id) %>
+  <%= month_calendar(events: @meetings_periode) do |date, meetings| %>
+    <div class="day text-dark">
+      <%= date.day %>
     </div>
+    <% meetings.each do |meeting| %>
+      <div class="class card-header">
+        <%= link_to meeting.name, meeting, class:"text-primary" %>
+      </div>
+    <% end %>
   <% end %>
-<% end %>
+
+</div>
