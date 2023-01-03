@@ -4,12 +4,12 @@
 
       <div class="col-8 format-titre-dashboard">
         <i class="fa iconcolor fa-calendar ms-1 me-1"></i>
-        <%= link_to "CALENDRIER", commandes_path, class:"format-titre-dashboard" %> 
+        <%= link_to "CALENDRIER", meetings_path, class:"format-titre-dashboard" %> 
       </div>
 
       <div class="col-4 text-end m-0 p-0">
-        <div class="badge rounded-pill counter-model-dashboard"><%= Produit.count %></div>
-        <%= link_to "", new_produit_path(), class:"fa fa-add add-dashboard btn btn-sm" %>
+        <div class="badge rounded-pill counter-model-dashboard"><%= Meeting.count %></div>
+        <%= link_to "", new_meeting_path(), class:"fa fa-add add-dashboard btn btn-sm" %>
       </div>
     </div>
   </div>
@@ -17,10 +17,10 @@
   <div class="card-body body-bloc-dashboard"> 
     <table class="table bloc-table table-primary table-striped table-hover m-0 p-0">
       <tbody class="table-light table-dashboard">
-        <% @produits.limit(6).each do | produit | %>
+        <% @meetings.limit(6).each do | meeting | %>
           <tr> 
             <td> 
-              <%= link_to produit.nom, produit_path(produit), class:"text-dark crop", style:"text-decoration: none;" %> 
+              <%= link_to meeting.name, meeting_path(meeting), class:"text-dark crop", style:"text-decoration: none;" %> 
             </td>
           </tr> 
         <% end %>

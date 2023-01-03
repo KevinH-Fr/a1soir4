@@ -9,7 +9,7 @@
             <div class="text-record-main fw-bold ms-2">
               <%= link_to highlight(client.full_name, params.dig(:q, :nom_or_prenom_or_mail_cont)), client_path(client), class:"text-dark" %>
             </div>
-            <% if client.mail.present? %>
+            <% if client.tel.present? %>
               <div class="badge-infos">
                 <i class="fa fa-square-phone mx-2"></i>
                 <%= client.tel %>
