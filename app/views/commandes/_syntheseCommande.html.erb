@@ -7,7 +7,7 @@
     <% if soldePrix > 0 %>
       <span class="format-synthese bg-danger">
         <i class="fa-solid fa-euro-sign mx-1"></i> 
-        <span class="me-1"><%= number_to_currency(soldePrix, locale: :fr)  %> </span> 
+        <span class="me-1"><%= number_with_precision(soldePrix, precision: 0)  %> </span> 
       </span>
     <% else %>
       <span class="format-synthese bg-success">
@@ -19,7 +19,7 @@
     <% if soldeCaution > 0 %>
       <span class="format-synthese bg-danger">
         <i class="fa-solid fa-money-check mx-1"></i>
-        <span class="me-1"><%= number_to_currency(soldeCaution, locale: :fr)  %> </span> 
+        <span class="me-1"><%= number_with_precision(soldeCaution, precision: 0) %> </span> 
       </span>
     <% else %>
       <span class="format-synthese bg-success">

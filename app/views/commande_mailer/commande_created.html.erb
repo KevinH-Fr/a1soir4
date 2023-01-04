@@ -4,10 +4,19 @@
   <%#= @commande.texte_record %>
 
   <br> <br>
-  Pour laisser un commentaire : <br>
+  Pour laisser un commentaire sur notre boutique, merci de suivre ce lien :
   <%= link_to "google", "https://www.google.com" %>
 
-  <%= attachments['logo1.png'] %>
+
+<hr>  
+
+  <%= image_tag(attachments['logo1.png'].url) %>
+
+  <strong> petite image logo </strong> <br>
+
+ <%= image_tag(attachments['logo1.png'].url, class:"width: 50px;") %>
+
+  <%#= attachments['logo1.png'] %>
 
 <%#= attachments.inline['logo.png'] %>
 <%#= attachments.inline['logo_courant.png'] = File.read('public/logo_courant.png') %>

@@ -2,13 +2,16 @@
   <div class="header-bloc-dashboard"> 
     <div class="row align-items-center m-0 p-0">
 
-      <div class="col-8 format-titre-dashboard">
-        <i class="fa iconcolor fa-file-invoice ms-1 me-1"></i>
-        <%= link_to "COMMANDE", commandes_path, class:"format-titre-dashboard" %> 
+      <div class="col format-titre-dashboard text-start">
+        <i class="fa iconcolor fa-user ms-1 me-1"></i>
+      </div>
+      
+      <div class="col format-titre-dashboard text-center">
+        <%= link_to "COMMANDES", commandes_path, class:"format-titre-dashboard text-center" %> 
       </div>
 
-      <div class="col-4 text-end m-0 p-0">
-        <div class="badge rounded-pill counter-model-dashboard"><%= Commande.count %></div>
+      <div class="col text-end m-0 p-0">
+        <%# <div class="badge rounded-pill counter-model-dashboard"><%= Commande.count %>
         <%= link_to "", new_commande_path(), class:"fa fa-add add-dashboard btn btn-sm" %>
       </div>
     </div>

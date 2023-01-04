@@ -426,7 +426,7 @@ input:invalid {
   color:rgb(208, 77, 123);
   padding: .5em;
   margin: .5em;
-  font-size: .8em;
+  font-size: medium;
 }
 
 .iconcolor {
