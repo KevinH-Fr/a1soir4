@@ -29,7 +29,7 @@ gem "barby", "~> 0.6.8"
 
 gem "simple_calendar", "~> 2.4"
 
-#gem 'sassc', '~> 2.2'
+gem 'sassc', '~> 2.2'
 
 
 gem "letter_opener", group: :development
