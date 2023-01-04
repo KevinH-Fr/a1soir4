@@ -1,10 +1,15 @@
-<p style="color: green"><%= notice %></p>
+
+    <div class="bloc-entete-model">
+      <div class="card card-header entete-index">
+        <div class="row m-0 p-0">
+          <div class="col">
+            <strong>RENDEZ-VOUS</strong> 
+          </div>
+        
+        </div>
+      </div> 
+      
+    </div>
 
 <%= render @meeting %>
 
-<div>
-  <%= link_to "Edit this meeting", edit_meeting_path(@meeting) %> |
-  <%= link_to "Back to meetings", meetings_path %>
-
-  <%= button_to "Destroy this meeting", @meeting, method: :delete %>
-</div>

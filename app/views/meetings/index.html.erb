@@ -1,34 +1,57 @@
-<p style="color: green"><%= notice %></p>
+<% if user_signed_in? %>
+  <% if current_user.admin? %>
 
-<h1>Meetings</h1>
-
-
-<%= link_to "New meeting", new_meeting_path %>
-
-
-<hr>  
-
-<div class="text-center"> 
-
-  <%= month_calendar(events: @meetings_periode) do |date, meetings| %>
-    <div class="day">
-      <%= date.day %>
+    <div class="bloc-entete-model">
+      <div class="card card-header entete-index">
+        <div class="row m-0 p-0">
+          <div class="col-11">
+            <strong>CALENDRIER</strong> 
+          </div>
+          <div class="col-1 text-end m-0 p-0">
+            <span class="badge rounded-pill counter-model-dashboard"><%= Meeting.count %></span>
+          </div>
+        </div>
+      </div> 
+      
     </div>
 
-    <% meetings.each do |meeting| %>
-      <div class="card-header">
-        <div class="card-title">
-          <%= link_to meeting.name, meeting, class:"text-primary" %>
-        </div>
-        <div class="card-body"> 
-          <p class="card-text">
-            De: <%= meeting.start_time.strftime('%I:%M %p') %>
-          </p>
-          <p class="card-text">
-            à: <%= meeting.end_time.strftime('%I:%M %p') %>
-          </p>
-        </div>
-    <% end %>
-  <% end %>
 
-</div>
+
+    <div class="text-center"> 
+
+      <%= month_calendar(events: @meetings_periode) do |date, meetings| %>
+        <div class="day">
+          <%= date.day %>
+        </div>
+
+        <% meetings.each do |meeting| %>
+          <div class="card-header">
+            <div class="card-title">
+              <%= link_to meeting.name, meeting, class:"text-primary" %>
+            </div>
+            <div class="card-body"> 
+              <p class="card-text">
+                De: <%= meeting.start_time.strftime('%I:%M %p') %>
+              </p>
+              <p class="card-text">
+                à: <%= meeting.end_time.strftime('%I:%M %p') %>
+              </p>
+            </div>
+        <% end %>
+      <% end %>
+
+    </div>
+
+    
+      <%= link_to "Nouveau", new_meeting_path, class:"btn btn-sm btn-warning m-1 p-1 fw-bold" %>
+
+
+
+  <% else %>
+    <%= render "accueil_admin/demandeConnexion" %>
+
+  <% end %>
+<% end %>
+
+
+

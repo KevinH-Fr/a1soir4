@@ -461,6 +461,7 @@ input:invalid {
 
 .entete-index {
   background-color: rgb(41, 41, 41);
+  color: #fff;
   padding: 0em;
   margin: 0em;
   text-align: center;
@@ -520,6 +521,7 @@ input:invalid {
 
 .entete-show {
   background-color: rgb(35, 35, 35);
+  color: #fff;
   border-radius: .2em;
   padding: .2em;
   margin: 0em;
@@ -539,7 +541,7 @@ input:invalid {
 }
 
 .format-synthese{
-  color:#fff;
+  color: #fff;
   text-align: center;
   font-size: x-small;
   margin: .5em;

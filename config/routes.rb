@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  resources :meetings
-
 
   resources :modelsousarticles
   resources :articleoptions
@@ -44,6 +42,12 @@ Rails.application.routes.draw do
   end
 
   resources :profiles do
+    member do
+      post :edit
+    end
+  end 
+
+  resources :meetings do
     member do
       post :edit
     end

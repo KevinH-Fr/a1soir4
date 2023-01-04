@@ -1,7 +1,6 @@
 class MeetingsController < ApplicationController
   before_action :set_meeting, only: %i[ show edit update destroy ]
 
-  # GET /meetings or /meetings.json
   def index
     @meetings = Meeting.all
 
@@ -11,27 +10,33 @@ class MeetingsController < ApplicationController
 
  end
 
-  # GET /meetings/1 or /meetings/1.json
   def show
   end
 
-  # GET /meetings/new
+
   def new
     @meeting = Meeting.new
   end
 
-  # GET /meetings/1/edit
+
   def edit
+    respond_to do |format|
+      format.html
+      format.turbo_stream do  
+        render turbo_stream: turbo_stream.update(@meeting, partial: "meetings/form", 
+          locals: {meeting: @meeting})
+      end
+    end
   end
 
-  # POST /meetings or /meetings.json
+  
   def create
     @meeting = Meeting.new(meeting_params)
 
     respond_to do |format|
       if @meeting.save
-        format.html { redirect_to meeting_url(@meeting), notice: "Meeting was successfully created." }
-        format.json { render :show, status: :created, location: @meeting }
+        format.html { redirect_to meetings_path, notice: "Meeting was successfully created." }
+       
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @meeting.errors, status: :unprocessable_entity }
