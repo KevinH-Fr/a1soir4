@@ -1,7 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <%# <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> %>
+
+    
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'">
+
+    <%= csrf_meta_tags %>
+
+
     <style>
       /* Email styles need to be inline */
       body {      

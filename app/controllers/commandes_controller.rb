@@ -134,7 +134,7 @@ class CommandesController < ApplicationController
     @commande = Commande.find(params[:id])
     typedoc = params[:typedoc]
 
-    pdf = WickedPdf.new.pdf_from_string(
+    pdf = WickedPdf.new.pdf_from_html_file(
       render_to_string('commandes/bonCommande', layout: 'pdf'),
         header: {
           content: render_to_string(
