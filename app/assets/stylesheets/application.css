@@ -394,6 +394,15 @@ input:invalid {
 
 .fit-image{
     max-width: 200px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.middled {
+  text-align: center;
+  vertical-align: middle;
+  align-items: center;
+
 }
 
 .navbar-item { 
@@ -415,8 +424,9 @@ input:invalid {
 
 .iconcolor-nav {
   color:rgb(208, 77, 123);
-  padding: 0em;
-  font-size: medium;
+  padding: .5em;
+  margin: .5em;
+  font-size: .8em;
 }
 
 .iconcolor {
