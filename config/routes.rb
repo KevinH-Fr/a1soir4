@@ -10,9 +10,9 @@ Rails.application.routes.draw do
 
       get :editer_pdf
 
-      get :send_mail, 
-          to: 'friends#send_mail', 
-          as: :send_mail
+      get :send_mail 
+         # to: 'friends#send_mail', 
+         # as: :send_mail
 
     end
   end

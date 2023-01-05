@@ -3,7 +3,7 @@
 <div class="bloc-record">
 
 
-<%#= image_tag(friend.image1, class:"img-fluid rounded-start image-produit-sized") %> 
+<%= image_tag(friend.image1, class:"img-fluid rounded-start image-produit-sized") %> 
 
  <%= image_tag('logo1.png') %>
 
@@ -28,10 +28,10 @@
 
 
 
-        <%= link_to 'pdf facture', editer_pdf_friend_path, 
+        <%= link_to 'pdf friend', editer_pdf_friend_path(friend), 
                 class:"btn btn-success" %>
 
-          <%= link_to 'mail facture', send_mail_friend_path, 
+          <%= link_to 'mail friend', send_mail_friend_path(friend), 
             class:"btn btn-primary" %>
 
         <div class="col-2 m-0 p-1 text-end">

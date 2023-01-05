@@ -88,7 +88,7 @@ class FriendsController < ApplicationController
     @friend = Friend.find(params[:id])
 
     pdf = WickedPdf.new.pdf_from_string(
-      render_to_string(template: "friends/show", 
+      render_to_string(template: "friends/documentEdit", 
                        formats: [:html],
                        disposition: :inline,              
                        layout: 'pdf')
@@ -102,7 +102,7 @@ class FriendsController < ApplicationController
   end 
 
   def send_mail
-
+    
     friend = Friend.find(params[:id])
 
     FriendMailer.new_friend(friend).deliver_now

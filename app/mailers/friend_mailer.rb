@@ -11,7 +11,7 @@ class FriendMailer < ApplicationMailer
     friend = Friend.first
 
     pdf = WickedPdf.new.pdf_from_string(
-      render_to_string(template: "friends/show", 
+      render_to_string(template: "friends/documentEdit", 
                        formats: [:html],
                        disposition: :inline,              
                        layout: 'pdf')

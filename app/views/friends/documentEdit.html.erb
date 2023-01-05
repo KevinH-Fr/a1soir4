@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+
+<html>
+
+<strong>test document </strong>
+
+    <%#= render "shared/enteteDoc" %>
+    <br>
+
+<%#= image_tag(friend.image1, class:"img-fluid rounded-start image-produit-sized") %> 
+
+
+    <br>
+ <%= wicked_pdf_image_tag asset_url('/logo_courant.png') %> <br> <br> 
+
+
+<% friend = Friend.find(7) %>
+
+<%# friend = Friend.find(params[:id]) %>
+
+  <p>
+    <strong>id:</strong>
+    <%= friend.id %>
+  </p>
+  <p>
+    <strong>Name:</strong>
+    <%= friend.name %>
+  </p>
+
+  <p>
+    <strong>Mail:</strong>
+    <%= friend.mail %>
+  </p>
+
+  <p>
+    <strong>Age:</strong>
+    <%= friend.age %>
+  </p>
+
+
+<%= image_tag(friend.image1, class:"img-fluid rounded-start image-produit-sized") %> 
+
+
+
+  </html>
