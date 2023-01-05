@@ -15,7 +15,7 @@
  <%= wicked_pdf_image_tag asset_url('/logo_courant.png') %> <br> <br> 
 
 
-<% friend = Friend.find(7) %>
+<% friend = Friend.find(1) %>
 
 <%# friend = Friend.find(params[:id]) %>
 
@@ -39,7 +39,7 @@
   </p>
 
 
-<%= image_tag(friend.image1, class:"img-fluid rounded-start image-produit-sized") %> 
+<%= image_tag(friend.image1, class:"img-fluid rounded-start image-produit-sized") if friend.image1.present? %> 
 
 
 
