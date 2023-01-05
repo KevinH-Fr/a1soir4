@@ -25,13 +25,16 @@ class CommandeMailer < ApplicationMailer
     #attachments.inline["logo1.png"] = File.read('app/assets/images/logo1.png')
     #attachments.inline['logo_courant.png'] = File.read('public/logo_courant.png')
 
-    pdf = WickedPdf.new.pdf_from_string(
-      render_to_string('commandes/bonCommande', layout: 'pdf')
+    #pdf = WickedPdf.new.pdf_from_html_file(
+    #  render_to_string('commandes/bonCommande', layout: 'pdf')
        
+    #)
+    #attachments["#{@nomDocument}.pdf"] = pdf
+
+
+    attachments["commande.pdf"] = WickedPdf.new.pdf_from_string(
+      render_to_string(template: 'commandes/bonCommande', locals: {commande: @commande}, layout: 'pdf', formats: [:html])
     )
-    attachments["#{@nomDocument}.pdf"] = pdf
-
-
 
    # attachments["#{@nomDocument}.pdf"] = 
 
