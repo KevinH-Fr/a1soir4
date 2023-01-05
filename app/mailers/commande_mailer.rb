@@ -1,7 +1,7 @@
 class CommandeMailer < ApplicationMailer
 
   # default from: "from@example.com"
-  layout "mailer"
+
 
   helper CommandeHelper #rendre disponible l'helper commande pour calculs synthese
 

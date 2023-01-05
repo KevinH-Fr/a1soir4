@@ -1,4 +1,12 @@
 <div id="<%= dom_id friend %>">
+
+<div class="bloc-record">
+
+
+<%#= image_tag(friend.image1, class:"img-fluid rounded-start image-produit-sized") %> 
+
+ <%= image_tag('logo1.png') %>
+
   <p>
     <strong>id:</strong>
     <%= friend.id %>
@@ -17,5 +25,26 @@
     <strong>Age:</strong>
     <%= friend.age %>
   </p>
+
+
+
+        <%= link_to 'pdf facture', editer_pdf_friend_path, 
+                class:"btn btn-success" %>
+
+          <%= link_to 'mail facture', send_mail_friend_path, 
+            class:"btn btn-primary" %>
+
+        <div class="col-2 m-0 p-1 text-end">
+
+          <%= link_to '', friend_path(friend), 
+              class:"fa-regular fa-folder-open btn btn-sm btn-success mb-1" %> 
+          <%= button_to "", edit_friend_path(friend), 
+              class:"fa-regular fa-pen-to-square btn btn-sm btn-secondary mb-1", method: :post %> 
+          <%= button_to '', friend_path(friend), 
+              class:"fa-solid fa-trash-can btn btn-danger btn-sm", method: :delete,
+              :onclick => "return confirm('Sûr ?')" %> 
+        </div>
+
+</div>
 
 </div>

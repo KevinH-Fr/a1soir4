@@ -3,7 +3,19 @@ Rails.application.routes.draw do
   resources :modelsousarticles
   resources :articleoptions
   resources :messages
-  resources :friends
+
+  resources :friends do
+    member do 
+      post :edit
+
+      get :editer_pdf
+
+      get :send_mail, 
+          to: 'friends#send_mail', 
+          as: :send_mail
+
+    end
+  end
 
   resources :paiements do
     member do 

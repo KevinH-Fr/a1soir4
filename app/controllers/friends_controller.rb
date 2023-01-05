@@ -14,6 +14,16 @@ class FriendsController < ApplicationController
 
   # GET /friends/1 or /friends/1.json
   def show
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "friend_ #{@friend.id}",
+                template: "friends/show",
+                formats: [:html],
+                disposition: :inline,
+                layout: 'pdf'
+      end
+    end
   end
 
   # GET /friends/new
@@ -21,8 +31,16 @@ class FriendsController < ApplicationController
     @friend = Friend.new
   end
 
-  # GET /friends/1/edit
   def edit
+
+    respond_to do |format|
+      format.html
+      format.turbo_stream do  
+        render turbo_stream: turbo_stream.update(@friend, partial: "friends/form", 
+          locals: {friend: @friend})
+      
+      end
+    end
   end
 
   # POST /friends or /friends.json
@@ -63,6 +81,40 @@ class FriendsController < ApplicationController
     end
   end
 
+
+
+  def editer_pdf
+
+    @friend = Friend.find(params[:id])
+
+    pdf = WickedPdf.new.pdf_from_string(
+      render_to_string(template: "friends/show", 
+                       formats: [:html],
+                       disposition: :inline,              
+                       layout: 'pdf')
+    )
+    # Envoi du PDF en tant que fichier à télécharger
+    send_data pdf,
+      filename: "friend_" "#{@friend.id}",
+      type: 'application/pdf',
+      disposition: 'inline'
+
+  end 
+
+  def send_mail
+
+    friend = Friend.find(params[:id])
+
+    FriendMailer.new_friend(friend).deliver_now
+      flash[:notice] = "le mail a bien été envoyé"
+      redirect_to friend_path(friend)
+
+  end 
+
+
+
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_friend
@@ -71,6 +123,6 @@ class FriendsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def friend_params
-      params.require(:friend).permit(:name, :mail, :age)
+      params.require(:friend).permit(:name, :mail, :age, :image1)
     end
 end
