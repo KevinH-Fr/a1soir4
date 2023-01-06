@@ -111,20 +111,12 @@ class FriendsController < ApplicationController
                        disposition: :inline,              
                        layout: 'pdf')
     )
-
-  #  FriendMailer.new_friend(friend).deliver_now
-    #  flash[:notice] = "le mail a bien été envoyé"
-    #  redirect_to friend_path(friend)
-
     
     FriendMailer.with(friend: friend, pdf: pdf).new_friend().deliver_now
       flash[:notice] = "le mail a bien été envoyé"
       redirect_to friend_path(friend)
     
-
   end 
-
-
 
 
 

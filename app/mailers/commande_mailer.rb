@@ -9,6 +9,9 @@ class CommandeMailer < ApplicationMailer
 
     @typedoc = typedoc
     @commande = commande
+  
+
+    @pdf = params[:pdf]
 
     @client = @commande.client_id
     @clientMail = Client.find(@client).mail
@@ -22,6 +25,9 @@ class CommandeMailer < ApplicationMailer
                   #{@dateEvent}."
 
     attachments['logo1.png'] = File.read('app/assets/images/logo1.png')
+    
+    attachments["commande_#{commande.id}.pdf"] = @pdf 
+    
     #attachments.inline["logo1.png"] = File.read('app/assets/images/logo1.png')
     #attachments.inline['logo_courant.png'] = File.read('public/logo_courant.png')
 
@@ -32,9 +38,9 @@ class CommandeMailer < ApplicationMailer
     #attachments["#{@nomDocument}.pdf"] = pdf
 
 
-    attachments["commande.pdf"] = WickedPdf.new.pdf_from_string(
-      render_to_string(template: 'commandes/bonCommande', locals: {commande: @commande}, layout: 'pdf', formats: [:html])
-    )
+   # attachments["commande.pdf"] = WickedPdf.new.pdf_from_string(
+   #   render_to_string(template: 'commandes/bonCommande', locals: {commande: @commande}, layout: 'pdf', formats: [:html])
+   # )
 
    # attachments["#{@nomDocument}.pdf"] = 
 

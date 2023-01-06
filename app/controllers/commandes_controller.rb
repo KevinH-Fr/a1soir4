@@ -134,8 +134,13 @@ class CommandesController < ApplicationController
     @commande = Commande.find(params[:id])
     typedoc = params[:typedoc]
 
-    pdf = WickedPdf.new.pdf_from_html_file(
-      render_to_string('commandes/bonCommande', layout: 'pdf'),
+    pdf = WickedPdf.new.pdf_from_string(
+      render_to_string(
+        template: "commandes/bonCommande", 
+        formats: [:html],
+        disposition: :inline,              
+        layout: 'pdf'
+      ),
         header: {
           content: render_to_string(
             'shared/doc_entete',
@@ -148,8 +153,8 @@ class CommandesController < ApplicationController
             layout: 'pdf'
           )
         }
-    )
-
+      )
+  
     # Envoi du PDF en tant que fichier à télécharger
     send_data pdf,
       filename: "#{typedoc}_" "#{@commande.id}",
@@ -158,14 +163,44 @@ class CommandesController < ApplicationController
 
   end 
 
-  def send_commande_mail()
+  def send_commande_mail
 
     commande = Commande.find(params[:id])
+    @commande = Commande.find(params[:id])
+
     typedoc = params[:typedoc]
 
-    CommandeMailer.commande_created(commande, typedoc).deliver_now
+    pdf = WickedPdf.new.pdf_from_string(
+      render_to_string(
+        template: "commandes/bonCommande", 
+        formats: [:html],
+        disposition: :inline,              
+        layout: 'pdf'
+      ),
+        header: {
+          content: render_to_string(
+            'shared/doc_entete',
+            layout: 'pdf'
+          )
+        },
+        footer: {
+          content: render_to_string(
+            'shared/doc_footer',
+            layout: 'pdf'
+          )
+        }
+      )
+    
+    CommandeMailer.with(commande: commande, pdf: pdf, typedoc: typedoc)
+      .commande_created(commande, typedoc).deliver_now
       flash[:notice] = "le mail a bien été envoyé"
-      redirect_to commande_path(commande, typedoc: typedoc )
+      redirect_to commande_path(commande, typedoc: typedoc)
+
+
+
+#    CommandeMailer.commande_created(commande, typedoc).deliver_now
+#      flash[:notice] = "le mail a bien été envoyé"
+#      redirect_to commande_path(commande, typedoc: typedoc )
 
   end 
   
