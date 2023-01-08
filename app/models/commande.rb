@@ -6,6 +6,9 @@ class Commande < ApplicationRecord
     has_many :paiements, :dependent => :delete_all 
 
     enum statutarticleses: ["non-retiré", "retiré", "rendu"]
+    enum typeevents: ["soirée", "mariage", "divers"]
+    
+
     enum typedocs: ["bon de commande", "facture", "facture simple"]
     enum typeeditions: ["pdf", "impression", "mail"]
 

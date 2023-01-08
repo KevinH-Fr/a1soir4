@@ -157,7 +157,7 @@ class CommandesController < ApplicationController
   
     # Envoi du PDF en tant que fichier à télécharger
     send_data pdf,
-      filename: "#{typedoc}_" "#{@commande.id}",
+      filename: "#{typedoc}_" "#{@commande.id}.pdf",
       type: 'application/pdf',
       disposition: 'inline'
 
@@ -195,12 +195,6 @@ class CommandesController < ApplicationController
       .commande_created(commande, typedoc).deliver_now
       flash[:notice] = "le mail a bien été envoyé"
       redirect_to commande_path(commande, typedoc: typedoc)
-
-
-
-#    CommandeMailer.commande_created(commande, typedoc).deliver_now
-#      flash[:notice] = "le mail a bien été envoyé"
-#      redirect_to commande_path(commande, typedoc: typedoc )
 
   end 
   
