@@ -16,10 +16,19 @@ class MeetingsController < ApplicationController
 
   def new
     @meeting = Meeting.new
+
+    @commandeId = params[:id]
+    session[:commandeId] = @commandeId
+
+
   end
 
 
   def edit
+
+    @commandeId = params[:id]
+    session[:commandeId] = @commandeId
+
     respond_to do |format|
       format.html
       format.turbo_stream do  
@@ -35,8 +44,11 @@ class MeetingsController < ApplicationController
 
     respond_to do |format|
       if @meeting.save
-        format.html { redirect_to meetings_path, notice: "Meeting was successfully created." }
-       
+        if @meeting.commande_id.present?
+          format.html { redirect_to commande_url(@meeting.commande_id), notice: "Meeting was successfully created." }
+        else
+          format.html { redirect_to meeting_path(@meeting), notice: "Meeting was successfully created." }
+        end 
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @meeting.errors, status: :unprocessable_entity }
@@ -48,7 +60,7 @@ class MeetingsController < ApplicationController
   def update
     respond_to do |format|
       if @meeting.update(meeting_params)
-        format.html { redirect_to meeting_url(@meeting), notice: "Meeting was successfully updated." }
+        format.html { redirect_to commande_url(@meeting.commande_id), notice: "Meeting was successfully updated." }
         format.json { render :show, status: :ok, location: @meeting }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -75,6 +87,6 @@ class MeetingsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def meeting_params
-      params.require(:meeting).permit(:name, :start_time, :end_time)
+      params.fetch(:meeting, {}).permit(:name, :start_time, :end_time, :commande_id)
     end
 end

@@ -6,11 +6,9 @@ class AvoirrembsController < ApplicationController
     @avoirrembs = Avoirremb.all
   end
 
-  # GET /avoirrembs/1 or /avoirrembs/1.json
   def show
   end
 
-  # GET /avoirrembs/new
   def new
     @avoirremb = Avoirremb.new avoirremb_params
     @commandeId = params[:commandeId]

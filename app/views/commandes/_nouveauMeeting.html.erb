@@ -1,0 +1,29 @@
+<div class="class entete-show p-2">
+
+  <div data-controller="nouveau", class="text-start my-0">
+    <div role="button" data-action="click->nouveau#openNouveau" data-nouveau-target="openNouveau", 
+        class="btn btn-sm btn-primary fw-bold", style="inline;">
+          Nouveau
+    </div>
+    <div role="button" data-action="click->nouveau#closeNouveau" data-nouveau-target="closeNouveau", 
+        class="btn btn-sm btn-danger m-0", style="inline;">
+          Fermer nouveau
+    </div>
+
+    <span class="mx-4 text-end">
+      <span class="m-3 format-totaux"> 
+        <% commande = session[:commandeId] %>
+        Nombre: <%= Meeting.commande_courante(commande).count %> 
+      </span> 
+    </span>
+
+
+    <div id="new_meeting">
+      <div data-nouveau-target="nouveauContent">
+        <br>
+        <%= render partial: "meetings/form", locals: {meeting: Meeting.new} %>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -9,6 +9,19 @@
           <%= meeting.name %>
         </p>
 
+        <% if meeting.commande_id.present? %>
+          <p>
+            <strong>Commande liée:</strong>
+            <%= Commande.find(meeting.commande_id).nom %>
+          </p>
+          <p>
+            <strong>Client lié:</strong>
+            <% clientId = Commande.find(meeting.commande_id).client_id %>
+            <%= Client.find(clientId).full_name %>
+          </p>
+
+        <% end %>
+
         <p>
           <strong>Début:</strong>
           <%= meeting.start_time %>

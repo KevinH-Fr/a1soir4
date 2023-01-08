@@ -1,3 +1,5 @@
+
+
 <%= form_with(model: @meeting) do |form| %>
   <% if @meeting.errors.any? %>
     <div style="color: red">
@@ -11,18 +13,25 @@
     </div>
   <% end %>
 
-
+<%# commandeId = session[:commandeId] %>
+  
   <div class="card-body bloc-record">
     <div class="input-group mb-1">
       <%= form.label :nom, class:"input-group-text label-with-format" %>
       <%= form.text_field :name, class:"form-control field-with-format" %>
     </div>
+
+    <div class="input-group mb-1">
+      <%= form.label :commande, class:"input-group-text label-with-format" %>
+      <%= form.select :commande_id, Commande.all.collect { |c| [ c.nom, c.id ]}, 
+            {class: 'form-control', include_blank: true, selected: session[:commandeId]} %>
+
+    </div>
+
     <div class="input-group mb-1">
       <%= form.label :début, class:"input-group-text label-with-format" %>
       <%= form.datetime_field :start_time, class:"form-control field-with-format" %>
-    </div>
 
-  <div class="input-group mb-1">
     <%= form.label :fin, class:"input-group-text label-with-format" %>
     <%= form.datetime_field :end_time, class:"form-control field-with-format" %>
   </div>

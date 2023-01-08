@@ -18,11 +18,16 @@ class CommandesController < ApplicationController
     @avoirrembs = Avoirremb.commande_courante(@commande)
     @sousarticles = Sousarticle.all
 
+
     @typedocs = ["bon de commande", "facture", "facture simple"]
     @client = Client.client_courant(@commande.client_id)
 
     @commandeId = params[:id]
     session[:commandeId] = @commandeId
+
+    @meetings = Meeting.commande_courante(@commande)
+    @meeting = Meeting.new
+
 
   end
 
