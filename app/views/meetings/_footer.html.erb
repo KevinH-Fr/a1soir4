@@ -1,0 +1,16 @@
+    <div class="fixed-bottom footer-index text-center bg-dark">
+        <div class="row justify-content-evenly">
+          <div class="col-4 text-start">
+            <%= link_to "", meetings_path, class:"fa-solid fa-rotate-left btn btn-sm btn-secondary" %> 
+          </div>
+          <div class="col-4 text-center">
+            <div class="badge bg-dark">
+              <%= link_to "Semaine", calendar_week_path %>
+              <%= link_to "Mois", calendar_month_path %>
+            </div>
+          </div>
+          <div class="col-4 text-end">
+             <%= link_to "Nouveau", new_meeting_path, class:"btn btn-sm btn-warning m-1 p-1 fw-bold" %>
+          </div>
+        </div>
+    </div>

@@ -1,0 +1,27 @@
+    <div class="text-center"> 
+
+      <%= week_calendar(events: @meetings_periode) do |date, meetings| %>
+        <div class="day">
+          <%= date.day %>
+        </div>
+
+        <% meetings.each do |meeting| %>
+          <div class="card-header">
+            <div class="card-title">
+              <%= link_to meeting.name, meeting, class:"text-primary" %>
+            </div>
+            <div class="card-body"> 
+              <p class="card-text">
+                De: <%= meeting.start_time.strftime('%I:%M %p') %>
+              </p>
+              <p class="card-text">
+                à: <%= meeting.end_time.strftime('%I:%M %p') %>
+              </p>
+            </div>
+        <% end %>
+      <% end %>
+
+    </div>
+
+    
+    <%= render "meetings/footer" %>

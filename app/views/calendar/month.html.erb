@@ -1,23 +1,4 @@
-<% if user_signed_in? %>
-  <% if current_user.admin? %>
-
-    <div class="bloc-entete-model">
-      <div class="card card-header entete-index">
-        <div class="row m-0 p-0">
-          <div class="col-11">
-            <strong>CALENDRIER</strong> 
-          </div>
-          <div class="col-1 text-end m-0 p-0">
-            <span class="badge rounded-pill counter-model-dashboard"><%= Meeting.count %></span>
-          </div>
-        </div>
-      </div> 
-      
-    </div>
-
-
-
-<    <div class="text-center"> 
+    <div class="text-center"> 
 
       <%= month_calendar(events: @meetings_periode) do |date, meetings| %>
         <div class="day">
@@ -40,17 +21,7 @@
         <% end %>
       <% end %>
 
-    </div>>
+    </div>
 
-
+    
     <%= render "meetings/footer" %>
-
-
-  <% else %>
-    <%= render "accueil_admin/demandeConnexion" %>
-
-  <% end %>
-<% end %>
-
-
-

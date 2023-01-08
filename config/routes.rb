@@ -120,6 +120,10 @@ Rails.application.routes.draw do
   end 
 
 
+  get 'calendar/week' => 'calendar#week', as: :calendar_week
+  get 'calendar/month' => 'calendar#month', as: :calendar_month
+
+
   
   # partie publique
   root 'accueil#index' 
