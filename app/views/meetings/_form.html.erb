@@ -24,9 +24,27 @@
     <div class="input-group mb-1">
       <%= form.label :commande, class:"input-group-text label-with-format" %>
       <%= form.select :commande_id, Commande.all.collect { |c| [ c.nom, c.id ]}, 
-            {class: 'form-control', include_blank: true, selected: session[:commandeId]} %>
-
+            {class: 'form-control', include_blank: true} %>
     </div>
+
+ <%# <div data-controller="form-element"> %>
+     <%#= form.button "Validate", formaction: new_meeting_path, formmethod: :get,
+           data: { turbo_frame: :content_field, form_element_target: "submitbtn" } %> 
+
+
+ 
+<%#= turbo_frame_tag :content_field do %>
+    <%# afficher client que si commande empty %>
+    <%= @meeting.commande_id? %>
+    <% if @meeting.commande_id.nil? %>
+      <div class="input-group mb-1">
+        <%= form.label :client, class:"input-group-text label-with-format" %>
+        <%= form.select :client_id, Client.all.collect { |c| [ c.nom, c.id ]}, 
+              {class: 'form-control', include_blank: true, selected: session[:clientId]} %>
+      </div>
+    <% end %>
+<%# end %>
+
 
     <div class="input-group mb-1">
       <%= form.label :début, class:"input-group-text label-with-format" %>
@@ -41,6 +59,7 @@
           class:"btn btn-sm btn-secondary" %>
       <%= form.submit "Valider", class: "btn btn-primary btn-sm" %>
     </div><br><br>
-  </div>
+ 
+ 
 
 <% end %>

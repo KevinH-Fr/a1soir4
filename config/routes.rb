@@ -61,11 +61,10 @@ Rails.application.routes.draw do
 
   resources :meetings do
     member do
+      get :toggle_rendezvous_client
       post :edit
     end
   end 
-
-
 
   resources :commandes do
 

@@ -22,6 +22,14 @@
 
         <% end %>
 
+        <% if meeting.client_id.present? %>
+          <p>
+            <strong>Client(e) lié(e):</strong>
+            <%= Client.find(meeting.client_id).full_name %>
+          </p>
+
+        <% end %>
+
         <p>
           <strong>Début:</strong>
           <%= meeting.start_time %> |

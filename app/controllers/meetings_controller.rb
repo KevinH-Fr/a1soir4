@@ -15,19 +15,24 @@ class MeetingsController < ApplicationController
 
 
   def new
-    @meeting = Meeting.new
+    @meeting = Meeting.new meeting_params
 
     @commandeId = params[:id]
     session[:commandeId] = @commandeId
 
+    @clientId = ""
+    session[:clientId] = @clientId
 
   end
 
 
   def edit
 
-    @commandeId = params[:id]
+    @commandeId = @meeting.commande_id
     session[:commandeId] = @commandeId
+
+    @clientId = @meeting.client_id
+    session[:clientId] = @clientId
 
     respond_to do |format|
       format.html
@@ -56,11 +61,15 @@ class MeetingsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /meetings/1 or /meetings/1.json
+
   def update
     respond_to do |format|
       if @meeting.update(meeting_params)
-        format.html { redirect_to commande_url(@meeting.commande_id), notice: "Meeting was successfully updated." }
+        if @meeting.commande_id.present?
+          format.html { redirect_to commande_url(@meeting.commande_id), notice: "Meeting was successfully created." }
+        else
+          format.html { redirect_to meeting_path(@meeting), notice: "Meeting was successfully created." }
+        end 
         format.json { render :show, status: :ok, location: @meeting }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -69,7 +78,7 @@ class MeetingsController < ApplicationController
     end
   end
 
-  # DELETE /meetings/1 or /meetings/1.json
+
   def destroy
     @meeting.destroy
 
@@ -80,14 +89,21 @@ class MeetingsController < ApplicationController
   end
 
 
+  def toggle_rendezvous_client
+    clientId = params[:id]
+    @meeting = Meeting.create(client_id: clientId) 
+    redirect_to meeting_path(@meeting),
+       notice: "rendez-vous client auto #{clientId}" 
+    
+  end
+
+
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_meeting
       @meeting = Meeting.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def meeting_params
-      params.fetch(:meeting, {}).permit(:name, :start_time, :end_time, :commande_id)
+      params.fetch(:meeting, {}).permit(:name, :start_time, :end_time, :commande_id, :client_id)
     end
 end

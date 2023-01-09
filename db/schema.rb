@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_08_121815) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_08_174305) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -159,6 +159,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_08_121815) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "commande_id"
+    t.integer "client_id"
+    t.index ["client_id"], name: "index_meetings_on_client_id"
     t.index ["commande_id"], name: "index_meetings_on_commande_id"
   end
 
@@ -265,6 +267,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_08_121815) do
   add_foreign_key "avoirrembs", "commandes"
   add_foreign_key "commandes", "clients"
   add_foreign_key "commandes", "profiles"
+  add_foreign_key "meetings", "clients"
   add_foreign_key "meetings", "commandes"
   add_foreign_key "paiements", "commandes"
   add_foreign_key "sousarticles", "articles"

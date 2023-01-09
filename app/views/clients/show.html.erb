@@ -23,11 +23,27 @@
         <strong>Commandes</strong> 
       </div>
 
-    <div class="">
-      <%= render @commandes %>
-    </div>
-    
+      <div class="">
+        <%= render @commandes %>
+      </div>
     <% end %>
+
+    <div class="text-end">
+      <%= link_to "Nouveau rendez-vous", toggle_rendezvous_client_meeting_path(clientId: @client), 
+          class:"btn btn-sm btn-warning mb-2 fw-bold" %>
+    </div>
+
+    
+    <% if Meeting.client_courant(@client).present? %>
+      <div class="entete-show">
+        <strong>Rendez-vous</strong> 
+      </div>
+
+      <div class="">
+        <%= render @meetings %>
+      </div>
+    <% end %>
+
 </div>
 
     <div class="fixed-bottom footer-index bg-dark">
