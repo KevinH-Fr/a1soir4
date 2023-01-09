@@ -33,6 +33,10 @@ h1, h2, li, ul, a {
   color: rgb(255, 255, 255);
 }
 
+
+
+
+
 input::placeholder {
   font-weight: normal;
   font-size: large;

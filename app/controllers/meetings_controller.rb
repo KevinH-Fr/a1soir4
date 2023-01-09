@@ -66,9 +66,9 @@ class MeetingsController < ApplicationController
     respond_to do |format|
       if @meeting.update(meeting_params)
         if @meeting.commande_id.present?
-          format.html { redirect_to commande_url(@meeting.commande_id), notice: "Meeting was successfully created." }
+          format.html { redirect_to commande_url(@meeting.commande_id), notice: "Meeting was successfully updated." }
         else
-          format.html { redirect_to meeting_path(@meeting), notice: "Meeting was successfully created." }
+          format.html { redirect_to meeting_path(@meeting), notice: "Meeting was successfully updated." }
         end 
         format.json { render :show, status: :ok, location: @meeting }
       else
@@ -83,7 +83,11 @@ class MeetingsController < ApplicationController
     @meeting.destroy
 
     respond_to do |format|
-      format.html { redirect_to meetings_url, notice: "Meeting was successfully destroyed." }
+      if @meeting.commande_id.present?
+        format.html { redirect_to commande_url(@meeting.commande_id), notice: "Meeting was successfully destroyed." }
+      else
+        format.html { redirect_to meetings_url, notice: "Meeting was successfully destroyed." }
+      end 
       format.json { head :no_content }
     end
   end
