@@ -20,7 +20,7 @@
   <div class="card-body body-bloc-dashboard"> 
     <table class="table bloc-table table-primary table-striped table-hover m-0 p-0">
       <tbody class="table-light table-dashboard">
-        <% @produits.limit(5).order(updated_at: :desc).each do | produit | %>
+        <% @produits.limit(6).order(updated_at: :desc).each do | produit | %>
           <tr> 
             <td> 
               <%= link_to produit.nom, produit_path(produit), class:"text-dark crop", style:"text-decoration: none;" %> 

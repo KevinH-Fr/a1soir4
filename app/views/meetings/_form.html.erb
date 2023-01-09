@@ -35,7 +35,7 @@
  
 <%#= turbo_frame_tag :content_field do %>
     <%# afficher client que si commande empty %>
-    <%= @meeting.commande_id? %>
+    <%#= @meeting.commande_id? %>
     <% if @meeting.commande_id.nil? %>
       <div class="input-group mb-1">
         <%= form.label :client, class:"input-group-text label-with-format" %>

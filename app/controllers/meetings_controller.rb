@@ -11,6 +11,14 @@ class MeetingsController < ApplicationController
  end
 
   def show
+    if @meeting.commande_id.present?
+      @commande = Commande.find(@meeting.commande_id)
+    end
+    
+    if @meeting.client_id.present?
+      @client = Client.find(@meeting.client_id)
+    end
+
   end
 
 

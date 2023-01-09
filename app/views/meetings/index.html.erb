@@ -1,5 +1,4 @@
 <% if user_signed_in? %>
-  <% if current_user.admin? %>
 
     <div class="bloc-entete-model">
       <div class="card card-header entete-index">
@@ -49,7 +48,6 @@
   <% else %>
     <%= render "accueil_admin/demandeConnexion" %>
 
-  <% end %>
 <% end %>
 
 

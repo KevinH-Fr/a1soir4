@@ -1,16 +1,32 @@
 
     <div class="bloc-entete-model">
       <div class="card card-header entete-index">
-        <div class="row m-0 p-0">
-          <div class="col">
-            <strong>RENDEZ-VOUS</strong> 
-          </div>
-        
-        </div>
+        <strong>RENDEZ-VOUS</strong> 
       </div> 
     </div>
 
     <%= render @meeting %>
+
+    <% if @meeting.commande_id.present? %>
+      <div class="bloc-entete-model">
+        <div class="card card-header entete-index">
+          <strong>COMMANDE</strong> 
+        </div> 
+      </div>
+       <%= render @commande %>
+    <% end %>
+
+    <% if @meeting.client_id.present? %>
+      <div class="bloc-entete-model">
+        <div class="card card-header entete-index">
+          <strong>CLIENT</strong> 
+        </div> 
+      </div>
+       <%= render @client %>
+    <% end %>
+
+
+
 
     <div class="fixed-bottom footer-index text-center bg-dark">
       <div class="row justify-content-evenly">

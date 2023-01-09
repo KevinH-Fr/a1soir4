@@ -39,6 +39,60 @@
               </span>      
             <% end %>
 
+
+            <% soldePrix = solde_prix(commande) %>
+            <% soldeCaution = solde_caution(commande) %>
+
+            <% if soldePrix > 0 %>
+              <span title="statut prix", class="badge badge-infos-second bg-danger text-light">
+                <i class="fa-solid fa-euro-sign mx-1"></i> 
+                <span class="me-1"><%= number_with_precision(soldePrix, precision: 0) %> </span> 
+            
+              </span>
+            <% else %>
+              <span title="statut prix", class="badge badge-infos-second bg-success text-light">
+                <i class="fa-solid fa-euro-sign mx-1"></i> 
+                <span class="me-1">OK</span>
+              </span>
+            <% end %>
+
+            <% if soldeCaution > 0 %>
+              <span title="statut caution", class="badge badge-infos-second bg-danger text-light">
+                <i class="fa-solid fa-money-check mx-1"></i>
+                <span class="me-1"><%= number_with_precision(soldeCaution, precision: 0) %> </span> 
+              </span>
+            <% else %>
+              <span title="statut caution", class="badge badge-infos-second bg-success text-light">
+                <i class="fa-solid fa-money-check mx-1"></i>
+                <span class="me-1">OK</span>
+              </span>
+            <% end %>
+            
+            <% statutCommande = Commande.find(commande.id).statutarticles %>
+            <% if statutCommande == "non-retiré" %>
+              <span title="statut non-retiré", class="badge badge-infos-second bg-danger text-light">
+                <i class="fa-solid fa-shirt mx-1"></i>
+                <span class="me-1"> <%= statutCommande  %> </span> 
+              </span>
+            <% end %>
+            <% if statutCommande == "retiré" %>
+              <span title="statut retiré", class="badge badge-infos-second bg-warning text-light">
+                <i class="fa-solid fa-shirt mx-1"></i>
+                <span class="me-1"> <%= statutCommande  %> </span> 
+              </span>
+            <% end %>
+            <% if statutCommande == "rendu" %>
+              <span title="statut rendu", class="badge badge-infos-second bg-success text-light">
+                <i class="fa-solid fa-shirt mx-1"></i>
+                <span class="me-1"> <%= statutCommande  %> </span> 
+              </span>
+            <% end %>
+
+
+
+
+
+
           </div>
         </div>
 

@@ -223,8 +223,7 @@ input:invalid {
 
 .btns-bloc-dashboard{
   font-size: medium;
-  vertical-align: middle;
-  margin: .2em;
+
   padding: .2em;
   padding-left: .5em;
 }
@@ -233,7 +232,7 @@ input:invalid {
   font-size: small;
   font-weight: bold;
   vertical-align: top;
-  margin: .4em;
+  margin: .5em;
 }
 
 .crop { 
@@ -334,7 +333,7 @@ input:invalid {
   margin-top: 10px;
   align-items: center;
   justify-content: center;
-  max-width: 700px;
+  max-width: 900px;
 }
 
 .cadre-index-large{
@@ -557,7 +556,7 @@ input:invalid {
 .format-synthese{
   color: #fff;
   text-align: center;
-  font-size: x-small;
+  font-size: small;
   margin: .5em;
   padding: .1em;
   border-radius: .2em;
@@ -598,10 +597,10 @@ input:invalid {
 .add-dashboard{
   background-color: rgb(49, 74, 220);
   color:rgb(255, 255, 255);
-  font-size: x-small;
+  font-size: small;
   vertical-align: middle;
-  margin: .0em;
-  padding: .2em;
+  margin: .2em;
+  padding: .4em;
 }
 
 .small-text{
