@@ -1,0 +1,43 @@
+<%= form_with(model: messagemail) do |form| %>
+  <% if messagemail.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(messagemail.errors.count, "error") %> prohibited this messagemail from being saved:</h2>
+
+      <ul>
+        <% messagemail.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <% client = Client.find(params[:clientId]).full_name %>
+
+  <% bodymail = "test body mail #{client}" %>
+
+  <div>
+    <%= form.label :titre, style: "display: block" %>
+    <%= form.text_field :titre, value: "test titre" %>
+  </div>
+
+  <div>
+    <%= form.label :body, style: "display: block" %>
+    <%= form.text_area :body, value: bodymail %>
+  </div>
+
+  <div>
+    <%= form.label :commande_id, style: "display: block" %>
+    <%= form.text_field :commande_id %>
+  </div>
+
+  <div>
+    <%= form.label :client_id, style: "display: block" %>
+    <%= form.text_field :client_id, value: params[:clientId] %>
+  </div>
+
+  <br>
+  
+  <div>
+    <%= form.submit 'Valider' %>
+  </div>
+<% end %>

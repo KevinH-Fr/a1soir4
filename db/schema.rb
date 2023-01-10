@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_10_173115) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_10_213447) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -164,6 +164,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_10_173115) do
     t.index ["commande_id"], name: "index_meetings_on_commande_id"
   end
 
+  create_table "messagemails", force: :cascade do |t|
+    t.string "titre"
+    t.text "body"
+    t.integer "commande_id"
+    t.integer "client_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_messagemails_on_client_id"
+    t.index ["commande_id"], name: "index_messagemails_on_commande_id"
+  end
+
   create_table "messages", force: :cascade do |t|
     t.text "body"
     t.datetime "created_at", null: false
@@ -270,6 +281,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_10_173115) do
   add_foreign_key "commandes", "profiles"
   add_foreign_key "meetings", "clients"
   add_foreign_key "meetings", "commandes"
+  add_foreign_key "messagemails", "clients"
+  add_foreign_key "messagemails", "commandes"
   add_foreign_key "paiements", "commandes"
   add_foreign_key "sousarticles", "articles"
 end

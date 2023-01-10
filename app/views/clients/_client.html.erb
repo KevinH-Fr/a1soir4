@@ -18,18 +18,10 @@
             <% if client.mail.present? %>
               <div class="badge-infos">
               
-                <div class="row">
-                  <div class="col-10 text-start">
+
                     <i class="fa fa-at mx-2"></i>
                     <%= highlight(client.mail, params.dig(:q, :nom_or_prenom_or_mail_cont)) %>
-                  </div>
-                  <div class="col-2 text-end">
 
-
-                   
-
-                  </div>
-                </div>
               </div>  
             <% end %>  
             <% if client.ville.present? %>

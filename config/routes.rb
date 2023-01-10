@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :messagemails
 
   resources :modelsousarticles
   resources :articleoptions
@@ -122,6 +123,7 @@ Rails.application.routes.draw do
   get 'calendar/month' => 'calendar#month', as: :calendar_month
 
 
+  get 'clients/mail', to: 'clients#mail'
   
   # partie publique
   root 'accueil#index' 

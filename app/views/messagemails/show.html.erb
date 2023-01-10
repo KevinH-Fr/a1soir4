@@ -1,0 +1,15 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @messagemail %>
+
+ 
+   <%= link_to "mail", send_client_mail_client_path(messagemailId: @messagemail, clientId: @messagemail.client_id), class:"btn btn-sm btn-dark" %>
+ 
+ <hr>
+
+<div>
+  <%= link_to "Edit this messagemail", edit_messagemail_path(@messagemail) %> |
+  <%= link_to "Back to messagemails", messagemails_path %>
+
+  <%= button_to "Destroy this messagemail", @messagemail, method: :delete %>
+</div>

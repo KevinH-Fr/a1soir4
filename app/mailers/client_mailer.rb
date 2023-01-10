@@ -2,9 +2,10 @@ class ClientMailer < ApplicationMailer
 
   #helper CommandeHelper #rendre disponible l'helper commande pour calculs synthese
 
-  def client_created(client)
+  def client_created(client, messagemail)
 
-   
+   @client = client
+   @messagemail = messagemail
 
     mail(
       to:  "test",

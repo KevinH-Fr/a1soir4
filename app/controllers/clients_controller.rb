@@ -118,9 +118,12 @@ class ClientsController < ApplicationController
 
   def send_client_mail
 
-    client = Client.find(params[:id])
+    client = Client.find(params[:clientId])
+
+    messagemail = Messagemail.find(params[:messagemailId])
+
     
-    ClientMailer.with(client: client).client_created(client).deliver_now
+    ClientMailer.with(client: client).client_created(client, messagemail).deliver_now
       flash[:notice] = "le mail a bien été envoyé"
       redirect_to clients_path()
 
