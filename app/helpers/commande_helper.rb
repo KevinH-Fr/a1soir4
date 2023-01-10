@@ -13,32 +13,32 @@ module CommandeHelper
         recuCaution = Paiement.commande_courante(@commande).caution_only.sum_paiements
     end 
 
+    def avoir_deduit(commande)
+        avoirDeduit = Avoirremb.commande_courante(@commande).avoir_only.sum_avoirrembs
+    end 
+
+    def remb_deduit(commande)
+        remb_Deduit = Avoirremb.commande_courante(@commande).remboursement_only.sum_avoirrembs
+    end 
+
     def avoirremb_deduit(commande)
         avoirrembDeduit = Avoirremb.commande_courante(@commande).sum_avoirrembs
     end 
 
     def solde_prix(commande)
-        soldePrix = du_prix(commande) - recu_prix(commande) - avoirremb_deduit(commande)
+        soldePrix = du_prix(commande) - recu_prix(commande) - avoir_deduit(commande) + remb_deduit(commande)
     end
+    
     def solde_caution(commande)
         soldeCaution = du_caution(commande) - recu_caution(commande)
     end
 
 
-    # test helper pour editer pdf
+    # ?? utlisé ? test helper pour editer pdf
     def edition_pdf(commande)
 
         typedoc = params[:typedoc]
         typeedition = params[:typeedition]
-    
-        # reprendre et pouvoir renvoyer vers action controller generate pdf ou helper
-        # à tester :  render_to_string(template: 'commandes/bonCommande', locals: {commande: @commande}, layout: 'pdf', formats: [:html])
-        
-       # if typeedition == "pdf"
-    
-        #end 
-    
-        #if typeedition == "mail"
     
         commande = Commande.find(params[:id])
 

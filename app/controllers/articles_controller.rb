@@ -50,14 +50,15 @@ class ArticlesController < ApplicationController
     else
       @produits = Produit.all 
     end
-    @categories = Produit.distinct.pluck(:categorie)
+   
+   # @categories = Produit.distinct.pluck(:categorie)
+   @categories = Produit.categories.keys
 
     qVal = params[:q]
     if qVal.present?
       @q = Produit.ransack(params[:q])
       @produits = @q.result(distinct: true)
     end 
-
   
   end
 
@@ -84,7 +85,8 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params)
-    @categories = Produit.distinct.pluck(:categorie)
+    #@categories = Produit.distinct.pluck(:categorie)
+    @categories = Produit.categories.keys
     @sousarticles = Sousarticle.article_courant(@article)
 
     @produitId = @article.produit_id

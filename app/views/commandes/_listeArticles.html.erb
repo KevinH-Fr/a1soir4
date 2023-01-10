@@ -12,6 +12,7 @@
             <th class="th-list-articles">qté</th>
             <th class="th-list-articles">prix</th>
             <th class="th-list-articles">total</th>
+            <th class="th-list-articles">caution</th>
             <th class="th-list-articles" colspan=2> Actions</th>
           </tr>
         </thead>
@@ -44,6 +45,9 @@
               <td class="text-end fw-bold">
                  <%= number_to_currency(article.total, locale: :fr)  %> 
               </td>
+              <td class="text-end"> 
+                <%= number_to_currency(article.caution, locale: :fr)  %> 
+              </td>
               <td class="p-0 m-0 text-center"> 
                 <%= link_to "", edit_article_path(article, 
                     produitId: article.produit_id, commandeId: article.commande_id, articleId: article), 
@@ -60,11 +64,15 @@
               <tr>
                 <td></td>
                 <td></td>
-                <td colspan="1" class="fst-italic"> <%= sousarticle.nature %> </td>
+                <td colspan="1" class="fst-italic"> 
+                  <%= sousarticle.nature %> |
+                  <%= sousarticle.description %>
+                </td>
                 <td></td>
                 <td></td>
                 <td class="text-end"> </td>
                 <td class="text-end fw-bold">   <%= number_to_currency(sousarticle.prix_sousarticle, locale: :fr)  %> </td>
+                <td></td>
                 <td style=""> <%#= link_to "", edit_sousarticle_path(sousarticle, articleId: article.id), class:"fa-regular fa-pen-to-square btn btn-secondary btn-sm" %> </td> 
                 <td style=""> <%#= button_to '', sousarticle, class:"fa-solid fa-trash-can btn btn-danger btn-sm", method: :delete, :onclick => "return confirm('Sûr ?')" %>  </td> 
               </tr>
@@ -85,6 +93,10 @@
               <%= number_to_currency(
                     Article.commande_courante(@commande).sum_articles + 
                     Article.joins(:sousarticles).commande_courante(@commande).sum_sousarticles, locale: :fr)  %> 
+            </td>
+            <td class="text-end text-light">
+              <%= number_to_currency(
+                    Article.commande_courante(@commande).sum_caution_articles, locale: :fr)  %> 
             </td>
             <td colspan=2>
            

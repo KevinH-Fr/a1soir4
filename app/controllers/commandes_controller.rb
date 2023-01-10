@@ -103,11 +103,15 @@ class CommandesController < ApplicationController
   end
 
   def toggle_commande_client
+
     clientId = params[:id]
-    @commande = Commande.create(client_id: clientId, profile_id: Profile.first.id) 
-    redirect_to commande_path(@commande),
-       notice: "commande client auto #{clientId}" 
-    
+ #   @commande = Commande.create(client_id: clientId) 
+ #   redirect_to commande_path(@commande),
+ #      notice: "commande client auto #{clientId}" 
+
+   redirect_to new_commande_path(clientId: clientId)
+   
+
   end
 
   def toggle_statut_retire
@@ -210,7 +214,7 @@ class CommandesController < ApplicationController
     end
 
     def commande_params
-      params.require(:commande).permit(:nom, :montant, :client_id, :debutloc, :finloc, 
+      params.fetch(:commande, {}).permit(:nom, :montant, :client_id, :debutloc, :finloc, 
         :dateevenement, :typeevenement, :statutarticles, :profile_id, :commentairesdoc, :textefasimpledoc)
     end
 end

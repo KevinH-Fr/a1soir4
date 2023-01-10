@@ -4,7 +4,7 @@
     <% soldePrix = solde_prix(@commande) %>
     <% soldeCaution = solde_caution(@commande) %>
 
-    <% if soldePrix > 0 %>
+    <% if soldePrix != 0 %>
       <span title="statut prix", class="format-synthese bg-danger">
         <i class="fa-solid fa-euro-sign mx-1"></i> 
         <span class="me-1"><%= number_with_precision(soldePrix, precision: 0) %> </span> 

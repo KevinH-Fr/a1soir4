@@ -24,6 +24,7 @@
           <th class="th-doc">quantité</th>
           <th class="th-doc">prix</th>
           <th class="th-doc">total</th>
+          <th class="th-doc">caution</th>
         </tr>
       </thead>
       <tbody>
@@ -38,6 +39,7 @@
             <td class="td-doc text-center"> <%= article.quantite %> </td>
             <td class="td-doc text-end"> <%= number_to_currency(article.prix, locale: :fr) %> </td>
             <td class="td-doc text-end"> <%= number_to_currency(article.total, locale: :fr) %> </td>
+            <td class="td-doc text-end"> <%= number_to_currency(article.caution, locale: :fr) %> </td>
           </tr> 
 
             <% @sousarticles = Sousarticle.where(article_id: article.id) %>
@@ -45,7 +47,11 @@
               <tr>
                 <td></td>
                 <td></td>
-                <td class="td-doc fst-italic"> <%= sousarticle.nature %> </td>
+                <td class="td-doc fst-italic"> 
+                  <%= sousarticle.nature %> | 
+                  <%= sousarticle.description %> 
+                
+                </td>
                 <td></td>
                 <td> </td>
                 <td class="td-doc text-end">  <%= number_to_currency(sousarticle.prix_sousarticle, locale: :fr) %> </td>
@@ -67,6 +73,11 @@
             <%= number_to_currency(Article.commande_courante(@commande).sum_articles + 
                 Article.joins(:sousarticles).commande_courante(@commande).sum_sousarticles, locale: :fr) %>
           </td>
+
+          <td class="text-end tfoot-doc">
+            <%= number_to_currency(Article.commande_courante(@commande).sum_caution_articles, locale: :fr) %>
+          </td>
+
         </tr>
       </tfoot>
     </table>

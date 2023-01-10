@@ -13,6 +13,7 @@ class Article < ApplicationRecord
   scope :sum_caution, -> {sum('caution')}
   
   scope :sum_articles, -> {sum('total')}
+  scope :sum_caution_articles, -> {sum('caution')}
   scope :compte_articles, -> {sum('quantite')}
   scope :sum_sousarticles, -> {joins(:sousarticles).sum('prix_sousarticle')}
   scope :articlesLoues, -> { where("Locvente = ?", "location")}

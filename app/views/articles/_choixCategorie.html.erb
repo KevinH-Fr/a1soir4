@@ -4,7 +4,7 @@
     Categories | 
     <% @categories.each do |categorie| %>
       <%= link_to "#{categorie}", url_for(commandeId: session[:commandeId], categorieVal: categorie), 
-            class:"btn btn-sm btn-secondary mx-1", :method => :post %> 
+            class:"btn btn-sm btn-secondary m-1", :method => :post %> 
     <% end %>
     <% @categorie = params[:categorieVal]%>
   </div> 
