@@ -13,7 +13,6 @@ Rails.application.routes.draw do
       get :send_mail, 
           to: 'friends#send_mail', 
           as: :send_mail
-
     end
   end
 
@@ -45,10 +44,10 @@ Rails.application.routes.draw do
   end 
 
   resources :clients do
-  # collection do
-  #   post :index
-  # end  
     member do
+      get :send_client_mail, 
+          to: 'clients#send_client_mail', 
+          as: :send_client_mail
       post :edit
     end
   end
