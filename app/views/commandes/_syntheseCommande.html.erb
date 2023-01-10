@@ -17,7 +17,7 @@
       </span>
     <% end %>
 
-    <% if soldeCaution > 0 %>
+    <% if soldeCaution != 0 %>
       <span title="statut caution", class="format-synthese bg-danger">
         <i class="fa-solid fa-money-check mx-1"></i>
         <span class="me-1"><%= number_with_precision(soldeCaution, precision: 0) %> </span> 

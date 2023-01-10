@@ -41,11 +41,11 @@
               </span>      
             <% end %>
 
+            <%# @commande = commande %>
+            <% soldePrix = solde_prix(@commande) %>
+            <% soldeCaution = solde_caution(@commande) %>
 
-            <% soldePrix = solde_prix(commande.id) %>
-            <% soldeCaution = solde_caution(commande) %>
-
-            <% if soldePrix > 0 %>
+            <% if soldePrix != 0 %>
               <span title="statut prix", class="badge badge-infos-second bg-danger text-light">
                 <i class="fa-solid fa-euro-sign mx-1"></i> 
                 <span class="me-1"><%= number_with_precision(soldePrix, precision: 0) %> </span> 
@@ -58,7 +58,7 @@
               </span>
             <% end %>
 
-            <% if soldeCaution > 0 %>
+            <% if soldeCaution != 0 %>
               <span title="statut caution", class="badge badge-infos-second bg-danger text-light">
                 <i class="fa-solid fa-money-check mx-1"></i>
                 <span class="me-1"><%= number_with_precision(soldeCaution, precision: 0) %> </span> 
