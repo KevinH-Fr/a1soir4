@@ -50,6 +50,10 @@ class Commande < ApplicationRecord
       "n°#{id}  #{type_locvente} #{created_at.strftime("%d/%m/%y")}" 
     end
 
+    def texte_record_nom_client
+      "n°#{id}  #{type_locvente} #{created_at.strftime("%d/%m/%y")} | #{Client.find(client_id).full_name}" 
+    end 
+
     def type_locvente
       arr = Article.commande_courante(id).distinct.pluck(:locvente)
       if (arr - ["location"]).empty?

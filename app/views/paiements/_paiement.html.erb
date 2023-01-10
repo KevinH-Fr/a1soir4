@@ -16,6 +16,7 @@
           
           <%= number_to_currency(paiement.montant, locale: :fr) %> 
           <%= paiement.moyenpaiement %>   
+          <%= paiement.commentaire %>  
           <%= paiement.created_at.strftime("%d/%m/%y") %>
         </div>
       </div>

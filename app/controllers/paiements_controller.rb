@@ -76,6 +76,6 @@ class PaiementsController < ApplicationController
     end
 
     def paiement_params
-      params.fetch(:paiement, {}).permit(:typepaiement, :moyenpaiement, :montant, :commande_id)
+      params.fetch(:paiement, {}).permit(:typepaiement, :moyenpaiement, :montant, :commande_id, :commentaire)
     end
 end

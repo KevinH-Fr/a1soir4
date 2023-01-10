@@ -9,7 +9,8 @@ html {
 }
 
 body {
-  background-image: url('svg/waves.svg');
+ /* background-image: url('svg/waves.svg'); */
+  background-image: url('svg/svg.png');
 }
 
 main{
