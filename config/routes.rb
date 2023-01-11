@@ -18,9 +18,11 @@ Rails.application.routes.draw do
   end
 
   resources :messagemails do
-   # member do 
-   #   post :edit
-   # end
+    member do 
+      get :send_client_mail, 
+      to: 'clients#send_client_mail', 
+      as: :send_client_mail
+    end
   end
 
   resources :paiements do

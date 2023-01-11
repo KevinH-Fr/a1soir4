@@ -25,8 +25,15 @@ class MessagemailsController < ApplicationController
 
     respond_to do |format|
       if @messagemail.save
+       
+          #ajouter ici un call de la fonction envoi mail client ?
+        # send_client_mail_client_path(@messagemail, clientId: @messagemail.client_id)
+        #ClientMailer.send_client_mail
+         
         format.html { redirect_to messagemail_url(@messagemail), notice: "Messagemail was successfully created." }
         format.json { render :show, status: :created, location: @messagemail }
+  
+     
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @messagemail.errors, status: :unprocessable_entity }

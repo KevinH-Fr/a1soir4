@@ -34,20 +34,20 @@
         <%= form.text_area :body, value: bodymail, class:"form-control field-with-format-large" %>
       </div>
 
-      <div class="input-group mb-1">
-        <%= form.label :commande_id, class:"input-group-text label-with-format" %>
-        <%= form.text_field :commande_id, class:"form-control field-with-format" %>
-      </div>
+        <%#= form.label :commande_id, class:"input-group-text label-with-format" %>
+        <%= form.hidden_field :commande_id, class:"form-control field-with-format" %>
 
-      <div class="input-group mb-1">
-        <%= form.label :client_id, class:"input-group-text label-with-format" %>
-        <%= form.text_field :client_id, value: params[:clientId], class:"form-control field-with-format" %>
-      </div>
+        <%#= form.label :client_id, class:"input-group-text label-with-format" %>
+        <%= form.hidden_field :client_id, value: params[:clientId], class:"form-control field-with-format" %>
 
       <br>
+
+      <%# valider et envoyer directement le mail 
+        code dans controller ?
+      %>
       
-      <div>
-        <%= form.submit 'Valider format mail', class: "btn btn-success btn-sm"  %>
+      <div class="text-end">
+        <%= form.submit 'Valider format mail', class: "btn btn-success btn-sm fw-bold"  %>
       </div>
 
     </div>

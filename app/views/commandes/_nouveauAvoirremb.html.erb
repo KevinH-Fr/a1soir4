@@ -12,7 +12,10 @@
 
     <span class="mx-4 text-end">
       <span class="m-3 format-totaux"> 
-        Total: <%= number_to_currency(avoirremb_deduit(@commande), locale: :fr) %> 
+        Avoir: <%= number_to_currency(avoir_deduit(@commande), locale: :fr) %> 
+      </span> 
+      <span class="m-3 format-totaux"> 
+        Remboursement: <%= number_to_currency(remb_deduit(@commande), locale: :fr) %> 
       </span> 
     </span>
 
@@ -23,8 +26,6 @@
         <%= render partial: "avoirrembs/form", locals: {avoirremb: Avoirremb.new} %>
       </div>
     </div>
-
-
 
   </div>
 </div>

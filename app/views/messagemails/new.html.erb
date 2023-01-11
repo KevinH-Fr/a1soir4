@@ -1,4 +1,12 @@
-<h1 class="text-dark">Prévisualisation du mail</h1>
+    <div class="bloc-entete-model">
+      <div class="entete-show">
+        <strong>Prévisualisation du mail</strong> 
+      </div>
+      <div class="bloc-record">
+        <strong>Client lié</strong> <%= params[:clientId] %> <br>
+        <strong>Commande liée</strong>
+      </div>
+    </div>
 
 <%= render "form", messagemail: @messagemail %>
 

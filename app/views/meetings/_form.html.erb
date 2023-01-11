@@ -24,7 +24,7 @@
     <div class="input-group mb-1">
       <%= form.label :commande, class:"input-group-text label-with-format" %>
       <%= form.select :commande_id, Commande.all.collect { |c| [ c.nom, c.id ]}, 
-            {class: 'form-control', include_blank: true} %>
+            {class: 'form-control', include_blank: true, selected: session[:commandeId]} %>
     </div>
 
  <%# <div data-controller="form-element"> %>
