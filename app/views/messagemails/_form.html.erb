@@ -13,31 +13,44 @@
 
   <% client = Client.find(params[:clientId]).full_name %>
 
+  <% adressemail = Client.find(params[:clientId]).mail %>
+  <% sujetmail = "test sujet mail #{client}" %>
   <% bodymail = "test body mail #{client}" %>
 
-  <div>
-    <%= form.label :titre, style: "display: block" %>
-    <%= form.text_field :titre, value: "test titre" %>
-  </div>
+    <div class="card-body bloc-record">
 
-  <div>
-    <%= form.label :body, style: "display: block" %>
-    <%= form.text_area :body, value: bodymail %>
-  </div>
+      <div class="input-group mb-1">
+        <%= form.label :mail, class:"input-group-text label-with-format" %>
+        <%= form.text_field :mail, value: adressemail, class:"form-control field-with-format" %>
+      </div>
+      
+      <div class="input-group mb-1">
+        <%= form.label :titre, class:"input-group-text label-with-format" %>
+        <%= form.text_field :titre, value: sujetmail, class:"form-control field-with-format" %>
+      </div>
+      
+      <div class="input-group mb-1">
+        <%= form.label :body, class:"input-group-text label-with-format" %>
+        <%= form.text_area :body, value: bodymail, class:"form-control field-with-format-large" %>
+      </div>
 
-  <div>
-    <%= form.label :commande_id, style: "display: block" %>
-    <%= form.text_field :commande_id %>
-  </div>
+      <div class="input-group mb-1">
+        <%= form.label :commande_id, class:"input-group-text label-with-format" %>
+        <%= form.text_field :commande_id, class:"form-control field-with-format" %>
+      </div>
 
-  <div>
-    <%= form.label :client_id, style: "display: block" %>
-    <%= form.text_field :client_id, value: params[:clientId] %>
-  </div>
+      <div class="input-group mb-1">
+        <%= form.label :client_id, class:"input-group-text label-with-format" %>
+        <%= form.text_field :client_id, value: params[:clientId], class:"form-control field-with-format" %>
+      </div>
 
-  <br>
-  
-  <div>
-    <%= form.submit 'Valider' %>
-  </div>
+      <br>
+      
+      <div>
+        <%= form.submit 'Valider format mail', class: "btn btn-success btn-sm"  %>
+      </div>
+
+    </div>
+
+
 <% end %>

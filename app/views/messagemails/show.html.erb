@@ -1,15 +1,28 @@
-<p style="color: green"><%= notice %></p>
+<% if user_signed_in? %>
 
-<%= render @messagemail %>
 
- 
-   <%= link_to "mail", send_client_mail_client_path(messagemailId: @messagemail, clientId: @messagemail.client_id), class:"btn btn-sm btn-dark" %>
- 
- <hr>
+    <div class="bloc-entete-model">
+      <div class="entete-show">
+        <strong>Mail à envoyer</strong> 
+      </div>
+    </div>
 
-<div>
-  <%= link_to "Edit this messagemail", edit_messagemail_path(@messagemail) %> |
-  <%= link_to "Back to messagemails", messagemails_path %>
+    <div class="">
+      <%= render @messagemail %>
+    </div>
 
-  <%= button_to "Destroy this messagemail", @messagemail, method: :delete %>
-</div>
+      <div class="text-end">
+        <%= link_to "envoyer mail", send_client_mail_client_path(messagemailId: @messagemail, clientId: @messagemail.client_id), 
+            class:"btn bg-success btn-sm btn-dark" %>
+      </div>
+   
+  <hr>
+
+  <div>
+    <%= link_to "Edit this messagemail", edit_messagemail_path(@messagemail) %> |
+    <%= link_to "Back to messagemails", messagemails_path %>
+
+    <%= button_to "Destroy this messagemail", @messagemail, method: :delete %>
+  </div>
+
+<% end %>

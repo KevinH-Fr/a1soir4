@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :messagemails
+
 
   resources :modelsousarticles
   resources :articleoptions
@@ -15,6 +15,12 @@ Rails.application.routes.draw do
           to: 'friends#send_mail', 
           as: :send_mail
     end
+  end
+
+  resources :messagemails do
+   # member do 
+   #   post :edit
+   # end
   end
 
   resources :paiements do

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_10_213447) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_11_120401) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -171,6 +171,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_10_213447) do
     t.integer "client_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "mail"
     t.index ["client_id"], name: "index_messagemails_on_client_id"
     t.index ["commande_id"], name: "index_messagemails_on_commande_id"
   end

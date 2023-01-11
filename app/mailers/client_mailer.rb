@@ -8,7 +8,7 @@ class ClientMailer < ApplicationMailer
    @messagemail = messagemail
 
     mail(
-      to:  "test",
+      to:  @messagemail.mail,
       subject: "test", 
       cc: "kevin.hoffman.france@gmail.com"
       

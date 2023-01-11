@@ -1,22 +1,58 @@
 <div id="<%= dom_id messagemail %>">
-  <p>
-    <strong>Titre:</strong>
-    <%= messagemail.titre %>
-  </p>
 
-  <p>
-    <strong>Body:</strong>
-    <%= messagemail.body %>
-  </p>
 
-  <p>
-    <strong>Commande:</strong>
-    <%= messagemail.commande_id %>
-  </p>
+</div>
 
-  <p>
-    <strong>Client:</strong>
-    <%= messagemail.client_id %>
-  </p>
+
+
+<div class="cadre-index mx-auto">
+  <div class="bloc-record">
+   
+      <div class="card-body p-0">
+        <div class="row">
+          <div class="col-10 text-dark">  
+            <div class="text-record-main ms-2">
+              <p>
+                <strong>adresse mail:</strong>
+                <%= messagemail.mail %>
+              </p>
+              <p>
+                <strong>Titre:</strong>
+                <%= messagemail.titre %>
+              </p>
+
+              <p>
+                <strong>Body:</strong>
+                <%= messagemail.body %>
+              </p>
+
+              <p>
+                <strong>Commande:</strong>
+                <%= messagemail.commande_id %>
+              </p>
+
+              <p>
+                <strong>Client:</strong>
+                <%= messagemail.client_id %>
+              </p>
+            </div>
+          </div>
+
+        <div class="col-2 m-0 p-1 text-end">
+          <%= link_to "", messagemail_path(messagemail), 
+                class:"fa-regular fa-folder-open btn btn-success btn-action" %> 
+          <br>
+          
+          <%= link_to "", edit_messagemail_path(messagemail, clientId: messagemail.client_id), 
+                class:"fa-regular fa-pen-to-square btn btn-secondary btn-action", method: :post %> 
+          <%= button_to '', messagemail_path(messagemail), 
+                class:"fa-solid fa-trash-can btn btn-danger btn-action", method: :delete,
+                 :onclick => "return confirm('Etes-vous certain de vouloir supprimer le client ?')" %> 
+        </div>
+
+      </div>
+   
+  </div>
+</div>
 
 </div>

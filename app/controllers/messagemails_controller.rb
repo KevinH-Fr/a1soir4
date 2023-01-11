@@ -65,6 +65,6 @@ class MessagemailsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def messagemail_params
-      params.require(:messagemail).permit(:titre, :body, :commande_id, :client_id)
+      params.require(:messagemail).permit(:titre, :body, :commande_id, :client_id, :mail)
     end
 end
