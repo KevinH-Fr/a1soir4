@@ -27,10 +27,15 @@ class MessagemailsController < ApplicationController
       if @messagemail.save
        
           #ajouter ici un call de la fonction envoi mail client ?
-        # send_client_mail_client_path(@messagemail, clientId: @messagemail.client_id)
-        #ClientMailer.send_client_mail
-         
-        format.html { redirect_to messagemail_url(@messagemail), notice: "Messagemail was successfully created." }
+
+     # client = Client.find(params[:clientId])
+      messagemail = @messagemail
+  
+      MessagemailMailer.with(messagemail: messagemail).messagemail_created(messagemail).deliver_now
+        flash[:notice] = "le mail a bien été envoyé"
+       # redirect_to messagemails_path()
+
+        format.html { redirect_to messagemail_url(@messagemail), notice: "Le mail a bien été créé." }
         format.json { render :show, status: :created, location: @messagemail }
   
      
@@ -63,6 +68,19 @@ class MessagemailsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
+  def send_messagemail_mail
+
+    client = Client.find(params[:clientId])
+
+    messagemail = Messagemail.find(params[:messagemailId])
+
+    MessagemailMailer.with(client: client).messagemail_created(client, messagemail).deliver_now
+      flash[:notice] = "le mail a bien été envoyé"
+      redirect_to messagemails_path()
+
+  end 
 
   private
     # Use callbacks to share common setup or constraints between actions.

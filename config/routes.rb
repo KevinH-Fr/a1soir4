@@ -19,9 +19,9 @@ Rails.application.routes.draw do
 
   resources :messagemails do
     member do 
-      get :send_client_mail, 
-      to: 'clients#send_client_mail', 
-      as: :send_client_mail
+      get :send_messagemail_mail, 
+      to: 'messagemails#send_messagemail_mail', 
+      as: :send_messagemail_mail
     end
   end
 
